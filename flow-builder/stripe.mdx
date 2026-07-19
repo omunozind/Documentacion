@@ -1,0 +1,41 @@
+---
+title: "Stripe API"
+description: "Gestiona clientes y sesiones de portal de facturación de Stripe directamente desde tu flujo"
+icon: "credit-card"
+---
+
+Usar los endpoints de la API de **Stripe** dentro de tu flujo ahora es más simple que nunca.
+
+## Cómo acceder
+
+Ve al Constructor de Flujos, elige un nodo de Acción, y selecciona **Integraciones → Stripe API**.
+
+## Acciones disponibles
+
+<AccordionGroup>
+  <Accordion title="Buscar clientes" icon="magnifying-glass">
+    Busca clientes ingresando una consulta (query). Para saber cómo construir la consulta, revisa la documentación del lenguaje de búsqueda de Stripe. También puedes buscar por ID o por nombre.
+  </Accordion>
+  <Accordion title="Listar clientes" icon="list">
+    Trae una lista de clientes, o encuentra uno específico por su correo.
+  </Accordion>
+  <Accordion title="Crear cliente" icon="user-plus">
+    Indica correo, nombre y teléfono para crear el registro.
+  </Accordion>
+  <Accordion title="Obtener información del cliente" icon="address-card">
+    Trae los datos del usuario a partir de su ID.
+  </Accordion>
+  <Accordion title="Actualizar cliente" icon="user-pen">
+    Indica el ID del cliente y los nuevos datos.
+  </Accordion>
+  <Accordion title="Eliminar cliente" icon="user-xmark">
+    Elimina un cliente de tus registros a partir de su ID.
+  </Accordion>
+  <Accordion title="Crear sesión del portal de clientes" icon="door-open">
+    Una sesión de portal le da acceso al cliente a una URL donde puede gestionar sus suscripciones y datos de facturación. Estas sesiones son de corta duración y expiran si el cliente no visita la URL a tiempo.
+
+    <Card type="note">
+      **URL de retorno:** la dirección a la que se redirige al cliente cuando hace clic para volver a tu sitio desde el portal. Al crear la sesión, recibes una URL temporal que le da acceso al cliente al portal.
+    </Card>
+  </Accordion>
+</AccordionGroup>
