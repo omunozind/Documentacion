@@ -1,0 +1,88 @@
+---
+title: "Single Sign-On (SSO)"
+description: "Un usuario maestro que sincroniza los datos del mismo usuario del bot entre distintos canales"
+icon: "right-to-bracket"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Frame caption="Single Sign-On (SSO)">
+  <Placeholder />
+</Frame>
+
+El **Single Sign-On (SSO)** nos da la capacidad de tener un **usuario maestro** del bot que sincroniza los datos entre todos tus usuarios del bot en distintos canales. Ayuda enormemente a sincronizar datos e identificar usuarios cuando hay varios canales involucrados.
+
+## Habilitar el login SSO
+
+Habilita el SSO yendo a la pestaña **Configuración** (abajo a la izquierda del menú lateral del Constructor de Flujos) y haciendo clic en la opción **SSO Settings**.
+
+<Frame caption="Opción SSO Settings en Configuración">
+  <Placeholder />
+</Frame>
+
+## Configurar el flujo de login SSO
+
+Haz clic en la pestaña **Basic** y completa los datos requeridos.
+
+<Frame caption="Pestaña Basic del SSO">
+  <Placeholder />
+</Frame>
+
+Una vez hecho, crea un nuevo subflujo. Aquí configuraremos la lógica del SSO.
+
+<Frame caption="Creación del subflujo de SSO">
+  <Placeholder />
+</Frame>
+
+Con el SSO habilitado, empezarás a ver **"SSO Required"** en los nodos de inicio (Start) de los subflujos. Al activar esta opción, se dirige al usuario al login de SSO y, tras un login exitoso, se le redirige al subflujo que seleccionaste en los ajustes.
+
+<Frame caption="Opción SSO Required en el nodo de inicio">
+  <Placeholder />
+</Frame>
+
+Una vez exitoso, la pantalla de **"Thank you"** permanece 5 segundos y luego el usuario es redirigido al subflujo de seguimiento (también puede salir manualmente de la página).
+
+<Frame caption="Pantalla de agradecimiento tras el login">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Redirección al subflujo de seguimiento">
+  <Placeholder />
+</Frame>
+
+## Ajustes avanzados de SSO
+
+Las opciones avanzadas te permiten configurar tu propia lógica para el SSO. Esto permite configurarlo en canales donde los botones con enlaces no se populan correctamente, usando un campo de variable del sistema llamado **"SSO Url"**.
+
+<Frame caption="Ajustes avanzados de SSO con la variable SSO Url">
+  <Placeholder />
+</Frame>
+
+## Sincronización de datos entre usuarios
+
+<Frame caption="Sincronización de datos entre canales">
+  <Placeholder />
+</Frame>
+
+El usuario del bot con la etiqueta **SSO** es el usuario maestro que sincroniza los datos entre el mismo usuario en distintos canales.
+
+- Si agregas una etiqueta o cambias el valor de una variable para el usuario SSO, el cambio también se aplica a los usuarios en otros canales.
+- Si agregas una etiqueta o cambias el valor de una variable para el usuario en otros canales, el cambio también se aplica al usuario SSO.
+
+Esto permite sincronizar datos entre múltiples canales y da más flexibilidad al trabajar sobre varios canales.
+
+<Card type="note">
+  Los usuarios del bot se siguen contando por separado. El SSO solo sirve para sincronizar los datos entre usuarios; no los acumula en un solo usuario.
+</Card>
+
+## Página de agradecimiento personalizable
+
+Ahora puedes personalizar el texto de la página de agradecimiento. El texto por defecto es **"thank you"**. Esta función está disponible tanto en el modo **Basic** como en el **Advanced** del SSO.
+
+<Frame caption="Página de agradecimiento personalizable">
+  <Placeholder />
+</Frame>
