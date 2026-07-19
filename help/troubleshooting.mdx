@@ -1,0 +1,188 @@
+---
+title: "Troubleshoot Common Botky Issues"
+sidebarTitle: "Troubleshooting"
+description: "Step-by-step fixes for common Botky problems — connection errors, insufficient balance, failed workspace operations, and Stripe top-up issues."
+---
+
+This page covers the most common issues you may encounter while using Botky and walks you through how to resolve each one — from API connection problems and wallet errors to failed workspace operations, add-on issues, and display glitches.
+
+---
+
+## Connection Issues
+
+<AccordionGroup>
+
+  <Accordion title='"No API Key" shown in sidebar'>
+    Your Partner API Token has not been saved yet. Follow these steps to connect your account:
+
+    <Steps>
+      <Step title="Open the Settings tab">
+        In the Botky dashboard, click the **Settings** tab.
+      </Step>
+      <Step title="Paste your UChat Partner Token">
+        Enter your Partner API Token from your UChat reseller account into the token field.
+      </Step>
+      <Step title="Save the token">
+        Click **Save**. Botky stores the token against your WordPress user account.
+      </Step>
+      <Step title="Verify the connection">
+        Check the sidebar — the status indicator should turn green to confirm the token is recognised.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Operations failing despite a saved token">
+    A saved token can still fail if it has expired or been revoked in your UChat partner account. API tokens are tied to your UChat session and may be invalidated when you change your password or regenerate credentials.
+
+    1. Log in to your UChat partner account at [uchat.com.au](https://uchat.com.au) and generate a fresh API token.
+    2. Return to the Botky **Settings** tab, replace the existing token with the new one, and click **Save**.
+    3. Retry the operation that was failing.
+  </Accordion>
+
+  <Accordion title='"Error loading details" when clicking a workspace'>
+    This error means Botky could not retrieve the workspace data from UChat, usually due to a temporary network timeout or a brief UChat API outage.
+
+    1. Click the **refresh** button on the workspace detail panel to retry the request.
+    2. If the error persists, verify your Partner API Token is still valid (see above).
+    3. If the problem continues across multiple workspaces, check the UChat platform status and try again in a few minutes.
+  </Accordion>
+
+</AccordionGroup>
+
+---
+
+## Billing & Wallet Issues
+
+<AccordionGroup>
+
+  <Accordion title='"Insufficient Balance" error'>
+    Your wallet balance is below the cost of the operation you are trying to perform. Botky blocks the action and displays the required amount alongside your current balance so you know exactly how much to add.
+
+    <Steps>
+      <Step title="Note the required amount">
+        Read the error message to find the exact amount needed for the operation.
+      </Step>
+      <Step title="Go to Top-ups">
+        Navigate to the **Top-ups** section in the Botky dashboard.
+      </Step>
+      <Step title="Add funds via Stripe">
+        Complete a Stripe payment for at least the required amount. Your balance is updated automatically within seconds of payment.
+      </Step>
+      <Step title="Retry the operation">
+        Return to the workspace or plan screen and repeat the action that failed.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Wallet balance not updated after Stripe payment">
+    Botky credits your wallet through a Stripe webhook, which normally fires within seconds of a completed payment. Occasional delays can occur due to network latency between Stripe and your server.
+
+    - **Wait 1–2 minutes** and then refresh the dashboard to check whether the balance has updated.
+    - If the balance is still unchanged after **5 minutes**, contact your WordPress administrator — they can manually adjust your wallet balance from your WordPress user profile.
+
+    <Warning>
+      Do not attempt the Stripe checkout a second time until you have confirmed the first payment did not go through, to avoid being charged twice.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Stripe checkout not loading">
+    If the Stripe payment window fails to open or loads as a blank screen, check the following:
+
+    - **HTTPS required** — Stripe's checkout requires a secure connection. Confirm your WordPress site is served over HTTPS.
+    - **Third-party cookies** — Some browsers block third-party cookies by default, which can prevent the Stripe iframe from loading. Enable third-party cookies for your site or try a different browser.
+    - **Ad-blockers and privacy extensions** — Browser extensions that block trackers can interfere with Stripe's JavaScript. Temporarily disable any ad-blocker or privacy extension and reload the page.
+  </Accordion>
+
+</AccordionGroup>
+
+---
+
+## Workspace Operation Issues
+
+<AccordionGroup>
+
+  <Accordion title="Workspace creation fails">
+    A failed workspace creation is usually caused by one of three things: missing required fields, an invalid API token, or insufficient wallet funds.
+
+    1. Confirm all required fields are completed — **name**, **email**, **password**, and **phone number**.
+    2. Verify your Partner API Token is valid and saved in the Settings tab.
+    3. Check your wallet balance covers the cost of the new workspace plan.
+    4. Correct any issues and submit the form again.
+  </Accordion>
+
+  <Accordion title="Plan change not applying">
+    If a plan change appears to fail silently or returns an error:
+
+    1. Confirm your wallet balance is sufficient to cover the new plan cost — open the Top-ups section to add funds if needed.
+    2. If the error message references the UChat API, the UChat platform may be experiencing a temporary issue. Wait a few minutes and retry.
+    3. If the error persists, re-save your Partner API Token in the Settings tab to refresh the connection.
+  </Accordion>
+
+  <Accordion title='"Addon Error" or "Could not process"'>
+    These errors indicate the UChat API rejected the add-on request. A common cause is that the target workspace does not have enough internal UChat points to support the add-on.
+
+    1. Open the workspace detail panel and review the current **points balance**.
+    2. If points are low, use the **Points Management (Adjust Balance)** tool within the workspace detail panel to top up points.
+    3. Once the workspace has sufficient points, attempt to activate the add-on again.
+
+    <Tip>
+      If the error reappears immediately after topping up points, wait 60 seconds for UChat to register the new balance before retrying.
+    </Tip>
+  </Accordion>
+
+  <Accordion title='"Insufficient Points" for an add-on'>
+    The workspace's internal UChat points balance is too low to activate the requested add-on. This is separate from your Botky wallet balance.
+
+    1. Open the workspace in the Botky dashboard.
+    2. Locate the **Points Management** section in the workspace detail panel.
+    3. Use **Adjust Balance** to add points to the workspace.
+    4. Retry activating the add-on once the points balance has updated.
+  </Accordion>
+
+  <Accordion title="Cannot remove an add-on">
+    Some add-ons are locked to the workspace's current plan and cannot be removed independently — the plan itself controls whether the add-on is available.
+
+    1. Check the workspace's current plan to see whether the add-on is bundled or required.
+    2. If removal is necessary, log in to your **UChat partner account** directly and attempt to remove the add-on from there.
+    3. If you still cannot remove it, contact UChat support for guidance on that specific add-on type.
+  </Accordion>
+
+</AccordionGroup>
+
+---
+
+## Display Issues
+
+<AccordionGroup>
+
+  <Accordion title="Dashboard showing in wrong language">
+    Botky's display language is determined automatically by your WordPress site locale. You cannot change it from within the Botky dashboard itself.
+
+    1. In WordPress, go to **Settings → General**.
+    2. Change the **Site Language** to your preferred locale — locales starting with `en` (for example, `en_US`) display the dashboard in English; all other locales display it in Spanish.
+    3. Save the settings and reload the Botky dashboard.
+  </Accordion>
+
+  <Accordion title="Dashboard not rendering on a frontend page">
+    If visitors see a blank area or a login prompt where the dashboard should appear:
+
+    - Confirm the page contains the `[botky_panel]` shortcode — open the page in the WordPress editor and check the shortcode is present and correctly spelled.
+    - Ensure the visitor is **logged in to WordPress**. Guests who are not authenticated see a login prompt instead of the dashboard. This is by design.
+    - If you are logged in and still see a blank area, check your browser console for JavaScript errors and ensure Botky's scripts are not being blocked.
+  </Accordion>
+
+  <Accordion title="Styles look broken or layout is incorrect">
+    Visual layout problems are usually caused by a conflict between Botky's CSS and your WordPress theme or another plugin.
+
+    1. **Disable other plugins temporarily** — deactivate plugins one at a time to identify which one is causing the conflict.
+    2. **Switch to a default WordPress theme** (such as Twenty Twenty-Four) to test whether your active theme is the source of the conflict.
+    3. Once you identify the conflicting item, contact your developer to add targeted CSS overrides that resolve the clash without disabling the other plugin or theme.
+  </Accordion>
+
+</AccordionGroup>
+
+---
+
+<Note>
+  If you cannot resolve an issue using the steps above, contact your Botky administrator and include the exact error message shown in the dashboard. This helps them diagnose the problem quickly.
+</Note>

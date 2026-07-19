@@ -1,0 +1,50 @@
+---
+title: "Workspace Add-ons: Extend UChat Capabilities"
+sidebarTitle: "Add-ons"
+description: "Browse available add-ons for UChat workspaces — extra bots, members, users, webhooks, custom domains, and tickets — with default pricing."
+---
+
+Add-ons let you expand a workspace's capabilities beyond what its base plan provides. Whether a client needs an extra bot, more contact slots, or a custom domain, you can attach individual add-ons to any workspace — each one deducted from your wallet balance the moment it is applied.
+
+## Available Add-ons
+
+The table below lists every add-on available in Botky, its internal identifier, default price, and what it does.
+
+| Add-on ID | Name | Default Price | Description |
+|-----------|------|--------------|-------------|
+| `bot` | Extra Bot | $10 | Adds one additional bot to the workspace |
+| `member` | Extra Member | $10 | Adds one additional team member seat |
+| `bot_user` | 1,000 Bot Users | $10 | Adds 1,000 contact/user slots |
+| `bot_user_large` | 10,000 Bot Users | $60 | Adds 10,000 contact/user slots |
+| `lists` | Tickets / Lists | $30 | Enables the tickets and lists feature |
+| `inbound_webhook` | Inbound Webhook | $40 | Enables inbound webhook integrations |
+| `timeout` | Timeout | $20 | Enables the conversation timeout feature |
+| `custom_domain` | Custom Domain | $15 | Allows a custom domain for the workspace |
+
+<Note>
+Default prices are configurable by your administrator via the Custom Pricing settings. The actual prices shown in your dashboard may differ from the defaults listed above. See [Custom Pricing](/configuration/custom-pricing) for details.
+</Note>
+
+## How Add-on Costs Work
+
+<CardGroup cols={1}>
+  <Card title="Wallet deduction on activation" icon="wallet">
+    When you apply an add-on to a workspace, Botky immediately deducts the add-on's price from your wallet balance. The add-on is activated on the workspace via the UChat API at the same time.
+  </Card>
+  <Card title="Insufficient balance blocks the operation" icon="ban">
+    If your wallet does not have enough funds to cover the add-on cost, Botky blocks the operation and displays an **"Insufficient Balance"** error with the amount needed. Top up your wallet and try again.
+  </Card>
+  <Card title="Removing an add-on does not trigger a refund" icon="circle-info">
+    Removing an add-on deactivates it on the workspace through the UChat API, but the cost already deducted from your wallet is not returned. Plan your add-on purchases accordingly.
+  </Card>
+</CardGroup>
+
+<Warning>
+Add-on purchases are non-refundable within Botky. If you accidentally apply an add-on, contact your administrator — they can adjust your wallet balance manually, but the add-on removal itself will not credit your balance automatically.
+</Warning>
+
+## Managing Add-ons on a Workspace
+
+To add or remove add-ons on a specific client workspace, open the workspace detail view from your dashboard. See [Workspaces](/dashboard/workspaces) for step-by-step instructions.
+
+To configure custom prices for add-ons across your account, see [Custom Pricing](/configuration/custom-pricing).

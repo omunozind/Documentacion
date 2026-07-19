@@ -1,0 +1,86 @@
+{
+  "projectType": "saas",
+  "projectName": "Botky",
+  "projectDescription": "Botky is a WordPress plugin that gives UChat partners a branded dashboard to create and manage client workspaces, control plans and add-ons, handle billing via a built-in wallet, and top up balances through Stripe.",
+  "theme": "luma",
+  "primaryColor": "#4f46e5",
+  "lightColor": "#e0e7ff",
+  "darkColor": "#1e293b",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "dashboard/overview",
+              "dashboard/workspaces",
+              "dashboard/clients"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/wallet",
+              "billing/topups",
+              "billing/plans",
+              "billing/addons"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/api-credentials",
+              "configuration/custom-pricing",
+              "configuration/shortcode"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Workspace management — create, suspend, delete, and search UChat workspaces from a single panel",
+    "Client directory — browse and search all partner clients with contact details",
+    "Built-in wallet — pre-funded balance that auto-deducts on plan changes and add-on purchases",
+    "Stripe top-ups — secure one-click balance top-ups processed by Stripe",
+    "Plan & add-on management — change workspace plans and toggle add-ons (bots, members, users, webhooks, custom domain, tickets)",
+    "Points management — top up or deduct workspace points directly from the dashboard",
+    "Custom pricing — per-user configurable prices for all plans and add-ons",
+    "Bilingual UI — full Spanish and English support driven by WordPress locale",
+    "Shortcode embed — display the partner panel anywhere on a WordPress site with [botky_panel]",
+    "WordPress admin panel — native admin menu entry for super-admin access"
+  ],
+  "publicApiSurface": [
+    "Shortcode: [botky_panel]",
+    "AJAX action: i360_save_settings — save Partner API token",
+    "AJAX action: i360_get_workspaces — list/search workspaces (paginated)",
+    "AJAX action: i360_get_workspace_details — fetch single workspace details",
+    "AJAX action: i360_create_workspace — create a new UChat workspace",
+    "AJAX action: i360_delete_workspace — delete a workspace",
+    "AJAX action: i360_change_status — activate or suspend a workspace",
+    "AJAX action: i360_get_plans — list available plans with calculated prices",
+    "AJAX action: i360_change_plan — switch a workspace to a different plan",
+    "AJAX action: i360_get_addons — list available add-ons with partner prices",
+    "AJAX action: i360_manage_addon — add or remove an add-on from a workspace",
+    "AJAX action: i360_manage_points — top up or deduct workspace points",
+    "AJAX action: i360_get_clients — list/search partner clients (paginated)",
+    "REST endpoint: POST /wp-json/i360/v1/stripe-webhook — Stripe checkout webhook"
+  ]
+}

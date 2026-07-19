@@ -1,47 +1,83 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Botky in 5 Minutes"
+sidebarTitle: "Quickstart"
+description: "Install the Botky plugin, connect your UChat Partner API token, add funds to your wallet, and create your first client workspace in under 5 minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+This guide walks you through everything you need to go from zero to your first active client workspace. By the end you will have the plugin installed, your UChat Partner API token connected, your wallet funded, and a workspace provisioned — all in a single sitting.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Install the Plugin">
+    Upload and activate Botky from your WordPress admin panel.
 
-    ```bash
-    npm install your-package
-    ```
+    1. In your WordPress admin, go to **Plugins → Add New**.
+    2. Click **Upload Plugin** at the top of the page.
+    3. Choose the `botky.zip` file you received from your provider and click **Install Now**.
+    4. Once installation completes, click **Activate Plugin**.
+
+    A new **Partner Connect** item appears in your WordPress admin sidebar. Click it to open the dashboard.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Connect Your API Token">
+    Link Botky to your UChat Partner account so it can call the API on your behalf.
+
+    1. Inside the Partner Connect dashboard, click the **Settings** tab.
+    2. Paste your **UChat Partner Token** into the API token field.
+       - Find your token in your UChat partner account at [uchat.com.au](https://uchat.com.au) under your partner profile settings.
+    3. Click **Save**.
+
+    Botky stores the token securely in your WordPress database. A confirmation message confirms the token was saved successfully.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Top Up Your Wallet">
+    Add funds to your Botky wallet so you have balance available to cover workspace costs.
+
+    1. Click the **Top-ups** tab in the Partner Connect dashboard.
+    2. Enter the dollar amount you want to add to your wallet.
+    3. Click **Pay** — you are redirected to a Stripe-hosted checkout page.
+    4. Complete the payment using a credit or debit card.
+
+    After a successful payment, Stripe sends a confirmation back to Botky and your wallet balance updates immediately. You can return to the **Wallet** tab at any time to review your current balance and transaction history.
+
+    <Note>
+      Your wallet balance must be sufficient to cover the cost of the plan you assign before you can create or change a workspace. Check plan costs in the **Plans** tab before proceeding.
+    </Note>
+  </Step>
+
+  <Step title="Create a Workspace">
+    Provision a new UChat workspace for a client using their admin user details.
+
+    1. Click the **Workspaces** tab.
+    2. Click the **New** button.
+    3. Fill in the workspace form:
+
+    | Field | Description |
+    |---|---|
+    | **First Name** | Client admin's first name |
+    | **Last Name** | Client admin's last name |
+    | **Email** | Client admin's email address (used to log in to UChat) |
+    | **Password** | Initial password for the client's UChat account |
+    | **Phone** | Client admin's phone number |
+    | **Company** | Client's company or brand name |
+    | **Language** | Interface language for the workspace (`en` or `es`) |
+    | **Trial Days** | Number of free trial days before billing starts |
+
+    4. Select a **Plan** from the dropdown.
+    5. Click **Create**.
+
+    Botky calls the UChat Partner API, provisions the workspace, and deducts the plan cost from your wallet. The new workspace appears in the workspaces table within a few seconds.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## What's Next
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+Now that your first workspace is live, explore the rest of the dashboard to manage your growing client base.
+
+<CardGroup cols={2}>
+  <Card title="Manage Workspaces" icon="server" href="/dashboard/workspaces">
+    Edit client details, change plans, suspend workspaces, or delete them as needed.
+  </Card>
+  <Card title="Top-up History" icon="receipt" href="/billing/topups">
+    Review past Stripe payments and track how your wallet balance has changed over time.
+  </Card>
+</CardGroup>

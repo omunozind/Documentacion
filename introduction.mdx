@@ -1,0 +1,53 @@
+---
+title: "Botky: Manage UChat Workspaces as a Reseller Partner"
+sidebarTitle: "Introduction"
+description: "Learn what Botky is, who it's for, and how it connects your WordPress site to the UChat Partner API to manage client workspaces."
+---
+
+Botky is a WordPress plugin that turns your existing WordPress site into a full-featured reseller control panel for UChat. Instead of directing clients to UChat directly, you manage everything on their behalf — workspace creation, plan changes, add-ons, and billing — through a branded dashboard that lives right inside your WordPress admin or as a front-end page on your site.
+
+## Who Botky Is For
+
+Botky is built for **UChat reseller partners** who sell chatbot and automation workspace subscriptions to end clients. If you have a UChat Partner account and you want to manage multiple client workspaces, set your own pricing, and bill clients through your own payment flow, Botky is the tool that makes that possible. You do not need to give clients any access to UChat's own partner portal — your WordPress site becomes the single source of truth.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Workspace Management" icon="server">
+    Create, edit, suspend, and delete UChat client workspaces without leaving WordPress.
+  </Card>
+  <Card title="Client Directory" icon="users">
+    Keep a searchable record of every client workspace, including admin user details and current plan.
+  </Card>
+  <Card title="Built-in Wallet" icon="wallet">
+    A prepaid wallet holds your available balance. Every workspace action that costs money is deducted automatically.
+  </Card>
+  <Card title="Stripe Top-ups" icon="credit-card">
+    Add funds to your wallet at any time using Stripe's secure hosted checkout — no manual invoicing needed.
+  </Card>
+  <Card title="Plans & Add-ons" icon="puzzle-piece">
+    Browse all available UChat plans and add-ons, assign them to workspaces, and track what each client is using.
+  </Card>
+  <Card title="Custom Pricing" icon="tag">
+    Override UChat's default plan costs with your own partner prices, stored securely in your WordPress database.
+  </Card>
+</CardGroup>
+
+## How It Works
+
+Botky acts as a bridge between your WordPress site and the UChat Partner API. Here is the basic flow:
+
+1. **Connect your Partner API token** — you enter your UChat Partner Token once in the Settings tab and Botky stores it securely. All subsequent API calls use this token.
+2. **Fund your wallet** — before creating or changing workspaces, you top up your Botky wallet via Stripe. The wallet balance reflects the funds available to cover workspace costs.
+3. **Create and manage workspaces** — from the Workspaces tab you create client workspaces by providing the client's admin user details. Botky calls the UChat Partner API, provisions the workspace, and deducts the cost from your wallet automatically.
+4. **Manage ongoing** — upgrade plans, attach add-ons, suspend inactive clients, or delete workspaces as your client base evolves. Every action that carries a cost is reflected in your wallet transaction history.
+
+## Language Support
+
+<Note>
+  Botky's dashboard interface is bilingual. It automatically detects your WordPress site's locale setting and displays the interface in either **English** or **Spanish**. No additional configuration is required — set your site language under **Settings → General** in WordPress and Botky follows it.
+</Note>
+
+## Ready to Install?
+
+Follow the [Quickstart](/quickstart) guide to install Botky, connect your API token, and create your first client workspace in under five minutes.

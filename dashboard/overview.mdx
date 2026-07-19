@@ -1,0 +1,64 @@
+---
+title: "Botky Dashboard: Your Partner Control Center"
+sidebarTitle: "Overview"
+description: "A tour of the Botky partner dashboard — sidebar navigation, wallet balance display, workspace and client views, and settings."
+---
+
+The Botky dashboard is the central hub for managing every aspect of your UChat reseller business. From a single screen you can provision new client workspaces, monitor plan usage, top up balances, and configure your API connection — all without leaving WordPress.
+
+## Sidebar Navigation
+
+The dark sidebar on the left organises every feature into clearly labelled sections.
+
+<CardGroup cols={2}>
+  <Card title="Management" icon="layout-grid">
+    Houses the core day-to-day tools you use to run your partner account.
+
+    - **Workspaces** — create and manage all your clients' UChat workspaces, plans, add-ons, and points.
+    - **Clients** — browse and search every user registered under your partner account.
+  </Card>
+  <Card title="Billing" icon="credit-card">
+    Contains the financial tools that keep your account funded.
+
+    - **Top-ups** — add funds to your wallet via Stripe so you can pay for new workspaces and add-ons.
+  </Card>
+  <Card title="Settings" icon="settings">
+    Found at the bottom of the sidebar. Enter and save your UChat Partner API key here so the dashboard can communicate with UChat on your behalf.
+  </Card>
+  <Card title="Log Out" icon="log-out">
+    Also at the bottom of the sidebar. Ends your WordPress session and redirects you to the home page.
+  </Card>
+</CardGroup>
+
+## Wallet Balance Indicator
+
+Your pre-funded wallet balance appears in the top-right area of the **Workspaces** and **Clients** header bars. The green badge labelled **Balance** always shows your current available funds in USD. Every time you create a workspace, change a plan, or add an add-on, the cost is deducted from this balance in real time.
+
+Keep an eye on the wallet badge before making bulk changes. If your balance is too low, actions will be blocked until you add funds through the [Top-ups](/billing/wallet) section.
+
+## Connection Status Indicator
+
+Directly below your username in the sidebar you will find a small coloured dot that reflects your API connection status:
+
+| State | Indicator | Meaning |
+|---|---|---|
+| Connected | 🟢 **Connected** | Your UChat Partner API key is saved and active. All dashboard features work normally. |
+| Not configured | 🔴 **No API Key** | No API key has been saved. Go to **Settings** and enter your key before using any feature. |
+
+<Note>
+The dashboard automatically adapts its language based on your WordPress locale. If your site is set to a Spanish locale, all labels, buttons, and messages display in Spanish. Any other locale defaults to English.
+</Note>
+
+## Related Pages
+
+<CardGroup cols={3}>
+  <Card title="Workspaces" icon="server" href="/dashboard/workspaces">
+    Create and manage client UChat workspaces, plans, add-ons, and points.
+  </Card>
+  <Card title="Clients" icon="users" href="/dashboard/clients">
+    Browse and search your full client directory.
+  </Card>
+  <Card title="Wallet & Top-ups" icon="wallet" href="/billing/wallet">
+    Add funds to your wallet via Stripe to cover workspace costs.
+  </Card>
+</CardGroup>

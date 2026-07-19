@@ -1,0 +1,176 @@
+---
+title: "Managing UChat Workspaces in Botky"
+sidebarTitle: "Workspaces"
+description: "Create, search, view, and manage your clients' UChat workspaces — including plans, add-ons, points, and status — from the Workspaces tab."
+---
+
+The **Workspaces** tab is where you provision and manage every UChat workspace you operate on behalf of your clients. From here you can create new workspaces, switch plans, install or remove add-ons, adjust point balances, and suspend or delete workspaces — all charged directly to your pre-funded wallet.
+
+## Workspaces List
+
+When you open the Workspaces tab, a paginated table loads all workspaces associated with your UChat partner account.
+
+### Table Columns
+
+| Column | Description |
+|---|---|
+| **ID** | Unique numeric identifier assigned by UChat. |
+| **Workspace** | The company or workspace name. |
+| **Plan** | The active subscription plan (e.g., Business, Business Plus). |
+| **Usage** | Current contacts and agent (member) usage versus plan limits. |
+| **Pts** | The workspace's available points balance. |
+| **Add-ons** | Number of active add-ons installed on the workspace. |
+| *(actions)* | Row-level button to open the workspace detail panel. |
+
+### Pagination and Search
+
+- Use the **Prev** and **Next** buttons at the bottom of the table to navigate between pages. The current page and total page count are displayed alongside the controls.
+- To search, type a **numeric ID** or a **workspace name** into the search field in the header bar, then press **Enter**. Searching by numeric ID fetches that single workspace directly; searching by name filters across all pages.
+- Click the **Refresh** button (circular arrow icon) to reload the list from UChat without leaving the page.
+
+---
+
+## Creating a Workspace
+
+<Steps>
+  <Step title="Open the creation form">
+    Click the **New** button in the top-right of the Workspaces header. The creation modal slides open.
+  </Step>
+  <Step title="Fill in admin user details">
+    Complete the following fields for the workspace administrator:
+
+    - **Name** — the admin user's full name.
+    - **Email** — used as the login credential for the new UChat workspace.
+    - **Password** — set a secure initial password.
+    - **Phone** — the admin's contact phone number.
+  </Step>
+  <Step title="Enter the company name">
+    Type the **Company Name** that will identify this workspace inside UChat.
+  </Step>
+  <Step title="Choose a language">
+    Select either **Spanish** or **English** as the workspace's default locale.
+  </Step>
+  <Step title="Set optional trial days">
+    Enter a number in **Trial Days** if you want the workspace to start on a trial period. Leave blank or set to `0` to skip the trial.
+  </Step>
+  <Step title="Configure email verification">
+    Check **Verify Email** if you want UChat to send a confirmation email to the admin before they can log in. Leave unchecked to allow immediate access.
+  </Step>
+  <Step title="Submit the form">
+    Click **Create**. Botky calls the UChat Partner API, provisions the workspace, and deducts the plan cost from your wallet.
+  </Step>
+</Steps>
+
+<Note>
+Your wallet is charged the plan cost at the moment of creation. The default Business plan costs **$20 USD**. If your admin has configured custom plan pricing for your account, that custom price applies instead.
+</Note>
+
+---
+
+## Viewing Workspace Details
+
+Click any row in the workspaces table to open the **detail panel**, which slides in from the right. The panel header shows the workspace name, its numeric ID, and its current points balance.
+
+Inside the panel you will find:
+
+- **Plan section** — the active plan with a **Change Plan** dropdown.
+- **Points Management section** — the current points balance and an **Adjust Balance** input.
+- **Available Add-ons section** — a list of all add-ons with **Add** and **Remove** buttons.
+- **Status toggle** — switches the workspace between Active and Paused.
+- **Danger Zone** — contains the **Delete Workspace** button.
+
+---
+
+## Changing a Plan
+
+<Steps>
+  <Step title="Open the detail panel">
+    Click the workspace row in the table to open the detail panel.
+  </Step>
+  <Step title="Select the new plan">
+    In the **Plan** section, open the **Change Plan** dropdown and choose the target plan from the list of available active plans.
+  </Step>
+  <Step title="Review the pending change">
+    Click **Save Changes**. A confirmation modal summarises the plan change and the cost that will be deducted from your wallet.
+  </Step>
+  <Step title="Confirm">
+    Click **Confirm** in the confirmation modal to apply the change. The workspace plan updates immediately and your wallet balance is deducted.
+  </Step>
+</Steps>
+
+<Warning>
+Plan changes deduct the full plan cost from your wallet at the time of change. Ensure your wallet balance is sufficient before switching plans. If your balance is too low, the action will be blocked and no changes will be applied.
+</Warning>
+
+---
+
+## Managing Add-ons
+
+<Steps>
+  <Step title="Open the detail panel">
+    Click a workspace row to open the detail panel.
+  </Step>
+  <Step title="Scroll to Available Add-ons">
+    The **Available Add-ons** section lists every add-on that can be installed on the workspace.
+  </Step>
+  <Step title="Add or remove an add-on">
+    Click **Add** next to an add-on to install it, or **Remove** to uninstall it.
+  </Step>
+  <Step title="Confirm the change">
+    Click **Save Changes**. The confirmation modal shows the add-on action and its cost. Click **Confirm** to proceed.
+  </Step>
+</Steps>
+
+### Default Add-on Prices
+
+| Add-on | Default Price |
+|---|---|
+| Extra Bot | $10 / month |
+| Extra Member | $10 / month |
+| 1k Bot Users | $10 / month |
+| 10k Bot Users | $60 / month |
+| Tickets / Lists | $30 / month |
+| Inbound Webhook | $40 / month |
+| Timeout | $20 / month |
+| Custom Domain | $15 / month |
+
+<Tip>
+These are the global default prices. Your Botky admin can configure custom per-add-on prices for your account via the WordPress user profile. If custom prices are set, those values apply instead of the defaults shown above.
+</Tip>
+
+---
+
+## Managing Points
+
+Points are a UChat internal currency used for certain platform features. You can top up or deduct points for any workspace directly from the detail panel.
+
+1. Open the workspace detail panel.
+2. In the **Points Management** section, enter a value in the **Adjust Balance** input:
+   - Enter a **positive number** to add points to the workspace.
+   - Enter a **negative number** to deduct points from the workspace.
+3. Click **Save Changes** and confirm in the confirmation modal.
+
+The updated points total is reflected immediately in both the detail panel and the workspaces table.
+
+---
+
+## Suspending or Activating a Workspace
+
+To pause or reactivate a workspace, open its detail panel and locate the **Status** toggle at the top of the panel. Toggle it on (green) to set the workspace as **Active**, or off (grey) to **Pause** it. Click **Save Changes** and confirm to apply the new status.
+
+A paused workspace remains in your account and retains all its data — it is simply inaccessible to the client until you reactivate it.
+
+---
+
+## Deleting a Workspace
+
+<Warning>
+Deleting a workspace is **irreversible**. All workspace data, bots, contacts, and configurations will be permanently removed from UChat and cannot be recovered.
+</Warning>
+
+To delete a workspace:
+
+1. Open the workspace detail panel.
+2. Scroll to the **Danger Zone** section at the bottom of the panel.
+3. Click **Delete Workspace**.
+4. Read the confirmation prompt carefully, then click **Confirm** to permanently delete the workspace.

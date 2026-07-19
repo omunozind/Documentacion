@@ -1,0 +1,78 @@
+---
+title: "Set Custom Prices for Plans and Add-ons in Botky"
+sidebarTitle: "Custom Pricing"
+description: "Configure per-user custom sale prices for UChat workspace plans and add-ons to match your reseller pricing strategy."
+---
+
+Botky lets you set custom sale prices for every UChat plan and add-on, giving you full control over your reseller margins. By default, global prices are used across all users; entering a custom value for a specific WordPress user overrides the global default for that account only. This means you can offer different pricing tiers to different partners without any code changes.
+
+<Note>
+  Custom pricing is configured by a WordPress administrator inside the WordPress User Profile editor. This is an admin-level setting and is not visible to end customers or the WordPress user themselves.
+</Note>
+
+## Where to Configure Custom Pricing
+
+1. Go to **WordPress Admin → Users**.
+2. Click **Edit** on the user profile you want to configure.
+3. Scroll down to the **Custom Prices Botky (Per User)** section.
+
+You will find separate fields for plan prices and add-on prices.
+
+## Plan Prices
+
+Use these fields to set the sale price displayed to the user when they purchase or upgrade a workspace to one of UChat's standard combo plans.
+
+| Field Label | Plan | Default Price |
+|---|---|---|
+| Business / BASE Custom | Business base plan | $20 |
+| Combo: Business Lite | Business Lite | $45 |
+| Combo: Business Plus | Business Plus | $99 |
+| Combo: Business Large | Business Large | $149 |
+| Combo: Business Yearly | Business Yearly (annual) | $990 |
+
+## Add-on Prices
+
+Use these fields to set the price charged per unit when the user adds extra resources to a workspace.
+
+| Field Label | Add-on | Default Price |
+|---|---|---|
+| Bot / Bot Extra | Extra Bot | $10 |
+| Member / Extra Member | Extra Member | $10 |
+| 1k Users / Extra Users | 1,000 Bot Users | $10 |
+| 10k Users | 10,000 Bot Users | $60 |
+| Tickets / Lists | Tickets & Lists | $30 |
+| Inbound Webhook | Inbound Webhook | $40 |
+| Timeout | Timeout | $20 |
+| Custom Domain | Custom Domain | $15 |
+
+<Tip>
+  Leave any field blank to fall back to the global default. Enter a plain numeric value — for example, `25.00` — to override the default for that user. Do not include currency symbols.
+</Tip>
+
+## How Custom Plan Pricing Is Calculated
+
+Botky calculates the displayed price differently depending on whether the workspace uses a combo plan or a fully custom plan.
+
+**Combo plans** (Business Lite, Business Plus, Business Large, Business Yearly)
+The custom price you enter is used directly as the total plan price. No additional per-unit math is applied.
+
+**Custom plans** (non-combo, built from individual resource selections)
+Pricing starts at the Business base price and adds per-unit costs for each resource block above the base allocation:
+
+- **Extra bots**: each bot above the base count adds one × the Bot add-on price
+- **Extra members**: each member above the base count adds one × the Member add-on price
+- **Extra user blocks**: each 1,000-user block above the base adds one × the 1k Users add-on price
+
+**Example:** A custom plan with 3 bots, 10 members, and 2,000 users using default prices:
+
+| Component | Calculation | Cost |
+|---|---|---|
+| Business base | 1 × $20 | $20 |
+| Extra bots | 2 × $10 | $20 |
+| Extra members | 5 × $10 | $50 |
+| Extra user blocks | 1 × $10 | $10 |
+| **Total** | | **$100** |
+
+## Wallet Balance Management
+
+In addition to pricing fields, the **Wallet Management** section of each user's WordPress profile lets administrators set the user's available wallet balance directly. Use the **Available Balance** field to credit or adjust a user's wallet without going through a Stripe top-up flow — useful for manual credits, refunds, or onboarding bonuses.

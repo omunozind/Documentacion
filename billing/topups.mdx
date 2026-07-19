@@ -1,0 +1,62 @@
+---
+title: "Top Up Your Botky Wallet with Stripe"
+sidebarTitle: "Top-ups"
+description: "Add funds to your Botky wallet using a secure Stripe payment. Topped-up balance is available immediately for workspace operations."
+---
+
+Topping up your wallet is the starting point for all billable activity in Botky. You add funds in USD through a secure Stripe checkout, and your balance updates automatically the moment payment is confirmed — no waiting, no manual steps required.
+
+## How to Top Up
+
+<Steps>
+  <Step title="Open the Top-ups section">
+    Navigate to the **Top-ups** section in the Botky sidebar. You will see your current wallet balance and a payment form.
+  </Step>
+  <Step title="Enter the amount">
+    Type the amount (in USD) you want to add to your wallet. There is no minimum, but consider adding enough to cover your planned operations plus a buffer.
+  </Step>
+  <Step title="Click Make a Top-up">
+    Click the **Make a Top-up** button (or the Stripe Buy Button if your dashboard uses the embedded version). This opens the Stripe checkout session.
+  </Step>
+  <Step title="Complete the Stripe checkout">
+    Fill in your payment details on the secure Stripe-hosted page and confirm the payment. Botky never sees or stores your card information — it is handled entirely by Stripe.
+  </Step>
+  <Step title="Confirm your updated balance">
+    Once Stripe confirms the payment, your wallet balance updates automatically. You will see the new total reflected in the dashboard header. The funds are immediately available for workspace operations.
+  </Step>
+</Steps>
+
+<Note>
+All payments are processed securely by Stripe. Botky never stores, transmits, or has access to your payment card details.
+</Note>
+
+## How It Works Under the Hood
+
+For transparency, here is what happens after you complete the Stripe checkout:
+
+1. Stripe triggers a `checkout.session.completed` event on its side.
+2. Botky's webhook endpoint at `POST /wp-json/i360/v1/stripe-webhook` receives that event.
+3. The handler reads the `client_reference_id` (your user ID) and `amount_total` (converted from cents to dollars).
+4. Botky credits that amount to your `wallet_balance` and your updated total is immediately reflected in the dashboard.
+
+This flow is fully automated — no administrator action is needed for a standard top-up.
+
+<Tip>
+Top up before performing bulk workspace operations. If your balance runs out mid-batch, some operations will be blocked while others have already been charged. Adding a buffer upfront keeps your workflow smooth.
+</Tip>
+
+## Troubleshooting
+
+<Tabs>
+  <Tab title="Balance not updated after payment">
+    Wait 1–2 minutes and refresh your dashboard — webhook delivery can take a moment depending on server load. If your balance still has not updated after several minutes, contact your administrator and provide the Stripe payment reference number so they can credit your wallet manually.
+  </Tab>
+  <Tab title="Stripe checkout not loading">
+    Stripe's checkout requires a secure connection and browser cookies. Make sure:
+    - Your site is served over **HTTPS** (not HTTP)
+    - Browser cookies and JavaScript are **enabled**
+    - You are not using a browser extension that blocks third-party scripts
+
+    If the issue persists, try a different browser or an incognito window and notify your administrator if it still fails.
+  </Tab>
+</Tabs>
