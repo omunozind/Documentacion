@@ -10,63 +10,89 @@ export const Placeholder = () => (
   </div>
 );
 
-Botky ahora incluye soporte **nativo** para **Base de conocimiento con IA**, **servidores MCP** y **búsqueda web** dentro de los Agentes de IA — sin necesidad de soluciones alternativas complicadas.
+Los **Agentes de IA** incorporan mejoras importantes que facilitan construir agentes más potentes y confiables. Con soporte **nativo** para **Base de conocimiento con IA**, **servidores MCP** y **búsqueda web**, ya no necesitas soluciones alternativas complicadas ni funciones manuales.
 
----
+<Card type="note">
+  Video de referencia: [youtu.be/J0y7so6sycY](https://youtu.be/J0y7so6sycY?si=Kf8efGEv8lPwfhvK)
+</Card>
 
 ## 1. Configurar la Base de conocimiento de IA
 
+### Habilita el proveedor OpenAI
+
+Asegúrate de que el proveedor OpenAI esté conectado en tu espacio de trabajo. Es necesario para crear y conectar los *vector stores* y archivos. Ve a **Integraciones → OpenAI**.
+
+<Frame caption="Conexión del proveedor OpenAI en Integraciones">
+  <Placeholder />
+</Frame>
+
 <Steps>
-  <Step title="Habilita el proveedor OpenAI">
-    Conecta OpenAI en **Integraciones → OpenAI**. Esta conexión es necesaria para crear y gestionar los *vector stores* y archivos.
+  <Step title="Preparar los archivos para el Vector Store">
+    Los archivos deben tener una extensión válida: `.pdf`, `.xls`, `.doc`, etc. Sin la extensión correcta, el sistema no puede leerlos ni indexarlos, y los archivos inválidos causan errores o son rechazados. Puedes subirlos desde tu computador o indicar la URL del archivo.
+
+    <Frame caption="Subida de archivos para el Vector Store">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Prepara los archivos para el Vector Store">
-    Los archivos deben tener una extensión válida como `.pdf`, `.xls` o `.doc`. El sistema no puede procesar archivos sin extensión. Puedes subirlos desde tu computador o indicar una URL.
+  <Step title="Crear el Vector Store">
+    Ve a la sección **Vector Store**. Crea uno, asígnale un nombre y define una fecha de expiración (opcional, para stores temporales; `0` = sin expiración). Selecciona los archivos que ya subiste en la sección de Archivos.
+
+    <Frame caption="Creación de un Vector Store y selección de archivos">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Crea el Vector Store">
-    En la sección **Vector Store**, crea uno nuevo con: un **nombre**, una **fecha de expiración** opcional (usa `0` para que sea permanente) y los **archivos** seleccionados de tu colección.
-  </Step>
-  <Step title="Construye la Base de conocimiento">
-    Crea una **Base de conocimiento** indicando: nombre, descripción (opcional) y los **Vector Stores** asociados. Al terminar, queda disponible para tus Agentes de IA.
+  <Step title="Construir la Base de conocimiento">
+    Después de crear el vector store, crea una **Base de conocimiento**. Ingresa el nombre, la descripción (opcional) y selecciona los Vector Stores asociados. Una vez creada, puedes usarla en los Agentes de IA.
+
+    <Frame caption="Construcción de la Base de conocimiento">
+      <Placeholder />
+    </Frame>
   </Step>
 </Steps>
 
----
-
-## 2. Usar el modelo OpenAI - Responses dentro de un Agente
+## 2. Configurar el modelo OpenAI - Responses dentro de un Agente
 
 <Steps>
-  <Step title="Configuración inicial">
-    Dentro de un Agente de IA, ve a **Ajustes → Modelos** y selecciona **OpenAI - Responses**. El modelo por defecto es **GPT-4.1**.
+  <Step title="Configurarlo">
+    Dentro de un Agente de IA, ve a **Ajustes → Modelos**. Selecciona **OpenAI - Responses** y elige el modelo deseado. El valor por defecto es **gpt-4.1**.
+
+    <Frame caption="Selección de OpenAI - Responses en los ajustes del agente">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Conecta las herramientas">
-    Con OpenAI - Responses puedes conectar directamente los **Servidores MCP** y la **Base de conocimiento** al Agente.
+  <Step title="Usar herramientas con OpenAI Responses">
+    Ahora puedes conectar directamente los **Servidores MCP** y la **Base de conocimiento** al Agente. No hay necesidad de disparar funciones o acciones de IA separadas para ellos. Esto reduce errores y complejidad.
+
+    <Frame caption="Conexión de MCP y Base de conocimiento al agente">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Integración de búsqueda web">
+    Activar la **búsqueda web** te permite buscar directamente en un sitio web desde el Agente. Es útil si no tienes servidores MCP ni base de conocimiento: el agente obtiene respuestas directamente de la web.
+
+    **Restringir dominios:**
+    - Formato: `domain.com, sub.domain.com` (separados por comas).
+    - Excluye `https://` o `http://`.
+    - Ejemplo: `google.com, app.google.com`
+
+    <Frame caption="Configuración de búsqueda web y restricción de dominios">
+      <Placeholder />
+    </Frame>
   </Step>
 </Steps>
 
-### Búsqueda web (Web Search)
-
-La búsqueda web permite buscar directamente en sitios web desde el Agente — útil cuando no tienes servidores MCP ni base de conocimiento disponibles.
-
-**Formato para restringir dominios:**
-- Valores separados por comas: `domain.com, sub.domain.com`
-- **Omite** `https://` o `http://`
-- Ejemplo: `google.com, app.google.com`
-
-**Limitaciones según el modelo:**
+### Limitaciones por modelo para la búsqueda web
 
 | Modelo | Búsqueda web | Restricción de dominio |
 |---|---|---|
 | GPT-4.1-mini | Sí | No |
 | GPT-4.1-nano | Sí | No |
-| GPT-4.1 | Sí | Sí |
-
----
+| GPT-4.1 (por defecto) | Sí | Sí |
 
 ## Nota sobre el uso de GPT-5 (no recomendado)
 
 <Card type="warning">
-  1. Su razonamiento profundo produce respuestas más lentas y más errores de timeout.
-  2. Requiere un mínimo de **2.000 tokens por respuesta** por el razonamiento extendido (mayor uso de tokens = mayor costo).
-  3. Reserva GPT-5 para tareas de razonamiento avanzado; usa modelos más ligeros para consultas simples.
+  1. GPT-5 hace razonamiento profundo, lo que produce respuestas más lentas y más errores de timeout.
+  2. Requiere más tokens por el razonamiento extendido. Se recomienda un mínimo de **2.000 tokens por respuesta**. (Mayor uso de tokens = mayor costo.)
+  3. Usa GPT-5 solo para tareas de razonamiento avanzado; deja las tareas simples en modelos más ligeros por eficiencia.
 </Card>
