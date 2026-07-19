@@ -1,0 +1,115 @@
+---
+title: "Notificaciones"
+description: "Cómo enviar notificaciones por WhatsApp, correo y chat en vivo desde un nodo de Acción"
+icon: "bell"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Una **Notificación** es un tipo de acción que le permite a tu bot avisarle algo a alguien — a un usuario, a tu equipo, o a un agente humano — sin necesidad de que esa persona esté en medio de una conversación con el bot en ese momento. Es distinta de un paso normal de "Enviar mensaje": aquí el bot **inicia** el contacto, en vez de responder a algo que el usuario dijo.
+
+Vamos a ver los 3 canales de notificación más importantes para Botky: **WhatsApp**, **Correo** y **Chat en vivo**.
+
+---
+
+## Notificación por WhatsApp
+
+Le permite a tu bot enviarle un mensaje de WhatsApp a alguien de forma proactiva — por ejemplo, avisarle a un cliente que su pedido está listo, o pedirle a un administrador que apruebe algo.
+
+<Card type="warning">
+  Necesitas tener la **integración de WhatsApp** configurada de antemano, y el número del destinatario debe incluir el código de país.
+</Card>
+
+<Card type="danger">
+  WhatsApp exige que el destinatario haya interactuado contigo en las **últimas 24 horas**. Si pasó más tiempo, el mensaje directo puede fallar al entregarse — para esos casos, usa una **Plantilla de WhatsApp** (ver abajo), que sí está pensada para reactivar conversaciones fuera de esa ventana.
+</Card>
+
+<Frame caption="Configuración de una notificación directa de WhatsApp">
+  <Placeholder />
+</Frame>
+
+### Notificación con Plantilla de WhatsApp
+
+Una variante más robusta: usa una **plantilla previamente aprobada** por WhatsApp, lo que te permite notificar incluso fuera de la ventana de 24 horas.
+
+<Card type="warning">
+  Además de la integración de WhatsApp, necesitas un **método de pago verificado** asociado a tu número — las plantillas tienen costo por mensaje.
+</Card>
+
+<Steps>
+  <Step title="Selecciona la plantilla">
+    Debe estar previamente aprobada por WhatsApp.
+  </Step>
+  <Step title="Completa sus parámetros">
+    Si la plantilla tiene variables (como el nombre del cliente o un número de pedido), complétalas aquí.
+  </Step>
+</Steps>
+
+Si tu plantilla incluye un **botón de respuesta rápida**, existen dos formas de decidir quién continúa el flujo cuando alguien hace clic:
+
+<CardGroup cols={2}>
+  <Card title="El remitente continúa" icon="arrow-right">
+    El usuario original (**A**) — el que ya venía conversando con el bot — avanza al siguiente paso una vez que el administrador (**B**) recibe la notificación y hace clic en el botón.
+  </Card>
+  <Card title="El receptor continúa" icon="arrow-right-to-bracket">
+    Es el administrador (**B**) quien avanza a su propio siguiente paso al hacer clic — no el usuario original.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  **Ejemplo concreto:** el usuario A está conversando con tu bot y en algún punto tu flujo dispara una notificación con plantilla dirigida al administrador B, con un botón. Si configuraste **"el remitente continúa"**: cuando B recibe el mensaje y hace clic en el botón, es **A** quien avanza al siguiente paso de su conversación original. Si configuraste **"el receptor continúa"**: al hacer clic, es **B** quien avanza en su propio flujo — A no se ve afectado todavía.
+</Card>
+
+<Frame caption="Configuración de una notificación con Plantilla de WhatsApp y sus parámetros">
+  <Placeholder />
+</Frame>
+
+---
+
+## Notificación por correo
+
+Envía un correo electrónico simple — útil para avisos internos (por ejemplo, notificar a un vendedor de una nueva venta) o confirmaciones automáticas al cliente.
+
+<Card type="warning">
+  Necesitas tener una **integración de correo** configurada primero.
+</Card>
+
+<Card type="note">
+  A diferencia del paso de flujo "Enviar correo" (que puede incluir formato enriquecido), la **notificación** por correo solo admite **texto plano** — es para avisos rápidos, no para correos elaborados.
+</Card>
+
+<Steps>
+  <Step title="Configura el remitente">
+    En el campo **Perfil de correo**, elige la dirección desde la que se enviará.
+  </Step>
+  <Step title="Configura el destinatario">
+    En el campo **Correo destino**, escribe (o inserta una variable con) la dirección que recibirá el aviso.
+  </Step>
+  <Step title="Escribe el mensaje">
+    Solo texto — sin imágenes ni formato avanzado.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de una notificación por correo: remitente y destinatario">
+  <Placeholder />
+</Frame>
+
+---
+
+## Notificación al Chat en vivo
+
+En vez de enviarle algo a un usuario externo, esta notificación aparece **dentro del panel de Chat en vivo** de Botky, visible para tus agentes humanos. Es la forma de avisarle a tu equipo que algo necesita atención humana — sin depender de correo o Slack.
+
+<Card type="warning">
+  Requiere tener configurada una **integración de chat en vivo** que reciba el mensaje. Solo el proveedor que hayas configurado específicamente para esto recibirá la notificación — si tienes varios, revisa cuál es el activo.
+</Card>
+
+Es una notificación de **texto libre**: escribes lo que quieras que vea el agente (por ejemplo, "Cliente premium esperando desde hace 10 minutos, ID: {{User Ns}}"), y aparece directamente en su bandeja.
+
+<Frame caption="Notificación de texto apareciendo en el panel de Chat en vivo">
+  <Placeholder />
+</Frame>
