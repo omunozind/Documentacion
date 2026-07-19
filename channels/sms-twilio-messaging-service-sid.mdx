@@ -1,0 +1,47 @@
+---
+title: "Twilio - Messaging Service SID"
+description: "Agrega el Messaging Service SID a tus bots de SMS para escalar tus campañas"
+icon: "hashtag"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky te permite agregar e incrustar el **Messaging Service SID** en tus bots de SMS, para escalar tus campañas a mayor nivel.
+
+Un **Messaging Service SID** en Twilio es un identificador único de **34 caracteres** que empieza con **"MG"**. Identifica un recurso Messaging Service — una agrupación de números de teléfono, short codes, etc.
+
+## Encontrar el Messaging Service SID
+
+<Steps>
+  <Step title="Entra a la consola de Twilio" />
+  <Step title="Ve a Messaging → Services" />
+  <Step title="Haz clic en tu servicio" />
+  <Step title="Copia el SID">
+    Lo verás en la sección **Properties**.
+  </Step>
+</Steps>
+
+## Por qué usar un Messaging Service SID
+
+- Deja que Twilio gestione la selección del remitente (long-code vs. short-code vs. toll-free).
+- Habilita funciones como **sticky sender**, **area-code geomatch**, **scaler**, **validity period** y más.
+
+## Incrustar el Messaging Service SID en Botky
+
+Desde el panel del espacio de trabajo, haz clic en la pestaña **"SMS"** para ver todos tus bots de SMS.
+
+<Frame caption="Pestaña SMS con los bots de SMS">
+  <Placeholder />
+</Frame>
+
+Haz clic en el ícono de **engranaje**.
+
+<Frame caption="Ícono de engranaje del bot de SMS">
+  <Placeholder />
+</Frame>
+
+Ingresa el **Messaging Service SID** y haz clic en **Save**.
