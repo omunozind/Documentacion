@@ -1,0 +1,161 @@
+---
+title: "Canal de Voz"
+description: "Respuesta de voz automatizada (IVR) para llamadas: nodos de Pregunta con voz, DTMF, grabación, transferencia y pago"
+icon: "phone"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+El **bot de Voz** es una respuesta de voz automatizada a llamadas y mensajes que agiliza la forma en que los clientes interactúan con una empresa.
+
+## Casos de uso
+
+1. **Servicio al cliente:** responde automáticamente preguntas comunes.
+2. **Agendar citas:** los usuarios reservan cualquier tipo de cita.
+3. **Facturación y pagos:** consultas de facturas y procesamiento de pagos.
+4. **Encuestas y feedback:** recolecta opiniones y realiza encuestas.
+5. **Información de productos:** los clientes obtienen detalles y precios.
+6. **Buzón de voz:** acceder y gestionar mensajes de voz.
+
+## Construir un bot de Voz
+
+Tras iniciar sesión en Botky, busca el ícono del bot de voz en el lado izquierdo y haz clic para abrir los ajustes del número de voz.
+
+<Frame caption="Ajustes del número de voz">
+  <Placeholder />
+</Frame>
+
+- Verás un dashboard para agregar números. Botky ofrece varias opciones; principalmente se usan **Twilio** y **SignalWire**, pero también puedes ingresar tu propio número.
+- Para agregar un número, haz clic en **Add Phone Number**.
+
+<Frame caption="Agregar número para el bot de Voz">
+  <Placeholder />
+</Frame>
+
+## Flujo de Voz
+
+Los flujos de **IVR (Interactive Voice Response)** son similares a los de cualquier bot de texto, pero cambian **dos nodos** — esa es la distinción principal. El inicio es igual: el nodo Start es el primero del flujo.
+
+### El nodo de Pregunta
+
+El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco partes**: **speech, DTMF, record, transfer** y **payment**.
+
+<Frame caption="Nodo de Pregunta del bot de Voz con sus 5 opciones">
+  <Placeholder />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Speech (voz)" icon="microphone">
+    Usa formato de voz, ideal para preguntas y respuestas cortas.
+
+    1. Escribe una pregunta corta que se le hará al cliente.
+    2. La respuesta se guarda en la **variable de texto** que elijas.
+    3. El **speech confidence score** mide la calidad del audio de la respuesta (escala de **0.1 a 0.99**); puedes usarlo con un nodo de Condición o una función.
+    4. Como en los bots de texto, el nodo puede tener **botones de respuesta** para saltar a otro nodo o disparar otro flujo.
+
+    <Frame caption="Opción Speech del nodo de Pregunta">
+      <Placeholder />
+    </Frame>
+
+    **Ajustes avanzados de Speech:**
+    - **Speech model:** tres opciones (números y comandos, llamadas telefónicas, por defecto). Si no estás seguro, usa el default y experimenta.
+    - **Idioma de reconocimiento:** elige entre muchos idiomas y dialectos para respuestas más precisas.
+    - **Speech recognition hints:** ingresa datos para que el sistema entienda mejor el tipo de respuestas esperadas.
+    - **DTMF input:** permite ingresar la cantidad de dígitos que el usuario tecleará (teléfono, número de ticket, tarjeta).
+
+    <Frame caption="Ajustes avanzados de Speech">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="DTMF (teclado)" icon="hashtag">
+    Permite preguntas largas dando opciones numéricas al cliente (solo puede usar las opciones numéricas que definas).
+
+    1. Explica en la pregunta las opciones numéricas disponibles.
+    2. Define cuántos dígitos ingresará el cliente.
+    3. La respuesta se guarda en variables numéricas y/o de texto.
+    4. Los botones de respuesta permiten saltar a otro nodo o flujo.
+    5. En ajustes avanzados solo está el botón **stop gathering**, para detener el proceso indicando un número o tecla.
+
+    <Frame caption="Opción DTMF del nodo de Pregunta">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Record (grabación)" icon="record-vinyl">
+    Toma la respuesta del cliente en forma de **grabación**; puedes definir la duración del mensaje.
+
+    1. Usa la pregunta para informar al cliente sobre la grabación.
+    2. Las grabaciones se guardan en Botky y se pueden descargar; se almacenan como **URL** en una variable de texto.
+    3. En ajustes avanzados: define una tecla para detener la grabación, la duración máxima, recortar el silencio o reproducir un *beep* al iniciar.
+
+    <Frame caption="Opción Record del nodo de Pregunta">
+      <Placeholder />
+    </Frame>
+
+    **Las grabaciones** se guardan en Botky; accede a ellas desde el menú izquierdo, en la sección de grabaciones.
+  </Accordion>
+  <Accordion title="Transfer (transferencia)" icon="phone-arrow-right">
+    Transfiere la llamada a otro número, grabando también la respuesta del cliente.
+
+    1. Da un mensaje al cliente antes de transferir.
+    2. El número destino puede ser un número normal o una variable.
+    3. Guarda el estado de la transferencia en una variable.
+    4. Define un siguiente paso con el botón **transfer fail** si la transferencia falla.
+    5. Usa **call whisper** para aumentar la precisión de la conversación.
+    6. En avanzado: grabar la llamada, terminarla con un número/tecla, y mostrar el caller ID.
+
+    <Frame caption="Opción Transfer del nodo de Pregunta">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Payment (pago)" icon="credit-card">
+    Permite cobrar un pago al instante durante la llamada. El bot le pide al cliente la información de su tarjeta o una opción definida.
+
+    1. **Edit prompt** permite definir tus textos personalizados (texto o variables) que se le leen al cliente.
+    2. Los prompts solo funcionan si tu cuenta de Twilio tiene el **PCI mode** habilitado.
+    3. Tras conectar el método de pago, obtén un **connector name** único del servicio.
+    4. Ingresa ese nombre en la opción **payment connector** del nodo y el pago empezará a funcionar.
+    5. El monto a cobrar se escribe como número o variable.
+    6. La respuesta del cliente se guarda en una **variable JSON**.
+    7. Usa el botón **Payment fail** si el pago falla, para informar y repetir u realizar otra operación.
+
+    <Frame caption="Opción Payment del nodo de Pregunta">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+### El nodo de Mensaje
+
+El nodo de Mensaje en Voz es muy distinto al de texto: **convierte en voz** el texto que escribas. Tiene tres opciones simples: **mensaje**, **audio** y ajustes para el texto tras la música en espera. Puedes cambiar el idioma con **Text to Speech Language**.
+
+<Frame caption="Nodo de Mensaje del bot de Voz">
+  <Placeholder />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Text (texto)" icon="font">
+    Un cuadro de mensaje que convierte texto o variables en voz. Puedes usar múltiples variables o textos largos.
+  </Accordion>
+  <Accordion title="Audio" icon="volume-high">
+    Usa una grabación para mejorar la precisión de la conversación: sube tu propio archivo, usa una URL, o elige una grabación de la librería de Botky.
+  </Accordion>
+  <Accordion title="Music On Hold" icon="music">
+    Convierte un mensaje de texto en voz tras estar en espera. El mensaje puede ser texto o una variable.
+  </Accordion>
+</AccordionGroup>
+
+## Nodo de Comentario
+
+El **nodo de Comentario** permite poner comentarios en los flujos o sobre nodos específicos, para entender mejor qué se ha hecho. Se agrega encima de los nodos o en el flujo, y **no** participa en el cómputo. Tiene tres opciones:
+
+1. **Cuadro de comentario:** el texto que se mostrará.
+2. **Ancho:** tamaño del cuadro (pequeño, mediano, grande).
+3. **Tamaño de fuente:** desde extra pequeño hasta extra grande.
+
+<Frame caption="Nodo de Comentario en el flujo">
+  <Placeholder />
+</Frame>
