@@ -4,9 +4,23 @@ description: "Detecta la intención del usuario y ejecuta funciones, recolectand
 icon: "wand-magic-sparkles"
 ---
 
-Las **Intenciones (Functions)** permiten que el bot detecte lo que el usuario quiere hacer y ejecute una función en consecuencia. Para implementarlas, primero debes establecer una **Intención** dentro de Automatización.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Las **Intenciones (Functions)** permiten que el bot detecte lo que el usuario quiere hacer y ejecute una función en consecuencia. Para implementarlas, primero debes crear una **Intención** dentro de Automatización.
+
+<Frame caption="Creación de una Intención dentro de Automatización">
+  <Placeholder />
+</Frame>
 
 ## Cómo funciona (workflow de ejemplo)
+
+<Frame caption="Workflow de ejemplo de una Intención">
+  <Placeholder />
+</Frame>
 
 <Steps>
   <Step title="Limpiar el historial del chat">
@@ -23,6 +37,10 @@ Las **Intenciones (Functions)** permiten que el bot detecte lo que el usuario qu
   </Step>
 </Steps>
 
+<Frame caption="Mensaje de sistema que confirma la captura de todos los parámetros">
+  <Placeholder />
+</Frame>
+
 ## Manejo de la salida
 
 El manejo de la salida requiere evaluar el **motivo de finalización (finish reason)** del chat:
@@ -30,6 +48,10 @@ El manejo de la salida requiere evaluar el **motivo de finalización (finish rea
 <Card type="note">
   Cuando el *finish reason* indica que ocurrió una **llamada a función**, significa que todos los parámetros ya se capturaron, y puedes entregarle el resultado directamente al usuario.
 </Card>
+
+<Frame caption="Evaluación del finish reason para entregar el resultado">
+  <Placeholder />
+</Frame>
 
 Esta metodología no se limita a agendar citas: aplica a muchos otros tipos de intención.
 
