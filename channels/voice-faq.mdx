@@ -1,0 +1,18 @@
+---
+title: "FAQ y errores comunes (Voz)"
+description: "Errores frecuentes del canal de Voz y cómo resolverlos"
+icon: "circle-question"
+---
+
+## Errores comunes del canal de Voz
+
+<AccordionGroup>
+  <Accordion title='"Application Error"' icon="triangle-exclamation">
+    Si al llamar a tu canal de voz escuchas "application error", puede deberse a:
+    - Tu cuenta de Twilio sigue en **prueba gratuita**, que tiene limitaciones. Solución: actualiza a una cuenta de pago.
+    - Usaste acciones al inicio (como OpenAI o chat completion) que tardan en responder, y Twilio sufre un **timeout**. Solución: envía un mensaje primero, y/o usa **"music on hold"** lo antes posible.
+  </Accordion>
+  <Accordion title='"Unable to create record. Account not allowed to call xxxx"' icon="triangle-exclamation">
+    Por defecto, Twilio tiene restricciones de **geo-localización** para llamar o enviar SMS internacionalmente. Necesitas habilitar el **Geo permission** para tu número de Twilio, accesible fácilmente desde tu dashboard de Twilio.
+  </Accordion>
+</AccordionGroup>
