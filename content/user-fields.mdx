@@ -1,0 +1,119 @@
+---
+title: "Campos de usuario"
+description: "Guarda los datos que recolectas de tus usuarios para segmentarlos y crear embudos más personalizados"
+icon: "user-tag"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **campos de usuario** sirven para guardar los datos que recolectas de tus usuarios a lo largo de las conversaciones. Te ayudan a **segmentar** a los usuarios dentro de un flujo y a crear embudos más personalizados que mejoran la conversión.
+
+## Crear un campo de usuario
+
+Hay **dos formas** de crear un campo de usuario. Explicamos ambas.
+
+## Crear el campo desde la pestaña de overview
+
+Para encontrar el overview de campos de usuario, presiona **Contenidos** en el menú izquierdo y selecciona la pestaña **Campos de usuario**.
+
+<Frame caption="Pestaña Campos de usuario en Contenidos">
+  <Placeholder />
+</Frame>
+
+Desde ahí llegas al overview donde gestionas todos los campos que creas. Para crear uno nuevo, presiona el botón azul de la esquina superior derecha: **+ Nuevo campo de usuario**.
+
+Aparecerá una ventana emergente para configurarlo.
+
+<Frame caption="Ventana emergente para configurar un nuevo campo de usuario">
+  <Placeholder />
+</Frame>
+
+Ponle nombre al campo. El siguiente paso es elegir el **tipo**. Actualmente están disponibles:
+
+- Texto (Text)
+- Número (Number)
+- Booleano (Boolean)
+- Fecha (Date)
+- Fecha y hora (Datetime)
+- JSON
+- Long JSON
+
+Estos campos te permiten configurar todo tipo de opciones dentro de tu chatbot, incluido guardar datos de los usuarios o de llamadas API como un *array*.
+
+También puedes agregar una descripción para aclarar su función, y debajo puedes seleccionar si quieres moverlo a una de las carpetas que hayas creado para mantener los campos ordenados y fáciles de encontrar. Cuando termines, presiona el botón azul **Guardar** y el campo quedará creado.
+
+<Card type="note">
+  Para los campos personalizados de tipo **fecha y hora**, por defecto están vacíos. Si usas el valor por defecto en un nodo de condición, devolverá la hora **"Now"** (ahora). Si lo usas en un texto de salida, mostrará un valor vacío.
+</Card>
+
+## Crear el campo dentro del Constructor de Flujos
+
+La otra forma es crear el campo directamente dentro del Constructor de Flujos. Tiene la gran ventaja de que puedes crear campos **sobre la marcha**, sin tener que ir primero a la pestaña de overview.
+
+Puedes crearlos dentro de:
+
+- Bloques de **Pregunta**
+- Bloques de **Acción** → establecer variable personalizada
+- **Solicitud externa** → pestaña de respuesta
+
+Tomemos como ejemplo un bloque de Pregunta, donde queremos guardar la respuesta en un nuevo campo de usuario.
+
+<Frame caption="Creación de un campo de usuario dentro de un bloque de Pregunta">
+  <Placeholder />
+</Frame>
+
+Empieza a escribir el nombre del nuevo campo. Luego presiona el mismo nombre que aparece debajo de lo que escribiste para crear el campo en el momento.
+
+Se te preguntará qué tipo de campo quieres crear. Según dónde estés o qué tipo de pregunta sea, verás distintas opciones.
+
+<Frame caption="Selección del tipo de campo al crearlo sobre la marcha">
+  <Placeholder />
+</Frame>
+
+En este caso, al ser un bloque de Pregunta normal, vemos:
+
+- Texto
+- Número
+- Booleano
+
+Si preguntaras por una fecha/hora, verías únicamente ese tipo de campo.
+
+## Gestionar tus campos de usuario
+
+Puedes gestionar todos tus campos desde la pestaña principal de overview.
+
+<Frame caption="Overview de campos de usuario con carpetas">
+  <Placeholder />
+</Frame>
+
+Puedes crear **carpetas** para mantener el overview más ordenado y encontrar los campos más fácilmente. Y puedes gestionar cualquier campo directamente desde esta pestaña presionando el ícono de **lápiz** a la derecha de cada uno.
+
+## Long JSON
+
+Este campo personalizado se creó para resolver casos donde el JSON normal era insuficiente.
+
+Mientras que un campo JSON normal soporta hasta **20.000 caracteres**, este nuevo campo **Long JSON** soporta hasta **500.000 caracteres** — un aumento enorme en la capacidad de almacenamiento.
+
+<Frame caption="Campo personalizado Long JSON">
+  <Placeholder />
+</Frame>
+
+Un caso de uso: si tienes una tienda de ecommerce y necesitas traer y guardar muchos productos. Con este campo puedes almacenar muchos más, lo que ayuda tanto para mostrarlos como, por ejemplo, para que la IA compare productos y dé una recomendación bien razonada — algo que ahora hace mucho mejor al tener más datos para evaluar.
+
+<Card type="note">
+  Puedes tener hasta **10 campos Long JSON** por chatbot.
+</Card>
+
+## Actualización del campo de sistema "AI Messages"
+
+Con la llegada del Long JSON, también actualizamos el campo de sistema **AI Messages**, que guarda la conversación entre el usuario y el Agente de IA. Antes estaba limitado a 20.000 caracteres; ahora también soporta hasta **500.000 caracteres**.
+
+<Frame caption="Campo de sistema AI Messages ampliado a 500.000 caracteres">
+  <Placeholder />
+</Frame>
+
+Esto te da la opción de guardar más de la conversación sin perder contexto por el auto-resumen.
