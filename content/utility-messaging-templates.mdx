@@ -1,0 +1,95 @@
+---
+title: "Plantillas de mensajes de utilidad (Facebook)"
+description: "Reengancha a los usuarios de Messenger fuera de la ventana de 24 horas con plantillas de utilidad aprobadas"
+icon: "envelope-circle-check"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Con la desaparición de los *Messenger Tags*, los negocios enfrentan un reto: **no hay una forma compatible de reenganchar a los usuarios después de 24 horas**. Los **Mensajes de utilidad (Utility Messages)** resuelven esto permitiendo seguimientos fuera de la ventana de mensajería estándar, mediante plantillas aprobadas.
+
+<Card type="note">
+  Video de referencia: [youtu.be/_Zko5v-wPK4](https://youtu.be/_Zko5v-wPK4?si=0-j4in6Ci_OaKS5n)
+</Card>
+
+<Card type="danger">
+  **Advertencia crítica:** los Mensajes de utilidad son estrictamente para fines **no promocionales**. Su mal uso puede provocar un **baneo permanente** de Meta.
+</Card>
+
+## Habilitar los Mensajes de utilidad
+
+### Conectar páginas de Facebook
+
+<Steps>
+  <Step title="Integración de Facebook">
+    Ve a la integración de Facebook.
+  </Step>
+  <Step title="Conecta o reconecta tu página">
+    Conecta o vuelve a conectar tu página de Facebook.
+  </Step>
+  <Step title="Otorga los permisos">
+    Concede los permisos requeridos.
+  </Step>
+</Steps>
+
+<Frame caption="Conexión de la página de Facebook y permisos">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  El permiso **"Manage and Access Page Utility Messaging"** debe estar habilitado, o los mensajes de utilidad no funcionarán.
+</Card>
+
+## Crear plantillas de mensajes de utilidad
+
+Ve a: **Chatbot → Contenidos → Utility Message Templates**.
+
+<Frame caption="Sección Utility Message Templates en Contenidos">
+  <Placeholder />
+</Frame>
+
+### Configuración de la plantilla
+
+Predefine:
+- **Variables** (ej. nombre)
+- **Acciones de botón**
+- **Mapeo del flujo**
+
+<Frame caption="Configuración de variables, botones y mapeo de flujo">
+  <Placeholder />
+</Frame>
+
+## Usar los Mensajes de utilidad en los flujos
+
+Ruta: **Nodo inicial → Enviar mensaje → Utility Template**.
+
+<Frame caption="Uso de una plantilla de utilidad en un flujo">
+  <Placeholder />
+</Frame>
+
+## Comportamiento del sistema
+
+- **Dentro de la ventana de 24 horas:** se permite la mensajería normal.
+- **Fuera de la ventana de 24 horas:** solo se permiten mensajes de utilidad.
+
+## Reglas y restricciones clave
+
+| Regla | Descripción |
+|---|---|
+| Ventana de 24 horas | Límite de mensajería estándar. |
+| Aprobación de plantilla | Obligatoria. |
+| Variables | Deben incluir valores de ejemplo. |
+| Límite de botones | Máximo 3. |
+| Permisos | Requeridos para que funcione. |
+
+## Casos de uso prácticos
+
+<CardGroup cols={3}>
+  <Card title="Actualizaciones de pedido" icon="box" />
+  <Card title="Seguimiento de soporte" icon="headset" />
+  <Card title="Recordatorios de cita" icon="calendar-check" />
+</CardGroup>
