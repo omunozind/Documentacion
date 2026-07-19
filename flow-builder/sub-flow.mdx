@@ -1,0 +1,51 @@
+---
+title: "Subflujo"
+description: "Organiza los pasos de tu chatbot completo agrupándolos en subflujos"
+icon: "door-open"
+---
+
+Un **Subflujo** te ayuda a organizar los pasos de tu chatbot agrupándolos en secciones, en vez de tener todo mezclado en un solo lugar. Es la forma estándar de dividir tu conversación en partes manejables — por ejemplo, un subflujo para el saludo inicial, otro para tomar un pedido, otro para resolver dudas frecuentes.
+
+## Cómo crear un subflujo
+
+<Steps>
+  <Step title="Ve a 'Flujos' en la barra lateral">
+    Ahí encontrarás el botón **+ Nuevo Subflujo**.
+  </Step>
+  <Step title="Elige el tipo de flujo">
+    Puedes crear un **Subflujo normal** (varía según el canal, es el tipo básico), un **Flujo de trabajo**, o un **Flujo de función**.
+  </Step>
+  <Step title="Ponle un nombre y créalo">
+    Al guardar, tu nuevo subflujo queda listo para editar — solo haz clic en él para entrar al Constructor de Flujos.
+  </Step>
+</Steps>
+
+<Frame caption="Creación de un nuevo subflujo desde la sección Flujos">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+<Card type="note">
+  Cada subflujo tiene un identificador único (algo como **Sub Flow N**) dentro de tu chatbot. Si tienes muchos, puedes organizarlos en carpetas para encontrarlos más fácil.
+</Card>
+
+## Mover pasos a un subflujo
+
+Si ya tienes pasos creados y quieres reorganizarlos:
+
+<Steps>
+  <Step title="Selecciona al menos 2 pasos">
+    Mantén `Shift` y arrastra para encerrarlos, o usa `Ctrl` + clic para elegirlos uno por uno.
+  </Step>
+  <Step title="Usa el panel de edición">
+    Aparecerá la opción de elegir a qué subflujo mover los pasos seleccionados.
+  </Step>
+  <Step title="Confirma el movimiento">
+    También puedes copiar y pegar los pasos directamente en otro subflujo si prefieres conservar el original.
+  </Step>
+</Steps>
+
+## Llamar a un subflujo
+
+Puedes invocar un subflujo desde otros puntos de tu bot — por ejemplo, con un nodo **Ir a...** que salte directamente a él. Cuando lleguemos a la sección de Automatización y Herramientas, veremos con más detalle todas las formas de activar un subflujo.
