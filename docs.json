@@ -31,6 +31,11 @@
         "group": "Chat en vivo",
         "icon": "comments",
         "pages": ["live-chat/overview", "live-chat/agent-groups", "live-chat/collaborators", "live-chat/user-data-segments", "live-chat/conversation-starter-prompt", "live-chat/sortable-options", "live-chat/search-messages", "live-chat/scheduled-messages", "live-chat/multiple-files-upload", "live-chat/chat-assistant", "live-chat/merge-bot-users"]
+      },
+      {
+        "group": "Usuarios del bot",
+        "icon": "users",
+        "pages": ["bot-users/overview"]
       }
     ]
   },
