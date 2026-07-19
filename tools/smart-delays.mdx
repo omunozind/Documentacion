@@ -1,0 +1,69 @@
+---
+title: "Esperas inteligentes (Smart Delays)"
+description: "Monitorea y gestiona los usuarios que están en pausa dentro de un flujo por una espera inteligente"
+icon: "hourglass-half"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Descripción
+
+Se agregó una ventana a la sección de **Herramientas** para las **Esperas inteligentes (Smart Delays)**. Esta función te permite ver todos los usuarios que están actualmente en estado de espera inteligente. Con esta ventana puedes monitorear y gestionar fácilmente a los usuarios pausados en el flujo, para tener mejor visibilidad y control sobre las esperas activas.
+
+<Frame caption="Ventana de Esperas inteligentes en Herramientas">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Las Esperas inteligentes solo se muestran si el tiempo de espera es **mayor a 1 minuto**.
+</Card>
+
+## Cómo funciona
+
+La Espera inteligente tiene un campo **Delay Type** con tres opciones:
+
+<AccordionGroup>
+  <Accordion title="Duration (duración)" icon="clock">
+    Espera un tiempo determinado. Ingresa la espera como un número y una unidad (por ejemplo, 30 segundos). También puedes activar **Set continue time limit** para controlar cuándo se permite continuar el flujo: define un rango horario **Continue between** (por ejemplo, de 08:00 a 22:00), elige los días de la semana y selecciona una zona horaria (**Bot User Timezone** o **Workspace Timezone**).
+  </Accordion>
+  <Accordion title="Specified Date and Time (fecha y hora específica)" icon="calendar-day">
+    Espera hasta una fecha y hora exactas. En **Delay until**, elige un día y una hora. No habrá espera si la fecha y hora especificadas ya pasaron.
+  </Accordion>
+  <Accordion title="Dynamic Date and Time (fecha y hora dinámica)" icon="calendar-plus">
+    Espera hasta una fecha y hora tomadas de un campo, con un *offset* opcional. En **Delay until**, selecciona un campo personalizado o un campo del sistema (como **NOW, Last Interaction, Subscribed, BOT_CURRENT_TIME, Last Agent Interaction, Created At** o **Last Agent Read At**). Define un **Offset** como un número más Segundos, Minutos u Horas para continuar antes o después de esa fecha y hora. No habrá espera si la fecha y hora final (el valor del campo más el offset) ya pasaron.
+  </Accordion>
+</AccordionGroup>
+
+<Frame caption="Configuración del tipo de espera inteligente">
+  <Placeholder />
+</Frame>
+
+## Qué contiene la ventana de Esperas inteligentes
+
+Cada Espera inteligente tiene un **ID** asignado para identificarla y gestionarla fácilmente.
+
+- **Schedule Time:** indica cuándo se levantará la espera, mostrando la hora exacta en que terminará y el bot reanudará la interacción.
+- **Node:** indica el nodo desde el que se disparó la espera, dándote contexto de dónde se originó en el flujo.
+- **Bot User:** el usuario que está actualmente bajo la espera. Ayuda a identificar qué usuarios están afectados en cada momento.
+- **Created At:** cuándo se inició la espera, dándote idea de cuánto lleva el usuario en pausa.
+
+Puedes **cancelar** la espera inteligente para un usuario en particular en cualquier momento, teniendo control total para gestionar las esperas.
+
+<Frame caption="Detalle de una espera inteligente y opción de cancelar">
+  <Placeholder />
+</Frame>
+
+## Casos de uso
+
+- **Mensajes de seguimiento:** envía mensajes de seguimiento a usuarios que mostraron interés en un producto pero se fueron sin comprar. Dispara esperas inteligentes para enviar 3-4 mensajes a lo largo de horas o días, recordándoles el producto, ofreciendo descuentos o sugiriendo artículos relacionados.
+- **Recordatorios de eventos:** para usuarios interesados en un evento próximo (webinar, venta, lanzamiento) que no completaron su registro, las esperas inteligentes envían recordatorios oportunos: 10 horas, 5 horas o 1 hora antes del evento para fomentar la participación.
+
+Las Esperas inteligentes son una gran forma de mantener a los usuarios interesados sin abrumarlos. Usándolas estratégicamente, envías seguimientos, recordatorios y prompts de reenganche en el momento justo.
+
+<Card type="warning">
+  **Nota importante:** las esperas inteligentes funcionan en formato de **cola** cuando la espera es mayor a 1 minuto. Las colas se ejecutan **una vez por minuto**, así que dependiendo de cuándo se disparó la espera, puede haber 1-2 minutos adicionales sobre el total configurado en el nodo.
+</Card>
