@@ -1,0 +1,40 @@
+---
+title: "FAQ y errores comunes (SMS)"
+description: "Errores frecuentes del canal de SMS y cómo resolverlos"
+icon: "circle-question"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Errores comunes del canal de SMS
+
+<AccordionGroup>
+  <Accordion title='"Message not sent because outside telemarketing hours"' icon="triangle-exclamation">
+    En el canal de SMS hay un ajuste de **horas de telemarketing** (en los ajustes del canal). Debes seleccionar las horas de trabajo (atento a la zona horaria). Si el SMS se envía fuera de esas horas, no se entregará.
+
+    <Frame caption="Ajuste de horas de telemarketing">
+      <Placeholder />
+    </Frame>
+
+    Una vez configuradas, todos los mensajes del canal de SMS (flujo, secuencia, difusión) se bloquean si se envían fuera de esas horas. Sin embargo, las acciones **Acción → Notificación → Notificación SMS** y **Acción → Acción avanzada → Enviar mensaje SMS** **no** se ven afectadas por estas horas.
+  </Accordion>
+  <Accordion title='"Attempt to send to unsubscribed recipient"' icon="triangle-exclamation">
+    La persona a la que intentas enviar ha hecho **opt-out** de recibir mensajes de tu número de Twilio (respondió **"STOP"** a un mensaje anterior). No podrás enviarle hasta que responda **"START"**.
+
+    **Soluciones:**
+    - Quita ese número de tu lista de destinatarios.
+    - Pídele que se vuelva a suscribir enviando **"START"** u otra palabra de opt-in.
+    - Antes de enviar, asegúrate de que el destinatario haya consentido recibir tus mensajes.
+  </Accordion>
+  <Accordion title='"User is not Opt-In SMS"' icon="triangle-exclamation">
+    Ocurre al intentar enviar un SMS a un usuario que no ha hecho opt-in. Puedes hacerlo manualmente o usar la acción **"SMS Opt-in"** en el nodo de Acción. También puedes ir a **Usuarios del bot**, seleccionar el contacto y elegir la acción **"Set SMS Opt-in"**.
+
+    <Frame caption="Acción Set SMS Opt-in">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
