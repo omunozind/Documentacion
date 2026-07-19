@@ -1,0 +1,63 @@
+---
+title: "Campos de bot"
+description: "Información estática compartida por igual entre todos los usuarios: horarios, datos de contacto, etc."
+icon: "robot"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Descripción general
+
+Los **campos de bot** funcionan de forma similar a los campos de usuario, pero con un propósito distinto. Mientras que los campos de usuario guardan datos específicos de cada usuario, los campos de bot mantienen información **consistente y compartida por igual** entre todos los usuarios. Son ideales para información estática del negocio, como horarios de atención o datos de contacto.
+
+## Crear un campo de bot
+
+Para acceder a la creación de campos de bot:
+
+<Steps>
+  <Step title="Abre Contenidos">
+    Ve a **Contenidos** en el menú izquierdo.
+  </Step>
+  <Step title="Selecciona la pestaña Campos de bot">
+    Haz clic en la pestaña **Campos de bot**.
+  </Step>
+</Steps>
+
+<Frame caption="Pestaña Campos de bot en Contenidos">
+  <Placeholder />
+</Frame>
+
+Haz clic en el botón **+ Nuevo campo de bot** (esquina superior derecha) para abrir el diálogo de creación.
+
+<Frame caption="Diálogo de creación de un campo de bot">
+  <Placeholder />
+</Frame>
+
+### Configuración del campo
+
+Después de nombrarlo, elige entre estos tipos disponibles:
+
+- Texto (Text)
+- Número (Number)
+- Booleano (Boolean)
+- Fecha (Date)
+- Fecha y hora (Datetime)
+- JSON
+
+Opcionalmente puedes agregar una descripción y asignar el campo a una carpeta antes de guardar.
+
+## Gestionar los campos de bot
+
+<Frame caption="Overview de campos de bot">
+  <Placeholder />
+</Frame>
+
+Desde el overview puedes:
+
+- Organizar los campos en **carpetas** para un mejor seguimiento.
+- Activar o desactivar la opción de campo de plantilla (*template field*).
+- Editar los campos existentes con el ícono de **lápiz** junto a cada entrada.
