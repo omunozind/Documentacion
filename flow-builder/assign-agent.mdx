@@ -1,0 +1,50 @@
+---
+title: "Asignar a agente o grupo de agentes"
+description: "Dirige automáticamente una conversación a un agente específico o a un grupo, con reparto configurable"
+icon: "user-tag"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Puedes agilizar la gestión de conversaciones asignándolas directamente a un agente específico o a un grupo de agentes, desde el nodo de **Acción → Acciones básicas**.
+
+<Frame caption="Opciones de asignación dentro de Acciones básicas">
+  <Placeholder />
+</Frame>
+
+## Asignar a un agente
+
+Elige un agente específico de tu lista para que se encargue de la conversación — así logras una atención más personalizada.
+
+<Frame caption="Selección de un agente individual">
+  <Placeholder />
+</Frame>
+
+## Asignar a un grupo de agentes
+
+Elige un grupo de tu lista de grupos de agentes, para que la conversación la atienda cualquier agente disponible dentro de ese grupo.
+
+<Frame caption="Selección de un grupo de agentes">
+  <Placeholder />
+</Frame>
+
+## Grupos por defecto
+
+Botky trae varios grupos ya definidos:
+
+| Grupo | Incluye | Cómo reparte |
+|---|---|---|
+| Todos (Aleatorio) | Todos los miembros del espacio de trabajo (dueño, administradores, miembros y agentes) | Al azar, entre cualquier miembro |
+| Todos (Menos asignados) | Todos los miembros del espacio de trabajo | Al miembro con menos asignaciones pendientes |
+| Todos (Round Robin) | Todos los miembros del espacio de trabajo | En orden circular, turnándose uno por uno |
+| Solo agentes (Aleatorio) | Únicamente los agentes del espacio de trabajo | Al azar, entre cualquier agente |
+| Solo agentes (Menos asignados) | Únicamente los agentes del espacio de trabajo | Al agente con menos asignaciones pendientes |
+| Solo agentes (Round Robin) | Únicamente los agentes del espacio de trabajo | En orden circular, turnándose uno por uno |
+
+<Card type="tip">
+  Usa "Menos asignados" o "Round Robin" cuando quieras repartir la carga de trabajo de forma pareja entre tu equipo; usa "Aleatorio" cuando no te importe la carga actual de cada persona.
+</Card>
