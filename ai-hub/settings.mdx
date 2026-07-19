@@ -4,11 +4,19 @@ description: "Define una plataforma de LLM por defecto aplicable a todos tus age
 icon: "gear"
 ---
 
-La pestaña de **Ajustes** te permite configurar una **plataforma de LLM por defecto** que se aplica a todos tus agentes.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
 
-## A qué funciones aplica
+La pestaña de **Ajustes** te permite configurar una **plataforma de LLM por defecto** para todos tus agentes.
 
-Este ajuste por defecto se usa en:
+<Frame caption="Pestaña de Ajustes del AI Hub con la plataforma LLM por defecto">
+  <Placeholder />
+</Frame>
+
+Este cambio aplica para:
 
 <CardGroup cols={2}>
   <Card title="Reconocimiento de intención con IA" icon="brain">
@@ -19,8 +27,6 @@ Este ajuste por defecto se usa en:
   </Card>
 </CardGroup>
 
-## Beneficio
-
 <Card type="note">
-  Establecer una plataforma de LLM por defecto reduce el trabajo manual: en lugar de actualizar el modelo agente por agente cuando manejas muchos, lo configuras **una sola vez** a nivel de plataforma.
+  Esto te ahorra tiempo: en lugar de cambiar el modelo manualmente en cada agente cuando manejas muchos, lo configuras una sola vez a nivel de plataforma.
 </Card>
