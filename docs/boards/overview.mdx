@@ -1,0 +1,198 @@
+---
+title: "Tableros"
+description: "Un CRM visual tipo Trello dentro de Botky: organiza a tus usuarios por etapas de un embudo, con columnas, notas y automatización"
+icon: "table-columns"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **Tableros** son herramientas tipo **Trello** o un **CRM sencillo**, pero manejadas dentro de la propia plataforma de Botky. En pocas palabras, te sirven para administrar un grupo de usuarios que van pasando por las distintas **etapas de un embudo** (funnel).
+
+Algunos casos de uso típicos de un Tablero:
+
+<CardGroup cols={2}>
+  <Card title="Embudo de ventas" icon="filter">
+    Posicionar a tus prospectos según la etapa en la que estén.
+  </Card>
+  <Card title="Soporte al cliente" icon="headset">
+    Seguir el estado de cada solicitud de atención.
+  </Card>
+  <Card title="Gestión de tareas" icon="list-check">
+    Organizar el avance de tareas por columnas.
+  </Card>
+  <Card title="Gestión de proyectos" icon="diagram-project">
+    Mover proyectos entre fases hasta completarlos.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  A lo largo de esta página usaremos como ejemplo un **Embudo de ventas** (Sales Pipeline), con estas 5 etapas: **Nuevo prospecto → Contactado → Demo agendada → Propuesta enviada → Cerrado ganado**.
+</Card>
+
+---
+
+## Crear un Tablero
+
+En el menú del **Constructor de Flujos**, hacia el lado izquierdo, vas a encontrar la función **Tableros**, justo debajo de **Usuarios del bot** (más o menos a la mitad de la página).
+
+<Steps>
+  <Step title="Abre Tableros y crea el primero">
+    Haz clic en la función **Tableros** y luego en el botón **Crear primer Tablero**.
+  </Step>
+  <Step title="Ponle nombre al Tablero">
+    En el campo **Nombre**, escribe cómo se llamará. Ej: `Embudo de ventas`.
+  </Step>
+  <Step title="Agrega la primera columna">
+    Haz clic en **Agregar columna** y ponle nombre. Ej: `Nuevo prospecto`.
+  </Step>
+  <Step title="Agrega las demás columnas">
+    Repite para las otras etapas: **Contactado**, **Demo agendada**, **Propuesta enviada** y **Cerrado ganado**.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar**. El Tablero queda creado con sus 5 columnas.
+  </Step>
+</Steps>
+
+<Frame caption="Ventana emergente 'Agregar nuevo Tablero' con nombre y columnas">
+  <Placeholder />
+</Frame>
+
+### Administrar las columnas
+
+Una vez creado el Tablero, tienes control total sobre sus columnas:
+
+<CardGroup cols={2}>
+  <Card title="Nueva columna" icon="plus">
+    Con el botón **Nueva columna** (arriba a la derecha) agregas columnas adicionales en cualquier momento.
+  </Card>
+  <Card title="Reordenar" icon="arrows-left-right">
+    Arrastra las columnas de izquierda a derecha (o viceversa) para dejarlas en el orden que necesites.
+  </Card>
+  <Card title="Renombrar" icon="pen">
+    En los **3 puntos** de la esquina superior derecha de cada columna, elige renombrar y guarda.
+  </Card>
+  <Card title="Eliminar" icon="trash">
+    Desde esos mismos **3 puntos**, elige eliminar y luego **Confirmar eliminación**.
+  </Card>
+</CardGroup>
+
+<Frame caption="Menú de 3 puntos de una columna: renombrar o eliminar">
+  <Placeholder />
+</Frame>
+
+---
+
+## Usar los Tableros
+
+Hay **tres formas** de mover usuarios entre las etapas de un Tablero: desde el Constructor de Flujos, desde el Chat en vivo y desde Usuarios del bot.
+
+### 1. Desde el Constructor de Flujos
+
+Cuando estás guiando al usuario por un proceso de segmentación, al final puedes cerrar con un **nodo de Acción** que use la función de Tablero.
+
+<Steps>
+  <Step title="Agrega la acción 'Mover a Tablero'">
+    En el nodo de **Acción** → **Acciones avanzadas** → función **Mover a Tablero** (Move to Board).
+  </Step>
+  <Step title="Edita la acción">
+    Haz clic en **Editar acción** dentro de la función de Tablero.
+  </Step>
+  <Step title="Selecciona la etapa (Topic)">
+    Elige la columna donde quieres posicionar al usuario. Ej: como es su primera vez, selecciona **Nuevo prospecto**.
+  </Step>
+  <Step title="Configura la nota (opcional)">
+    En **Acción de nota** tienes 3 opciones: **Sin cambios**, **Actualizar nota** o **Borrar nota**. Elige **Actualizar nota**, y en **Tipo de nota** elige **Info**.
+  </Step>
+  <Step title="Escribe la nota">
+    Puedes usar variables. Ej: `` `{{First Name}}` es nuestro nuevo prospecto de ventas ``. Guarda.
+  </Step>
+</Steps>
+
+<Frame caption="Acción 'Mover a Tablero' con selección de etapa y nota">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Al probar el bloque de Acción en la vista previa **no verás nada** en la página web, porque solo estás probando la acción. Cierra la vista previa, abre el Tablero y **refresca la página**: verás al usuario agregado en la columna **Nuevo prospecto**, con su nota correspondiente.
+</Card>
+
+Al hacer clic sobre el usuario dentro del Tablero, puedes **comunicarte directamente con él** desde Botky. También puedes **arrastrarlo manualmente** entre etapas (de izquierda a derecha y viceversa).
+
+<Frame caption="Usuario posicionado en una columna del Tablero con su nota">
+  <Placeholder />
+</Frame>
+
+#### Automatización con Tableros
+
+La verdadera potencia está en **automatizar** el movimiento: cada vez que un usuario realiza cierta acción, tu flujo lo mueve a la etapa correspondiente.
+
+**Ejemplo con la integración de Calendly:** cuando el usuario agenda una demo de producto, disparas una Acción con función de Tablero que hace lo siguiente:
+
+- **Etapa (Topic):** Embudo de ventas / Demo agendada
+- **Acción de nota:** Actualizar nota
+- **Tipo de nota:** Info
+- **Nota:** `` Cita de Calendly agendada para demo con `{{First Name}}` ``
+
+Así, los parámetros del Tablero se actualizan solos cuando se concreta una cita en Calendly.
+
+<Frame caption="Automatización que mueve al usuario a 'Demo agendada' tras agendar en Calendly">
+  <Placeholder />
+</Frame>
+
+### 2. Desde el Chat en vivo
+
+Otra forma de cambiar los parámetros del Tablero es desde el **Chat en vivo**.
+
+<Steps>
+  <Step title="Selecciona al usuario">
+    En Chat en vivo, elige al usuario. En la lista del lado derecho, hasta abajo, verás la función **Tablero**.
+  </Step>
+  <Step title="Edita los parámetros">
+    Haz clic en el **ícono de lápiz** para cambiar la etapa o la nota, por ejemplo después de haber conversado con el usuario.
+  </Step>
+</Steps>
+
+<Frame caption="Función de Tablero en el panel derecho del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Los cambios que hagas desde el Chat en vivo se reflejan de inmediato en la página del Tablero.
+
+### 3. Desde Usuarios del bot
+
+La tercera forma de acceder a la función de Tablero es a través de **Usuarios del bot**, y es la ideal para mover **muchos usuarios a la vez** (segmentación en lote).
+
+<Steps>
+  <Step title="Acceso individual">
+    Entra a **Usuarios del bot**, selecciona un usuario y haz clic en el **ícono de lápiz** de Tableros para gestionar su etapa.
+  </Step>
+  <Step title="Filtra por segmento">
+    Para mover un grupo, usa el **Filtro** (arriba a la izquierda) y agrega una condición. Ej: usuarios con la etiqueta `FB_leads`.
+  </Step>
+  <Step title="Selecciona los usuarios">
+    Marca la casilla a la izquierda de cada usuario que quieras mover.
+  </Step>
+  <Step title="Acción en lote → Mover a Tablero">
+    Haz clic en **Acción en lote** (arriba a la derecha). En la lista de acciones, hasta abajo, elige **Mover a Tablero** y selecciona la etapa destino.
+  </Step>
+</Steps>
+
+<Frame caption="Acción en lote 'Mover a Tablero' desde Usuarios del bot filtrados">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  En esencia, los Tableros te permiten crear tu propio **mini-CRM dentro de Botky**: en lugar de exportar tus contactos a un sistema externo como HubSpot, armas tu propio embudo de ventas, sistema de citas, etc., sin salir de la plataforma.
+</Card>
+
+---
+
+## Limitaciones
+
+<Card type="warning">
+  En un mismo espacio de trabajo solo puedes tener **un Tablero**, y ese Tablero admite un máximo de **20 columnas**.
+</Card>
