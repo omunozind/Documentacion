@@ -1,0 +1,78 @@
+---
+title: "AI Prompts"
+description: "Respuestas y acciones potenciadas por IA, predefinidas y compartidas, para agilizar a tus agentes en el Chat en vivo"
+icon: "wand-magic-sparkles"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **AI Prompts** mejoran la eficiencia de tus agentes de Chat en vivo dándoles acceso a **respuestas y acciones predefinidas potenciadas por IA**, compartidas entre todos los bots de tu espacio de trabajo.
+
+## Dónde encontrarlo
+
+Ve a **IA y Automatización → AI Prompts** en la configuración de tu espacio de trabajo.
+
+## Elegir el proveedor de IA
+
+Haz clic en el ícono de engranaje para configurar tu proveedor preferido:
+
+<CardGroup cols={3}>
+  <Card title="OpenAI" icon="microchip" />
+  <Card title="Deep Seek" icon="microchip" />
+  <Card title="X AI (Grok)" icon="microchip" />
+  <Card title="Gemini" icon="microchip" />
+  <Card title="Claude" icon="microchip" />
+</CardGroup>
+
+<Card type="warning">
+  Solo puedes conectarte a proveedores que ya estén integrados en tu espacio de trabajo.
+</Card>
+
+## Crear nuevos prompts
+
+<Steps>
+  <Step title="Crea el prompt">
+    Haz clic en el botón **+ AI Prompt**.
+  </Step>
+  <Step title="Nombre y contenido">
+    Ponle un nombre y define su contenido.
+  </Step>
+  <Step title="Estado y orden">
+    Define el estado (activo) y el orden de aparición.
+  </Step>
+</Steps>
+
+El sistema incluye ejemplos prediseñados para casos comunes:
+
+- **Ajuste de tono** (amigable, formal, divertido)
+- **Traducción de idioma** (inglés, chino, etc.)
+- Otros casos personalizables
+
+## Usar AI Prompts en el Chat en vivo
+
+<Steps>
+  <Step title="Escribe tu mensaje">
+    Redacta el mensaje en la ventana de chat.
+  </Step>
+  <Step title="Abre el ícono de AI Prompt">
+    Pasa el cursor sobre el ícono de AI Prompt.
+  </Step>
+  <Step title="Elige el prompt">
+    Selecciona el que quieras aplicar.
+  </Step>
+  <Step title="Espera el procesamiento">
+    La IA transforma el texto y te devuelve el resultado.
+  </Step>
+</Steps>
+
+<Card type="note">
+  **Ejemplo:** traducir "Hola, ¿en qué te puedo ayudar hoy?" al chino, sin tener que cambiar de pestaña ni usar herramientas de traducción externas.
+</Card>
+
+<Card type="warning">
+  Por ahora, los AI Prompts solo funcionan con las respuestas del **Agente de IA**. Próximas actualizaciones ampliarán su alcance.
+</Card>
