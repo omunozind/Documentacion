@@ -4,51 +4,131 @@ description: "Dispara automatizaciones desde los Instant Forms de Facebook por W
 icon: "clipboard-list"
 ---
 
-Los **Facebook Lead Forms** permiten recolectar datos del usuario (nombre, teléfono, correo) con campos precompletados. Esto simplifica el proceso: el usuario solo debe enviar el formulario para iniciar tu automatización.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Frame caption="Formularios de Facebook (Lead Forms)">
+  <Placeholder />
+</Frame>
+
+## Qué son los Facebook Lead Forms
+
+Los formularios de Facebook (Lead Forms) ofrecen una forma excelente de recolectar información del usuario —como nombre, teléfono y correo— con los campos **precompletados** para comodidad del usuario.
 
 ## Cómo configurar el disparador
 
-<Steps>
-  <Step title="Conecta tus páginas de Facebook">
-    Vincúlalas en el canal Omni.
-  </Step>
-  <Step title="Crea Instant Forms">
-    Crea los formularios instantáneos y enlázalos a tus páginas.
-  </Step>
-  <Step title="Configura la automatización">
-    Ve a **Automatización → Facebook Lead Forms** para configurarla.
-  </Step>
-</Steps>
+- Conecta tus páginas de Facebook en el canal **Omni**.
+
+<Frame caption="Conexión de páginas de Facebook en el canal Omni">
+  <Placeholder />
+</Frame>
+
+- Crea **Instant Forms**.
 
 <Card type="note">
   Video de referencia: [youtu.be/ls4rwAVlxU0](https://youtu.be/ls4rwAVlxU0?si=pQLfKSIEqIW64ban)
 </Card>
 
+**Configurar la automatización de leads del Instant Form:** ve a **Automatización → Facebook Lead Forms**.
+
+<Frame caption="Configuración de la automatización en Facebook Lead Forms">
+  <Placeholder />
+</Frame>
+
 ## Automatización por SMS, correo y WhatsApp
+
+Hay tres canales principales de automatización —WhatsApp, correo y SMS—, cada uno con oportunidades distintas de interactuar con los leads.
 
 <Tabs>
   <Tab title="WhatsApp">
     - Conecta WhatsApp al canal Omni.
-    - Dispara un **mensaje de plantilla** para iniciar la conversación.
-    - Al agregar un nuevo formulario, selecciona **"WhatsApp"** como canal por defecto para crear el usuario del bot.
-    - Selecciona tu subflujo para enviar el mensaje de plantilla de WhatsApp.
+    - Dispara un **mensaje de plantilla (Template Message)** para iniciar la conversación.
+    - Al agregar un nuevo formulario, selecciona **WhatsApp** como canal por defecto para crear el usuario del bot.
+
+    <Frame caption="WhatsApp como canal por defecto al agregar el formulario">
+      <Placeholder />
+    </Frame>
+
+    Ahora selecciona tu subflujo para enviar el mensaje de plantilla de WhatsApp.
+
+    <Frame caption="Selección del subflujo para enviar la plantilla de WhatsApp">
+      <Placeholder />
+    </Frame>
+
+    Configura tu flujo agregando un mensaje de plantilla.
+
+    <Frame caption="Configuración del flujo con un mensaje de plantilla">
+      <Placeholder />
+    </Frame>
   </Tab>
   <Tab title="SMS">
-    - Selecciona **"Webchat"** como canal por defecto para crear el usuario del bot.
-    - Configura el bot de SMS y asegúrate de tener la respuesta por defecto lista.
+    Acción de enviar SMS. Para SMS, selecciona **Webchat** como canal por defecto para crear el usuario del bot.
+
+    <Frame caption="Webchat como canal por defecto para SMS">
+      <Placeholder />
+    </Frame>
+
+    Configura el bot de SMS y asegúrate de tener la respuesta por defecto lista.
+
+    <Frame caption="Configuración del bot de SMS con su respuesta por defecto">
+      <Placeholder />
+    </Frame>
   </Tab>
   <Tab title="Correo">
-    - Configura la **integración de correo** en la sección de Integraciones.
-    - Selecciona **"Webchat"** como canal por defecto para crear el usuario del bot.
+    Configura la **integración de correo** en la sección de Integraciones. Encontrarás varias opciones para elegir para el canal de correo.
+
+    <Frame caption="Configuración de la integración de correo">
+      <Placeholder />
+    </Frame>
+
+    - Para correo, selecciona **Webchat** como canal por defecto para crear el usuario del bot.
+
+    <Frame caption="Webchat como canal por defecto para correo">
+      <Placeholder />
+    </Frame>
+
     - Asegúrate de que el usuario esté opt-in para correo, o usa la acción **"marcar correo como opt-in"**.
+
+    <Frame caption="Asegurar el opt-in de correo del usuario">
+      <Placeholder />
+    </Frame>
   </Tab>
 </Tabs>
 
-## Cómo obtener la fuente de tráfico del anuncio (Instant Form)
+### Pasos de implementación (resumen)
 
-El *payload* del formulario contiene los campos **lead ID** y **ad ID**. El `ad_id` permite recuperar la información de la campaña en pasos posteriores.
+- Conecta tus páginas de Facebook al canal Omni.
+- Crea Instant Forms y enlázalos a tus páginas de Facebook.
+- Usa los ajustes del Facebook Lead Form para automatizar procesos.
+- Personaliza los flujos para disparar acciones según las interacciones del usuario.
+- Conecta con varios canales como WhatsApp, SMS y correo.
+- Usa integraciones avanzadas como OpenAI para potenciar la automatización.
 
-### Obtener nombre de campaña y de conjunto de anuncios
+## Cómo obtener la fuente de tráfico del Instant Form
+
+Aquí aprenderás a obtener la fuente de tráfico (**nombre de campaña** y **nombre del conjunto de anuncios**) de los leads del Instant Form.
+
+Este es un problema común para los anunciantes, porque en muchos casos conectas el mismo Instant Form a varias campañas o *adsets*. Cuando recibes los leads, necesitas saber de qué campaña o *adset* proviene cada uno.
+
+### Ejemplo de payload del Instant Form
+
+Por ejemplo, este es un payload de ejemplo de un lead de Instant Form:
+
+```json
+{
+  "id": "1091455272135931",
+  "form_id": "6929973650395684",
+  "ad_id": "6526687589538",
+  "field_data": []
+}
+```
+
+El **lead_gen ID** es `1091455272135931` y el **ad_id** es `6526687589538`. Usaremos el `ad_id` para obtener más información de la campaña en el siguiente paso.
+
+### Obtener el nombre de campaña y del conjunto de anuncios
 
 <Steps>
   <Step title="Usa la acción Get Lead Gen">
@@ -58,13 +138,17 @@ El *payload* del formulario contiene los campos **lead ID** y **ad ID**. El `ad_
     Coloca el `ad_id` en el campo **Lead Gen ID**.
   </Step>
   <Step title="Define los campos (opcional)">
-    Ingresa `id,name,campaign{id,name}` en el campo de *fields*.
+    Escribe `id,name,campaign{id,name}` en el campo de *fields*.
   </Step>
   <Step title="Extrae los datos">
-    Obtén los nombres del *adset* y de la campaña desde la respuesta.
+    Obtén el nombre del *adset* y de la campaña desde la respuesta.
   </Step>
 </Steps>
 
 <Card type="note">
-  Para más parámetros de fuente de tráfico, consulta la [documentación de la Facebook Marketing API](https://developers.facebook.com/docs/marketing-api/reference/adgroup#parameters).
+  Si quieres extraer más parámetros de fuente de tráfico, consulta la [documentación de la Facebook Marketing API](https://developers.facebook.com/docs/marketing-api/reference/adgroup#parameters).
 </Card>
+
+<Frame caption="Respuesta de la acción Get Lead Gen con campaña y adset">
+  <Placeholder />
+</Frame>
