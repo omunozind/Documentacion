@@ -1,0 +1,138 @@
+---
+title: "Mensaje de bienvenida de Facebook Ads"
+description: "Configura un mensaje de bienvenida que se dispara desde tus anuncios de Facebook en Messenger o Instagram"
+icon: "hand-wave"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Requisitos previos — verifica todas las conexiones primero
+
+Antes de crear un mensaje de bienvenida, confirma que lo siguiente esté correctamente conectado:
+
+- **Cuenta de Facebook Ads** — conectada en la sección de gestión de Ads.
+
+<Frame caption="Cuenta de Facebook Ads conectada">
+  <Placeholder />
+</Frame>
+
+- **Facebook Business Manager** — conectado en la pestaña de e-Commerce.
+
+<Frame caption="Facebook Business Manager conectado">
+  <Placeholder />
+</Frame>
+
+- **Página de Facebook correcta** — verificada en la sección de Bots.
+
+<Frame caption="Página de Facebook verificada en Bots">
+  <Placeholder />
+</Frame>
+
+- **Ad Manager** — todas las páginas deben estar bajo el mismo Business Manager donde tienes las cuentas de Ads.
+
+<Frame caption="Páginas bajo el mismo Business Manager">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  Las cuatro conexiones deben estar activas antes de continuar.
+</Card>
+
+## Paso 1 — Crear un mensaje de bienvenida
+
+- Entra a tu **Bot** → ve a la sección **Herramientas**.
+- Ubica la función **Facebook Ad Messaging** → haz clic para abrir **Welcome Messages**.
+
+<Frame caption="Facebook Ad Messaging → Welcome Messages">
+  <Placeholder />
+</Frame>
+
+- Haz clic en **+ Message** para crear uno nuevo.
+- Ingresa un **nombre** (ej. `Welcome One`).
+- Selecciona el **canal**: Messenger o Instagram.
+- Elige un **tipo de mensaje**:
+  - **Text** — permite agregar botones y quick replies.
+  - **Video** — video independiente.
+  - **Image** — imagen independiente.
+  - **Card** — incluye una imagen con contenido adicional.
+- Escribe el cuerpo de tu mensaje.
+- Opcionalmente agrega:
+  - **Botones**
+  - **Quick Replies**
+
+<Frame caption="Configuración del mensaje de bienvenida">
+  <Placeholder />
+</Frame>
+
+- Haz clic en **Save** y luego en **Sync**.
+
+## Paso 2 — Conectar el mensaje de bienvenida a un anuncio de Facebook
+
+- Ve al **Facebook Ads Manager** y refresca la página.
+- Abre o crea una **Campaña** (el objetivo "Traffic" funciona bien).
+- Ve al nivel de **Ad Set**.
+- Encuentra **Messaging Destinations** → selecciona **Messenger**.
+
+<Frame caption="Messaging Destinations → Messenger en el Ad Set">
+  <Placeholder />
+</Frame>
+
+- Ve al nivel de **Ad** → haz clic en **New Traffic Ad**.
+- Baja hasta **Messaging Template**:
+  - Elige **Use Existing** o **Create New**.
+  - Haz clic en **Partner App** → luego en **Select Flow**.
+
+<Frame caption="Partner App → Select Flow en Messaging Template">
+  <Placeholder />
+</Frame>
+
+- Selecciona la app (puede aparecer como **UChat App** o **Chatbot App** según tu cuenta).
+- Elige el flujo del mensaje de bienvenida que creaste (ej. `Welcome One`).
+- Haz clic en **Send Preview** para probar — el mensaje aparecerá en tu Messenger.
+
+<Frame caption="Send Preview del mensaje de bienvenida">
+  <Placeholder />
+</Frame>
+
+## Paso 3 — (Opcional) Conectar un botón a un subflujo
+
+Esto permite que un botón dentro del mensaje de bienvenida dispare un flujo específico del chatbot.
+
+**Crear el payload:**
+
+- En Botky, ve a **Herramientas → Facebook Ads Payload**.
+- Haz clic en **+ Create New** para generar un payload.
+- **Copia** el código del payload generado.
+
+**Vincular el payload a un subflujo:**
+
+- Abre el subflujo que quieres disparar.
+- Agrega un mensaje o acción (ej. *"El subflujo se ha enviado desde Botky"*).
+- Haz clic en **Publish**.
+
+<Frame caption="Subflujo vinculado y publicado">
+  <Placeholder />
+</Frame>
+
+**Agregar un botón de respuesta al mensaje de bienvenida:**
+
+- Vuelve a **Herramientas → Facebook Ads Messaging**.
+- Abre tu mensaje de bienvenida → haz clic en **Add a Reply Button**.
+- Define el **texto del botón** (ej. `Click Here`).
+- Pega el **Facebook Ads Payload** en el campo del payload.
+- Haz clic en **Save** → luego en **Sync**.
+
+<Frame caption="Agregar un botón de respuesta con el payload">
+  <Placeholder />
+</Frame>
+
+**Verificar en Ads Manager:**
+
+- Refresca Ads Manager.
+- Vuelve a **Partner App** → selecciona tu app de chatbot → selecciona el flujo del mensaje.
+- El botón ahora aparecerá en la vista previa.
+- Haz clic en **Preview in Messenger** — al hacer clic en el botón debería dispararse el subflujo conectado.
