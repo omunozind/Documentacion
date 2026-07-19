@@ -1,0 +1,59 @@
+---
+title: "Función de JavaScript"
+description: "Ejecuta lógica personalizada en JavaScript dentro de tu flujo"
+icon: "js"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky te permite ejecutar lógica de flujo compleja usando código **JavaScript** directamente dentro de un nodo de Acción.
+
+## Cómo acceder
+
+Crea un bloque de nodo de Acción, entra a **Acciones avanzadas**, y selecciona el nodo **Función de JavaScript**.
+
+## Parámetros de entrada
+
+<CardGroup cols={3}>
+  <Card title="Nombre del parámetro" icon="tag">
+    El nombre de la variable que vas a pasarle a la función.
+  </Card>
+  <Card title="Valor del parámetro" icon="database">
+    El campo de usuario que quieres pasarle a la función de JavaScript.
+  </Card>
+  <Card title="Valor de prueba" icon="flask">
+    Un valor de prueba para poder correr pruebas ahí mismo.
+  </Card>
+</CardGroup>
+
+<Frame caption="Configuración de parámetros de entrada de la Función de JavaScript">
+  <Placeholder />
+</Frame>
+
+## Reglas importantes
+
+<Card type="warning">
+  Después de escribir tu código, **siempre debes hacer un `return`** de tu valor — el bloque de función actúa como una función normal de JavaScript.
+</Card>
+
+<Card type="warning">
+  Los métodos nativos de JavaScript que requieren un navegador (como `console.log`) **no funcionan** dentro del nodo de Función de JavaScript.
+</Card>
+
+<Card type="note">
+  Al trabajar con JSON, primero debes **parsear** el JSON antes de poder usarlo dentro de tu código.
+</Card>
+
+El bloque de función soporta múltiples librerías de JavaScript que extienden sus capacidades nativas.
+
+## Salida
+
+Puedes mapear el resultado de tu código para actualizar ciertos campos de usuario.
+
+<Frame caption="Editor de código de la Función de JavaScript con mapeo de salida">
+  <Placeholder />
+</Frame>
