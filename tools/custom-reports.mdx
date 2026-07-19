@@ -1,0 +1,128 @@
+---
+title: "Reportes personalizados"
+description: "Crea reportes de embudo y de porcentaje a partir de tus eventos personalizados, con fórmulas y gráficos"
+icon: "chart-line"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Crear y usar reportes personalizados
+
+Para crear un reporte personalizado, haz clic en la pestaña **Herramientas** y selecciona **Custom Reporting**.
+
+<Frame caption="Sección Custom Reporting en Herramientas">
+  <Placeholder />
+</Frame>
+
+Ingresa el nombre del reporte y el tipo.
+
+<Frame caption="Nombre y tipo del reporte">
+  <Placeholder />
+</Frame>
+
+Haz clic en el ícono de **engranaje** para empezar a modelar tus reportes.
+
+<Frame caption="Ícono de engranaje para modelar el reporte">
+  <Placeholder />
+</Frame>
+
+### Modelar un reporte de embudo (Funnel)
+
+<Steps>
+  <Step title="Funnel Steps">
+    Haz clic en **"Funnel Steps"** para empezar a agregar eventos personalizados al reporte.
+
+    <Frame caption="Funnel Steps del reporte de embudo">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Add step">
+    Haz clic en **"Add step"**.
+
+    <Frame caption="Agregar un paso al embudo">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Selecciona el tipo de evento">
+    Elige qué tipo de evento quieres rastrear.
+
+    <Frame caption="Selección del tipo de evento">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Personaliza el evento">
+    Tras agregar el evento, haz clic en el ícono de **tres puntos** para personalizarlo. Configura los eventos que quieres rastrear y haz clic en **Done**.
+
+    <Frame caption="Personalización del evento del paso">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+Puedes agregar más pasos a tu reporte de embudo si quieres construir un reporte colaborativo o de comparación entre varios eventos y medir el rendimiento en varios frentes.
+
+<Frame caption="Reporte de embudo con varios pasos">
+  <Placeholder />
+</Frame>
+
+Si quieres cambiar los colores de las líneas de tendencia y los gráficos de barras, haz clic en el ícono de **paleta** (esquina superior izquierda) y elige el gráfico cuyo color quieres cambiar.
+
+<Frame caption="Cambio de colores con el ícono de paleta">
+  <Placeholder />
+</Frame>
+
+También puedes editar los propios gráficos: cambiar sus etiquetas, ejes, y activarlos o desactivarlos para mostrarlos o no en el reporte.
+
+<Frame caption="Edición de etiquetas y ejes de los gráficos">
+  <Placeholder />
+</Frame>
+
+### Modelar un reporte de porcentaje
+
+En los reportes de porcentaje puedes comparar dos eventos y averiguar cómo se desempeñan uno respecto al otro. Para agregar los eventos, haz clic en **Field A** y **Field B**.
+
+<Frame caption="Campos A y B de un reporte de porcentaje">
+  <Placeholder />
+</Frame>
+
+Para editar los gráficos, haz clic para modificarlos según tus necesidades.
+
+<Frame caption="Edición de los gráficos del reporte de porcentaje">
+  <Placeholder />
+</Frame>
+
+#### Fórmulas
+
+Los reportes de porcentaje te permiten agregar fórmulas para calcular el porcentaje.
+
+<Frame caption="Fórmulas de los reportes de porcentaje">
+  <Placeholder />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Fórmula #1" icon="1">
+    Compara los dos campos y calcula el porcentaje relativo entre ellos. Por ejemplo:
+    - Field A = número de estudiantes de la Clase A, Field B = número total de estudiantes de la escuela → calcula el porcentaje de estudiantes de la Clase A respecto al total.
+    - Field A = número de ventas del producto A, Field B = número total de ventas → calcula el porcentaje de ventas del producto A.
+  </Accordion>
+  <Accordion title="Fórmula #2" icon="2">
+    Compara los dos campos y, como la fórmula 1, da el porcentaje relativo. Aquí Field A y Field B pueden ser las dos partes; el denominador es la suma de los componentes.
+
+    Ejemplo: Field A = usuarios que pasan por el Flujo A, Field B = usuarios que pasan por el Flujo B → cuántas personas pasaron por cada flujo. Importante para pruebas A/B.
+  </Accordion>
+  <Accordion title="Fórmulas #3 y #4" icon="3">
+    Comparan los dos campos y dan un valor que no se deriva directamente. Por ejemplo, en una campaña de SMS de marketing: puedes rastrear el total de personas objetivo y las que pidieron ir a la lista **DNC (Do Not Contact)**. Con esta fórmula derivas el número real de personas que respondieron a la campaña, o la tasa de respuesta real.
+  </Accordion>
+</AccordionGroup>
+
+## Visualizar la analítica de los reportes personalizados
+
+Para visualizarlos, haz clic en la pestaña **Analítica** y selecciona **reportes personalizados**.
+
+<Frame caption="Analítica de reportes personalizados">
+  <Placeholder />
+</Frame>
