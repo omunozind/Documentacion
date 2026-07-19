@@ -1,0 +1,117 @@
+---
+title: "Definir valor de variable"
+description: "Cómo guardar valores en campos personalizados y qué operaciones existen según el tipo de variable"
+icon: "equals"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta acción te permite guardar valores en variables o campos personalizados — muy útil cuando estás recolectando información de tus usuarios. Se encuentra dentro de **Acciones básicas**, en el nodo de Acción.
+
+## Cómo funciona
+
+Al elegir la acción de definir un campo personalizado, indicas cuál campo quieres actualizar. Puedes escribir el valor directamente, o usar otro campo personalizado como origen del valor. Si el campo todavía no existe, escribe su nombre y elige el tipo de variable para crearlo ahí mismo.
+
+<Frame caption="Configuración de 'Definir valor de variable': campo, origen del valor y tipo">
+  <Placeholder />
+</Frame>
+
+## Los 6 tipos de variable y sus operaciones
+
+Botky ofrece 6 tipos de variable integrados, cada uno con sus propias operaciones:
+
+| Tipo | Guarda | Ejemplo | Operaciones |
+|---|---|---|---|
+| Texto | Letras, palabras, frases | `Hola, Botky.` | Recortar, cambiar mayúsculas/minúsculas, codificar, decodificar |
+| Número | Valores numéricos | `123.45` | Suma, resta, multiplicación, división, módulo, potencia, logaritmo, raíz, redondeo |
+| Booleano | Verdadero o falso | `sí` | Asignación |
+| Fecha | Fechas de calendario | `2021-03-30` | Formatear, sumar meses/semanas/días |
+| Fecha y hora (DateTime) | Fecha y hora juntas | `2021-03-30 16:52:00` | Formatear, sumar unidades de tiempo |
+| JSON | Una serie de variables | `{"nombre":"juan", "edad":"10"}` | Cargar, obtener, actualizar, quitar, contar, sumar, promediar, ordenar, mezclar, invertir |
+
+## Borrar un campo o un JSON
+
+Para borrar el valor de una variable de texto, número, booleano, fecha o fecha y hora, usa **Borrar valor de variable** (lo vemos en la siguiente página). Para variables JSON, usa la operación **Quitar todos los elementos** dentro de Operación JSON.
+
+## Asignar valor (Input Value)
+
+Esta operación asigna un valor a cualquier tipo de variable. En el caso de variables de texto, también te permite concatenar (unir) varias variables de texto entre sí.
+
+<Card type="note">
+  Si la fórmula no es válida, el resultado será `0` para números, y vacío para texto.
+</Card>
+
+## Fórmula matemática
+
+Operaciones soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()`, `ceil()`, `floor()`, `log()`, `pow()`, `round()`, `sqrt()`, `sin()`, `cos()`, `tan()`.
+
+## Operaciones de variable de texto
+
+<AccordionGroup>
+  <Accordion title="Recortar texto (Trim)" icon="scissors">
+    Quita los espacios al inicio y al final. Por ejemplo, `" abc"` se convierte en `"abc"`.
+  </Accordion>
+  <Accordion title="Subcadena (Substring)" icon="text-width">
+    Extrae una parte del texto. Por ejemplo, de `"Hola, Botky!"` puedes extraer `"Botky"`.
+
+    <Card type="note">
+      El conteo empieza en `0`, y cuenta absolutamente todos los caracteres, incluyendo espacios y signos de puntuación.
+    </Card>
+  </Accordion>
+  <Accordion title="Reemplazar texto" icon="repeat">
+    Sensible a mayúsculas/minúsculas. Por ejemplo, `"Hola, Botky!"` se convierte en `"Hola de nuevo, Botky!"`.
+  </Accordion>
+  <Accordion title="Cambiar mayúsculas/minúsculas" icon="font">
+    Convierte todo a minúsculas (`"hola, botky!"`) o a mayúsculas (`"HOLA, BOTKY!"`).
+  </Accordion>
+  <Accordion title="Generar texto aleatorio" icon="dice">
+    Crea códigos a partir de una plantilla. Por ejemplo, la plantilla `"code: XXXX-####-xxxx"` genera algo como `"code: UBWT-3657-lkzb"`.
+  </Accordion>
+  <Accordion title="Codificar/decodificar URL" icon="link">
+    Codifica (`"Hola%2C%20Botky!"`) o decodifica texto para que sea seguro usarlo en una URL.
+  </Accordion>
+  <Accordion title="Codificar/decodificar Base64" icon="code">
+    Convierte texto hacia y desde formato Base64 (por ejemplo, `"SG9sYSwgQm90a3ki"`).
+  </Accordion>
+  <Accordion title="Convertir a slug (amigable para URL)" icon="link-slash">
+    Convierte espacios en guiones y quita caracteres especiales. Por ejemplo, `"es un buen día"` se convierte en `"es-un-buen-dia"`.
+  </Accordion>
+  <Accordion title="Texto antes/después" icon="arrows-left-right">
+    Extrae la parte del texto que está antes o después de un delimitador que definas.
+  </Accordion>
+</AccordionGroup>
+
+## Operaciones de variable de número
+
+<AccordionGroup>
+  <Accordion title="Longitud de texto" icon="ruler">
+    Devuelve la cantidad de caracteres. Por ejemplo, `500.59` devuelve `6`.
+  </Accordion>
+  <Accordion title="Números aleatorios" icon="dice">
+    Genera valores numéricos aleatorios.
+  </Accordion>
+  <Accordion title="Operaciones aritméticas" icon="calculator">
+    Suma, resta, multiplicación, división, módulo, potencia, logaritmo, raíz cuadrada.
+  </Accordion>
+  <Accordion title="Redondeo" icon="circle-half-stroke">
+    Reduce decimales. Por ejemplo, `7.8693` se redondea a `7.87`.
+  </Accordion>
+  <Accordion title="Piso y techo (Floor/Ceil)" icon="arrows-up-down">
+    Devuelve el entero aproximado. Por ejemplo, `6.55` baja a `6` (floor) o sube a `7` (ceil).
+  </Accordion>
+</AccordionGroup>
+
+## Operaciones de variable de fecha y hora
+
+<AccordionGroup>
+  <Accordion title="Convertir texto a formato de fecha/hora" icon="calendar">
+    Transforma un texto en un valor de tipo Fecha y hora.
+  </Accordion>
+  <Accordion title="Sumar unidades de tiempo" icon="clock">
+    Suma minutos, horas, días, semanas o meses a un valor de fecha y hora.
+  </Accordion>
+</AccordionGroup>
