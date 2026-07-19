@@ -1,0 +1,47 @@
+---
+title: "Eliminar usuario del bot"
+description: "Elimina usuarios manualmente desde el flujo, o automáticamente al definir un límite de usuarios"
+icon: "user-xmark"
+---
+
+Te permite definir un límite de usuarios para tu chatbot y eliminar automáticamente el exceso, simplificando la gestión de tu base de usuarios.
+
+## Opción 1: nodo de Acción
+
+Encuentra el paso **Eliminar usuario del bot** dentro de **Acciones básicas**. Cuando el flujo llega a este paso, el usuario se elimina automáticamente, y no se procesan más mensajes ni condiciones para él.
+
+<Frame caption="Paso 'Eliminar usuario del bot' dentro de Acciones básicas">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Opción 2: límite de usuarios del bot
+
+En **Configuración → General**, busca la opción **Límite de usuarios del bot**. Al definir un valor mayor a cero, el sistema revisa periódicamente el total de usuarios y elimina a los más antiguos si se supera el límite.
+
+<Frame caption="Configuración del límite de usuarios del bot">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Monitorear la cantidad de usuarios
+
+Ve a la sección de **Analítica** para ver el total de usuarios de tu bot — esto te ayuda a decidir un límite adecuado.
+
+<Frame caption="Cantidad total de usuarios del bot en Analítica">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Otras opciones
+
+Para una gestión más personalizada, puedes crear disparadores (triggers) basados en condiciones específicas — por ejemplo, eliminar a un usuario si no ha interactuado durante un período determinado. Los disparadores basados en tiempo te dan más control sobre el proceso de eliminación.
+
+<Frame caption="Configuración de un disparador basado en tiempo de inactividad">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
