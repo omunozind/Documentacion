@@ -4,6 +4,12 @@ description: "Envía mensajes de seguimiento con retrasos programados: recordato
 icon: "clock-rotate-left"
 ---
 
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
 Usa las **Secuencias** para enviar automáticamente mensajes de seguimiento o con retraso a tus clientes. Puedes enviar varios mensajes con distintos retrasos.
 
 ## Crear una secuencia
@@ -26,7 +32,15 @@ Usa las **Secuencias** para enviar automáticamente mensajes de seguimiento o co
   </Step>
 </Steps>
 
+<Frame caption="Creación de una secuencia y sus mensajes">
+  <Placeholder />
+</Frame>
+
 ## Ajustes del mensaje
+
+<Frame caption="Ventana de ajustes del mensaje de una secuencia">
+  <Placeholder />
+</Frame>
 
 <AccordionGroup>
   <Accordion title="1. Cuenta regresiva para enviar" icon="hourglass">
@@ -66,6 +80,14 @@ Todo mensaje enviado **más de 24 horas** después de la última interacción de
 | **Confirmed Event Update** | Recordatorios o novedades de eventos registrados (RSVP, compra de tickets). |
 | **Post Purchased Update** | Confirmaciones de transacción y estado de envíos. |
 | **Account Update** | Cambios no recurrentes en la cuenta o aplicación del usuario. |
+
+## Enviar múltiples mensajes
+
+<Frame caption="Varios mensajes en una secuencia, enviados en orden">
+  <Placeholder />
+</Frame>
+
+Los mensajes se envían **en orden**. La cuenta regresiva del primer mensaje empieza cuando el usuario se suscribe; la de cada mensaje siguiente empieza cuando se envía el anterior.
 
 ## Enviar el subflujo
 
