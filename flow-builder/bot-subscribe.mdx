@@ -1,0 +1,62 @@
+---
+title: "Suscribir y cancelar suscripción al bot"
+description: "Controla si un usuario recibe respuestas automáticas del bot, desde el flujo, Chat en vivo o Usuarios del bot"
+icon: "robot"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los usuarios pueden suscribirse o cancelar su suscripción al bot desde el Constructor de Flujos o desde Chat en vivo. También puedes configurar disparadores (triggers) para ambas acciones.
+
+## Desde el Constructor de Flujos
+
+Las opciones de suscribir y cancelar suscripción están dentro de **Acción → Acciones básicas**.
+
+<CardGroup cols={2}>
+  <Card title="Suscribir" icon="bell">
+    Cuando un usuario se suscribe, vuelve a recibir las respuestas automáticas del bot.
+  </Card>
+  <Card title="Cancelar suscripción" icon="bell-slash">
+    Un usuario sin suscripción deja de recibir respuestas automáticas. Sus mensajes se siguen viendo en Chat en vivo, pero los agentes no pueden responderle desde ahí.
+  </Card>
+</CardGroup>
+
+<Frame caption="Acciones de suscribir/cancelar suscripción dentro de Acciones básicas">
+  <Placeholder />
+</Frame>
+
+## Desde Chat en vivo
+
+Los usuarios también pueden gestionar su suscripción directamente desde Chat en vivo. Si ya está suscrito, solo aparece la opción de cancelar la suscripción.
+
+<Card type="warning">
+  Cuando un usuario no está suscrito, no se le puede enviar ningún mensaje, ni siquiera desde Chat en vivo — el sistema muestra un error indicando su estado. Aun así, puedes volver a suscribirlo directamente desde ahí.
+</Card>
+
+<Frame caption="Opción de cancelar suscripción desde Chat en vivo">
+  <Placeholder />
+</Frame>
+
+## Desde Usuarios del bot
+
+También puedes gestionar la suscripción desde la sección de **Usuarios del bot**, tanto para un usuario individual como en lote (varios usuarios a la vez).
+
+<Frame caption="Gestión de suscripción individual y en lote desde Usuarios del bot">
+  <Placeholder />
+</Frame>
+
+## Disparadores (Triggers)
+
+Puedes configurar disparadores para los eventos de suscripción y cancelación de suscripción.
+
+<Card type="warning">
+  Cuando un usuario le escribe a tu bot por primera vez, queda **suscrito automáticamente**. Si además tienes un disparador configurado para el evento de suscripción, esto puede provocar que se dispare dos veces en ese primer mensaje.
+</Card>
+
+## Qué sigue funcionando sin suscripción
+
+Aunque un usuario no esté suscrito, y no se le puedan enviar mensajes desde el flujo, todavía puedes: enviarle correos, agregarle etiquetas, actualizar sus campos personalizados, o ejecutar peticiones externas relacionadas con él.
