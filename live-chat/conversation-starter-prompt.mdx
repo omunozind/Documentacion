@@ -1,0 +1,38 @@
+---
+title: "Reabrir conversaciones automáticamente"
+description: "Decide si un nuevo mensaje del usuario reabre una conversación que ya estaba marcada como Resuelta"
+icon: "arrow-rotate-right"
+---
+
+Antes, cuando un agente marcaba una conversación como **Resuelta**, cualquier mensaje nuevo del usuario la reabría automáticamente — lo que generaba confusión sobre cuáles chats realmente necesitaban atención humana. Ahora puedes elegir este comportamiento tú mismo.
+
+## Cómo activarlo
+
+<Steps>
+  <Step title="Ve a Configuración → Chat en vivo">
+    Desde la barra lateral del Constructor de Flujos.
+  </Step>
+  <Step title="Busca 'Funciones de Chat en vivo'">
+    Ajusta la opción según lo que necesites.
+  </Step>
+  <Step title="Guarda los cambios">
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de 'Funciones de Chat en vivo' en Configuración">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Con la opción activada
+
+Cualquier respuesta o mensaje nuevo del usuario **sí** reabre la conversación. Si estaba en la carpeta "Resuelto" y el usuario vuelve a escribir, la conversación se mueve automáticamente de vuelta a "Bandeja".
+
+## Con la opción desactivada
+
+Los mensajes nuevos del usuario **no** reabren la conversación. Si estaba en "Resuelto", se queda ahí hasta que un agente humano la mueva manualmente, o hasta que se mueva mediante una automatización del bot.
+
+<Card type="tip">
+  Puedes usar automatizaciones del bot para mover conversaciones de "Resuelto" a "Bandeja", construyendo tu propia lógica condicional sobre cuándo debería pasar esa transición.
+</Card>
