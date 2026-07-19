@@ -1,0 +1,73 @@
+---
+title: "Productos y Catálogo"
+description: "Muestra y vende tus productos y servicios en WhatsApp con mensajes de catálogo, sin salir del chat"
+icon: "cart-shopping"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Puedes mostrar y compartir tus productos y servicios con tus clientes para que naveguen y agreguen artículos al carrito **sin salir del chat**.
+
+<Card type="warning">
+  Los números de prueba de WhatsApp **no** soportan probar mensajes de catálogo. La WhatsApp Cloud API ya soporta las funciones de catálogo.
+</Card>
+
+## Crear el catálogo y subir inventario a Facebook
+
+Primero debes subir tu inventario a Facebook, en formato de **catálogo**. Puedes usar la API o el **Commerce Manager** de Facebook.
+
+- Si ya tienes un catálogo de Facebook, aprovéchalo para los casos de uso de WhatsApp commerce.
+- Si necesitas crear uno, hay dos formas: [con la API](https://developers.facebook.com/docs/commerce-platform/catalog/get-started) o [con el Commerce Manager](https://www.facebook.com/business/help/1275400645914358).
+
+<Card type="note">
+  Solo puedes subir **un catálogo por WABA**, pero el mismo catálogo puede pertenecer a varios números. Si vendes en **India**, debes cumplir requisitos adicionales de Facebook sobre el catálogo de productos.
+</Card>
+
+## Sincronizar los productos de Facebook a Botky
+
+De vuelta en Botky, ve al canal **WhatsApp Cloud**, haz clic en **"View Catalog"** para traer todos los catálogos de tu cuenta de negocio, y selecciona **"Facebook to Local"** para sincronizar todos los productos a tu ecommerce integrado.
+
+<Frame caption="Sincronización de catálogo Facebook → Local">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  Lo más importante: asegúrate de que el **"SKU"** en Botky sea el mismo que el **"ContentID"** de tu catálogo de Facebook.
+</Card>
+
+<Frame caption="Coincidencia entre SKU (Botky) y ContentID (Facebook)">
+  <Placeholder />
+</Frame>
+
+## Conectar el catálogo con el número de WhatsApp
+
+Debes conectar tu número de WhatsApp con un catálogo de productos. Solo después de eso puedes enviar mensajes de catálogo.
+
+## Enviar un mensaje de catálogo
+
+Una vez sincronizado el catálogo en el ecommerce integrado, puedes usar el envío de producto en el nodo de **Enviar mensaje**. En **WhatsApp Cloud API → "View catalogue"** verás el **catalog ID** conectado con tu WABA.
+
+<Frame caption="Catalog ID conectado con la WABA">
+  <Placeholder />
+</Frame>
+
+Puedes enviar un **mensaje de producto único** o un **mensaje de múltiples productos**.
+
+<Frame caption="Envío de producto único o múltiples productos">
+  <Placeholder />
+</Frame>
+
+Para múltiples productos, elige cuántas secciones incluir y selecciona los **retail IDs** (que son los ContentID del catálogo de Facebook). Si ya sincronizaste el catálogo con el ecommerce de Botky, usa la acción **"Get products"** (en **Acciones → ecommerce → Get products**) para poblar dinámicamente los retail IDs con filtros integrados.
+
+<Frame caption="Acción Get products para poblar retail IDs">
+  <Placeholder />
+</Frame>
+
+## Disparadores
+
+- **WhatsApp product inquiry trigger:** dispara un mensaje cada vez que un cliente te envía una consulta desde la página de detalle del producto.
+- **WhatsApp order created/received trigger:** se dispara cuando el usuario envía el carrito. Puedes usar el valor de este disparador para generar el enlace de checkout del usuario.
