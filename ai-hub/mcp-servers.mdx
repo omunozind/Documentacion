@@ -1,0 +1,79 @@
+---
+title: "Servidores MCP"
+description: "Conecta la IA a herramientas externas con el Model Context Protocol, sin configurar endpoints de API complejos"
+icon: "server"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+**MCP** significa **Model Context Protocol**. Es una función del AI Hub que simplifica conectar la IA a herramientas externas — sin tener que configurar endpoints de API complejos.
+
+## Beneficios clave
+
+<CardGroup cols={2}>
+  <Card title="Integraciones simples" icon="plug">
+    Conecta plataformas como Shopify, Stripe, Intercom, HubSpot y muchas más.
+  </Card>
+  <Card title="Lenguaje natural" icon="comments">
+    Funciona con consultas en lenguaje natural.
+  </Card>
+  <Card title="Herramientas dentro del prompt" icon="toolbox">
+    Da acceso a herramientas externas directamente dentro de los prompts del modelo.
+  </Card>
+  <Card title="Menos tiempo de setup" icon="clock">
+    Reduce la configuración de horas a minutos.
+  </Card>
+</CardGroup>
+
+## Dónde encontrarlo
+
+Accede a los **Servidores MCP** desde el menú izquierdo, haciendo clic en **AI Hub**.
+
+## Cómo integrar un servidor MCP
+
+El proceso general es:
+
+<Steps>
+  <Step title="Conecta cualquier servidor MCP">
+    Incluye opciones auto-hospedadas (self-hosted). Funciona con OpenAI, Anthropic u otros proveedores.
+  </Step>
+  <Step title="Sigue el flujo estándar">
+    **Nombre → URL → Autenticación (opcional) → Seleccionar herramientas → Guardar → Usar en flujos.**
+  </Step>
+</Steps>
+
+### Ejemplo: conectar Shopify
+
+<Steps>
+  <Step title="Genera la URL del servidor">
+    Ve a **OpenAI Playground → Tools → Add MCP Server**. Esto te permite integrar varias herramientas y generar una URL para tu configuración.
+  </Step>
+  <Step title="Agrega el servidor">
+    Ingresa el **nombre** del servidor, la **URL** y los datos de **autenticación** requeridos.
+  </Step>
+</Steps>
+
+## Cómo usarlo dentro del Constructor de Flujos
+
+<Steps>
+  <Step title="Agrega la acción de OpenAI">
+    Ve a **Constructor de Flujos → bloque de Acción → Integraciones → OpenAI**.
+  </Step>
+  <Step title="Crea la respuesta del modelo">
+    Elige **"Create Model Response"** y cambia el modelo a **GPT-4.1-Mini** (recomendado por su mejor compatibilidad con herramientas MCP).
+  </Step>
+  <Step title="Selecciona el servidor MCP">
+    Elige tus Servidores MCP y configura los tokens y la temperatura.
+  </Step>
+  <Step title="Extrae los datos">
+    De la respuesta de ejemplo, identifica la ruta correcta y guarda el resultado en una variable.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Si necesitas ayuda para configurar un servidor MCP, contacta al equipo de soporte o a la comunidad.
+</Card>
