@@ -1,0 +1,79 @@
+---
+title: "Descripción general del Constructor de Flujos"
+description: "Entiende cómo se organiza un chatbot en Botky: canales, flujos, subflujos y pasos, sin necesidad de saber programar"
+icon: "diagram-project"
+---
+
+El **Constructor de Flujos** es el lugar donde diseñas la conversación de tu chatbot arrastrando y conectando bloques visuales — como armar un diagrama de flujo. No necesitas escribir código: todo se hace haciendo clic, arrastrando y conectando piezas.
+
+## Antes de empezar: canales
+
+Todo arranca creando un **canal** — el medio por el que tu chatbot va a hablar con tus clientes. Botky soporta **17 tipos de canales**, incluyendo Facebook, Instagram, WhatsApp Cloud, Telegram, Slack, WeChat, WhatsApp, SMS, Voice, Line, Viber, VK y más.
+
+<Card type="note">
+  En esta documentación nos enfocamos en los canales más usados: Omnichannel, Facebook, Instagram, WeChat y WhatsApp Cloud. Los cubrimos en detalle en la sección de **Canales**.
+</Card>
+
+## La estructura: Subflujo → Paso
+
+Dentro de cada canal, tu chatbot se organiza en dos niveles:
+
+<CardGroup cols={2}>
+  <Card title="Subflujo" icon="door-open">
+    Una sección de tu conversación — la unidad principal en la que trabajas. Hay 3 tipos.
+  </Card>
+  <Card title="Paso" icon="shapes">
+    La acción concreta dentro de un subflujo, como enviar un mensaje o hacer una pregunta. Hay 8 tipos.
+  </Card>
+</CardGroup>
+
+<Accordion title="¿Qué tipos de subflujo puedes crear?">
+  <Card type="note">
+    Ojo: aquí "Subflujo" se usa de dos formas. Arriba, como concepto general, es cualquier sección de tu flujo. Aquí abajo, es uno de los tres tipos específicos que puedes elegir al crear una sección nueva.
+  </Card>
+
+  - **Subflujo** — el tipo más común, para enviar mensajes y manejar la interacción normal con el usuario
+  - **Flujo de trabajo** — para tareas en segundo plano que no necesitan que el usuario espere ni participe
+  - **Flujo de función** — para procesar tareas repetitivas que querrías reutilizar en varios lugares
+</Accordion>
+
+<Accordion title="¿Qué tipos de paso existen?">
+  - **Enviar mensaje** — muestra información al usuario
+  - **Pregunta** — pregunta algo y espera la respuesta del usuario
+  - **Acción** — procesa datos y tareas mediante integraciones, APIs, notificaciones, etc.
+  - **Condición** — sigue un camino u otro según se cumpla una condición
+  - **Dividir (Split)** — sigue un camino u otro según una probabilidad (útil para pruebas A/B)
+  - **Enviar correo** — envía un correo completo, no solo una notificación corta
+  - **Ir a...** — salta a otro paso o subflujo sin necesidad de una línea de conexión visual
+  - **Salida (Output)** — define qué devuelve un Flujo de función al terminar
+
+  <Card type="tip">
+    No todos los canales soportan todo: por ejemplo, una galería de productos funciona en Messenger, pero no por SMS. Si algo no aparece disponible, probablemente sea por el canal que elegiste.
+  </Card>
+</Accordion>
+
+<Frame caption="Vista del Constructor de Flujos mostrando un flujo, sus subflujos y los pasos dentro de cada uno">
+  ![Captura De Pantalla 2026 07 09 194106](/images/Captura-de-pantalla-2026-07-09-194106.png)
+</Frame>
+
+## Etiquetas de flujo
+
+Cuando tienes muchos subflujos, las **etiquetas** te ayudan a organizarlos por nombre y color.
+
+<Steps>
+  <Step title="Crea una etiqueta">
+    Ponle un nombre y elige un color para identificarla visualmente.
+  </Step>
+  <Step title="Asígnala a un subflujo">
+    Abre el menú de tres puntos (⋯) del subflujo, entra a "Administrar etiquetas" y selecciona las que quieras asignarle. Un mismo subflujo puede tener varias etiquetas.
+  </Step>
+  <Step title="Filtra por etiqueta">
+    Tienes dos formas de filtrar: **"Todas las etiquetas seleccionadas"** muestra solo los subflujos que tienen absolutamente todas las etiquetas elegidas, y **"Cualquier etiqueta seleccionada"** muestra los que tengan al menos una.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Cuando aplicas un filtro, los subflujos que no coincidan quedan ocultos — incluso dentro de carpetas.
+</Card>
+
+También puedes hacer **acciones en lote** sobre varios subflujos a la vez: agregar o quitar etiquetas, moverlos de carpeta, o eliminarlos todos juntos.
