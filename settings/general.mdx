@@ -1,0 +1,93 @@
+---
+title: "General"
+description: "Ajustes generales del bot: límite de usuarios, limpieza automática, comportamiento en pausa y flujo de inicio"
+icon: "gear"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Cómo acceder al panel de ajustes generales
+
+<Steps>
+  <Step title="Entra a tu bot">
+    Ve al bot específico que quieres configurar.
+  </Step>
+  <Step title="Ve a Configuración">
+    En el menú de la barra lateral izquierda, haz clic en **Configuración**.
+  </Step>
+  <Step title="Selecciona General">
+    Dentro de Configuración, haz clic en la opción **General**.
+  </Step>
+</Steps>
+
+<Card type="warning">
+  Solo el **dueño del espacio de trabajo** puede configurar estos ajustes.
+</Card>
+
+<Frame caption="Panel de ajustes generales">
+  <Placeholder />
+</Frame>
+
+## Límite de usuarios del bot (Bot Users Limit)
+
+- **Descripción:** define el máximo de usuarios del bot. Si el valor es `0`, no hay límite.
+- **Acceso:** solo el dueño del espacio de trabajo puede configurarlo. Si un usuario no ve este ajuste, significa que no es el dueño.
+- **Cómo configurarlo:**
+  1. Ve a la sección **Bot Users Limit**.
+  2. Usa los botones **"+"** y **"-"** para ajustar el límite.
+  3. Haz clic en **Save**.
+
+<Frame caption="Configuración del límite de usuarios del bot">
+  <Placeholder />
+</Frame>
+
+## Limpieza automática de usuarios (Bot Users Auto Cleanup)
+
+- **Descripción:** elimina automáticamente a los usuarios que no han interactuado dentro de un periodo determinado. Si el valor es `0`, no hay limpieza.
+- **Cómo configurarlo:**
+  1. Ve a la sección **Bot Users Auto Cleanup**.
+  2. Define el número de días tras los cuales se eliminarán los usuarios inactivos.
+  3. Agrega condiciones específicas si lo necesitas (ej. eliminar usuarios con ciertas etiquetas).
+  4. Haz clic en **Save**.
+
+<Frame caption="Configuración de la limpieza automática de usuarios">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Si no se definen condiciones específicas, los usuarios se eliminan según su última interacción. Video de referencia: [youtube.com/watch?v=hzAR85GHu1M](https://www.youtube.com/watch?v=hzAR85GHu1M)
+</Card>
+
+## Opción de automatización en pausa (Paused Bot Automation)
+
+- **Descripción:** define el comportamiento de las automatizaciones y mensajes mientras la conversación está en pausa.
+- **Cómo configurarlo:**
+  1. Ve a la sección **Paused bot automation option**.
+  2. Selecciona una opción:
+     - **Se enviarán mensajes del agente, disparadores y esperas inteligentes:** durante la pausa, las esperas inteligentes y los disparadores siguen funcionando.
+     - **Solo se enviarán mensajes del agente:** durante la pausa, solo se envían los mensajes del agente; todas las automatizaciones, disparadores y esperas inteligentes se detienen.
+  3. Haz clic en **Save**.
+
+<Frame caption="Opción de automatización en pausa">
+  <Placeholder />
+</Frame>
+
+## Flujo de inicio del bot (Bot Start Flow)
+
+- **Descripción:** define el flujo de inicio por defecto del bot.
+- **Cómo configurarlo:**
+  1. Ve a la sección **Bot Start Flow**.
+  2. Selecciona el flujo por defecto deseado (por defecto es **"Main Flow"**).
+  3. Haz clic en **Save**.
+
+<Frame caption="Configuración del flujo de inicio del bot">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Si necesitas más ayuda, contacta al soporte de Botky.
+</Card>
