@@ -1,0 +1,93 @@
+---
+title: "Eventos personalizados"
+description: "Rastrea eventos dentro de tus automatizaciones y visualízalos en analítica con reportes personalizados"
+icon: "chart-simple"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky te permite rastrear distintos **eventos** que ocurren dentro de las automatizaciones del bot y visualizarlos en la analítica como **eventos personalizados** y **reportes personalizados**.
+
+Podrás rastrear los eventos que elijas y luego armar reportes analíticos colaborativos con ellos, dándote más información sobre tus datos y métricas para medir el rendimiento de tu bot y tus automatizaciones.
+
+<Card type="note">
+  Video de referencia: [youtu.be/GNWqUUpn3Hc](https://youtu.be/GNWqUUpn3Hc)
+</Card>
+
+## Crear y usar eventos personalizados
+
+En tu panel, haz clic en el bot y entra al Constructor de Flujos.
+
+<Frame caption="Entrar al Constructor de Flujos">
+  <Placeholder />
+</Frame>
+
+Dentro del Constructor de Flujos, selecciona la pestaña **Contenidos** y luego **Eventos personalizados**.
+
+<Frame caption="Sección Eventos personalizados en Contenidos">
+  <Placeholder />
+</Frame>
+
+Al crear un nuevo evento, debes proporcionar estos parámetros:
+
+- **Nombre del evento (Event Name):** el nombre del evento personalizado.
+- **Descripción del evento (Event Description):** describe qué hace y qué rastrea el evento.
+- **Nombres de parámetros (Parameter Names):** los nombres de los parámetros que quieres rastrear, por ejemplo: producto, categoría de venta, nombre de la persona, etc.
+
+<Frame caption="Configuración del nombre, descripción y parámetros del evento">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  No tienes que llenar todos los parámetros para que el evento funcione, pero debes proporcionar **al menos uno** para el rastreo.
+</Card>
+
+<Frame caption="Parámetros del evento">
+  <Placeholder />
+</Frame>
+
+Después de crear el evento, ve al Constructor de Flujos y agrega la acción **"Evento personalizado"** desde un bloque de Acción para empezar a integrarlo y rastrearlo.
+
+<Frame caption="Agregar la acción Evento personalizado en un bloque de Acción">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Acción de Evento personalizado en el flujo">
+  <Placeholder />
+</Frame>
+
+Haz clic en **Editar acción** y configura el evento.
+
+<Frame caption="Editar la acción del evento">
+  <Placeholder />
+</Frame>
+
+Aquí el evento rastreará el **canal** desde el que vienen los usuarios, y el contador sumará uno al número total de veces que ocurre el evento.
+
+<Frame caption="Configuración del rastreo por canal">
+  <Placeholder />
+</Frame>
+
+El evento ya está listo para ser rastreado.
+
+## Visualizar la analítica de los eventos personalizados
+
+Haz clic en la pestaña **Analítica**, selecciona **eventos personalizados** para ver la analítica de ese evento en particular.
+
+<Frame caption="Analítica de eventos personalizados">
+  <Placeholder />
+</Frame>
+
+Haz clic en el evento para ver más a fondo su analítica.
+
+<Frame caption="Detalle de la analítica de un evento">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Vista ampliada de métricas del evento">
+  <Placeholder />
+</Frame>
