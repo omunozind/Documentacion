@@ -1,0 +1,92 @@
+---
+title: "Grupos de agentes"
+description: "Organiza a tus agentes humanos en grupos con reparto automático, y controla su estado en línea"
+icon: "users-gear"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Lo que antes era "Agente de Chat en vivo" ahora se llama **Grupo de agentes**.
+
+## Dónde encontrarlo
+
+Ve a **Configuración del espacio de trabajo → Grupos de agentes**.
+
+<Steps>
+  <Step title="Haz clic en '+ Grupo'">
+    Para agregar un nuevo grupo de agentes.
+  </Step>
+  <Step title="Ponle un nombre al grupo">
+    Por ejemplo, "Soporte".
+  </Step>
+  <Step title="Elige el método de asignación">
+    - **Aleatorio (Random)** — reparte por turnos (Round Robin). Es la opción que prefiere la mayoría.
+    - **Menos asignado (Least Assigned)** — asigna al agente con menos conversaciones pendientes.
+  </Step>
+  <Step title="Activa 'Solo en línea' si lo necesitas">
+    Esta opción verifica que el agente esté conectado antes de asignarle la conversación — actívala si solo quieres asignaciones a agentes disponibles en ese momento.
+  </Step>
+  <Step title="Revisa los miembros disponibles">
+    Y ajusta el peso (weighting) de cada uno: entre más alto el número, más probabilidad de que le asignen conversaciones.
+  </Step>
+  <Step title="Haz clic en Crear">
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de un nuevo Grupo de agentes: nombre, método de asignación y peso">
+  <Placeholder />
+</Frame>
+
+El grupo aparece en tu resumen de Grupos de agentes por defecto — puedes editarlo con el ícono de lápiz, o crear otros (Equipo de Ventas, Equipo de Soporte, Equipo de Desarrollo, etc.).
+
+## Qué significa estar "en línea"
+
+Un agente aparece en línea cuando tiene la sección de Chat en vivo abierta. Si sale de esa ventana, el sistema no puede verificar que siga disponible — por eso los agentes deben mantener Chat en vivo abierto en una pestaña del navegador.
+
+<Card type="note">
+  Puedes tener Chat en vivo abierto desde el panel principal o desde dentro de un bot específico — no importa dónde, mientras el agente esté presente en esa ventana.
+</Card>
+
+## Cómo funciona dentro del Constructor de Flujos
+
+<Steps>
+  <Step title="Crea un subflujo, por ejemplo 'Asignación de agente de Chat en vivo'">
+  </Step>
+  <Step title="Agrega un bloque de Acción → Acciones básicas">
+    Elige **Asignar a agente** o **Asignar a grupo de agentes**.
+  </Step>
+</Steps>
+
+### Opciones de grupo de agentes
+
+<CardGroup cols={2}>
+  <Card title="Grupo por defecto 1 y 2" icon="users">
+    "Todos los usuarios (Aleatorio)" y "Todos los usuarios (Menos asignado)" — asignan entre **todos** los miembros del espacio de trabajo.
+  </Card>
+  <Card title="Grupo por defecto 3 y 4" icon="user-tie">
+    "Solo agentes (Aleatorio)" y "Solo agentes (Menos asignado)" — asignan únicamente entre quienes tienen el **rol de agente**.
+  </Card>
+</CardGroup>
+
+<Card type="tip">
+  Si estos grupos preestablecidos no se ajustan a lo que necesitas (por ejemplo, un grupo de Soporte con configuraciones específicas), crea tu propio grupo personalizado.
+</Card>
+
+## Nuevas condiciones relacionadas con agentes
+
+Disponibles dentro del nodo de Condición: **Última interacción del agente (minutos atrás)**, **Está asignado a un agente**, **El agente asignado está en línea**, **Hay agentes en línea**.
+
+<CardGroup cols={2}>
+  <Card title="¿Agente asignado en línea?" icon="user-check">
+    Úsala para reasignar la conversación si el agente actual está desconectado.
+  </Card>
+  <Card title="¿Hay agentes en línea?" icon="user-clock">
+    Úsala para avisarle al usuario cuando no haya soporte humano disponible, y ofrecerle que lo contacten en horario laboral.
+  </Card>
+</CardGroup>
+
+El campo del sistema **Última interacción del agente** admite estos operadores de tiempo: después, antes, en una fecha, entre fechas, entre horas, hora después, hora antes.
