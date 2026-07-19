@@ -1,0 +1,23 @@
+---
+title: "Actualizar perfil de usuario"
+description: "Actualiza los datos del usuario desde su plataforma de origen, incluyendo foto y zona horaria"
+icon: "user-pen"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta acción actualiza los datos del usuario tomándolos desde su plataforma de origen (por ejemplo, Facebook o WhatsApp) — útil cuando necesitas refrescar la información de perfil de alguien.
+
+Al ejecutarla, se trae la **foto de perfil más reciente** del usuario y se actualiza su **zona horaria**.
+
+<Card type="warning">
+  Esta actualización solo funciona dentro de una ventana de **24 horas** desde la última interacción del usuario.
+</Card>
+
+<Frame caption="Configuración de la acción Actualizar perfil de usuario">
+  <Placeholder />
+</Frame>
