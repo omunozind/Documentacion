@@ -28,7 +28,8 @@
           {"group": "Chat en vivo", "icon": "comments", "pages": ["live-chat/overview", "live-chat/agent-groups", "live-chat/collaborators", "live-chat/user-data-segments", "live-chat/conversation-starter-prompt", "live-chat/sortable-options", "live-chat/search-messages", "live-chat/scheduled-messages", "live-chat/multiple-files-upload", "live-chat/chat-assistant", "live-chat/merge-bot-users"]},
           {"group": "Usuarios del bot", "icon": "users", "pages": ["bot-users/overview"]},
           {"group": "Tableros", "icon": "table-columns", "pages": ["boards/overview"]},
-          {"group": "AI Hub", "icon": "robot", "pages": ["ai-hub/overview", "ai-hub/ai-prompts", "ai-hub/auto-suggestions", "ai-hub/mcp-servers", "ai-hub/ai-agents-web-search", "ai-hub/knowledge-base", "ai-hub/settings"]}
+          {"group": "AI Hub", "icon": "robot", "pages": ["ai-hub/overview", "ai-hub/ai-prompts", "ai-hub/auto-suggestions", "ai-hub/mcp-servers", "ai-hub/ai-agents-web-search", "ai-hub/knowledge-base", "ai-hub/settings"]},
+          {"group": "Automatización", "icon": "gears", "pages": ["automation/overview", "automation/keywords", "automation/sequences", "automation/triggers", "automation/intents", "automation/comment-keywords", "automation/facebook-lead-forms"]}
         ]
       }
     ]
