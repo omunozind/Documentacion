@@ -1,0 +1,151 @@
+---
+title: "Dialogflow"
+description: "Entrena a tu bot para reconocer preguntas frecuentes y entender lenguaje humano de forma flexible"
+icon: "comments"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Con **Dialogflow** puedes preconfigurar preguntas frecuentes para que tu bot resuelva las consultas simples por su cuenta y transfiera las más difíciles a un agente. También puedes entrenar a tu bot para que entienda un lenguaje más humano — saludos, agradecimientos, interacciones básicas, etc.
+
+## Configurar Dialogflow
+
+<Steps>
+  <Step title="Entra a tu panel de Dialogflow">
+    Haz clic en el ícono de engranaje y luego en la URL de tu proyecto.
+  </Step>
+  <Step title="Ve a 'IAM y administración' → 'Cuentas de servicio'">
+    Desde el menú de opciones en la esquina superior izquierda.
+  </Step>
+  <Step title="Crea una cuenta de servicio">
+    Sigue el proceso indicado en pantalla.
+  </Step>
+  <Step title="Genera una clave">
+    Ve a 'Administrar claves' y crea una clave nueva — esto descarga un archivo JSON.
+  </Step>
+  <Step title="Sube el archivo JSON a Botky">
+    Y haz clic en Sincronizar agentes una vez completada la integración.
+  </Step>
+</Steps>
+
+<Card type="tip">
+  Si ves un aviso de que "Google no ha verificado esta app", haz clic en "Avanzado" y luego en "Ir al sitio de Botky" — es seguro continuar.
+</Card>
+
+<Frame caption="Autorización de acceso a la cuenta de Dialogflow">
+  <Placeholder />
+</Frame>
+
+### Crear un agente en Dialogflow
+
+<Steps>
+  <Step title="Haz clic en 'Crear agente'">
+    En la barra lateral izquierda de Dialogflow.
+  </Step>
+  <Step title="Ponle un nombre al agente">
+  </Step>
+  <Step title="Elige el idioma y la zona horaria por defecto">
+  </Step>
+  <Step title="Haz clic en Crear">
+  </Step>
+</Steps>
+
+<Card type="warning">
+  Si te aparece el error "Google Cloud Platform service has been disabled", probablemente se deba a que usaste una cuenta de Google de tu organización (algo como tunombre@tuempresa.com). Puedes resolverlo pidiéndole a tu administrador que autorice Google Cloud Platform, o usando tu cuenta personal de Google en su lugar.
+</Card>
+
+Vuelve a Botky y haz clic en **Sincronizar agentes** — todos tus agentes aparecerán listados ahí.
+
+## Usar Dialogflow en tu flujo
+
+<Steps>
+  <Step title="Elige el flujo que quieres que gestione tu agente de Dialogflow">
+  </Step>
+  <Step title="Ve a Automatización en la barra lateral">
+    Activa la **Respuesta por defecto**.
+  </Step>
+  <Step title="Elige la frecuencia">
+    Normalmente "Cada vez".
+  </Step>
+  <Step title="Haz clic en 'Elegir subflujo' y selecciona tu agente">
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de la Respuesta por defecto con tu agente de Dialogflow">
+  <Placeholder />
+</Frame>
+
+Entra a la interfaz de FAQs haciendo clic en **Administrar FAQs**.
+
+<Card type="note">
+  El botón **Sincronizar entidad de producto** es para uso de Ecommerce: sincroniza la información de tus productos con Dialogflow, para que el bot reconozca y responda cuando un usuario pregunte por productos específicos. Escribe `{{` para insertar el nombre del producto.
+</Card>
+
+### Crear una FAQ
+
+Haz clic en **+ Nueva FAQ** para empezar a construir tu diálogo inteligente.
+
+<Steps>
+  <Step title="Escribe la pregunta y sus variantes">
+    Agrega tantas formas equivalentes de hacer la misma pregunta como puedas — Dialogflow usa coincidencia difusa (fuzzy matching), así que no necesitas cubrir cada detalle. Por ejemplo, si registras "¿Cuál es su horario de oficina?" y "¿Cuándo abren?", el bot reconocerá también "¿horario?" o "¿a qué hora abren?", incluso con errores de escritura.
+  </Step>
+  <Step title="Escribe la respuesta">
+    El bot elegirá una respuesta al azar de la lista que definas.
+  </Step>
+  <Step title="Elige un subflujo para enviar (opcional)">
+    Se enviará justo después de la respuesta.
+  </Step>
+  <Step title="Guarda">
+  </Step>
+</Steps>
+
+<Frame caption="Creación de una nueva FAQ con preguntas, respuestas y subflujo opcional">
+  <Placeholder />
+</Frame>
+
+## Mejorar tu agente de Dialogflow
+
+Vuelve al sitio de Dialogflow — verás que Botky creó automáticamente varios "intents" (intenciones) a partir de tus FAQs.
+
+<Steps>
+  <Step title="Elige tu agente y entra a 'Intents'">
+    Ahí verás las intenciones sincronizadas desde Botky.
+  </Step>
+  <Step title="Prueba tu bot">
+    Verifica si entiende correctamente cuál FAQ le estás preguntando.
+  </Step>
+  <Step title="Ajusta el 'Intent de respaldo' o el 'Intent de bienvenida' si lo necesitas">
+    El "Intent de respaldo" (Default Fallback Intent) se activa cuando ninguna FAQ coincide.
+  </Step>
+</Steps>
+
+Puedes editar cualquier intent para que el bot entienda mejor. Por ejemplo, selecciona una palabra clave (como el nombre de una ciudad) y márcala con la etiqueta correspondiente (`@sys-geo-city`) — así, la próxima vez que un usuario pregunte por otra ciudad, el bot sabrá que se trata del mismo tipo de pregunta. Dialogflow ya trae vocabulario predefinido para colores, horas, códigos postales, países, nombres de calles, idiomas y más — y puedes crear tus propias categorías.
+
+## Respuestas con contenido dinámico
+
+La respuesta no tiene que ser solo texto — puedes usar una **carga personalizada (Custom Payload)**.
+
+<Steps>
+  <Step title="Crea una FAQ solo con preguntas">
+    Sin respuesta ni subflujo todavía.
+  </Step>
+  <Step title="Espera a que el nuevo intent aparezca en Dialogflow">
+    Puede que necesites refrescar la página.
+  </Step>
+  <Step title="En el intent, entra a 'Agregar respuestas' → 'Carga personalizada'">
+    Pega el formato de respuesta que necesites: texto, multimedia, archivos, botones, acciones, respuestas rápidas, etc.
+  </Step>
+  <Step title="Ajusta el contenido y guarda">
+    Por ejemplo, personaliza el texto del botón y el número de un botón de llamada.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de una carga personalizada (Custom Payload) en Dialogflow">
+  <Placeholder />
+</Frame>
+
+Prueba el resultado desde el panel de pruebas de Dialogflow, y verifica que también se vea bien desde el lado del usuario.
