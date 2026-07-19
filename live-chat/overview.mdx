@@ -1,0 +1,64 @@
+---
+title: "Descripción general de Chat en vivo"
+description: "Cómo responder como humano a tus usuarios: la bandeja de conversaciones, el área de respuesta y el perfil del suscriptor"
+icon: "comments"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+**Chat en vivo** te permite darle seguimiento humano a tus usuarios — hay una bandeja disponible para cada canal.
+
+## Cómo acceder
+
+<CardGroup cols={2}>
+  <Card title="Desde el panel principal" icon="table-columns">
+    Ve a la pestaña **Chat en vivo** en la parte superior, donde puedes ver todos tus bots y elegir el canal que quieras revisar.
+  </Card>
+  <Card title="Desde un canal específico" icon="robot">
+    Dentro de cualquier bot, entra a **Chat en vivo** en la barra lateral para ver únicamente los suscriptores de ese canal.
+  </Card>
+</CardGroup>
+
+## Las partes de la interfaz
+
+<AccordionGroup>
+  <Accordion title="1. Lista de suscriptores" icon="list">
+    Cambia entre las pestañas **Bandeja** y **Resuelto**, busca conversaciones por nombre de usuario, y haz clic en cualquiera para ver su perfil y detalle de conversación.
+  </Accordion>
+
+  <Accordion title="2. Panel de conversación" icon="comment">
+    El ícono `<=` oculta la lista de suscriptores. Se muestra la foto y nombre del suscriptor. El ícono de check mueve la conversación a **Resuelto**. El menú de tres puntos ofrece "Ocultar mensaje del bot" y "Administrar atajos". Pasa el mouse sobre un mensaje del bot para reenviarlo o saltar a ese paso del flujo.
+  </Accordion>
+
+  <Accordion title="3. Área de respuesta del agente" icon="keyboard">
+    Escribe tu respuesta en el campo de texto. Escribe `/` seguido de una palabra clave para buscar atajos. El ícono `</>` inserta variables (como el nombre del usuario) — también puedes escribir `{{` para buscar el nombre del campo. El ícono de la izquierda cambia la persona con la que respondes (por defecto, el chatbot). Puedes alternar entre **Respuesta** (fondo blanco, se envía al suscriptor) y **Nota** (fondo amarillo, solo uso interno). En la esquina inferior derecha: emojis, multimedia (imagen, gif, audio, video, archivo), subflujos y enviar.
+  </Accordion>
+
+  <Accordion title="4. Perfil del suscriptor" icon="id-card">
+    Muestra la información de perfil del usuario.
+  </Accordion>
+
+  <Accordion title="5. Notas y metadatos" icon="note-sticky">
+    Agrega o quita etiquetas directamente, revisa las secuencias a las que está suscrito y los temas de notificación (solo se pueden quitar desde aquí), y consulta, ajusta o elimina los campos personalizados del usuario.
+  </Accordion>
+</AccordionGroup>
+
+<Frame caption="Las 5 secciones de la interfaz de Chat en vivo">
+  <Placeholder />
+</Frame>
+
+## Enviar un subflujo
+
+Haz clic en el ícono de subflujo para abrir una ventana donde puedes buscar y elegir el flujo que quieras enviar. Presiona **Enviar Subflujo** para despacharlo.
+
+<Card type="warning">
+  Asegúrate de haber desactivado el modo Chat en vivo antes de enviar el subflujo.
+</Card>
+
+## Pausa de automatización
+
+Cuando un agente responde, se activa **Pausar automatización**: una cuenta regresiva de 30 minutos durante la cual el bot deja de responder automáticamente. Puedes extender ese tiempo si lo necesitas.
