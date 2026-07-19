@@ -4,11 +4,21 @@ description: "Automatiza procesos cuando ocurre un evento: un pago, un opt-in, u
 icon: "bolt"
 ---
 
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
 Los **Disparadores (Triggers)** automatizan procesos en tu bot. Por ejemplo, cuando un usuario hace opt-in para correo, puedes sincronizar sus datos con un CRM o Google Sheet.
 
 ## Acceder a los disparadores
 
 Ve a **Automatización → Disparadores** en el menú izquierdo y haz clic en el botón azul **+ Nuevo disparador**.
+
+<Frame caption="Sección de Disparadores y botón Nuevo disparador">
+  <Placeholder />
+</Frame>
 
 ## Crear un disparador
 
@@ -27,10 +37,18 @@ Ve a **Automatización → Disparadores** en el menú izquierdo y haz clic en el
   </Step>
 </Steps>
 
+<Frame caption="Ventana de configuración de un disparador y selección de subflujo">
+  <Placeholder />
+</Frame>
+
 ## Gestionar los disparadores
 
 - **Interruptor:** actívalo o desactívalo con el switch de la izquierda.
 - **Editar:** accede a los ajustes y a la opción de eliminar.
+
+<Frame caption="Lista de disparadores con controles de activar/editar">
+  <Placeholder />
+</Frame>
 
 ## Disparadores disponibles
 
