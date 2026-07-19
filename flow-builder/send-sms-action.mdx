@@ -1,0 +1,25 @@
+---
+title: "Enviar SMS"
+description: "Envía un SMS a cualquier usuario que haya compartido su número, incluso fuera de la ventana de 24 horas"
+icon: "comment-sms"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta acción le permite a tu bot enviar un SMS a cualquier usuario que haya compartido su número de contacto.
+
+<Card type="tip">
+  A diferencia de otros canales, con SMS puedes contactar usuarios **aunque su última interacción haya sido hace más de 24 horas**.
+</Card>
+
+<Card type="warning">
+  Necesitas tener tu número activado en uno de los 4 proveedores de SMS soportados: **Twilio, SignalWire, Telnyx o Message Media**.
+</Card>
+
+<Frame caption="Configuración de la acción Enviar SMS">
+  <Placeholder />
+</Frame>
