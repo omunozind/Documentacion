@@ -1,0 +1,106 @@
+---
+title: "Atajos (Shortcuts)"
+description: "Fragmentos de texto predefinidos para insertar rápido en el Chat en vivo; impórtalos desde un CSV"
+icon: "keyboard"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## ¿Qué son los atajos del Chat en vivo?
+
+Los **atajos (Shortcuts)** del Chat en vivo son fragmentos de texto predefinidos que puedes insertar rápida y fácilmente en las conversaciones. Son ideales para información o respuestas de uso frecuente, ahorrándote tiempo y esfuerzo.
+
+<Frame caption="Atajos del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+## Beneficios de importar atajos
+
+- **Ahorra tiempo:** importar atajos elimina la necesidad de crearlos uno por uno, especialmente si ya tienes mucho contenido.
+- **Mayor eficiencia:** importar agiliza tu flujo de trabajo al poblar tu biblioteca de atajos más rápido.
+- **Menos errores:** importar desde un CSV bien organizado minimiza el riesgo de errores de tipeo o inconsistencias.
+
+## Cómo importar atajos del Chat en vivo
+
+<Steps>
+  <Step title="Accede a la sección de atajos">
+    En tu bot, ve a **Herramientas** y selecciona **Atajos (Shortcuts)**.
+
+    <Frame caption="Sección de Atajos en Herramientas">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Ubica la función de importar">
+    Haz clic en la flecha del desplegable (esquina superior derecha) y elige **Import**.
+
+    <Frame caption="Opción Import en el menú de atajos">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+**Prepara tu archivo CSV:**
+
+- Usa una herramienta de hojas de cálculo como Google Sheets para crear un CSV.
+- El CSV debe tener **dos columnas**:
+  - **Shortcut Name:** los nombres que asignas a cada atajo.
+  - **Description:** el contenido de texto real de cada atajo.
+
+<Frame caption="Estructura del archivo CSV con dos columnas">
+  <Placeholder />
+</Frame>
+
+## Exportar el archivo CSV
+
+Haz clic en **Download** para guardar una copia del CSV con el formato correcto.
+
+## Importar y mapear las columnas del CSV
+
+- Arrastra y suelta el CSV descargado en la sección de importación.
+- Verifica que la columna **Shortcut Name** esté mapeada al campo **Name**, y la columna **Description** al campo **Value**.
+
+<Frame caption="Mapeo de las columnas del CSV a los campos">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Verificación del mapeo de columnas">
+  <Placeholder />
+</Frame>
+
+**Confirma la importación:** haz clic en **Confirm Import** para iniciar el proceso.
+
+<Frame caption="Confirmar la importación">
+  <Placeholder />
+</Frame>
+
+**Verifica los atajos importados:** la plataforma mostrará el número de atajos importados con éxito. Ya puedes usarlos en tus conversaciones de Chat en vivo.
+
+<Frame caption="Número de atajos importados con éxito">
+  <Placeholder />
+</Frame>
+
+## Usar los atajos del Chat en vivo
+
+<Steps>
+  <Step title="Abre una conversación de Chat en vivo">
+    Abre cualquier conversación en curso o nueva.
+  </Step>
+  <Step title="Inserta un atajo">
+    Escribe el símbolo de barra **"/"** en la ventana de chat. Aparecerá la lista de atajos disponibles. Selecciona el que quieras.
+
+    <Frame caption="Lista de atajos al escribir /">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Envía el atajo">
+    El contenido del atajo seleccionado se insertará automáticamente en la ventana de chat. Presiona **Enter** para enviar el mensaje al cliente.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Si necesitas ayuda con la función de importación o con los atajos del Chat en vivo, contacta al soporte de Botky.
+</Card>
