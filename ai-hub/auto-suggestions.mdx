@@ -4,19 +4,31 @@ description: "El Agente de IA propone preguntas de seguimiento en el canal de We
 icon: "comment-dots"
 ---
 
-El Agente de IA integrado con el canal de **WebChat** puede ofrecer **sugerencias de preguntas de seguimiento** basadas en la interacción del usuario, guiándolo hacia los siguientes pasos más relevantes.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
 
-## Ajustes disponibles
+El Agente de IA en el canal de **WebChat** ahora puede sugerir **preguntas de seguimiento** basadas en la interacción del usuario.
+
+<Frame caption="Sugerencias de preguntas de seguimiento en el WebChat">
+  <Placeholder />
+</Frame>
+
+Hay dos ajustes disponibles:
 
 <AccordionGroup>
-  <Accordion title="Auto Sugerencia" icon="lightbulb">
-    Genera preguntas de seguimiento basadas **únicamente en la consulta del usuario**. Puede que no incluya todo el conocimiento del Agente de IA, ya que se enfoca solo en lo que el usuario escribió.
+  <Accordion title="1. Auto Sugerencia" icon="lightbulb">
+    - Genera preguntas de seguimiento basadas **únicamente en la consulta del usuario**.
+    - Puede que no siempre incluya todo el conocimiento del Agente de IA, ya que se enfoca solo en la entrada del usuario.
   </Accordion>
-  <Accordion title="Incluir habilidades del agente e información de servicios" icon="layer-group">
-    Enriquece las sugerencias incorporando las **habilidades predefinidas** del agente y los **datos del negocio**. Así, las preguntas sugeridas se alinean con la experiencia del agente y la información disponible.
+  <Accordion title="2. Incluir habilidades del agente e información de servicios" icon="layer-group">
+    - Enriquece las sugerencias incorporando las **habilidades predefinidas** del agente y los **datos del negocio**.
+    - Asegura que las preguntas sugeridas se alineen con la experiencia del agente y la información disponible del negocio.
   </Accordion>
 </AccordionGroup>
 
-<Card type="note">
-  En resumen: puedes elegir entre sugerencias **enfocadas** solo en la entrada del usuario, o **ampliadas** para reflejar todo lo que el agente sabe hacer.
-</Card>
+<Frame caption="Ajustes de Auto Sugerencias">
+  <Placeholder />
+</Frame>
