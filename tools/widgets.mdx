@@ -1,0 +1,206 @@
+---
+title: "Widgets"
+description: "Formas rápidas de que tus usuarios empiecen a hablar con el bot: Ref URL de Messenger, código QR, chat en tu web y botones de chat"
+icon: "window-restore"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Para los bots de **Facebook**, puedes configurar *widgets* para que los usuarios empiecen a hablar con el bot rápidamente. Para configurarlos:
+
+<Steps>
+  <Step title="Abre Herramientas">
+    Ve a **Herramientas** en la barra lateral izquierda.
+  </Step>
+  <Step title="Widgets">
+    Haz clic en **Widgets**.
+  </Step>
+  <Step title="Nuevo widget">
+    Haz clic en **+ New Widget**.
+  </Step>
+</Steps>
+
+<Frame caption="Creación de un nuevo widget">
+  <Placeholder />
+</Frame>
+
+## Widget Messenger Ref URL
+
+<Frame caption="Configuración del widget Messenger Ref URL">
+  <Placeholder />
+</Frame>
+
+1. Pon un nombre al widget.
+2. Elige el subflujo al que lleva el enlace.
+
+*(Deja los pasos 3 y 4 en blanco si no necesitas referencia.)*
+
+3. Pon un nombre de parámetro.
+4. Asigna un campo personalizado de usuario.
+
+**¿Qué hace el parámetro Ref?** Por ejemplo, creas un Messenger ref URL a tu flujo principal, para que al visitar esa URL tus usuarios empiecen a hablar con el bot. Pero además quieres saber **de dónde** obtuvieron el enlace. En ese caso, pones `source` en el área 3 y una variable para guardar la fuente en el área 4. Luego, agregas un nombre de fuente en tu enlace según dónde lo pongas. Así obtienes información extra del enlace.
+
+Tras llenar todo, haz clic en **Save** y luego en el lápiz para editar el widget: verás una URL única generada.
+
+<Frame caption="URL única generada para el widget">
+  <Placeholder />
+</Frame>
+
+Al visitar cualquiera de estos enlaces, tus usuarios empiezan a hablar con el bot:
+
+| Enlace de ejemplo | Valor en la variable "source" |
+|---|---|
+| `https://m.me/102942588321862?ref=source` | *(vacío)* |
+| `https://m.me/102942588321862?ref=source--advertisement` | advertisement |
+| `https://m.me/102942588321862?ref=source--shared_by_users` | shared_by_users |
+| `https://m.me/102942588321862?ref=source--promoted_by_sales` | promoted_by_sales |
+
+Como ves, al agregar `--xxx` después del enlace, el valor `xxx` se transfiere al bot.
+
+## Widget de código QR
+
+Los enlaces URL son cómodos para hacer clic de forma electrónica, mientras que los códigos QR son más adecuados para uso presencial. Al escanear un QR, tus usuarios empiezan a hablar con el bot.
+
+<Frame caption="Configuración del widget de código QR">
+  <Placeholder />
+</Frame>
+
+Para configurarlo:
+
+<Steps>
+  <Step title="Nombre del widget" />
+  <Step title="Selecciona un subflujo" />
+  <Step title="Sube tu logo" />
+  <Step title="Ajusta el tamaño de la imagen (si hace falta)" />
+  <Step title="Ajusta el color (si hace falta)" />
+  <Step title="Ajusta la escala de los puntos (si hace falta)" />
+  <Step title="Genera la imagen">
+    Haz clic en **Generate** para obtener la imagen a la derecha. Repite los pasos 4, 5 y 6 hasta obtener la imagen final.
+  </Step>
+  <Step title="Descarga tu QR">
+    Descárgalo, imprímelo y colócalo en tu tienda, restaurante, oficina, etc.
+  </Step>
+</Steps>
+
+## Widget de Customer Chat
+
+<Frame caption="Configuración del widget Customer Chat">
+  <Placeholder />
+</Frame>
+
+Este widget se incrusta en tu sitio web, para que tu web tenga un bot atendiendo a los usuarios.
+
+<Frame caption="Ejemplo del bot incrustado en un sitio web">
+  <Placeholder />
+</Frame>
+
+Para configurarlo:
+
+<Steps>
+  <Step title="Nombre del widget" />
+  <Step title="Selecciona un subflujo" />
+  <Step title="Ajusta el color del tema (si hace falta)" />
+  <Step title="Ajusta el mensaje de saludo">
+    Se mostrará encima del botón "Continue as xx".
+  </Step>
+  <Step title="Selecciona un tipo de visualización" />
+  <Step title="Ajusta el retraso">
+    Si eliges el segundo o el tercer tipo de visualización.
+  </Step>
+  <Step title="Payload">
+    Ver la explicación en Messenger Ref URL más arriba.
+  </Step>
+</Steps>
+
+Haz clic en **Save**. Luego haz clic en el lápiz para editar el widget y verás un botón.
+
+<Frame caption="Botón para instalar el widget en tu web">
+  <Placeholder />
+</Frame>
+
+Haz clic en él.
+
+<Frame caption="Ventana de instalación del snippet">
+  <Placeholder />
+</Frame>
+
+Agrega los sitios web donde quieres poner el bot. Luego instala el *snippet* copiando y pegando el código. ¡Listo! 😎 Ya tienes un bot en tu web.
+
+<Frame caption="Bot funcionando en el sitio web">
+  <Placeholder />
+</Frame>
+
+## Botones de chat (Chat Buttons)
+
+### Configurar el "Powered By" en el widget de botón de chat
+
+Puedes agregar un texto y enlace personalizados de **"Powered By"** al footer de tu widget de chat.
+
+<Card type="warning">
+  Esta función solo aplica al **Button Widget**, no al **WebChat Widget**.
+</Card>
+
+**Diferencias clave:**
+
+- **Button Widget:** redirige a los usuarios a un canal de comunicación específico al hacer clic. El "Powered By" del Button Widget se puede personalizar a partir del plan **Business**.
+
+<Frame caption="Ejemplo de Powered By en el Button Widget">
+  <Placeholder />
+</Frame>
+
+- **WebChat Widget:** funciona como un canal de chat completo donde los usuarios interactúan directamente sin redirección. La personalización del "Powered By" en el WebChat Widget solo está disponible para clientes del plan **Partner**.
+
+<Frame caption="Ejemplo de Powered By en el WebChat Widget">
+  <Placeholder />
+</Frame>
+
+#### Guía paso a paso
+
+<Steps>
+  <Step title="Accede al menú de Widgets">
+    En el panel, ve a la barra lateral izquierda y selecciona **Widgets**.
+  </Step>
+  <Step title="Crea un nuevo widget">
+    Haz clic en **+ New Widget** y elige la opción **Chat button** del desplegable.
+
+    <Frame caption="Elegir Chat button al crear el widget">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Nombra el widget">
+    En la pantalla **Add New Widget**, ingresa un nombre y haz clic en **Save**.
+
+    <Frame caption="Nombrar el widget de botón de chat">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Edita el widget">
+    Ubícalo en la lista y haz clic en el ícono de **lápiz** para configurarlo.
+
+    <Frame caption="Editar el widget de botón de chat">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Configura el 'Powered By'">
+    En el editor de ajustes verás los campos **Powered By** y **Powered By URL**:
+    - **Powered By:** el texto que se mostrará al pie del widget.
+    - **Powered By URL:** el enlace al que se dirigirá el usuario al hacer clic (tu web, una página de contacto o la URL que elijas).
+
+    <Frame caption="Campos Powered By y Powered By URL">
+      <Placeholder />
+    </Frame>
+
+    También puedes usar el **código del widget** para diferenciar la URL de distintos widgets si tienes más de uno en tu espacio de trabajo.
+
+    <Frame caption="Uso del código de widget para diferenciar URLs">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Guarda los ajustes">
+    Haz clic en **Save** para aplicar los cambios.
+  </Step>
+</Steps>
