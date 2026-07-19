@@ -1,0 +1,83 @@
+---
+title: "Listas negras (Blacklists)"
+description: "Bloquea el envío de mensajes a ciertos usuarios en el canal de SMS para cumplir con las regulaciones"
+icon: "ban"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Card type="warning">
+  Esta función solo está disponible en los bots de **SMS**.
+</Card>
+
+<Frame caption="Video tutorial de listas negras">
+  <Placeholder />
+</Frame>
+
+Botky te permite agregar usuarios del bot a una **lista negra (blacklist)**. Una vez agregados, no se les puede enviar ningún mensaje.
+
+La ventaja es que te libera de la preocupación de mensajear accidentalmente a un usuario que no quiere ser contactado, evitando violar regulaciones como las leyes **TCPA**.
+
+<Card type="note">
+  Si el usuario escribe **"STOP"**, se agrega automáticamente a la lista negra. Si escribe **"START"**, se elimina de ella.
+</Card>
+
+## Acciones de lista negra
+
+<Frame caption="Acciones de lista negra en Acciones avanzadas">
+  <Placeholder />
+</Frame>
+
+Las acciones de lista negra se encuentran en la sección de **Acciones avanzadas** del nodo de Acción.
+
+### Buscar en la lista negra (Search From Blacklist)
+
+<Frame caption="Acción Search From Blacklist">
+  <Placeholder />
+</Frame>
+
+Esta acción se usa para buscar usuarios que ya están en la lista negra usando su número de teléfono. La lista negra también se puede consultar desde **Herramientas → pestaña Blacklists**.
+
+<Frame caption="Lista negra en la sección de Herramientas">
+  <Placeholder />
+</Frame>
+
+### Agregar a la lista negra (Add To Blacklist)
+
+<Frame caption="Acción Add To Blacklist">
+  <Placeholder />
+</Frame>
+
+Esta acción te permite agregar usuarios del bot a la lista negra usando su número de teléfono.
+
+### Quitar de la lista negra (Remove From Blacklist)
+
+<Frame caption="Acción Remove From Blacklist">
+  <Placeholder />
+</Frame>
+
+Esta acción te permite quitar usuarios del bot de la lista negra usando su número de teléfono.
+
+## Exportar la lista negra
+
+Puedes exportar los usuarios de la lista negra desde la sección de Herramientas. El archivo resultante será un **CSV**.
+
+<Frame caption="Exportación de la lista negra a CSV">
+  <Placeholder />
+</Frame>
+
+## Disparador "Matched In Blacklist"
+
+Si un usuario intenta contactarte de nuevo, o entra al sistema cuando ya está en la lista negra, puedes usar este disparador para ejecutar distintas condiciones y acciones.
+
+El disparador monitorea **todos los bots** del espacio de trabajo. Puedes configurarlo en uno de los bots para manejar las excepciones.
+
+<Frame caption="Disparador Matched In Blacklist">
+  <Placeholder />
+</Frame>
+
+Para configurarlo, ve a la pestaña de **Automatización** y selecciona **"Matched In Blacklist"** del desplegable.
