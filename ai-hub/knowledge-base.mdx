@@ -10,67 +10,185 @@ export const Placeholder = () => (
   </div>
 );
 
-Una **Base de conocimiento** en Botky es un repositorio centralizado de información que permite a tus Agentes de IA y flujos de automatización acceder a los datos específicos de tu negocio.
+Una **Base de conocimiento** en Botky es un repositorio centralizado de información que permite a tus Agentes de IA y flujos de automatización acceder a los datos específicos de tu negocio, para ofrecer respuestas más precisas y contextualizadas.
 
-## Estructura
+## Estructura de la Base de conocimiento
+
+Una Base de conocimiento tiene dos componentes principales:
 
 <CardGroup cols={2}>
   <Card title="Vector Store" icon="database">
-    El contenedor principal que agrupa los archivos relacionados.
+    El contenedor principal que agrupa y organiza varios archivos relacionados.
   </Card>
   <Card title="Archivos" icon="file-lines">
-    Documentos individuales (PDF, texto, etc.) que guardan la información de tu negocio.
+    Documentos individuales con la información de tu negocio (PDF, documentos de texto, etc.).
   </Card>
 </CardGroup>
 
-<Card type="note">
-  Las Bases de conocimiento se **comparten entre todos los bots** de tu espacio de trabajo, para reutilizar la información de forma eficiente.
+<Card type="warning">
+  Las Bases de conocimiento se **comparten entre todos los bots** del espacio de trabajo, permitiendo reutilizar la información de forma eficiente.
 </Card>
 
-## Requisito previo
+## Cómo crear una Base de conocimiento
 
-Antes de construir una Base de conocimiento, debes conectar tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → Inteligencia Artificial → OpenAI**.
+### Requisito previo
 
-## Pasos de configuración
+Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → Inteligencia Artificial → OpenAI**.
+
+<Frame caption="Conexión de la API Key de OpenAI">
+  <Placeholder />
+</Frame>
+
+### Paso a paso
 
 <Steps>
   <Step title="Accede al AI Hub">
     Entra a cualquier chatbot y ve a **AI Hub → Base de conocimiento**.
+
+    <Frame caption="Sección Base de conocimiento en el AI Hub">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Crea el Vector Store">
-    Haz clic en **Crear nuevo Vector Store**, define un nombre, la expiración (opcional) y sube los archivos.
+  <Step title="Crea un Vector Store">
+    Haz clic en **Crear nuevo Vector Store**.
+
+    <Frame caption="Botón Crear nuevo Vector Store">
+      <Placeholder />
+    </Frame>
+
+    **Configuración del Vector Store:**
+    - Define un nombre (ej. "Info del negocio").
+    - Configura la expiración (opcional; `0` = sin expiración).
+    - Sube archivos directamente o selecciona archivos existentes.
+
+    <Frame caption="Configuración del Vector Store: nombre, expiración y archivos">
+      <Placeholder />
+    </Frame>
   </Step>
   <Step title="Agrega archivos">
-    Usa la sección **Archivos** para incluir documentos adicionales.
+    Haz clic en **Archivos** para agregar más documentos.
+
+    <Frame caption="Agregar archivos a la Base de conocimiento">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Finaliza la Base de conocimiento">
-    Haz clic en el botón **+**, ponle nombre, agrega una descripción, selecciona tu Vector Store y guarda.
+  <Step title="Crea la Base de conocimiento">
+    Haz clic en el botón **+**.
+
+    <Frame caption="Botón + para crear la Base de conocimiento">
+      <Placeholder />
+    </Frame>
+
+    - Ponle nombre.
+    - Agrega una descripción (opcional).
+    - Selecciona el Vector Store creado.
+    - Guarda los ajustes.
+
+    <Frame caption="Nombre, descripción y Vector Store de la Base de conocimiento">
+      <Placeholder />
+    </Frame>
   </Step>
 </Steps>
 
-## Dónde se usa
+## Dónde usar la Base de conocimiento
 
-<Tabs>
-  <Tab title="En Agentes de IA">
-    En **AI Hub → Agentes de IA → Model Responses → OpenAI Responses**, activa la opción **Base de conocimiento** y elige la que quieras.
-  </Tab>
-  <Tab title="En el Constructor de Flujos">
-    En **Constructor de Flujos → Acciones → Integraciones → OpenAI → Buscar en Base de conocimiento**. Configura los mensajes de sistema, selecciona tu Base de conocimiento, ajusta el máximo de resultados (por defecto: 2) y usa un mínimo de **1.000 tokens** para respuestas completas.
-  </Tab>
-</Tabs>
+### 1. En Agentes de IA
 
-## Beneficios
+**Ubicación:** AI Hub → Agentes de IA.
 
-- Entrega información precisa y específica del negocio de forma consistente.
-- Actualizaciones centralizadas que se propagan automáticamente a todos los bots.
-- Reduce la necesidad de entrenar cada bot por separado.
-- Escala con el crecimiento de tu organización agregando más archivos.
-- Mejora la satisfacción del usuario con respuestas relevantes y detalladas.
+<Frame caption="Base de conocimiento en un Agente de IA">
+  <Placeholder />
+</Frame>
+
+→ Model Responses → OpenAI Responses.
+
+<Frame caption="Model Responses → OpenAI Responses">
+  <Placeholder />
+</Frame>
+
+**Configuración:**
+- Activa la opción **"Base de conocimiento"**.
+- Selecciona la Base de conocimiento deseada del desplegable.
+- El Agente de IA consultará automáticamente estos archivos para responder las preguntas del usuario.
+
+<Frame caption="Activar y seleccionar la Base de conocimiento en el agente">
+  <Placeholder />
+</Frame>
+
+**Cómo funciona:** cada vez que el Agente de IA necesite referencias para crear respuestas sobre tu negocio, accederá automáticamente a los archivos de la Base de conocimiento seleccionada.
+
+### 2. En el Constructor de Flujos
+
+**Ubicación:** Constructor de Flujos → Acciones → Integraciones → OpenAI.
+
+<Frame caption="Acción de OpenAI en el Constructor de Flujos">
+  <Placeholder />
+</Frame>
+
+→ Buscar en Base de conocimiento (Search Knowledge Base).
+
+<Frame caption="Opción Buscar en Base de conocimiento">
+  <Placeholder />
+</Frame>
+
+**Ajustes disponibles:**
+- **Model Response:** selecciona el modelo de respuesta.
+- **System Message:** configura el prompt de la IA (cómo debe responder según la información del negocio).
+- **User Input:** normalmente usa la última entrada de texto del usuario.
+- **Knowledge Base:** selecciona la base de conocimiento.
+- **Max Number of Results:** número de resultados devueltos (por defecto: 2).
+- **Max Tokens:** se recomienda un mínimo de **1.000 tokens** para respuestas completas.
+- **Remove Key Values:** opción para quitar parámetros específicos del payload (útil para no superar el límite de **20.000 caracteres** de los campos JSON).
+
+<Frame caption="Ajustes de Buscar en Base de conocimiento">
+  <Placeholder />
+</Frame>
+
+## Ventajas de crear una Base de conocimiento
+
+<AccordionGroup>
+  <Accordion title="1. Respuestas precisas y consistentes" icon="bullseye">
+    - La IA da información exacta sobre tu negocio, productos y servicios.
+    - Elimina respuestas genéricas o inexactas.
+    - Mantiene la consistencia en la información compartida.
+  </Accordion>
+  <Accordion title="2. Gestión centralizada" icon="sitemap">
+    - Actualiza la información en un solo lugar.
+    - Los cambios se reflejan automáticamente en todos los bots del espacio de trabajo.
+    - Simplifica el mantenimiento y el control de versiones.
+  </Accordion>
+  <Accordion title="3. Ahorro de tiempo" icon="clock">
+    - Elimina la necesidad de entrenar cada bot individualmente.
+    - Reutilización eficiente del contenido entre varios bots.
+    - Reduce el tiempo de configuración de nuevos agentes.
+  </Accordion>
+  <Accordion title="4. Escalabilidad" icon="chart-line">
+    - Agrega nuevos archivos fácilmente a medida que crece tu negocio.
+    - Organiza la información en distintos Vector Stores por categoría.
+    - Soporta múltiples bases de conocimiento para distintos contextos.
+  </Accordion>
+  <Accordion title="5. Mejor experiencia de usuario" icon="face-smile">
+    - Respuestas más relevantes y detalladas.
+    - Reducción de preguntas sin responder.
+    - Soporte más eficiente y personalizado.
+  </Accordion>
+  <Accordion title="6. Flexibilidad de integración" icon="puzzle-piece">
+    - Úsala en Agentes de IA para respuestas automáticas.
+    - Intégrala en flujos complejos en el Constructor de Flujos.
+    - Combínala con otras acciones e integraciones.
+  </Accordion>
+</AccordionGroup>
 
 ## Buenas prácticas
 
-<Card type="note">
-  - Mantén los Vector Stores organizados y con nombres de archivo descriptivos.
-  - Usa un mínimo de **1.000 tokens** en las búsquedas.
-  - Verifica regularmente el estado de procesamiento de los archivos y prueba las respuestas configuradas.
-</Card>
+<Steps>
+  <Step title="Organización de archivos">
+    Mantén los archivos relacionados en el mismo Vector Store, usa nombres descriptivos para identificarlos fácilmente y actualiza la información regularmente.
+  </Step>
+  <Step title="Configuración de tokens">
+    Para las búsquedas en la Base de conocimiento, usa un mínimo de **1.000 tokens**. Ajústalo según la complejidad de las respuestas.
+  </Step>
+  <Step title="Monitoreo">
+    Revisa el estado de procesamiento de los archivos, usa **"Sync"** para refrescar la vista tras cambios y prueba las respuestas después de configurar.
+  </Step>
+</Steps>
