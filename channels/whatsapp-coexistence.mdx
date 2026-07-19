@@ -1,0 +1,70 @@
+---
+title: "Modo Coexistencia"
+description: "Usa tu app de WhatsApp Business en el teléfono y conecta el mismo número a la Cloud API al mismo tiempo"
+icon: "arrows-to-circle"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+La **Coexistencia** te permite usar tu **app de WhatsApp Business** en un teléfono **y** conectar el mismo número a la **WhatsApp Cloud API** al mismo tiempo. También se le llama *WhatsApp Business QR Connection* o *WhatsApp Business App connection*.
+
+## Requisitos previos
+
+1. **App de WhatsApp Business:** debes usar la aplicación WhatsApp Business (distinta del WhatsApp Messenger estándar).
+2. **Última versión instalada:** actualiza la app a la última versión de la tienda oficial.
+3. **Meta Business Manager:** se requiere una cuenta activa.
+4. **Cumplimiento:** el **código de país** del número y tu **tipo de negocio** deben cumplir las políticas de WhatsApp Business y Commerce.
+
+<Card type="warning">
+  **Importante (para evitar errores):** las WABA de coexistencia tienen una relación **1:1** entre la WABA y el número (el modelo SMB asume un número = un negocio). Las WABA de Embedded Signup **no** tienen esta restricción (soportan varios números por WABA). Por eso, el error **"Cannot add phone number to WhatsApp Business Account"** es un comportamiento **esperado** cuando la WABA se creó por el flujo de coexistencia.
+
+  Dos opciones si necesitas varios números:
+  1. **Crea una nueva WABA por Embedded Signup** estándar (no coexistencia); soportará varios números vía API.
+  2. **Mantén la coexistencia para el primer número + crea una WABA separada** para los números adicionales.
+</Card>
+
+## Cómo conectar
+
+Ve a **WhatsApp Cloud** en la plataforma y presiona **"Connect WhatsApp Cloud"**. Elige tu **Business Manager** y selecciona el tipo de conexión: **"Connect the WhatsApp Business App."**
+
+<Frame caption="Connect WhatsApp Cloud → Connect the WhatsApp Business App">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Si ya tienes un número conectado a la Cloud API y quieres agregar otro con Coexistencia: simplemente conecta el nuevo número de la app de WhatsApp Business. Tras conectarlo, **ambos números** aparecerán en tu panel automáticamente, sin configuración adicional.
+</Card>
+
+<Steps>
+  <Step title="Ingresa el número">
+    Ingresa el número de tu app de WhatsApp Business. Se enviará un código de verificación dentro de la app desde la Facebook Business Account.
+
+    <Frame caption="Verificación dentro de la app de WhatsApp Business">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Escanea el QR o ingresa el código">
+    Escanea el código QR o ingresa el código. Recibirás ambos mensajes en tu WhatsApp.
+  </Step>
+  <Step title="Conecta a la Business Platform">
+    Toca el botón **"Connect to the Business Platform"** para continuar el onboarding.
+
+    <Frame caption="Connect to the Business Platform">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Confirma compartir el historial">
+    Toca **Confirm** en la app para dar la opción de compartir tu historial de chat. Escanea el QR o pega el código de verificación.
+  </Step>
+  <Step title="Finaliza">
+    Agrega tu método de pago y vincula tu número al bot. ¡Listo!
+  </Step>
+</Steps>
+
+<Card type="warning">
+  La app de WhatsApp Business en tu teléfono debe permanecer **activa**. **No** elimines ni desinstales la cuenta de la app de WhatsApp Business.
+</Card>
