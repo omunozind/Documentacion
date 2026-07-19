@@ -1,6 +1,6 @@
 ---
-title: "Omni Channel"
-description: "Crea un solo bot y conéctalo a todos los canales soportados: Web Chat, Messenger, Instagram, WhatsApp, Telegram y más"
+title: "Omnicanal"
+description: "Crea un solo bot y conéctalo a todos los canales soportados: Chat web, Messenger, Instagram, WhatsApp, Telegram y más"
 icon: "share-nodes"
 ---
 
@@ -10,12 +10,14 @@ export const Placeholder = () => (
   </div>
 );
 
-El **Omni Channel** te da la capacidad de crear **un solo bot** y conectarlo a todos los canales soportados. Donde antes necesitabas 10 chatbots (uno por canal), ahora haces lo mismo con **un único chatbot**.
+El **Omnicanal** te da la capacidad de crear **un solo bot** y conectarlo a todos los canales soportados. Donde antes necesitabas 10 chatbots (uno por canal), ahora haces lo mismo con **un único chatbot**.
+
+## Canales soportados
 
 Actualmente hay varios canales soportados, y se seguirán agregando más:
 
 <CardGroup cols={3}>
-  <Card title="Web Chat" icon="comment-dots" />
+  <Card title="Chat web" icon="comment-dots" />
   <Card title="Facebook Messenger" icon="facebook-messenger" />
   <Card title="Instagram" icon="instagram" />
   <Card title="Telegram" icon="telegram" />
@@ -32,17 +34,17 @@ Actualmente hay varios canales soportados, y se seguirán agregando más:
   Para WhatsApp puedes usar la **Meta Cloud API** o un **BSP**.
 </Card>
 
-A diferencia de los canales separados (Facebook, WhatsApp, Telegram, etc.), tienes **un Omni Channel por espacio de trabajo**.
+A diferencia de los canales separados (Facebook, WhatsApp, Telegram, etc.), tienes **un Omnicanal por espacio de trabajo**.
 
 <Card type="warning">
-  Un espacio de trabajo solo puede crear **un** Omni Channel.
+  Un espacio de trabajo solo puede crear **un** Omnicanal.
 </Card>
 
-## Cómo crear un chatbot en Omni Channel
+## Cómo crear un chatbot Omnicanal
 
-En el menú izquierdo, presiona **omnichannel**. Tendrás dos opciones para crear tu chatbot Omni Channel.
+En el menú izquierdo, presiona **Omnicanal**. Tendrás dos opciones para crear tu chatbot.
 
-<Frame caption="Opciones para crear el chatbot Omni Channel">
+<Frame caption="Opciones para crear el chatbot Omnicanal">
   <Placeholder />
 </Frame>
 
@@ -51,7 +53,7 @@ En el menú izquierdo, presiona **omnichannel**. Tendrás dos opciones para crea
     Si empiezas con un espacio de trabajo vacío sin chatbots, esta será la opción más probable.
   </Step>
   <Step title="Convertir un chatbot existente">
-    Si ya creaste un chatbot en un canal y quieres usar ese mismo dentro de tu Omni Channel, elige **"Convert Existing Chatbot"**. Tiene la gran ventaja de **importar los usuarios del bot** que ya tienes al chatbot Omni Channel.
+    Si ya creaste un chatbot en un canal y quieres usar ese mismo dentro de tu Omnicanal, elige **"Convert Existing Chatbot"**. Tiene la gran ventaja de **importar los usuarios del bot** que ya tienes al chatbot Omnicanal.
   </Step>
 </Steps>
 
@@ -69,21 +71,21 @@ Luego llegarás a la ventana donde puedes ponerle nombre y descripción a tu cha
 
 Cuando termines, presiona el botón verde **"create bot"** y podrás conectar los canales.
 
-## Cómo conectar canales al Omni Channel
+## Cómo conectar canales al Omnicanal
 
-Una vez creado tu chatbot Omni Channel, vuelve al panel principal para conectar los canales que quieres que gestione este chatbot.
+Una vez creado tu chatbot Omnicanal, vuelve al panel principal para conectar los canales que quieres que gestione este chatbot.
 
-<Frame caption="Conexión de canales al Omni Channel">
+<Frame caption="Conexión de canales al Omnicanal">
   <Placeholder />
 </Frame>
 
-Si aún no has conectado ningún canal a tu espacio de trabajo, te llevará a ese canal específico para hacerlo. Una vez agregados, podrás vincularlos a este chatbot Omni Channel. Puedes **desvincularlos** en cualquier momento con el botón del lado derecho.
+Si aún no has conectado ningún canal a tu espacio de trabajo, te llevará a ese canal específico para hacerlo. Una vez agregados, podrás vincularlos a este chatbot Omnicanal. Puedes **desvincularlos** en cualquier momento con el botón del lado derecho.
 
 <Frame caption="Vincular y desvincular canales">
   <Placeholder />
 </Frame>
 
-## Cómo crear un flujo Omni Channel
+## Cómo crear un flujo Omnicanal
 
 Ahora que creaste el chatbot y conectaste tus canales, estás listo para construir. Cada función del Constructor de Flujos estará disponible, pero ten en cuenta que **ciertos canales podrían no poder usar algunas**.
 
@@ -95,7 +97,7 @@ Hay una condición que puedes usar para determinar de qué canal proviene un usu
   <Placeholder />
 </Frame>
 
-Podrás elegir entre los canales disponibles en el Omni Channel. Con esta condición puedes dirigir al usuario a funciones específicas de cada canal.
+Podrás elegir entre los canales disponibles en el Omnicanal. Con esta condición puedes dirigir al usuario a funciones específicas de cada canal.
 
 <Frame caption="Selección del canal en la condición">
   <Placeholder />
@@ -110,3 +112,33 @@ Cada bloque, al pasar el cursor sobre él, muestra los canales disponibles con l
 <Frame caption="Íconos de canales que indican la disponibilidad por función">
   <Placeholder />
 </Frame>
+
+---
+
+## Documentación por canal
+
+Guías detalladas de conexión y uso de cada canal:
+
+<CardGroup cols={2}>
+  <Card title="Chat web" icon="comment-dots" href="/channels/webchat">
+    Chatbot en tu propio sitio web.
+  </Card>
+  <Card title="Facebook" icon="facebook" href="/channels/facebook">
+    Automatiza tu página de Facebook Messenger.
+  </Card>
+  <Card title="Instagram" icon="instagram" href="/channels/instagram">
+    Automatiza los mensajes directos de Instagram.
+  </Card>
+  <Card title="WhatsApp" icon="whatsapp" href="/channels/whatsapp">
+    Conecta WhatsApp vía Meta Cloud API.
+  </Card>
+  <Card title="SMS" icon="comment-sms" href="/channels/sms">
+    Envía y recibe mensajes de texto SMS.
+  </Card>
+  <Card title="Voz" icon="phone" href="/channels/voice">
+    Canal de voz con agente de IA en tiempo real.
+  </Card>
+  <Card title="Telegram" icon="telegram" href="/channels/telegram">
+    Automatiza tu bot de Telegram.
+  </Card>
+</CardGroup>
