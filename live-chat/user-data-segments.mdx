@@ -1,0 +1,65 @@
+---
+title: "Segmentos de datos del usuario"
+description: "El perfil del usuario en Chat en vivo, organizado en 7 secciones fáciles de navegar"
+icon: "table-cells"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+En el panel derecho de Chat en vivo, la información del usuario ahora está organizada en secciones separadas — así los agentes no tienen que desplazarse por listas larguísimas de etiquetas y campos personalizados. Puedes moverte entre cada sección con un solo clic, dentro de la misma ventana.
+
+<AccordionGroup>
+  <Accordion title="Datos de perfil" icon="id-card">
+    La información básica de perfil del usuario.
+
+    <Frame caption="Sección de datos de perfil del usuario">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Campos personalizados (CUFs)" icon="list-check">
+    Todos los campos personalizados del usuario, en un solo lugar.
+
+    <Frame caption="Sección de campos personalizados">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Notas" icon="note-sticky">
+    Las notas guardadas para este usuario.
+
+    <Frame caption="Sección de notas">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Etiquetas" icon="tag">
+    Las etiquetas asignadas al usuario.
+
+    <Frame caption="Sección de etiquetas">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Secuencias suscritas" icon="list-ol">
+    Las secuencias a las que el usuario está actualmente suscrito.
+
+    <Frame caption="Sección de secuencias suscritas">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Temas de notificación" icon="bell">
+    Los temas de notificación asignados al usuario.
+
+    <Frame caption="Sección de temas de notificación">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Pedidos de la tienda" icon="cart-shopping">
+    Los pedidos que el usuario ha hecho en tu tienda (Ecommerce).
+
+    <Frame caption="Sección de pedidos de la tienda">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
