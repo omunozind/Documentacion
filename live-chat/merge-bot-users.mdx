@@ -1,0 +1,59 @@
+---
+title: "Combinar usuarios del bot"
+description: "Une dos perfiles duplicados en uno solo, conservando historial de conversación, campos y etiquetas"
+icon: "user-group"
+---
+
+**Combinar usuarios del bot** te permite unir dos perfiles en una sola cuenta, juntando el historial de conversación, los campos personalizados y toda la información asociada. Es muy útil cuando tienes perfiles duplicados y quieres que todo quede bajo una sola cuenta.
+
+## Cómo combinar usuarios manualmente
+
+<Steps>
+  <Step title="Abre el perfil del usuario en Chat en vivo">
+    Búscalo entre las conversaciones activas y haz clic en su nombre.
+  </Step>
+  <Step title="Abre el menú de tres puntos (⋮)">
+    En la esquina superior derecha del panel de perfil, elige **Combinar usuario del bot**.
+  </Step>
+  <Step title="Elige el usuario secundario">
+    Tu perfil seleccionado aparece como "Usuario primario" a la izquierda. Usa el menú desplegable "Elegir usuario" para elegir cuál perfil se combinará con el primario.
+  </Step>
+  <Step title="Revisa los detalles antes de confirmar">
+    Decide si quieres eliminar o conservar el perfil secundario después de combinarlos. Verifica bien — esta acción no se puede deshacer.
+  </Step>
+  <Step title="Haz clic en Combinar">
+    Aparece una confirmación: "Todos los datos relevantes del usuario secundario se transferirán al usuario primario." Elige Cancelar o Confirmar.
+  </Step>
+</Steps>
+
+<Card type="danger">
+  Combinar usuarios es **irreversible**. Confirma bien que ambos perfiles son duplicados antes de continuar.
+</Card>
+
+<Frame caption="Ventana de combinar usuario: primario, secundario y confirmación">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Automatizar la combinación con la API de usuarios del bot
+
+<Steps>
+  <Step title="Crea un nuevo flujo (o usa uno existente)">
+  </Step>
+  <Step title="Agrega un nodo de Acción → 'API de usuarios del bot'">
+    Antes del nodo de Condición, para identificar usuarios duplicados.
+  </Step>
+  <Step title="Agrega un nodo de Condición">
+    Para detectar duplicados comparando correo o teléfono.
+  </Step>
+  <Step title="Agrega otro nodo de Acción → 'API de usuarios del bot'">
+    Después del nodo de Condición, con la acción configurada como **Combinar usuario del bot**.
+  </Step>
+  <Step title="Configura la combinación">
+    Indica el **NS del usuario secundario** (el perfil duplicado), y activa "Eliminar después de combinar" si quieres que se borre automáticamente.
+  </Step>
+  <Step title="Publica el flujo">
+    Y define el disparador para que la combinación ocurra automáticamente cuando se cumplan las condiciones.
+  </Step>
+</Steps>
