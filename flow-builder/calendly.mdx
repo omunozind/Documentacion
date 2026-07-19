@@ -1,0 +1,43 @@
+---
+title: "Calendly y Calendly Booking URL"
+description: "Deja que tus usuarios agenden citas directamente desde una conversación con tu bot"
+icon: "calendar-check"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Una vez que conectes tu cuenta de **Calendly** en Integraciones, puedes usarla en cualquiera de tus chatbots.
+
+## Enviar un botón de reserva
+
+<Steps>
+  <Step title="Ve a un flujo y elige un mensaje de texto">
+    Agrégale un botón.
+  </Step>
+  <Step title="Elige el tipo de botón 'Calendly'">
+    Este tipo de botón se obtiene directamente de tu cuenta de Calendly conectada.
+  </Step>
+  <Step title="Selecciona el tipo de evento">
+    Los eventos disponibles se traen automáticamente desde tu cuenta de Calendly.
+  </Step>
+</Steps>
+
+<Frame caption="Selección del tipo de evento de Calendly para el botón">
+  <Placeholder />
+</Frame>
+
+Cuando envías este mensaje con el botón a tus usuarios, ellos pueden agendar una cita usando el evento que configuraste.
+
+## Recuperar los datos de la reserva
+
+Después de que el usuario agende, puedes obtener los detalles de la reserva desde el campo del sistema **SELECT**. Ábrelo desde el buscador de variables del sistema.
+
+<Frame caption="Campo del sistema SELECT mostrando los datos de la reserva de Calendly">
+  <Placeholder />
+</Frame>
+
+Ahí verás toda la información que devuelve Calendly, incluyendo los detalles de confirmación — perfecto para confirmarle la cita a tu usuario dentro de la misma conversación.
