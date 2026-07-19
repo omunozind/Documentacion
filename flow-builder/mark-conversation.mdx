@@ -1,0 +1,27 @@
+---
+title: "Marcar estado de la conversación"
+description: "Marca una conversación como Abierta, Pendiente, Spam, Resuelta o Inválida para organizar el trabajo de tus agentes"
+icon: "flag"
+---
+
+<AccordionGroup>
+  <Accordion title="Marcar como Abierta (Open)" icon="envelope-open">
+    Se activa al abrir una conversación. Por defecto, todas las conversaciones quedan **Abiertas** a menos que alguna acción específica cambie su estado.
+  </Accordion>
+
+  <Accordion title="Marcar como Pendiente (Pending)" icon="clock">
+    Marca automáticamente la conversación como **Pendiente** para que resalte frente a tus agentes. Un caso típico: una tienda con varias categorías (Envío, Pago, Reembolso). Cuando el usuario elige "Reembolso", el bot marca la conversación como Pendiente para que el agente le dé prioridad.
+  </Accordion>
+
+  <Accordion title="Marcar como Spam" icon="ban">
+    Marca la conversación como spam. Ayuda a que el chatbot se mantenga enfocado en dar información precisa, evitando distraerse con interacciones problemáticas mientras desarrollas tu bot.
+  </Accordion>
+
+  <Accordion title="Marcar como Resuelta (Done)" icon="circle-check">
+    Úsala cuando el flujo terminó exitosamente y el usuario obtuvo lo que buscaba. Al marcarla así desde una acción, evitas que un agente marque esa misma conversación como resuelta de nuevo. Por ejemplo, cada vez que un usuario elige una opción de calificación, la conversación se marca automáticamente como Resuelta.
+  </Accordion>
+
+  <Accordion title="Marcar como Inválida (Invalid)" icon="circle-xmark">
+    Marca conversaciones que no cumplen con el caso de negocio, ya sea para el bot o para un agente — por ejemplo, leads que no califican.
+  </Accordion>
+</AccordionGroup>
