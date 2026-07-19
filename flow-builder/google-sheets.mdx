@@ -1,0 +1,61 @@
+---
+title: "Google Sheets"
+description: "Agrega, actualiza y consulta datos directamente en una hoja de cálculo de Google desde tu flujo"
+icon: "table"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Con **Google Sheets** puedes agregar, actualizar y consultar información en una hoja de cálculo, además de procesar esos datos con las herramientas propias de Google.
+
+## Conectar tu cuenta de Google
+
+<Steps>
+  <Step title="Ve a Integraciones → Google Sheet">
+    Desde el menú lateral de tu panel.
+  </Step>
+  <Step title="Desconecta la integración anterior, si ya tenías una">
+    Esto asegura una configuración desde cero.
+  </Step>
+  <Step title="Haz clic en 'Iniciar sesión con Google'">
+    Elige la cuenta que quieres conectar y completa el inicio de sesión.
+  </Step>
+</Steps>
+
+<Frame caption="Inicio de sesión con Google para conectar Google Sheets">
+  <Placeholder />
+</Frame>
+
+## Agregar tus hojas de cálculo
+
+<Card type="note">
+  Las hojas ahora se vinculan en este paso — ya no se agregan directamente dentro de cada flujo como antes.
+</Card>
+
+<Tabs>
+  <Tab title="Agregar hoja por URL">
+    Pega la URL de la hoja de Google que quieres conectar, y ponle un nombre para identificarla fácilmente.
+  </Tab>
+  <Tab title="Agregar hoja directamente">
+    Haz clic en "Agregar hoja" y navega entre las hojas disponibles en tu cuenta para elegir la que quieras conectar.
+  </Tab>
+</Tabs>
+
+<Frame caption="Hojas de cálculo conectadas y disponibles para usar en tus flujos">
+  <Placeholder />
+</Frame>
+
+## Usar tu hoja de cálculo desde un paso de Acción
+
+Una vez conectada, tu hoja aparece disponible dentro del nodo de Acción → Integraciones → Google Sheet, con estas funciones:
+
+<CardGroup cols={2}>
+  <Card title="Insertar fila" icon="table-cells" />
+  <Card title="Obtener fila por valor" icon="magnifying-glass" />
+  <Card title="Obtener múltiples filas" icon="table-list" />
+  <Card title="Actualizar fila" icon="pen" />
+</CardGroup>
