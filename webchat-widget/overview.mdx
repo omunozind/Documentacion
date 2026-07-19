@@ -1,0 +1,467 @@
+---
+title: "WebChat Widget"
+description: "Agrega un chatbot a cualquier sitio web sin depender de otro canal: contenido, ajustes, canales, apariencia, estilos de visualización y personalización avanzada"
+icon: "comment-dots"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Con el **WebChat Widget** puedes agregar un chatbot a cualquier sitio web sin depender de otro canal. Esto te ayuda a aprovechar el poder del marketing conversacional sin las desventajas o restricciones que otros canales podrían tener.
+
+## Cómo acceder al WebChat Widget
+
+Para acceder al WebChat Widget necesitas crear un chatbot **Omni Channel**. El web chat solo está disponible bajo Omni Channel.
+
+Si no has creado un Omni Channel, puedes usar el botón **"Set up omni channel"** para crearlo.
+
+<Frame caption="Botón Set up omni channel">
+  <Placeholder />
+</Frame>
+
+Al crear el Omni Channel, dale un nombre. Puedes crear un bot nuevo o convertir un bot existente en Omni Channel.
+
+<Frame caption="Creación del Omni Channel">
+  <Placeholder />
+</Frame>
+
+Después de crearlo, encontrarás el **WebChat Widget** en la barra lateral izquierda.
+
+<Frame caption="WebChat Widget en la barra lateral">
+  <Placeholder />
+</Frame>
+
+## Ajustes del WebChat Widget
+
+Una vez ubicado tu widget, presiona el ícono de **lápiz** a su derecha para editarlo y personalizarlo. Entrarás a la vista general de ajustes disponibles.
+
+<Frame caption="Vista general de ajustes del WebChat Widget">
+  <Placeholder />
+</Frame>
+
+### Contenido (Content)
+
+La primera sección es la pestaña de **Contenido**, con estas opciones:
+
+- Chat Bubble (burbuja de chat)
+- Chat Header (encabezado)
+- Chat Footer (pie)
+- Conversation button (botón de conversación)
+- Welcome message (mensaje de bienvenida)
+- Out of office message (mensaje de fuera de oficina)
+- Pre Chat form (formulario previo al chat)
+- Default start flow (flujo de inicio por defecto)
+
+<AccordionGroup>
+  <Accordion title="Chat Bubble" icon="comment">
+    Selecciona el ícono de burbuja que prefieras; lo verás reflejado en la vista previa de la esquina inferior derecha. También puedes elegir entre solo el ícono o combinarlo con texto.
+
+    <Frame caption="Selección del ícono de burbuja">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Chat Footer" icon="shoe-prints">
+    Configura tu propio pie para el widget. Puedes incluir texto, hipervínculos y más.
+
+    <Frame caption="Configuración del pie del widget">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Conversation button" icon="hand-pointer">
+    Crea tus propios botones de llamada a la acción (CTA) para que los usuarios inicien, continúen o comiencen una nueva conversación.
+
+    <Frame caption="Botones de conversación (CTA)">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Welcome message" icon="hand-wave">
+    Agrega un titular y un eslogan de bienvenida para incentivar a la gente a presionar tu widget.
+
+    <Frame caption="Mensaje de bienvenida del widget">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Out of office message" icon="clock">
+    Agrega una notificación a tu widget y define el mensaje de respuesta.
+
+    <Frame caption="Mensaje de fuera de oficina">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+#### Pre Chat Form (formulario previo al chat)
+
+Con este ajuste puedes capturar datos esenciales **antes** de que empiece el chat y guardarlos en cualquier campo del sistema o personalizado.
+
+<Card type="warning">
+  El Pre Chat Form **no** funciona con los modos *embed* ni *full page*. Debes usar el estilo *floating* o *pop up*.
+</Card>
+
+<Steps>
+  <Step title="Header del formulario">
+    Define el encabezado donde declaras el propósito del formulario.
+  </Step>
+  <Step title="Agrega campos">
+    Presiona **+ Add Field** y selecciona el tipo de campo.
+
+    <Frame caption="Tipos de campo del formulario previo">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Edita cada campo">
+    Al editar un campo (ej. tipo email), puedes: seleccionar el campo de usuario donde guardar el valor, definir la etiqueta, el *placeholder* con un ejemplo del formato, una *hint* con información adicional, si es requerido y el ancho del campo. Presiona **done** para guardar.
+
+    <Frame caption="Edición de un campo del formulario">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Mensaje previo (opcional)">
+    Debajo de los campos puedes permitir que el usuario escriba un mensaje antes de entrar al chatbot. Ese mensaje se guarda en el campo del sistema `{{last text input}}`.
+
+    <Frame caption="Opción de mensaje previo del usuario">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+#### Flujo de inicio por defecto (Default Start Flow)
+
+Si el formulario previo **no** está habilitado, puedes definir un flujo de inicio por defecto de tu elección, seleccionando cualquiera de los flujos que hayas creado.
+
+<Frame caption="Selección del flujo de inicio por defecto">
+  <Placeholder />
+</Frame>
+
+#### Saltar el botón de conversación
+
+En el web chat puedes configurar para **saltar** la necesidad de hacer clic en el botón para iniciar la conversación. Para lograrlo:
+
+- Asegúrate de **no** seleccionar otros canales en el WebChat Widget.
+- Asegúrate de que el **flujo de inicio por defecto** esté conectado.
+
+<Frame caption="Ajustes de canales conectados">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  Tampoco puedes tener el formulario previo (Pre Chat Form) habilitado para que esto funcione.
+</Card>
+
+Después de aplicar los cambios, instala el código y prueba en tu sitio: ya no debería ser necesario hacer clic en el botón para iniciar la conversación.
+
+#### Mensajes de saludo (Greeting Messages)
+
+Puedes configurar distintos mensajes de saludo en distintas páginas de tu web. Aparecen para el usuario que entra por primera vez. Puedes definir en qué página(s) se disparan, y el nombre y perfil del remitente.
+
+<Frame caption="Configuración de mensajes de saludo por página">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Video de referencia: [youtube.com/watch?v=WpZPwabHZGs](https://www.youtube.com/watch?v=WpZPwabHZGs)
+</Card>
+
+### Ajustes (Settings)
+
+En la pestaña de **Settings** tienes estas opciones:
+
+<AccordionGroup>
+  <Accordion title="Language (idioma)" icon="language">
+    Cambia el idioma de algunas secciones dentro del widget. Selecciónalo a la izquierda y verás los cambios en la vista previa al instante.
+  </Accordion>
+  <Accordion title="Notification Sound (sonido de notificación)" icon="volume-high">
+    Define el sonido de las notificaciones de mensajes nuevos. Puedes elegir entre **21 sonidos** o seleccionar "sin sonido".
+  </Accordion>
+  <Accordion title="Features (funciones)" icon="toggle-on">
+    Activa o desactiva ciertas funciones del widget:
+    - **Allow Emoji Picker** — permite elegir emojis predefinidos.
+    - **Allow Upload Attachments** — permite subir documentos, imágenes y videos.
+    - **Allow users to end chat** — permite al usuario cerrar la conversación.
+    - **Allow popup Chat Window** — permite convertir el widget en un popup con una pantalla más grande.
+    - **Allow to Continue Chat in Mobile** — el usuario escanea un QR para continuar la conversación en su teléfono.
+    - **Enable Text Typing Effect** — la respuesta aparece palabra por palabra; si se desactiva, aparece de golpe.
+    - **Allow Audio Recorder** — permite enviar mensajes de audio.
+  </Accordion>
+  <Accordion title="Whitelist Domain (dominio en lista blanca)" icon="globe">
+    Para mostrar el widget en tu web, debes poner tu dominio en la lista blanca. Solo agregas tu **dominio raíz** y todos los subdominios se reconocen automáticamente.
+
+    <Card type="warning">
+      Solo se soporta **un dominio raíz** en el Omni Channel.
+    </Card>
+  </Accordion>
+</AccordionGroup>
+
+<Frame caption="Pestaña Settings del WebChat Widget">
+  <Placeholder />
+</Frame>
+
+### Canales (Channels)
+
+El WebChat Widget te permite redirigir a los usuarios a múltiples plataformas como WhatsApp, Facebook Messenger, Instagram, Telegram y más, para que se conecten contigo por su canal preferido.
+
+**Cómo funciona:** cuando un usuario visita tu widget por primera vez, ve un botón **Get Started** junto con varias opciones de canal (integradas vía Omni Channels). Si una plataforma como WhatsApp está vinculada a un Omni channel y el usuario hace clic en su ícono en lugar del botón Get Started, se le redirige automáticamente a esa plataforma.
+
+**Dónde encontrarlo:**
+
+<Steps>
+  <Step title="Ajustes del WebChat Widget">
+    Accede al menú de ajustes de tu widget.
+  </Step>
+  <Step title="Ubica la opción Channels">
+    Encontrarás una opción llamada **Channels** en los ajustes.
+
+    <Frame caption="Opción Channels en los ajustes">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Activa los canales deseados">
+    Activa los canales que quieras. Una vez activos, aparecerán en el widget listos para redirigir a los usuarios.
+
+    <Frame caption="Canales activados en el widget">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+### Apariencia (Appearance)
+
+Personaliza tu web chat para que coincida con los colores y preferencias de tu marca. Opciones: **Theme, Font, Colors, Start Chat Button**.
+
+<Frame caption="Pestaña de Apariencia">
+  <Placeholder />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Theme (tema)" icon="palette">
+    Personaliza la apariencia con valores predefinidos. Temas disponibles: **Standard, Flat, Facebook, WhatsApp, WeChat**. Estos temas dan una experiencia familiar (como Messenger o WhatsApp), haciendo que el usuario se sienta cómodo al conversar con tu negocio.
+  </Accordion>
+  <Accordion title="Font (fuente)" icon="font">
+    Cambia por completo la apariencia del widget para que coincida con tu marca. Actualmente puedes elegir entre **25 fuentes**.
+  </Accordion>
+  <Accordion title="Color" icon="fill-drip">
+    Cambia la paleta de colores. Puedes personalizar: **Widget Color, Bubble Icon & Text color, Start Chat Button Color, Header Background Color, Body Background Color**.
+  </Accordion>
+  <Accordion title="Start Chat Button" icon="square">
+    Cambia el radio del borde del botón "start conversation". También puedes elegir la opción **custom** para poner tu propio radio y mantenerlo en sintonía con los botones de tu web.
+  </Accordion>
+</AccordionGroup>
+
+### Estilo de visualización (Display Style)
+
+El estilo de visualización te da varias formas de usar el web chat en tu web. Hay 5 secciones: **Style, Design, Install code, Set Custom User ID, Custom CSS**.
+
+<Frame caption="Opciones de Display Style">
+  <Placeholder />
+</Frame>
+
+#### Style
+
+Tienes 4 estilos para elegir:
+
+- **Floating Modal** — el ícono de chat en la parte inferior de tu página.
+- **Full Page** — incrusta el widget como una página completa.
+- **Embed Chat Window** — muestra la ventana de chat en cualquier parte de tu página.
+- **Popup Modal** — abre una ventana con la conversación; cualquier elemento de tu página puede ser el disparador si le aplicas una clase.
+
+<Card type="note">
+  Para una misma web, puedes instalar **distintos estilos** de web chat en distintas páginas. Video de referencia: [youtube.com/watch?v=Jrcb-y9fw3E](https://www.youtube.com/watch?v=Jrcb-y9fw3E)
+</Card>
+
+#### Design
+
+En la pestaña **Design** configuras los ajustes del widget del estilo que seleccionaste.
+
+<Frame caption="Pestaña Design (ejemplo con Embed Chat Window)">
+  <Placeholder />
+</Frame>
+
+#### Install code
+
+El código de instalación genera el script del estilo de widget que quieres poner en vivo en tu página. El código difiere según el estilo seleccionado.
+
+<Frame caption="Código de instalación del widget">
+  <Placeholder />
+</Frame>
+
+#### Set Custom User ID
+
+Ahora puedes pasar información del usuario desde tu web directamente al bot Omni Channel estableciendo un **Custom User ID**. Esto permite enviar flujos específicos a usuarios invitados vs. usuarios que ya dieron su información, así como recuperar el historial de chat y otros flujos específicos del usuario.
+
+**Acceso:** dentro del bot Omni, haz clic en **Webchat Widget Settings → Display Style → Set Custom User ID**.
+
+<Frame caption="Configuración de Set Custom User ID">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  **Special Key:** un conjunto de cadenas que Botky usa para descifrar el *hash* que envías desde tu web. Es importante porque permite verificar que el usuario efectivamente proviene de tu web y es auténtico.
+</Card>
+
+**Identifier Hash:** una cadena compuesta por el user ID que quieres establecer, cifrada con el algoritmo **SHA256 con HMAC** habilitado. Este hash es la firma única que Botky verifica para autorizar la solicitud. Debe crearse desde el backend de tu web y enviarse en forma cifrada, o la solicitud será denegada. Un ejemplo en PHP:
+
+```php
+$identifier_hash = hash_hmac('sha256', $user_id, 'b02612a8bdf5e736c41ce2002181d124');
+```
+
+**Snippet Code:** el fragmento de código va en la misma sección donde pones el snippet del bot (en el `<head>` de tu web). Contiene el *payload* con los detalles del usuario, junto con los campos obligatorios `user_id` e `identifier_hash`:
+
+```html
+<script>
+  window.addEventListener("chatbot:ready", function () {
+    window.$chatbot.setUser("{user_id}", {
+      name: "full name",
+      email: "user@email.com",
+      identifier_hash: "{identifier_hash}"
+    });
+  });
+</script>
+```
+
+<Card type="note">
+  Las variables `{user_id}` e `{identifier_hash}` deben reemplazarse por los valores que quieres mapear.
+</Card>
+
+**Instrucciones:**
+
+<Steps>
+  <Step title="Copia el snippet">
+    Colócalo en el `<head>` de tu web, en el mismo lugar del snippet del bot.
+  </Step>
+  <Step title="Reemplaza {user_id}">
+    Usa el `user_id` personalizado que quieras (probablemente lo obtendrás del backend de tu servidor).
+  </Step>
+  <Step title="Crea el identifier hash">
+    Con ese mismo `user_id`, genera el hash desde tu backend usando SHA256 con HMAC.
+  </Step>
+  <Step title="Publica">
+    Copia ambos al snippet y publícalo en tu web. Ya podrás crear usuarios con IDs personalizados.
+  </Step>
+</Steps>
+
+<Frame caption="Snippet de Custom User ID en el sitio">
+  <Placeholder />
+</Frame>
+
+#### Custom CSS
+
+Puedes agregar tu propio CSS para personalizar la interfaz del web chat. Estos selectores CSS te sirven para personalizar el iframe del widget:
+
+| Selector CSS | Función |
+|---|---|
+| `mr-1` | El texto del encabezado, arriba junto al logo. |
+| `text-xs` | El texto de estado de respuesta debajo del encabezado. |
+| `custom_chat_header` | El fondo de la sección del encabezado. |
+| `message-content` | El texto de las burbujas del lado del chatbot. |
+| `chat-bubble` | El texto de las burbujas del lado del usuario. |
+| `bot-widget-bubble` | La burbuja de chat en la esquina inferior del sitio. |
+| `text-slate-700` | La línea divisoria y el texto de la fecha en una conversación. |
+| `agent` | La caja de respuesta del lado del chatbot y de los agentes de Chat en vivo. |
+| `user` | La caja de respuesta del lado del usuario. |
+| `chat-message--input` | La caja donde escribes tu mensaje. |
+| `bg-white` | El fondo detrás de las cajas de chat. |
+| `button-wrap .icon-button[type="submit"] svg` | El ícono de enviar. |
+
+### Sección avanzada (Advanced)
+
+Hay muchas personalizaciones avanzadas que puedes hacer con el botón de web chat.
+
+#### Instalar múltiples tipos de widget y distintos flujos de inicio
+
+Puedes instalar tantos tipos de widget como quieras en cualquier página de tu dominio. Una vez generado el tipo de widget, puedes agregarle un **parámetro ref** para iniciar el flujo que prefieras.
+
+<Steps>
+  <Step title="Crea tu ref URL">
+    Crea un ref URL en la sección de **Herramientas** y conéctalo al flujo de tu preferencia. Luego copia el **parámetro ref**.
+
+    <Frame caption="Creación de un ref URL en Herramientas">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Agrega el ref al código de instalación">
+    En tu script de instalación del web chat, agrega un signo de interrogación después de `.js`, luego `ref=` y pega el parámetro ref que copiaste. Esto **sobrescribe** el flujo de inicio por defecto y permite iniciar el flujo que prefieras.
+
+    <Frame caption="Agregar el parámetro ref al script de instalación">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+Esto abre la puerta a usar el mismo widget en distintas páginas pero con distintos flujos de inicio. Casos de uso: una landing con un flujo de ventas específico, o soporte al cliente que empieza con un flujo de soporte.
+
+##### Agregar payloads al WebChat Widget
+
+Como usas el parámetro ref URL, también puedes agregar **payloads** al widget. Los payloads guardan datos específicos directamente en los campos personalizados del usuario sin que este tenga que dártelos (por ejemplo, de qué sección de tu web viene).
+
+<Steps>
+  <Step title="Vuelve al ref URL">
+    En el ref URL que usaste, puedes agregar hasta **10 payloads** para el perfil del usuario.
+
+    <Frame caption="Agregar payloads al ref URL">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Define el campo">
+    Por ejemplo, en el primer payload agrega el campo personalizado `traffic_source`. No olvides presionar **Save**.
+  </Step>
+  <Step title="Agrega el valor en el script">
+    En tu script de instalación, agrega el dato al parámetro ref con **dos guiones** y luego el valor. Ej: `--ebook-7figure-income`. Cuando un visitante interactúe con ese widget, el valor se agregará a su perfil.
+
+    <Frame caption="Payload agregado al perfil del usuario">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+#### Pre-rellenar los datos del usuario del web chat
+
+Si ya tienes la información del usuario (nombre, correo, etc.), puedes pasarla directamente al usuario del web chat, e incluso pasar parámetros extra a sus campos personalizados.
+
+**Pasar información del usuario:**
+
+```html
+<script>
+  window.addEventListener("chatbot:ready", function () {
+    window.$chatbot.setUser("XXXX", {
+      email: "YYYYYY",
+      name: "ZZZZ",
+      avatar_url: "https://res.cloudinary.com/.../avatar.jpg"
+    });
+  });
+</script>
+```
+
+<Card type="warning">
+  Asegúrate de que el `userID` (`XXXX`) sea **único** para cada usuario.
+</Card>
+
+**Pasar parámetros extra al usuario:**
+
+```html
+<script>
+  window.addEventListener("chatbot:ready", function () {
+    window.$chatbot.setCustomAttributes({
+      user_fields: {
+        provider: "XXXX",
+        issue_title: "YYYY"
+      }
+    });
+  });
+</script>
+```
+
+<Card type="note">
+  El nombre del campo personalizado debe ser **exactamente el mismo** que tienes en tu chatbot de Botky. En el ejemplo, `provider` e `issue_title` deben existir con ese mismo nombre en el bot.
+</Card>
+
+<Frame caption="Parámetros extra pasados al usuario del web chat">
+  <Placeholder />
+</Frame>
+
+## Preguntas frecuentes
+
+- ¿Puedo cambiar el pie (footer) del WebChat Widget?
+- ¿Se puede abrir el WebChat Widget por defecto sin hacer clic en el botón?
