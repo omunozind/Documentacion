@@ -1,0 +1,55 @@
+---
+title: "WooCommerce"
+description: "Conecta tu tienda WooCommerce para gestionar carrito, cupones y clientes directamente desde tu bot"
+icon: "bag-shopping"
+---
+
+**WooCommerce** es un plugin de comercio electrónico de código abierto para WordPress, popular por lo simple que es instalarlo y personalizarlo. Botky se integra de forma nativa con todos los endpoints actuales de su API, permitiéndote automatizar pedidos, seguimiento, despacho y reseñas.
+
+## Conectar tu tienda
+
+<Steps>
+  <Step title="Entra a tu tienda y ve a la pestaña de WooCommerce">
+  </Step>
+  <Step title="Ve a Configuración → Avanzado → API REST">
+  </Step>
+  <Step title="Haz clic en 'Agregar clave'">
+    Completa los datos necesarios y genera la clave de API.
+  </Step>
+  <Step title="Guarda y copia las credenciales">
+  </Step>
+  <Step title="Pégalas en Botky, en Integraciones → WooCommerce">
+  </Step>
+</Steps>
+
+## Acciones disponibles
+
+<AccordionGroup>
+  <Accordion title="Carrito" icon="cart-shopping">
+    - **Agregar al carrito** — agrega un producto o variante al carrito del usuario.
+    - **Quitar del carrito por variante**
+    - **Quitar del carrito por producto**
+    - **Vaciar carrito**
+    - **Obtener artículos del carrito** (con todos sus detalles)
+    - **Obtener IDs y cantidades del carrito**
+    - **Crear pedido a partir del carrito**
+  </Accordion>
+  <Accordion title="Cupones" icon="tag">
+    - **Buscar cupones** (con distintos parámetros)
+    - **Obtener información de un cupón** (por ID)
+    - **Eliminar cupón**
+    - **Crear cupón**
+    - **Actualizar cupón**
+  </Accordion>
+  <Accordion title="Clientes" icon="user">
+    - **Buscar clientes** (con distintos parámetros)
+    - **Obtener información del cliente** (por ID)
+    - **Crear cliente**
+    - **Actualizar cliente**
+    - **Eliminar cliente**
+  </Accordion>
+</AccordionGroup>
+
+<Card type="note">
+  Cada acción devuelve la información correspondiente en un formato estructurado que puedes mapear a tus propios campos personalizados.
+</Card>
