@@ -1,0 +1,70 @@
+---
+title: "Almacenamiento S3"
+description: "Sube archivos, imágenes, audio y video directamente a tu propio bucket de Amazon S3"
+icon: "server"
+---
+
+Botky te permite subir archivos multimedia directamente a tu propio **S3**, sin intermediarios — funciona en todos los canales conectados, incluyendo Web Chat, Messenger e Instagram.
+
+## Tipos de archivo soportados
+
+<CardGroup cols={4}>
+  <Card title="Archivos" icon="file" />
+  <Card title="Imágenes" icon="image" />
+  <Card title="Audio" icon="microphone" />
+  <Card title="Video" icon="video" />
+</CardGroup>
+
+## Configurar el almacenamiento en S3
+
+<Steps>
+  <Step title="Ve al flujo, elige un nodo de Acción">
+  </Step>
+  <Step title="Elige 'Acción de Integraciones'">
+    En el menú desplegable verás la opción **Almacenamiento S3**.
+  </Step>
+  <Step title="Guarda tus datos directamente en S3">
+  </Step>
+</Steps>
+
+## Manejar subidas de distintos tipos de archivo
+
+Si tu flujo recibe archivos de tipos variados (imágenes, audio, etc.) y quieres organizarlos automáticamente:
+
+<Steps>
+  <Step title="Ve al flujo configurado como respuesta por defecto">
+  </Step>
+  <Step title="Agrega un nodo de Condición">
+    Filtra el último mensaje según su tipo de contenido multimedia.
+  </Step>
+  <Step title="En el nodo de Acción de S3, elige el tipo de contenido">
+    Según la condición que configuraste en el paso anterior.
+  </Step>
+</Steps>
+
+Así, cada tipo de archivo queda guardado directamente en la carpeta correspondiente dentro de tu S3.
+
+## Respuesta
+
+<CardGroup cols={2}>
+  <Card title="Éxito" icon="circle-check">
+    Devuelve un código `200 OK`.
+  </Card>
+  <Card title="Error" icon="circle-xmark">
+    Devuelve el código de error correspondiente si la subida falla.
+  </Card>
+</CardGroup>
+
+## Casos de uso
+
+<CardGroup cols={1}>
+  <Card title="Almacenamiento de multimedia en conversaciones" icon="comments">
+    Guarda archivos que los usuarios comparten durante un chat en vivo — imágenes, notas de audio, etc.
+  </Card>
+  <Card title="Gestión de contenido" icon="folder">
+    Guarda documentos o videos compartidos por usuarios o administradores para revisarlos después.
+  </Card>
+  <Card title="Manejo seguro de datos" icon="lock">
+    Almacena archivos sensibles directamente en S3, cumpliendo con requisitos regulatorios y de seguridad.
+  </Card>
+</CardGroup>
