@@ -1,0 +1,87 @@
+---
+title: "Notas de cierre"
+description: "Permite a los agentes agregar contexto cuando una conversación se cierra o se marca como resuelta"
+icon: "clipboard-check"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Las **Notas de cierre (Closing Notes)** extienden las funcionalidades del Chat en vivo: permiten a los agentes dar más contexto cuando una conversación se cierra o se mueve a **"Resuelta" (Done)**.
+
+<Card type="note">
+  Video de referencia: [youtu.be/N_zb1WxrnOo](https://youtu.be/N_zb1WxrnOo?si=kjrqtSkAZSFRzbm8)
+</Card>
+
+## Crear notas de cierre
+
+Dentro del bot, haz clic en **Contenidos** y luego en **Notas de cierre**.
+
+<Frame caption="Sección Notas de cierre en Contenidos">
+  <Placeholder />
+</Frame>
+
+Haz clic en **+ Nueva categoría**.
+
+<Frame caption="Botón + Nueva categoría">
+  <Placeholder />
+</Frame>
+
+Haz clic en **Guardar** para crear la nueva categoría.
+
+<Frame caption="Guardar la nueva categoría">
+  <Placeholder />
+</Frame>
+
+## Habilitar las notas de cierre
+
+Ve a la pestaña de **Configuración** y haz clic en **Ajustes de Chat en vivo**. Habilita las notas de cierre.
+
+<Frame caption="Habilitar notas de cierre en Ajustes de Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Una vez hecho, haz clic en **Guardar** y podrás usar las notas de cierre.
+
+## Usar las notas de cierre
+
+Las notas de cierre se usan al mover una conversación a **"Resuelta" (Done)**. Si están habilitadas, al mover al usuario a resuelta se le pedirá al agente ingresar la nota de cierre.
+
+<Frame caption="El agente ingresa la nota de cierre al resolver la conversación">
+  <Placeholder />
+</Frame>
+
+La nota de cierre también se puede ver desde la vista general del usuario del bot.
+
+<Frame caption="Nota de cierre en la vista general del usuario">
+  <Placeholder />
+</Frame>
+
+## Disparador de nota de cierre
+
+Una vez aplicada una nota de cierre, puede usarse como **disparador** para ejecutar automatizaciones.
+
+<Frame caption="Nota de cierre como disparador de automatizaciones">
+  <Placeholder />
+</Frame>
+
+Este disparador es útil para notificaciones, analítica y otras automatizaciones relacionadas con el usuario.
+
+## Nota de cierre en un nodo de Condición
+
+También puedes segmentar a los usuarios según su nota de cierre en un nodo de **Condición**.
+
+<Frame caption="Segmentar por nota de cierre en un nodo de Condición">
+  <Placeholder />
+</Frame>
+
+## Analítica de notas de cierre
+
+Puedes acceder a la analítica de notas de cierre desde la pestaña de **Analítica**.
+
+<Frame caption="Analítica de notas de cierre">
+  <Placeholder />
+</Frame>
