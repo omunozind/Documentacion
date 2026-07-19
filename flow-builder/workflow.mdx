@@ -1,0 +1,68 @@
+---
+title: "Flujo de trabajo"
+description: "Automatiza tareas del sistema en segundo plano sin interrumpir la conversación"
+icon: "gears"
+---
+
+Un **Flujo de trabajo** es un flujo que corre "detrás de cámaras": sirve para automatizar tareas como agregar o quitar etiquetas, definir campos personalizados, o hacer llamadas a APIs externas — todo sin que el usuario tenga que esperar ni notarlo. Así la conversación se mantiene fluida mientras el sistema resuelve esas tareas por su cuenta.
+
+<Card type="tip">
+  Piensa en un flujo de trabajo como el "encargado de bodega" de tu chatbot: hace las tareas pesadas mientras la conversación de tus clientes sigue avanzando sin demoras.
+</Card>
+
+## Bloques disponibles
+
+A diferencia de un subflujo normal, un flujo de trabajo solo tiene acceso a un conjunto limitado de bloques, pensados para tareas de sistema:
+
+<CardGroup cols={3}>
+  <Card title="Acción" icon="bolt" />
+  <Card title="Condición" icon="code-branch" />
+  <Card title="Dividir (Split)" icon="shuffle" />
+  <Card title="Enviar correo" icon="envelope" />
+  <Card title="Enviar mensaje" icon="message" />
+  <Card title="Comentario" icon="comment" />
+</CardGroup>
+
+## Cómo crear un flujo de trabajo
+
+<Steps>
+  <Step title="Ve a 'Flujos' en la barra lateral">
+    Haz clic en **+ Nuevo Subflujo**.
+  </Step>
+  <Step title="Elige el tipo 'Flujo de trabajo'">
+    Ponle un nombre y haz clic en **Crear**.
+  </Step>
+  <Step title="Construye tu lógica de backend">
+    Usa los bloques disponibles para definir qué tareas debe automatizar.
+  </Step>
+</Steps>
+
+<Frame caption="Constructor de flujos mostrando los bloques limitados disponibles en un Flujo de trabajo">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Ejemplo práctico
+
+Imagina que un usuario completa su registro con sus datos. Un flujo de trabajo puede, todo al mismo tiempo y sin frenar la conversación:
+
+- Sincronizar los datos con tu CRM vía API
+- Etiquetar al usuario como "registro completado"
+- Notificar por correo a un administrador
+
+Si esas tareas estuvieran dentro del mismo flujo conversacional, el usuario podría quedar esperando varios segundos (o más) mientras todo eso se procesa. El flujo de trabajo evita justamente ese problema.
+
+## Cómo activar un flujo de trabajo
+
+<Steps>
+  <Step title="Agrega un bloque de Acción">
+    Dentro de cualquier flujo conversacional normal.
+  </Step>
+  <Step title="Entra a 'Acciones avanzadas'">
+    Y selecciona la opción **Activar flujo de trabajo** al final de la lista.
+  </Step>
+  <Step title="Elige el flujo de trabajo que quieres ejecutar">
+    Se procesará en segundo plano, sin retrasar la conversación en curso.
+  </Step>
+</Steps>
