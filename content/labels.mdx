@@ -1,0 +1,95 @@
+---
+title: "Labels"
+description: "Como las etiquetas, pero compartidas entre distintos bots del mismo espacio de trabajo"
+icon: "tags"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Las **Labels** funcionan de forma similar a las etiquetas (tags), pero se pueden acceder **entre distintos bots del mismo espacio de trabajo**.
+
+<Card type="note">
+  Esto es muy útil si adquiriste el add-on de pago **"Global Contacts"**. Ten en cuenta que solo está disponible en el plan **Partner**.
+</Card>
+
+## Cómo usar las Labels
+
+Dónde encontrarlas: en **Contenidos** verás las Labels.
+
+<Frame caption="Sección de Labels en Contenidos">
+  <Placeholder />
+</Frame>
+
+Para explicar cómo funcionan, imagina que tienes dos bots en el mismo espacio de trabajo: uno es un bot de WhatsApp y el otro es Omni Channel.
+
+<Frame caption="Dos bots en el mismo espacio de trabajo">
+  <Placeholder />
+</Frame>
+
+Cuando creas una Label, puedes acceder a ella en **todos los bots** que compartan el mismo espacio de trabajo.
+
+<Frame caption="Label disponible en todos los bots del espacio de trabajo">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Label compartida entre bots">
+  <Placeholder />
+</Frame>
+
+**Cómo usarlas en subflujos:** en un nodo de Acción → acción básica → **agregar y quitar Label**.
+
+<Frame caption="Acción de agregar/quitar Label en un subflujo">
+  <Placeholder />
+</Frame>
+
+Ahora puedes ver estas Labels en el Chat en vivo.
+
+<Frame caption="Labels visibles en el Chat en vivo">
+  <Placeholder />
+</Frame>
+
+## Cómo usar las Labels con el add-on "Global Contacts"
+
+### Adquirir el add-on Global Contacts
+
+Solo está disponible en el plan **Partner**. Se adquiere con un costo único. Encuentras el add-on en tus **Ajustes de marca blanca → Partner Settings → Custom Addon → Global Contacts**.
+
+Una vez adquirido, puedes hacer clic en **"settings"** y te mostrará dónde encontrar esta configuración. Está ubicada en el **Chat en vivo**, en la barra de navegación superior, y encuentras **"Search Bot Users"** en el lado izquierdo.
+
+<Frame caption="Acceso a Global Contacts desde el Chat en vivo">
+  <Placeholder />
+</Frame>
+
+### Cómo usar las labels de espacio de trabajo en Global Contacts
+
+La label de espacio de trabajo se comparte entre distintos bots del mismo espacio. Así, si agregaste la misma label en distintos bots, puedes filtrar todos los usuarios que cumplan con tu segmento.
+
+En Global Contacts, haz clic en el ícono de **filtro** y construye y comparte el segmento según las labels del espacio de trabajo.
+
+<Frame caption="Filtro por labels de espacio de trabajo en Global Contacts">
+  <Placeholder />
+</Frame>
+
+Por ejemplo, creamos la label **"new customer"**, compartida entre todos los bots del mismo espacio, y puedes crear el filtro como en la captura.
+
+<Frame caption="Ejemplo de filtro con la label 'new customer'">
+  <Placeholder />
+</Frame>
+
+Una vez guardado, puedes guardarlo como segmento **público o privado**, y tu equipo podrá acceder a estos contactos fácilmente desde la barra lateral izquierda.
+
+<Frame caption="Guardar el segmento como público o privado">
+  <Placeholder />
+</Frame>
+
+## Quitar todas las labels
+
+Esta opción te permite quitar todas las labels desde el Constructor de Flujos.
+
+<Frame caption="Opción para quitar todas las labels">
+  <Placeholder />
+</Frame>
