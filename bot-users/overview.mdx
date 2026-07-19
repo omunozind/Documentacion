@@ -1,0 +1,106 @@
+---
+title: "Descripción general de Usuarios del bot"
+description: "Perfiles, filtros, segmentos e importación de los usuarios que interactúan con tu bot"
+icon: "users"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Cuando alguien interactúa con tu chatbot y acepta suscribirse, se convierte en un **usuario del bot** — un contacto dentro de ese canal. El bot recopila información durante la conversación para darte información sobre tu audiencia. Accede a esta sección desde la barra lateral izquierda, dentro de cualquier bot.
+
+La vista general muestra a todos los usuarios que han interactuado con tu chatbot y aceptado la suscripción.
+
+<Frame caption="Listado general de usuarios del bot">
+  <Placeholder />
+</Frame>
+
+## Filtrar usuarios por condiciones
+
+Usa la opción de filtro para segmentar usuarios según cualquier condición — por ejemplo, encontrar a quienes dejaron su correo, o a quienes quedaron etiquetados después de completar un flujo de bienvenida.
+
+<Frame caption="Filtro de usuarios del bot por condiciones">
+  <Placeholder />
+</Frame>
+
+## Información del usuario
+
+Al hacer clic sobre un usuario del bot, se abre una ventana con todos los datos recopilados.
+
+<CardGroup cols={2}>
+  <Card title="Lado izquierdo" icon="id-card">
+    Nombre, género, idioma, zona horaria y hora local. Debajo de la foto de perfil: opciones para eliminar al usuario o descargar sus datos (compatible con cumplimiento GDPR). También se muestra el ID de usuario del canal y las marcas de tiempo de suscripción y última interacción.
+  </Card>
+  <Card title="Lado derecho (pestañas)" icon="table-columns">
+    **Notas**, **Etiquetas del usuario**, **Secuencias suscritas**, **Temas OTN** y **Campos personalizados del usuario**. Puedes agregar o quitar etiquetas; en Secuencias suscritas y Temas OTN solo puedes quitarlas; en Campos personalizados puedes quitarlos o cambiar su valor.
+  </Card>
+</CardGroup>
+
+<Frame caption="Ventana de perfil de un usuario del bot con sus pestañas de datos">
+  <Placeholder />
+</Frame>
+
+## Importar o crear usuarios nuevos
+
+Los canales de SMS y Voz permiten crear usuarios manualmente, o importarlos en lote mediante un archivo CSV — ambas opciones están disponibles en los botones de la esquina superior derecha.
+
+<Frame caption="Botones para crear o importar usuarios en los canales de SMS y Voz">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Las importaciones grandes muestran su progreso y resultado en **Herramientas → Trabajos de exportación**.
+</Card>
+
+## Crear y usar segmentos
+
+<CardGroup cols={2}>
+  <Card title="Ahorra tiempo" icon="clock">
+    Guarda un segmento y obtén los mismos resultados después, sin tener que volver a aplicar las condiciones.
+  </Card>
+  <Card title="Más conveniente" icon="bookmark">
+    Accede a tus segmentos guardados cuando los necesites, sin reconstruirlos desde cero.
+  </Card>
+</CardGroup>
+
+<Steps>
+  <Step title="Define tus criterios de filtro">
+    Por atributos como etiquetas o ubicación.
+  </Step>
+  <Step title="Guarda el segmento con un nombre">
+  </Step>
+  <Step title="Accede a él en cualquier momento">
+    Lo encuentras dentro de Usuarios del bot.
+  </Step>
+</Steps>
+
+<CardGroup cols={2}>
+  <Card title="Usar segmentos en Chat en vivo" icon="comments">
+    Filtra usuarios por segmento mientras atiendes conversaciones en tiempo real.
+  </Card>
+  <Card title="Usar segmentos en el Constructor de Flujos" icon="diagram-project">
+    Úsalos como condición para personalizar la experiencia según el grupo al que pertenezca el usuario.
+  </Card>
+</CardGroup>
+
+## Personalizar la interfaz
+
+<CardGroup cols={2}>
+  <Card title="Visibilidad de campos" icon="eye">
+    Muestra u oculta campos como nombre, avatar, correo, país, etc.
+  </Card>
+  <Card title="Ubicación de campos" icon="arrows-up-down-left-right">
+    Ajusta el orden en que se muestran los datos, según cómo prefieras organizarlos.
+  </Card>
+</CardGroup>
+
+<Frame caption="Personalización de campos visibles y su orden en Usuarios del bot">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Para combinar dos perfiles duplicados, revisa [**Combinar usuarios del bot**](/live-chat/merge-bot-users) en Chat en vivo. Para eliminar usuarios automáticamente desde el flujo, revisa [**Eliminar usuario del bot**](/flow-builder/delete-bot-user) en Acciones básicas.
+</Card>
