@@ -1,0 +1,90 @@
+---
+title: "Secuencias"
+description: "Envía mensajes de seguimiento con retrasos programados: recordatorios, feedback, cupones y más"
+icon: "clock-rotate-left"
+---
+
+Usa las **Secuencias** para enviar automáticamente mensajes de seguimiento o con retraso a tus clientes. Puedes enviar varios mensajes con distintos retrasos.
+
+## Crear una secuencia
+
+<Steps>
+  <Step title="Nombre">
+    Ponle un nombre a la secuencia.
+  </Step>
+  <Step title="Agrega un mensaje">
+    Haz clic en **Agregar mensaje**.
+  </Step>
+  <Step title="Configura los ajustes">
+    Ver **Ajustes del mensaje** más abajo.
+  </Step>
+  <Step title="Elige el subflujo">
+    Selecciona el subflujo que se enviará.
+  </Step>
+  <Step title="Repite y guarda">
+    Repite los pasos para agregar más mensajes y haz clic en **Guardar**.
+  </Step>
+</Steps>
+
+## Ajustes del mensaje
+
+<AccordionGroup>
+  <Accordion title="1. Cuenta regresiva para enviar" icon="hourglass">
+    Los mensajes se envían **en orden**. Para el primero, la cuenta empieza cuando el usuario se suscribe a la secuencia. Para los demás, empieza cuando se envió el mensaje anterior.
+  </Accordion>
+  <Accordion title="2. Enviar en cualquier momento o en un rango horario" icon="clock">
+    Con **"enviar en cualquier momento"**, se envía apenas termina la cuenta regresiva. Con **"enviar entre"**, si la cuenta termina fuera del rango, el mensaje se retiene hasta la próxima hora disponible.
+
+    **Ejemplo:** un mensaje programado para las 8 PM con ventana de 9 AM–6 PM se retiene hasta las 9 AM del día siguiente, lo que afecta el tiempo de los mensajes posteriores.
+  </Accordion>
+  <Accordion title="3. Días de la semana" icon="calendar">
+    Deselecciona sábado y domingo para evitar mensajes en fin de semana. Revisa la configuración de zona horaria.
+  </Accordion>
+  <Accordion title="4. Tipo de contenido (IMPORTANTE)" icon="tag">
+    Ver la introducción a **Tipo de contenido** abajo. Si tienes dudas, deja el valor por defecto para evitar bloqueos de Facebook.
+  </Accordion>
+  <Accordion title="5. Tipo de notificación" icon="bell">
+    Elige el tipo de notificación.
+  </Accordion>
+</AccordionGroup>
+
+## Sobre la zona horaria
+
+El sistema revisa la hora y el día según la **zona horaria del usuario** (si está en su perfil). Si no, usa la zona horaria de tu espacio de trabajo.
+
+## Tipo de contenido
+
+Todo mensaje enviado **más de 24 horas** después de la última interacción del suscriptor debe tener un tipo de contenido acorde, según la política de Facebook.
+
+<Card type="danger">
+  Enviar mensajes que **no** coincidan con el tipo de contenido asignado puede resultar en la suspensión o el baneo de tu página por parte de Facebook.
+</Card>
+
+| Tipo de contenido | Uso |
+|---|---|
+| **Default / Other** | Puede contener promociones; solo se envía a usuarios que interactuaron en las últimas 24 h. |
+| **Confirmed Event Update** | Recordatorios o novedades de eventos registrados (RSVP, compra de tickets). |
+| **Post Purchased Update** | Confirmaciones de transacción y estado de envíos. |
+| **Account Update** | Cambios no recurrentes en la cuenta o aplicación del usuario. |
+
+## Enviar el subflujo
+
+Crea subflujos específicos para las secuencias. Cada paso de "Enviar mensaje" tiene su propia etiqueta de mensaje (por defecto **"Other"**). Cuando asignas un tipo de contenido no-default a un mensaje de la secuencia, se actualiza automáticamente la etiqueta del primer paso de "Enviar mensaje" en ese subflujo.
+
+## Suscribir / Cancelar suscripción
+
+Accede a estas operaciones a través de las **Acciones de flujo (Flow Actions)** en tu constructor.
+
+### Casos de uso
+
+<CardGroup cols={3}>
+  <Card title="Seguimiento de evento" icon="calendar-check">
+    Confirmación inmediata al registrarse y recordatorios de seguimiento.
+  </Card>
+  <Card title="Pedir feedback" icon="star">
+    Solicita opinión 2 horas después de la interacción.
+  </Card>
+  <Card title="Enviar cupón" icon="ticket">
+    Descuentos a usuarios que abandonaron el carrito.
+  </Card>
+</CardGroup>
