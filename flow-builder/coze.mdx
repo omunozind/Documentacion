@@ -1,0 +1,43 @@
+---
+title: "Coze"
+description: "Conecta un modelo de IA creado en Coze para automatizar respuestas dentro de tu bot"
+icon: "puzzle-piece"
+---
+
+Botky te permite integrar los modelos de IA que crees en **Coze** con tu chatbot, abriendo posibilidades de automatización que antes no eran posibles.
+
+## Crear un bot dentro de Coze
+
+<Steps>
+  <Step title="Desde el panel de Coze, haz clic en 'Create Bot'">
+  </Step>
+  <Step title="Ponle un nombre y completa los detalles">
+  </Step>
+  <Step title="Haz clic en Publish">
+    Para guardar tu progreso.
+  </Step>
+</Steps>
+
+## Conectar Coze con Botky
+
+<Steps>
+  <Step title="Ve a Integraciones → Coze">
+    Dentro de la sección de Inteligencia Artificial.
+  </Step>
+  <Step title="Genera la clave de API">
+    En el panel de Coze, ve a la pestaña "Coze API" en el menú lateral, luego a "API Tokens" y crea un nuevo token de acceso personal. Asegúrate de tener seleccionadas todas las pestañas y permisos necesarios.
+  </Step>
+  <Step title="Copia el ID de tu bot por defecto">
+    Dentro de tu modelo de bot en Coze, copia el conjunto de números al final de la URL, después de `/bot/`.
+  </Step>
+  <Step title="Pega ambos datos en Botky y guarda">
+  </Step>
+</Steps>
+
+<Card type="warning">
+  Si no logras conectar tu modelo de bot con Botky, asegúrate de tener activada la opción "Bot as API" al publicar tu bot dentro de Coze.
+</Card>
+
+## Usar Coze dentro de tu flujo
+
+Encuentra las acciones de Coze dentro del nodo de Acción, en la pestaña **Integraciones**. Ahí puedes mapear las respuestas generadas por tu modelo de bot para enviárselas al usuario.
