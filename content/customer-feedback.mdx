@@ -1,0 +1,89 @@
+---
+title: "Opiniones de clientes (Customer Feedback)"
+description: "Recolecta feedback dentro del chatbot y detecta usuarios insatisfechos para contactarlos proactivamente"
+icon: "comment-dots"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Una forma excelente de recolectar opiniones dentro del chatbot es usar el módulo nativo de **Customer Feedback** de Botky. Te permite no solo reunir feedback, sino también saber cuándo un usuario **no está satisfecho** con tu producto o servicio, para contactarlo proactivamente y resolver cualquier problema.
+
+<Card type="warning">
+  Esta función solo está disponible en el canal de **Messenger**.
+</Card>
+
+## Crear y gestionar temas de Customer Feedback
+
+Para crear un nuevo tema, ve a **Contenidos** y selecciona la pestaña **Customer Feedback Topics**. Ahí verás la vista general de todos tus temas creados y podrás gestionarlos o crear uno nuevo.
+
+<Frame caption="Vista general de temas de Customer Feedback">
+  <Placeholder />
+</Frame>
+
+Para crear uno nuevo, presiona el botón superior derecho **+ New Feedback Topic**. Aparecerá una ventana emergente para configurarlo todo.
+
+<Frame caption="Ventana emergente de configuración del tema">
+  <Placeholder />
+</Frame>
+
+Puedes personalizarlo por completo. Repasemos las opciones:
+
+- **Nombre del tema:** como aparecerá en la vista general.
+- **Título de la pregunta:** se muestra como la pregunta. Trae una por defecto que puedes ajustar.
+- **Tipo:** puedes elegir entre:
+  - Customer satisfaction score (satisfacción del cliente)
+  - Net promoter score (NPS)
+  - Customer effort score (esfuerzo del cliente)
+  - Free input form (formulario de entrada libre)
+
+Luego seleccionas la **etiqueta de puntuación (score label)**.
+
+<Frame caption="Selección de la etiqueta de puntuación">
+  <Placeholder />
+</Frame>
+
+Después eliges las **opciones de puntuación**:
+
+- Del uno al cinco (números)
+- Cinco estrellas
+- Cinco emojis
+
+<Frame caption="Opciones de puntuación: números, estrellas o emojis">
+  <Placeholder />
+</Frame>
+
+También puedes **activar o desactivar la entrada de texto libre**. Al activarla, el usuario podrá dar feedback adicional además de la calificación.
+
+<Frame caption="Activar la entrada de texto libre">
+  <Placeholder />
+</Frame>
+
+Debajo puedes apuntar a tu **política de privacidad** (es obligatoria). Y por último, puedes configurar que el feedback **expire** entre 1 y 7 días. Cuando termines, presiona **Guardar**: volverás a la vista general, donde podrás gestionar el tema que acabas de crear.
+
+<Frame caption="Gestión del tema en la vista general">
+  <Placeholder />
+</Frame>
+
+A la derecha tendrás dos íconos: el primero muestra la **analítica avanzada** del tema seleccionado, y el ícono de **lápiz** te permite editarlo.
+
+<Frame caption="Ejemplo de analítica de un tema de feedback">
+  <Placeholder />
+</Frame>
+
+## Cómo enviar un tema de Customer Feedback
+
+Se hace fácilmente en el Constructor de Flujos. Ve al flujo que quieras, crea un bloque de **Enviar mensaje** y selecciona **Customer Feedback**. Podrás agregar un título y subtítulo, y presionar el botón **rate experience**.
+
+<Frame caption="Bloque Customer Feedback en Enviar mensaje">
+  <Placeholder />
+</Frame>
+
+Luego podrás darle un título al botón, seleccionar el tema que quieres usar y guardar las respuestas en un campo de usuario. Al presionar guardar, podrás enviar este feedback a cualquier usuario que entre al flujo y a este bloque.
+
+<Frame caption="Configuración del botón, tema y campo de usuario">
+  <Placeholder />
+</Frame>
