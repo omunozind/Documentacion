@@ -1,0 +1,22 @@
+/* Círculo numerado de <Steps>: fondo lima, número en azul marino */
+[data-component-part="step-number"] > div {
+  background-color: #DBF227 !important;
+  color: #042940 !important;
+}
+/* Acordeones: fondo lima, texto azul marino */
+accordion, accordion > div, accordion * {
+  background-color: #DBF227 !important;
+  border-color: #DBF227 !important;
+  color: #042940 !important;
+}
+/* Tarjetas: fondo lima, texto azul marino */
+card, card > div, card * {
+  background-color: #DBF227 !important;
+  border-color: #DBF227 !important;
+  color: #042940 !important;
+}
+/* Placeholder de imagen: fondo lima, texto azul marino */
+.botky-image-placeholder {
+  background-color: #DBF227 !important;
+  color: #042940 !important;
+}
