@@ -1,0 +1,63 @@
+---
+title: "GoHighLevel CRM V1"
+description: "Conecta tu cuenta de GoHighLevel (API V1, con ID de ubicación y clave de API) para gestionar contactos desde tu flujo"
+icon: "address-book"
+---
+
+Esta es la versión más simple de la integración con **GoHighLevel**, usando el **ID de ubicación** y la **clave de API** de tu cuenta (en vez del inicio de sesión OAuth de la versión 2).
+
+## Conectar GoHighLevel V1
+
+<Steps>
+  <Step title="Inicia sesión en tu cuenta de GoHighLevel">
+  </Step>
+  <Step title="Ve a Configuración">
+  </Step>
+  <Step title="Copia tu ID de ubicación y tu clave de API">
+    Ambos están ahí mismo.
+  </Step>
+  <Step title="Pégalos en Botky, en Integraciones → GoHighLevel V1">
+    Y guarda.
+  </Step>
+</Steps>
+
+Deberías ver una marca de verificación verde confirmando que la versión 1 ya está lista para usarse en el Constructor de Flujos.
+
+## Acciones disponibles
+
+<CardGroup cols={2}>
+  <Card title="Buscar contactos" icon="magnifying-glass">
+    Busca entre todos los contactos, o uno específico por nombre.
+  </Card>
+  <Card title="Buscar contactos duplicados" icon="clone">
+    Revisa si el correo o teléfono del usuario ya está registrado.
+  </Card>
+  <Card title="Obtener contacto" icon="address-card">
+    Trae los detalles de un contacto por su ID.
+  </Card>
+  <Card title="Crear contacto" icon="user-plus">
+    Con teléfono, nombre, apellido, correo y otros datos.
+  </Card>
+  <Card title="Actualizar contacto" icon="user-pen">
+    Igual que crear, pero indicando el ID del contacto existente.
+  </Card>
+  <Card title="Eliminar contacto" icon="user-xmark">
+    Por su ID.
+  </Card>
+  <Card title="Campañas" icon="bullhorn">
+    Consulta campañas, y agrega o quita contactos de ellas.
+  </Card>
+  <Card title="Flujos de trabajo" icon="diagram-project">
+    Consulta flujos de trabajo y agrégales contactos.
+  </Card>
+  <Card title="Agregar nota al contacto" icon="note-sticky">
+    Indicando el ID del contacto y el texto de la nota.
+  </Card>
+  <Card title="Etiquetas del contacto" icon="tag">
+    Agrega o quita etiquetas indicando el nombre de la etiqueta y el ID del contacto.
+  </Card>
+</CardGroup>
+
+<Card type="warning">
+  La versión 1 de la API **no soporta disparadores (triggers)** — para eso necesitas la versión 2.
+</Card>
