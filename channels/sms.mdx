@@ -1,0 +1,95 @@
+---
+title: "Canal de SMS"
+description: "Comunícate por mensajes de texto SMS con altas tasas de apertura, usando proveedores como Twilio, Telnyx y más"
+icon: "comment-sms"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los chatbots de **SMS** ofrecen una forma directa y eficiente de comunicarte con tu audiencia por mensajes de texto.
+
+## Por qué SMS
+
+- **Ubicuidad:** el SMS es uno de los métodos de comunicación más usados del mundo, accesible en casi cualquier móvil.
+- **Directo y personal:** se percibe como más personal y directo que el correo o las redes.
+- **Altas tasas de apertura:** mucho más altas que el correo.
+- **Velocidad y comodidad:** comunicación instantánea para avisos, alertas y respuestas.
+- **Versatilidad:** desde campañas de marketing hasta soporte al cliente.
+
+## Proveedores soportados
+
+- **Twilio** — [documentación](https://www.twilio.com/docs)
+- **SignalWire** — [documentación](https://docs.signalwire.com/)
+- **Telnyx** — [sitio](https://telnyx.com/)
+- **Message Media** — [documentación](https://developers.messagemedia.com/)
+- **Vudu Mobile** — [sitio](https://vudumobile.ca/en/)
+
+<Card type="note">
+  Algunos proveedores también soportan Voz o WhatsApp.
+</Card>
+
+## Crear tu primer chatbot de SMS (con Twilio)
+
+Esta guía usa **Twilio** como proveedor; los demás tienen un proceso similar.
+
+<Steps>
+  <Step title="Elige el proveedor">
+    Distintos proveedores soportan distintos bots. Crea una cuenta con ellos y elige tu número. En este ejemplo usamos Twilio.
+
+    <Frame caption="Selección del proveedor">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Regístrate y obtén números">
+    En Twilio, regístrate e inicia sesión para llegar a tu dashboard. Haz clic en **"Get a Trial Number"**, y en la ventana elige **"Choose this Number"** o busca otro. ¡Ya tienes tu número!
+
+    <Frame caption="Obtener un número en Twilio">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Conecta Twilio a Botky">
+    En tu cuenta de Twilio, copia el **Account SID** y el **Auth Token**. En el panel de Botky, selecciona Twilio como proveedor: 1) pega los valores en los campos correspondientes, 2) haz clic en **Save**, 3) haz clic en **Add Phone Number** (para SMS o Voz) o **Add WhatsApp Number**.
+
+    <Frame caption="Conexión de Twilio con Botky">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Sincroniza los números">
+    Haz clic en **Add Number** tras conectar tu proveedor. Verás todos tus números conectados en la página **"Phone Numbers"** de **Integración**. Luego, con el botón **+** creas un nuevo flujo, y con el otro botón abres el flujo del número.
+
+    <Frame caption="Números conectados en Integración">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## Tipos de mensaje soportados en SMS
+
+En el canal de SMS hay principalmente dos tipos de mensaje:
+
+- **Enviar mensaje (Send Message)**
+- **Nodo de Pregunta (Question Node)**
+
+## Función de lista negra en SMS
+
+Botky permite agregar usuarios a una **lista negra**. Una vez añadidos, no se les puede enviar ningún mensaje — útil para no contactar a quien no quiere serlo y cumplir con regulaciones como **TCPA**.
+
+<Card type="note">
+  La lista negra solo está disponible en bots de SMS. Toda su documentación (acciones, exportación, disparador "Matched In Blacklist") está en la página **[Listas negras](/tools/blacklists)**.
+</Card>
+
+## Errores comunes en el canal de SMS
+
+**El mensaje SMS no se entrega.** Si usas Twilio y el mensaje no llega, revisa esta checklist:
+
+- Revisa el registro de errores en Botky.
+- Revisa el registro de errores en Twilio.
+- Asegúrate de que la **Geo-permission** esté habilitada en tu cuenta de Twilio (selecciona las regiones y países a los que permites enviar).
+
+<Card type="note">
+  Más detalles sobre SMS internacional y geo-permisos: [Twilio - International SMS Permissions](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) · [Geo-permissions](https://www.twilio.com/console/sms/settings/geo-permissions)
+</Card>
