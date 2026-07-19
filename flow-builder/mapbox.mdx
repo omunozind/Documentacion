@@ -1,0 +1,32 @@
+---
+title: "Mapbox"
+description: "Alternativa a Google Maps para obtener coordenadas, direcciones y rutas desde tu flujo"
+icon: "map-location-dot"
+---
+
+## Conectar Mapbox
+
+<Steps>
+  <Step title="Crea una cuenta en mapbox.com">
+  </Step>
+  <Step title="Genera un token de acceso">
+    En account.mapbox.com/access-tokens/ — al crear tu cuenta ya recibes un token por defecto, sin restricciones.
+  </Step>
+  <Step title="Pega tu token en Integraciones → Mapbox">
+    Verifica que quede con estado "Verificado".
+  </Step>
+</Steps>
+
+## Acciones disponibles
+
+<AccordionGroup>
+  <Accordion title="Obtener coordenadas por dirección" icon="location-dot">
+    Ingresa la dirección y el código de país para obtener sus coordenadas (longitud y latitud).
+  </Accordion>
+  <Accordion title="Obtener dirección por coordenadas" icon="map-pin">
+    Ingresa latitud y longitud para obtener la dirección completa. La respuesta incluye el detalle por partes: número y nombre de calle, código postal, ciudad, distrito, región y país.
+  </Accordion>
+  <Accordion title="Obtener direcciones de viaje" icon="route">
+    Ingresa latitud y longitud de origen y destino. La distancia se entrega en metros y la duración en segundos — por ejemplo, `36682` metros equivale a unos 36.7 km, y `1611` segundos equivale a unos 27 minutos.
+  </Accordion>
+</AccordionGroup>
