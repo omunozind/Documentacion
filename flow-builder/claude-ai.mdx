@@ -1,0 +1,50 @@
+---
+title: "Claude AI"
+description: "Conecta el modelo de IA de Anthropic para generar texto y describir imágenes dentro de tu flujo"
+icon: "sparkles"
+---
+
+Botky se conecta de forma nativa con **Claude AI**, dándole a tus chatbots acceso a las capacidades de este modelo de inteligencia artificial.
+
+## Obtener tu clave de API de Claude
+
+<Steps>
+  <Step title="Entra a console.anthropic.com">
+    Inicia sesión.
+  </Step>
+  <Step title="Ve a Configuración">
+    En el menú superior.
+  </Step>
+  <Step title="Ve a la pestaña de claves (Keys)">
+    Y crea una clave de API.
+  </Step>
+</Steps>
+
+## Conectar con Botky
+
+<Steps>
+  <Step title="Ve a Integraciones → Claude AI">
+    Dentro de la pestaña de Inteligencia Artificial.
+  </Step>
+  <Step title="Pega tu clave de API y guarda">
+    Deberías ver una marca de verificación confirmando que la integración quedó activa.
+  </Step>
+</Steps>
+
+## Usar Claude en el Constructor de Flujos
+
+Crea un nodo de Acción, elige **Integraciones**, y selecciona **Claude** del menú.
+
+## Acciones disponibles
+
+<CardGroup cols={1}>
+  <Card title="Crear finalización de chat" icon="message">
+    Genera texto o continúa una conversación a partir del contexto que le proporciones. El campo del sistema `{{openAI}}` se usa para controlar el historial de chat, tanto para las acciones de Claude como para las de OpenAI.
+  </Card>
+  <Card title="Borrar historial de chat recordado" icon="eraser">
+    Limpia el campo del sistema que guarda el historial — útil para mantener bajo control el tiempo de ejecución y el consumo de tokens: más información para procesar significa más consumo.
+  </Card>
+  <Card title="Visión: de imagen a texto" icon="image">
+    El usuario envía una imagen, y según el prompt que definas, Claude la analiza y genera un resultado (por ejemplo, una descripción de lo que muestra).
+  </Card>
+</CardGroup>
