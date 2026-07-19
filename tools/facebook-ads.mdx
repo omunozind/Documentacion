@@ -1,0 +1,108 @@
+---
+title: "Facebook Ads"
+description: "Conecta tu flujo con los anuncios de Facebook Messenger mediante un payload, con parámetros UTM y analítica"
+icon: "rectangle-ad"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta guía explica cómo conectar tu flujo de Botky con botones disparados por los **anuncios de Facebook Messenger**.
+
+## Requisitos previos
+
+- Tener una **página de Facebook** conectada a tu cuenta de Botky.
+- Tener tu cuenta de Botky conectada a la plataforma de **Facebook Messenger**.
+
+## 1. Obtener el payload
+
+<Steps>
+  <Step title="Abre tu bot Omni Channel o de Facebook" />
+  <Step title="Ve a Herramientas → Facebook Ads" />
+  <Step title="Crea el payload">
+    Haz clic en **Create New Facebook Ads Payload**.
+
+    <Frame caption="Crear un nuevo Facebook Ads Payload">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Elige el subflujo">
+    Puedes elegir el subflujo que quieres conectar al usuario.
+
+    <Frame caption="Selección del subflujo a conectar">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Copia el payload">
+    Haz clic en **Edit** y copia el payload mostrado.
+
+    <Frame caption="Copiar el payload">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+### Funciones adicionales
+
+- **Parámetros UTM:** puedes agregar hasta **9 parámetros UTM** al payload para rastrear el tráfico de tus Facebook Ads y guardar esta información automáticamente en campos personalizados de usuario.
+
+<Frame caption="Parámetros UTM en el payload">
+  <Placeholder />
+</Frame>
+
+- **Analítica:** Botky ofrece un mini-panel para analizar datos como clics y demografía de los usuarios de tus Facebook Ads.
+
+<Frame caption="Mini-panel de analítica de Facebook Ads">
+  <Placeholder />
+</Frame>
+
+## 2. Crear una campaña de Facebook Messenger Ads
+
+- En el **Facebook Ads Manager**, crea una nueva campaña y selecciona **"Click to message"** como objetivo.
+- Elige **Messenger** como app de mensajería y selecciona la página de Facebook conectada a tu cuenta de Botky.
+
+<Frame caption="Campaña Click to message en Ads Manager">
+  <Placeholder />
+</Frame>
+
+- Configura tus creativos (texto, títulos, imágenes) y elige **"Send message"** como call to action.
+
+## 3. Configurar la plantilla de mensaje
+
+- En la sección de **Message Template**, selecciona **"Partner App"** y **"Select Flow"**.
+
+<Frame caption="Partner App y Select Flow en la plantilla de mensaje">
+  <Placeholder />
+</Frame>
+
+- Ahora selecciona **"Enter JSON Code"**.
+
+<Frame caption="Opción Enter JSON Code">
+  <Placeholder />
+</Frame>
+
+- Pega tu payload de Botky con tu parámetro (si lo tienes) en **"USER_DEFINED_PAYLOAD"** y personaliza el mensaje de la plantilla.
+
+<Frame caption="Pegar el payload en USER_DEFINED_PAYLOAD">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Personalización de la plantilla de mensaje">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Vista final de la plantilla configurada">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  **Notas:**
+  - Asegúrate de que tu página de Facebook y tu cuenta de Botky estén conectadas.
+  - Elige **"Start conversation"** en la plantilla de Messenger.
+  - Usa **"Partner App"** y el payload para vincular tu flujo con botones o quick replies.
+
+  Videos: [youtu.be/wfgqgzFYpvM](https://youtu.be/wfgqgzFYpvM) · [youtu.be/DGq3RtEjFYg](https://youtu.be/DGq3RtEjFYg)
+</Card>
