@@ -1,0 +1,241 @@
+---
+title: "Detalles y estado de pedidos"
+description: "Envía solicitudes de pago y actualizaciones de pedido por WhatsApp (solo cuentas de pago de Brasil, en BRL)"
+icon: "receipt"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Card type="warning">
+  **Order Details** solo está disponible para **cuentas de pago de Brasil**, y todos los montos están en **BRL**.
+</Card>
+
+## Descripción general
+
+**WhatsApp Order Details** permite a los negocios enviar solicitudes de pago directamente en las conversaciones de WhatsApp. El cliente recibe un pedido detallado con el monto total y opciones de pago brasileñas, y paga sin salir de la app. Luego el negocio envía actualizaciones del progreso con mensajes de **Order Status**.
+
+La función opera con **dos pasos** en el flujo de Botky:
+
+- **WhatsApp Order Details** — envía el mensaje de pedido/factura con la(s) opción(es) de pago.
+- **WhatsApp Order Status** — envía un mensaje de seguimiento que actualiza el estado del pedido y del pago (ej. procesando, enviado, pagado).
+
+<Frame caption="Los dos pasos en el Constructor de Flujos, cada uno con rama 'If send WhatsApp failed'">
+  <Placeholder />
+</Frame>
+
+Ambos son funciones de **plantilla de mensaje** de WhatsApp, y requieren crear la plantilla en Botky y la aprobación de Meta antes de usarse.
+
+## Cómo funciona
+
+<Steps>
+  <Step title="El cliente elige productos">
+    El cliente conversa con el negocio y selecciona los artículos a comprar.
+  </Step>
+  <Step title="Se envía Order Details">
+    El negocio envía un mensaje **WhatsApp Order Details** con el pedido detallado, el total en BRL y la(s) opción(es) de pago.
+  </Step>
+  <Step title="El cliente paga">
+    Copiando el código Pix en su app bancaria, abriendo enlaces de pago en el navegador, o copiando códigos de boleto.
+  </Step>
+  <Step title="Se envía Order Status">
+    El negocio envía un mensaje **WhatsApp Order Status** para actualizar el progreso (ej. "processing") y el estado del pago.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Cada pedido lleva un **reference ID** único (mostrado al cliente como "Nº da cobrança"). WhatsApp **no** concilia los pagos: tu proveedor de pagos (PSP) confirma el pago y tú lo emparejas usando este reference ID.
+</Card>
+
+## Requisitos
+
+- Un **número de WhatsApp Business brasileño** conectado a tu espacio de trabajo.
+- Una **plantilla de Order Details aprobada** (Meta no permite las opciones de pago al crear la plantilla; se agregan solo al enviar el mensaje).
+- Para pruebas, un **segundo número brasileño** para recibir mensajes. Los mensajes no se pueden entregar a números fijos (landline).
+
+## Crear la plantilla de Order Details
+
+<Steps>
+  <Step title="Abre el gestor de plantillas">
+    En el canal de WhatsApp, abre el gestor de plantillas y haz clic en **Add New Template**.
+  </Step>
+  <Step title="Completa los campos">
+    - **Name** (requerido, hasta 200 caracteres) — en inglés, minúsculas con guiones bajos, ej. `test_order_details`.
+    - **Category / Type** — UTILITY o MARKETING.
+    - **Language** — el idioma del cuerpo/pie debe coincidir (ej. Portuguese (BR)).
+  </Step>
+  <Step title="Componente interactivo">
+    En **Interactive component**, selecciona **Order details**. Aparece una etiqueta "Brazil only".
+  </Step>
+  <Step title="Header">
+    Elige el tipo de header: None, Text, Image o **Document** (para adjuntar un **PDF**, ej. una factura o boleto).
+  </Step>
+  <Step title="Body y Footer">
+    Escribe el **Body** (hasta 1.000 caracteres) usando el token de variable (`</>`) para placeholders (nombre, monto, fecha). Opcionalmente un **Footer** (hasta 60 caracteres).
+  </Step>
+  <Step title="Envía a revisión">
+    Haz clic en **Send to review**. Al aprobarse, su estado será **Active**.
+  </Step>
+</Steps>
+
+<Frame caption="Creación de una plantilla de Order Details">
+  <Placeholder />
+</Frame>
+
+| Punto clave | Contenido |
+|---|---|
+| **Regla del header** | El tipo de header **no se puede cambiar** después de crear la plantilla. Meta solo permite editar plantillas creadas con header de **imagen o documento**; si crees que necesitarás actualizarla, créala con header de imagen/documento desde el inicio. |
+| **Nota** | La vista previa mientras construyes la plantilla (un solo botón "Review and pay") **no** representa exactamente el mensaje final. Los métodos de pago y sus botones no son parte de la plantilla; se agregan al enviar el mensaje y sus etiquetas las define Meta. |
+
+## Enviar el mensaje: paso WhatsApp Order Details
+
+Agrega un paso **WhatsApp Order Details** a tu flujo y selecciona la plantilla aprobada. Al configurarlo defines:
+
+- **Payment method** — método de pago brasileño (Pix dinámico, Boleto, Payment Link o tarjeta).
+- **Item Type** — ej. Digital goods.
+- **Item Name** — ej. Invoice payment.
+- **Total Amount** — el monto en BRL (ej. 500.00).
+- **Reference ID** — el identificador único del pedido ("Nº da cobrança").
+- **Body variables** — valores de los placeholders de la plantilla. Si el header es documento, también das la **URL del PDF** y un nombre de archivo.
+
+Cada valor puede fijarse como **default en la plantilla** o darse como **valor en tiempo de ejecución** al enviar (ej. desde un campo de usuario o la salida de un paso previo). Si el mensaje no se puede enviar, la rama **"If send WhatsApp failed"** enruta al contacto al siguiente paso.
+
+## Actualizar el pedido: paso WhatsApp Order Status
+
+Agrega un paso **WhatsApp Order Status** para enviar una actualización. Configuras:
+
+- **Body** (hasta 1.024 caracteres).
+- **Footer** (hasta 60 caracteres, opcional).
+- **Order Status** y **Payment Status** — los valores estructurados que definen el estado.
+
+| Order Status | Payment Status |
+|---|---|
+| pending, processing, partially_shipped, shipped, completed, canceled | pending, captured, failed |
+
+## Métodos de pago
+
+Las etiquetas de los botones las genera y localiza Meta y **no** se pueden personalizar:
+
+- **Pix dinámico** — botón "Copiar código Pix". Das el código Pix, merchant_name, key y key_type (ej. CNPJ).
+- **Boleto** — botón "Copiar código do boleto".
+- **Payment Link** — botón "Abrir link de pagamento".
+- **Tarjeta (Visa / Mastercard)** — en la fila "Pagar com".
+
+Cuando hay más de una opción, el cliente ve la(s) principal(es) como botones directos y el resto agrupadas bajo **"Mais formas de pagar"**.
+
+<Frame caption="Ejemplo del mensaje Order Details con opciones de pago">
+  <Placeholder />
+</Frame>
+
+## Limitaciones y problemas conocidos
+
+- **El tipo de header es permanente** — no se puede cambiar tras la creación; Meta solo permite editar plantillas con header de imagen/documento.
+- **Las etiquetas de botón las fija Meta** — el texto de pago (ej. "Copiar código Pix") no se personaliza; un texto personalizado falla la validación de la API de Meta.
+- **Header PDF solo en plantillas** — un header PDF/documento se soporta en las *plantillas* de Order Details, no en los mensajes interactivos.
+- **Descarga de PDF en móvil** — en pruebas, un PDF adjunto en el header no se pudo descargar en la app de Android, pero sí en WhatsApp Desktop y Web (parece un problema de Meta).
+- **No entrega a números fijos** — los envíos no entregables devuelven el error de Meta **131026** ("Message undeliverable").
+- **Los métodos de pago no se fijan al crear** — solo se adjuntan al enviar, por lo que la vista previa del builder difiere del mensaje final.
+
+## Manejo de errores
+
+- **Rama "If send WhatsApp failed":** conéctala a un paso de respaldo (notificar a un agente, reintentar, o enviar un mensaje alternativo).
+- **Error 131026 — "Message undeliverable":** común al enviar a un número fijo o que no puede recibir el mensaje. Confirma que el destinatario tenga WhatsApp y no sea landline.
+- **Mensajes entrantes duplicados:** si se duplican tras conectar el número, ve a **Facebook → Configuración y privacidad → Integraciones comerciales** y elimina la integración duplicada "uchat" (deja la del chatbot).
+- **"send failed" ocasional al probar plantillas:** puede ocurrir antes de que una plantilla nueva esté totalmente activa.
+
+## Referencia técnica (API)
+
+La mayoría configura todo con los pasos anteriores y no necesita la API directamente. Resumen para uso avanzado.
+
+### Estructura de la plantilla (Meta)
+
+- category: UTILITY o MARKETING
+- display_format: ORDER_DETAILS
+- Header format: TEXT, IMAGE o DOCUMENT
+- Components: HEADER, BODY, FOOTER, y un bloque BUTTONS con un único botón de tipo ORDER_DETAILS
+
+### Montos
+
+Los valores monetarios usan un par value + offset; el monto real es value ÷ offset. Ej: `{ "value": 55700, "offset": 100 }` = **R$ 557,00**.
+
+### Payload de ejemplo (Pix dinámico, header de texto)
+
+```json
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "<RECIPIENT_PHONE_NUMBER>",
+  "type": "template",
+  "template": {
+    "name": "<TEMPLATE_NAME>",
+    "language": { "policy": "deterministic", "code": "pt_BR" },
+    "components": [
+      {
+        "type": "body",
+        "parameters": [
+          { "type": "text", "text": "<CUSTOMER_NAME>" },
+          { "type": "text", "text": "<REFERENCE_ID>" }
+        ]
+      },
+      {
+        "type": "button",
+        "sub_type": "order_details",
+        "index": 0,
+        "parameters": [
+          {
+            "type": "action",
+            "action": {
+              "order_details": {
+                "reference_id": "<REFERENCE_ID>",
+                "type": "digital-goods",
+                "payment_type": "br",
+                "payment_settings": [
+                  {
+                    "type": "pix_dynamic_code",
+                    "pix_dynamic_code": {
+                      "code": "<DYNAMIC_PIX_COPY_PASTE_CODE>",
+                      "merchant_name": "<MERCHANT_NAME>",
+                      "key": "<PIX_KEY>",
+                      "key_type": "CNPJ"
+                    }
+                  }
+                ],
+                "currency": "BRL",
+                "total_amount": { "value": 55700, "offset": 100 },
+                "order": {
+                  "status": "pending",
+                  "items": [
+                    {
+                      "retailer_id": "<ITEM_ID>",
+                      "name": "<ITEM_NAME>",
+                      "amount": { "value": 55700, "offset": 100 },
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": { "value": 55700, "offset": 100 },
+                  "tax": { "value": 0, "offset": 100 }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Endpoint de envío de Botky
+
+```
+POST /api/subscriber/send-whatsapp-template-by-user-id
+```
+
+## Referencias
+
+- [Meta — Send order details template message (Brazil)](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/orderdetailstemplate/)
+- [Meta — Payments API, Brazil (overview)](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/overview/)
+- [Meta — Graph API media upload](https://developers.facebook.com/docs/graph-api/guides/upload)
