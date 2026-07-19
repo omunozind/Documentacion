@@ -1,0 +1,66 @@
+---
+title: "Enviar correo"
+description: "Envía un correo completo con formato enriquecido, plantillas, imágenes y botones desde tu flujo"
+icon: "envelope"
+---
+
+A diferencia de la notificación por correo (que solo admite texto plano), el paso **Enviar correo** te permite mandar un correo completo, con formato, imágenes y botones.
+
+## Acceder al paso
+
+Haz clic derecho en el Constructor de Flujos y elige la acción **Enviar correo** del menú.
+
+## Configurar el correo
+
+<Steps>
+  <Step title="Elige el Perfil de correo">
+    La dirección de correo desde la que se enviará.
+  </Step>
+  <Step title="Define el destinatario (Send To)">
+    La dirección de correo que lo recibirá.
+  </Step>
+  <Step title="Elige una plantilla de correo (opcional)">
+    Si ya tienes una plantilla predefinida, selecciónala para aplicar un formato y estilo consistente de inmediato.
+  </Step>
+  <Step title="Escribe el asunto del correo (obligatorio)">
+    Es lo primero que verá tu destinatario.
+  </Step>
+  <Step title="Agrega un preheader (opcional)">
+    El texto resumen que aparece junto al asunto cuando se ve el correo en la bandeja de entrada.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración del nodo Enviar correo: perfil, destinatario, plantilla y asunto">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Personalizar el contenido
+
+<CardGroup cols={3}>
+  <Card title="Encabezado" icon="heading">
+    Para llamar la atención de entrada.
+  </Card>
+  <Card title="Texto" icon="align-left">
+    El cuerpo principal del correo.
+  </Card>
+  <Card title="Imágenes" icon="image">
+    Para incrustar dentro del correo.
+  </Card>
+  <Card title="Botón" icon="square">
+    Botones de llamada a la acción, como visitar un sitio o descargar un recurso.
+  </Card>
+  <Card title="Adjuntos" icon="paperclip">
+    Cualquier archivo necesario.
+  </Card>
+  <Card title="Texto de cancelar suscripción" icon="toggle-on">
+    Actívalo o desactívalo para incluir un enlace de cancelación — así cumples con las normas de marketing por correo y le das a tus destinatarios una forma fácil de darse de baja.
+  </Card>
+</CardGroup>
+
+<Frame caption="Personalización del contenido del correo: encabezado, texto, imágenes y botones">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
