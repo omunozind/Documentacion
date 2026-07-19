@@ -1,0 +1,96 @@
+---
+title: "FAQ y errores comunes (Messenger)"
+description: "Errores frecuentes del canal de Facebook Messenger y cómo resolverlos"
+icon: "circle-question"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Errores comunes del canal de Facebook
+
+<AccordionGroup>
+  <Accordion title='"Unsupported post request... missing permissions"' icon="triangle-exclamation">
+    Mensaje: *"Unsupported post request. Object with ID '...' does not exist, cannot be loaded due to missing permissions, or does not support this operation."*
+
+    Al conectar el canal, hay una pantalla que te pide otorgar los permisos necesarios. Asegúrate de **seleccionar todos** los permisos solicitados.
+
+    Como Meta cambió la cantidad de permisos necesarios, además del permiso de la página también necesitas conectar tu **Facebook Business Management** en **Integración → E-commerce → Facebook Business**.
+
+    Si no ves tu página al volver a Botky, la solución es **reconectar** tu página de Facebook, seleccionarla y otorgar todos los permisos.
+  </Accordion>
+  <Accordion title='"2534015 (#100) Invalid message data"' icon="triangle-exclamation">
+    Según el código de error de Meta, ocurre porque *"el tipo de dato que estás enviando no está permitido para tu tipo de mensaje."*
+
+    Si estás en un Omni Channel, revisa el canal soportado en cada elemento del mensaje (hay íconos sociales visibles en los ajustes del elemento).
+
+    Más información: [developers.facebook.com/docs/messenger-platform/error-codes](https://developers.facebook.com/docs/messenger-platform/error-codes/)
+
+    <Frame caption="Íconos de canal soportado en el elemento de mensaje">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title='"1545041 (#551) This person isn&apos;t available at the moment"' icon="triangle-exclamation">
+    Algunos usuarios tienen su perfil como privado, así que aunque comenten en publicaciones, sus DMs no están disponibles y Meta impide enviarles mensajes. Otras razones:
+    - El usuario podría haber bloqueado tu bot, así que el mensaje no se entrega.
+    - Un fallo temporal en los servidores de Meta; intenta más tarde.
+  </Accordion>
+  <Accordion title='"(#2022) You have been temporarily blocked"' icon="triangle-exclamation">
+    Significa que Facebook emitió un bloqueo temporal sobre tu cuenta. La plataforma no puede enviar a ninguna cuenta bloqueada por Facebook. Revisa tu Business Manager o el centro de notificaciones/alertas de tu página para más información.
+  </Accordion>
+  <Accordion title='"(#200) Users can only edit their own comments"' icon="triangle-exclamation">
+    Aparece al usar la acción **"hide comments"** (ocultar comentarios) en el flujo. Puedes ocultar la mayoría de comentarios, con estas excepciones:
+    - Comentarios hechos por la Página.
+    - Comentarios hechos por los admins de la Página.
+    - Comentarios de la Página en la publicación de un usuario (la publicación es del usuario).
+    - Comentarios de cualquier usuario en la publicación de otro usuario hacia la Página.
+    - Comentarios del creador de un evento.
+    - Comentarios de un Grupo de Facebook.
+    - Comentarios de cualquiera en una reseña.
+
+    Más información: [Graph API - comment hiding](https://developers.facebook.com/docs/graph-api/reference/v17.0/comment#hiding)
+  </Accordion>
+  <Accordion title="Conectar distintas páginas a distintos espacios con 1 cuenta de FB" icon="triangle-exclamation">
+    Algunos usuarios reportan que al conectar una página a un espacio de trabajo, se desconecta al agregar otra página a un espacio distinto.
+
+    **Razón (90% de los casos):** durante el proceso de conexión con Facebook, el usuario **deselecciona** la página ya conectada en el otro espacio.
+
+    **Solución:** asegúrate de **seleccionar todas** las páginas conectadas a Botky, aunque muestre un mensaje como "xx página está conectada a xx workspace" (eso no importa). Si no las seleccionas, perderás la conexión de la página anterior.
+  </Accordion>
+  <Accordion title='"You&apos;ve already posted this..."' icon="triangle-exclamation">
+    No puedes publicar el mismo contenido repetidamente. Agrega un **randomizer** para enviar mensajes distintos, o usa OpenAI para generar contenido personalizado dinámicamente.
+  </Accordion>
+  <Accordion title='"Message not sent because outside 24 hours"' icon="triangle-exclamation">
+    Este límite aplica a los canales de Meta (Messenger, Instagram, WhatsApp). Si el usuario no ha interactuado con tu bot en las últimas 24 horas, no puedes contactarlo directamente.
+
+    - **WhatsApp:** debes enviar un mensaje de **plantilla**.
+    - **Messenger:** debes enviar una **notificación recurrente** o una **notificación única (OTN)**.
+    - **Instagram:** puedes capturar el correo o teléfono del usuario y contactarlo por correo o SMS aunque esté fuera de la ventana de 24 horas.
+
+    La solución es usar una **condición** para asegurarte de contactar solo a usuarios que interactuaron en las últimas 24 horas, y usar métodos alternativos (correo/SMS, con opt-in) para el resto.
+
+    <Frame caption="Condición para verificar la ventana de 24 horas">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="No recibo la solicitud de notificación recurrente" icon="triangle-exclamation">
+    Facebook tiene un límite: *"solo puedes enviar una solicitud de opt-in por semana con el mismo título específico a una persona."* Así que al probar la notificación recurrente, podrías recibir el mensaje la primera vez pero no en pruebas siguientes. Además:
+    - No envíes solicitudes de opt-in duplicadas (mismo título para una Página, o mismo título e `image_url` para una cuenta profesional de Instagram).
+    - Solo puedes enviar solicitudes durante la ventana de mensajería estándar.
+    - Si una persona hace opt-in a mensajes de marketing, eso **no** abre una ventana de mensajería estándar.
+    - Solo puedes ver si una persona hizo opt-in, no el estado de solicitudes pendientes.
+    - Si una persona deja de recibir mensajes de marketing, tus notificaciones ya no se le entregan y recibirás un error.
+    - Una persona puede bloquear, silenciar o reportar tu mensajería.
+    - Para mensajes de marketing desde Instagram: hasta 10 solicitudes de opt-in con distintos títulos por usuario en 7 días, con un sub-límite de 5 por día.
+
+    Más información: [Marketing Messages](https://developers.facebook.com/docs/messenger-platform/marketing-messages)
+  </Accordion>
+  <Accordion title='"1893016 Calls to this API have exceeded the rate limit"' icon="triangle-exclamation">
+    Se debe al límite de tasa de Facebook: *"solo puedes enviar una solicitud de opt-in por semana con el mismo título específico a una persona."* Aplican las mismas reglas y límites descritos en el punto anterior sobre notificaciones recurrentes y mensajes de marketing.
+
+    Más información: [Marketing Messages](https://developers.facebook.com/docs/messenger-platform/marketing-messages)
+  </Accordion>
+</AccordionGroup>
