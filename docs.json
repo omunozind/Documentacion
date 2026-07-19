@@ -39,19 +39,22 @@
       },
       {
         "group": "Omni Channel",
-        "pages": ["omni-channel/overview"]
-      },
-      {
-        "group": "Canales del chatbot",
         "pages": [
-          "channels/overview",
-          "channels/webchat",
-          {"group": "Facebook", "icon": "facebook", "pages": ["channels/facebook", "channels/facebook-checklist", "channels/facebook-faq"]},
-          {"group": "Instagram", "icon": "instagram", "pages": ["channels/instagram", "channels/instagram-checklist", "channels/instagram-faq"]},
-          {"group": "WhatsApp", "icon": "whatsapp", "pages": ["channels/whatsapp", "channels/whatsapp-cloud-api", "channels/whatsapp-send-messages", "channels/whatsapp-products-catalog", "channels/whatsapp-click-to-ads", "channels/whatsapp-mm-lite", "channels/whatsapp-coexistence", "channels/whatsapp-calling", "channels/whatsapp-order-details", "channels/whatsapp-faq"]},
-          {"group": "SMS", "icon": "comment-sms", "pages": ["channels/sms", "channels/sms-checklist", "channels/sms-faq", "channels/sms-twilio-messaging-service-sid"]},
-          {"group": "Voz", "icon": "phone", "pages": ["channels/voice", "channels/voice-realtime-ai-agent", "channels/voice-faq"]},
-          {"group": "Telegram", "icon": "telegram", "pages": ["channels/telegram", "channels/telegram-faq"]}
+          "omni-channel/overview",
+          {
+            "group": "Canales del chatbot",
+            "icon": "diagram-project",
+            "pages": [
+              "channels/overview",
+              "channels/webchat",
+              {"group": "Facebook", "icon": "facebook", "pages": ["channels/facebook", "channels/facebook-checklist", "channels/facebook-faq"]},
+              {"group": "Instagram", "icon": "instagram", "pages": ["channels/instagram", "channels/instagram-checklist", "channels/instagram-faq"]},
+              {"group": "WhatsApp", "icon": "whatsapp", "pages": ["channels/whatsapp", "channels/whatsapp-cloud-api", "channels/whatsapp-send-messages", "channels/whatsapp-products-catalog", "channels/whatsapp-click-to-ads", "channels/whatsapp-mm-lite", "channels/whatsapp-coexistence", "channels/whatsapp-calling", "channels/whatsapp-order-details", "channels/whatsapp-faq"]},
+              {"group": "SMS", "icon": "comment-sms", "pages": ["channels/sms", "channels/sms-checklist", "channels/sms-faq", "channels/sms-twilio-messaging-service-sid"]},
+              {"group": "Voz", "icon": "phone", "pages": ["channels/voice", "channels/voice-realtime-ai-agent", "channels/voice-faq"]},
+              {"group": "Telegram", "icon": "telegram", "pages": ["channels/telegram", "channels/telegram-faq"]}
+            ]
+          }
         ]
       }
     ]
