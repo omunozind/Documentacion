@@ -1,60 +1,27 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
   "name": "Botky",
-  "theme": "luma",
-  "colors": {
-    "primary": "#4f46e5",
-    "light": "#e0e7ff",
-    "dark": "#1e293b"
-  },
-  "favicon": "/favicon.svg",
+  "colors": {"primary": "#042940", "light": "#DBF227", "dark": "#042940"},
+  "background": {"dark": "#042940"},
+  "appearance": {"default": "light"},
+  "icons": {"library": "fontawesome"},
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "installation"
-            ]
-          },
-          {
-            "group": "Dashboard",
-            "pages": [
-              "dashboard/overview",
-              "dashboard/workspaces",
-              "dashboard/clients"
-            ]
-          },
-          {
-            "group": "Billing",
-            "pages": [
-              "billing/wallet",
-              "billing/topups",
-              "billing/plans",
-              "billing/addons"
-            ]
-          },
-          {
-            "group": "Configuration",
-            "pages": [
-              "configuration/api-credentials",
-              "configuration/custom-pricing",
-              "configuration/shortcode"
-            ]
-          },
-          {
-            "group": "Help",
-            "pages": [
-              "help/faq",
-              "help/troubleshooting"
-            ]
-          }
+        "group": "Constructor de Flujos",
+        "pages": [
+          {"group": "Descripción general", "pages": ["flow-builder/overview", "flow-builder/field-variable", "flow-builder/publish-draft", "flow-builder/navigation-sidebar", "flow-builder/basic-operations"]},
+          {"group": "Subflujos", "pages": ["flow-builder/sub-flow", "flow-builder/workflow", "flow-builder/function-flow"]},
+          {"group": "Building Blocks / Pasos", "pages": ["flow-builder/send-message", "flow-builder/question",
+            {"group": "Acción", "pages": ["flow-builder/notifications",
+              {"group": "Acciones avanzadas", "pages": ["flow-builder/external-request", "flow-builder/smart-delay", "flow-builder/javascript-function", "flow-builder/send-sms-action", "flow-builder/update-user-profile", "flow-builder/trigger-workflow-action", "flow-builder/rate-limit-attempts"]}
+            ]}
+          ]}
         ]
       }
     ]
-  }
+  },
+  "markdown": {"schema": false},
+  "errors": {"404": {"redirect": false}}
 }
