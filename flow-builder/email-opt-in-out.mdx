@@ -1,0 +1,53 @@
+---
+title: "Activar y desactivar permiso de correo"
+description: "Controla si un usuario puede recibir correos electrónicos de tu bot, individualmente o en lote"
+icon: "envelope-circle-check"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Activar permiso de correo (Opt-in)
+
+Le permite a tu bot enviarle correos a un usuario. Coloca esta acción **antes** de cualquier nodo de envío de correo.
+
+<Frame caption="Configuración de la acción Activar permiso de correo">
+  <Placeholder />
+</Frame>
+
+## Desactivar permiso de correo (Opt-out)
+
+Útil cuando quieres evitar que un usuario reciba correos — muy recomendable antes de hacer un envío masivo por correo.
+
+<Frame caption="Configuración de la acción Desactivar permiso de correo">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  El correo (o el SMS) no se enviará si el usuario no tiene activado el permiso correspondiente.
+</Card>
+
+## Acciones en lote
+
+Para configurar el permiso de correo de varios usuarios a la vez:
+
+<Steps>
+  <Step title="Ve a Bot → Usuarios del bot">
+  </Step>
+  <Step title="Selecciona los usuarios">
+    Marca la casilla junto al nombre de cada uno.
+  </Step>
+  <Step title="Haz clic en Acción en lote">
+    Está en la esquina superior derecha.
+  </Step>
+  <Step title="Elige la opción correspondiente">
+    **Activar permiso de correo** o **Desactivar permiso de correo**, según lo que necesites.
+  </Step>
+</Steps>
+
+<Frame caption="Interfaz de acciones en lote para permiso de correo">
+  <Placeholder />
+</Frame>
