@@ -1,0 +1,74 @@
+---
+title: "Palabras clave en comentarios"
+description: "Responde automáticamente a comentarios en publicaciones de Facebook e Instagram: likes, respuestas públicas y mensajes directos"
+icon: "comment"
+---
+
+Las **Palabras clave en comentarios (Comment Keywords)** permiten que tu bot interactúe automáticamente con quienes comentan en tus publicaciones de Facebook o Instagram. El sistema puede dar *like* a los comentarios, publicar respuestas públicas y enviar mensajes directos.
+
+## Acceder
+
+Ve a **Automatización → Palabras clave en comentarios** y haz clic en el botón **+ Comment Keyword** (arriba a la derecha).
+
+## Pasos de configuración
+
+<Steps>
+  <Step title="Selecciona la publicación">
+    Elige la publicación de Facebook o Instagram a monitorear. Si no aparece, usa la opción de **ID de publicación personalizado**.
+  </Step>
+  <Step title="Define las condiciones del disparador">
+    Configura las palabras clave y el tipo de coincidencia.
+  </Step>
+  <Step title="Crea variaciones de respuesta">
+    Agrega varias variaciones de respuesta pública para evitar marcas de spam. **Tip:** incluye al menos **5 variaciones**.
+  </Step>
+  <Step title="Selecciona el flujo de mensaje privado">
+    Elige el flujo que enviará mensajes privados a quienes comentan. **Importante:** el mensaje inicial debe contener **solo 1 mensaje de texto con un botón**; el usuario debe interactuar para convertirse en suscriptor.
+  </Step>
+  <Step title="Guardar payload del comentario (avanzado)">
+    Actívalo para guardar los datos del comentario (ID de usuario, texto, detalles) en una variable JSON. Útil para respuestas de DM personalizadas con IA, o respuestas públicas con IA vía la API de Instagram/Facebook.
+  </Step>
+  <Step title="Retraso (opcional)">
+    Agrega retrasos antes de responder, para un ritmo más natural.
+  </Step>
+  <Step title="Ajustes adicionales">
+    Responder a nuevos usuarios, responder a suscriptores existentes, dar like a los comentarios, responder a las respuestas de los comentarios. Haz clic en **Guardar** para activar.
+  </Step>
+</Steps>
+
+### Condiciones de coincidencia
+
+| Condición | Descripción |
+|---|---|
+| **Es (Is)** | Coincidencia exacta con alguna palabra de la lista. |
+| **Contiene (Contains)** | Se dispara si la palabra aparece en cualquier parte del comentario (por defecto). |
+| **Empieza por (Starts with)** | El comentario debe empezar con la palabra. |
+| **Cualquier cosa (Is anything)** | Se dispara con cualquier comentario (el campo de palabra se desactiva). |
+
+---
+
+## Automatización de comentarios de Facebook Ads con IA
+
+Puedes responder automáticamente a los comentarios de tus anuncios con likes y respuestas usando integración con IA.
+
+<Steps>
+  <Step title="Crea el disparador de Comment Keyword">
+    Selecciona la publicación del anuncio de Facebook, pon la condición en **"Is anything"**, activa **"Guardar payload del comentario"** para el JSON, selecciona el subflujo de respuesta privada por Messenger, y activa: responder a nuevos usuarios, a suscriptores existentes, dar like y responder a respuestas.
+  </Step>
+  <Step title="Conecta Facebook Ads Manager">
+    Vincula tu cuenta de Ads Manager y tu página de Facebook en **Integraciones → Otros → Facebook Ads**.
+  </Step>
+</Steps>
+
+### Lógica del subflujo de comentarios
+
+1. Bloque de **Condición** que detecta palabras clave específicas.
+2. Acción de **Facebook API** para responder a los comentarios del anuncio.
+3. Entrega del mensaje privado por Messenger.
+4. **OpenAI embedding match** para evaluar la relevancia.
+5. Respuestas de IA condicionales según el puntaje de similitud.
+6. Generación de respuesta contextual vía ChatGPT.
+
+<Card type="note">
+  El resultado: respuestas automáticas y contextuales a los comentarios de tus anuncios, con personalización opcional por IA.
+</Card>
