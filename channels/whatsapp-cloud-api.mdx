@@ -1,0 +1,247 @@
+---
+title: "Conectar con WhatsApp Cloud API"
+description: "Registro incrustado (embedded signup) paso a paso para registrar tu número por la WhatsApp Business API desde Botky"
+icon: "plug"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+El **registro incrustado (embedded signup)** simplifica registrar tu remitente por la WhatsApp Business API directamente desde Botky. Tras el registro, puedes aprovechar la API para fortalecer las interacciones con tus clientes.
+
+<Card type="note">
+  Se recomienda encarecidamente iniciar la WhatsApp Cloud API con un **Meta Business Manager verificado**. La verificación no es obligatoria; puedes crear un nuevo Business Manager durante el proceso si lo necesitas.
+</Card>
+
+## Requisitos previos
+
+- Una cuenta de **Facebook**.
+- Acceso de **administrador a tu Meta Business Manager**. Si no tienes uno, puedes crearlo durante el registro incrustado. Tu cuenta no debe estar bloqueada.
+- **Tarjeta de crédito** (solo Mastercard/Visa; American Express no se acepta).
+- Un **número de teléfono** para registrar el remitente. Este número **no** puede estar conectado a ningún servicio de WhatsApp (personal o WhatsApp Business API). Necesitas poder recibir verificación por SMS o voz.
+
+## Paso a paso
+
+<Steps>
+  <Step title="Inicia sesión con Facebook">
+    Entra a Botky, ve al panel, selecciona **"WhatsApp Cloud"** en la barra lateral y haz clic en **"Connect WhatsApp Cloud"**. En el popup, inicia sesión con tu cuenta de Facebook.
+
+    <Frame caption="Connect WhatsApp Cloud">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Crea o selecciona un Meta Business Manager">
+    Selecciona un Business Manager existente con permisos de administrador, o crea uno nuevo. Para cuentas nuevas, prepara: nombre legal del negocio, teléfono, sitio web, correo, país, dirección corporativa, ciudad y estado/región.
+
+    <Frame caption="Selección o creación del Meta Business Manager">
+      <Placeholder />
+    </Frame>
+
+    Los Business Managers recién creados están **"unverified"** (sin verificar); se recomienda verificarlos cuanto antes.
+  </Step>
+  <Step title="Crea el perfil de WhatsApp Business">
+    1. **Nombre de tu WhatsApp Business Account (WABA):** no aparece en tu perfil de WhatsApp.
+    2. **Display Name (nombre visible):** debe ser revisado por Meta y es un factor clave para aumentar el límite de números. Debe mantener una marca consistente con fuentes externas (web, marketing) y cumplir las políticas de WhatsApp.
+    3. **Categoría del negocio** (de la lista).
+    4. **Descripción del negocio** (editable en cualquier momento).
+
+    <Frame caption="Perfil de WhatsApp Business">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Verifica el número de WhatsApp Business">
+    Ingresa el número (que **no** use ningún servicio de WhatsApp) y elige el método de verificación: **SMS** o **llamada de voz**.
+
+    <Frame caption="Verificación del número">
+      <Placeholder />
+    </Frame>
+
+    Una vez verificado, haz clic en **"finish"** para volver a Botky.
+  </Step>
+  <Step title="Completa el registro del número">
+    De vuelta en Botky, haz clic en **"Sync Numbers"**. Verás tus números; por defecto el estado es **"Paused"**, cámbialo a **"Active"**. En "WhatsApp manager → Phone numbers" el estado aparece como **"Pending"**. Vuelve a Botky, entra a **settings** y haz clic en **"Register number"**. Al completarse, el estado será **"Connected"**.
+
+    <Frame caption="Registro del número hasta el estado Connected">
+      <Placeholder />
+    </Frame>
+
+    <Card type="warning">
+      Antes de enviar cualquier mensaje de plantilla (para probar o poner en vivo), conecta una **tarjeta de crédito válida** en la sección de billing de WhatsApp Manager. Sin un Meta Business Manager verificado aumenta el riesgo de restricción de la cuenta.
+    </Card>
+  </Step>
+  <Step title="Haz una verificación rápida de conexión">
+    Con el número conectado, haz clic en **"Create flow"**, arma un flujo simple y publícalo. Envía un mensaje desde tu WhatsApp personal a este número Cloud API: deberías recibir una respuesta de texto. Luego ve a **content → Message Templates** y haz clic en **"Sync"**; si no hay error, la mensajería de plantillas también funciona.
+
+    <Frame caption="Verificación de conexión y sincronización de plantillas">
+      <Placeholder />
+    </Frame>
+
+    <Card type="note">
+      Inicialmente no se sincroniza ninguna plantilla a Botky. Puedes hacer clic en **"+ New Template"** para crear plantillas directamente en Botky.
+    </Card>
+  </Step>
+</Steps>
+
+## Ajustes de WhatsApp Cloud
+
+Haz clic en los **tres puntos** en WhatsApp Cloud para acceder a estas opciones:
+
+- Health Check
+- Business Verification Status
+- Check payment method
+- Phone numbers
+- Message Templates
+- Catalog
+- Two Factor Authentication
+- De-Register number
+
+<Frame caption="Menú de ajustes de WhatsApp Cloud">
+  <Placeholder />
+</Frame>
+
+### Verificación del negocio (opcional)
+
+Sin completar la verificación, estás limitado a **2 números** y **250 conversaciones diarias**. Superar el límite dispara la cancelación automática de la cuenta tras 15 días (aunque las pruebas siguen siendo posibles). Una vez verificado, las WABA pueden incluir hasta **20 números** y **1000 conversaciones diarias**.
+
+### Método de pago
+
+Conecta una tarjeta de crédito válida a tus números WABA. Sin tarjeta válida, al enviar plantillas obtienes este error:
+
+```json
+[ { "error_code": 141006, "error_description": "There is an error with the payment method.", "possible_solution": "There was an error with your payment method. Please add a new payment method to the account." } ]
+```
+
+Ve a tu Meta Business Manager, ubica tu cuenta de WhatsApp, haz clic en **"Payment Settings"** y configura el pago en el billing hub.
+
+### Health Check
+
+Muestra un resumen del estado del número, de la WABA y de la cuenta de Meta Business.
+
+### Phone numbers
+
+Una WABA requiere un número dedicado y válido. Estados posibles:
+
+- **Connected:** el remitente funciona normalmente.
+- **Flagged:** ocurre cuando la calidad del remitente llega a estado bajo (rojo). No puedes subir los límites de mensajería durante este estado. Si la calidad mejora en 7 días, vuelve a Connected; si no, vuelve a Connected pero baja al siguiente tier inferior (el tier más bajo de negocios verificados es Tier 1).
+- **Restricted:** ocurre al alcanzar el límite de mensajería. No puedes enviar mensajes salientes (notificación) hasta que se reinicie la ventana de 24 horas; solo respondes a mensajes iniciados por el usuario.
+- **Pending:** haz clic en "registrate numbers" para conectar los números.
+
+Cada Meta Business Manager verificado puede tener hasta **20 números**. Los display names se cambian en WhatsApp Manager (Meta los revisa). Para eliminar un número: Business Settings → WhatsApp Accounts → WhatsApp Manager → Phone Numbers → ícono de papelera. Solo un admin puede eliminar un número, y no se puede eliminar si envió mensajes pagos en los últimos 30 días con ese número.
+
+### Message Templates
+
+Redirige a la sección de plantillas en WhatsApp Manager. Crea y envía plantillas ahí; una vez aprobadas, sincronízalas a Botky. También puedes hacer clic en **"New Template"** en Botky para crearlas directamente.
+
+### Catalog
+
+Los negocios pueden habilitar **Catálogos** para compartir productos con mensajes de Multi y Single-Product. Al hacer clic en "Catalog" se redirige a WhatsApp Manager: elige un catálogo del desplegable y haz clic en **"Connect Catalog"**.
+
+Para sincronizar catálogos de Facebook al ecommerce nativo de Botky: **Integraciones → E-commerce → Facebook Business → login → "List Business Catalogs"**, encuentra el catálogo vinculado a tus números WABA y haz clic en **"Facebook → Local"**. Los productos se sincronizan a Productos. Necesitarás el **retailID** para enviar mensajes de catálogo (sincronizado al SKU).
+
+## Actualizar el Display Name de WhatsApp
+
+Puedes cambiar el display name hasta **4 veces cada 30 días**. Ve a Meta Business Manager → WhatsApp Manager, selecciona el número, haz clic en **Edit**, ingresa el nuevo nombre (consistente con tu marca). Tras la aprobación de WhatsApp, **re-registra tu número** para activar el nuevo nombre.
+
+## Cómo agregar números extra en Botky
+
+Primero agrega los números a tu cuenta de WhatsApp Manager vía Meta Business Manager. Luego, en Botky, haz clic en **"Sync numbers"**; el número nuevo aparecerá. En settings, primero **"Verify the phone number"** (solo disponible para embedded signups nuevos; las conexiones antiguas de private app no la tienen) y luego **"Register the number"**.
+
+<Card type="note">
+  Meta tiene límites de números. Si llegaste al límite, contacta a Meta para aumentarlos.
+</Card>
+
+---
+
+## Catálogo de errores comunes del embedded signup
+
+### A. Errores al crear la cuenta de Business Manager
+
+<AccordionGroup>
+  <Accordion title="An error occurred while processing this request">
+    Error poco claro que requiere asistencia adicional. La creación de la cuenta puede fallar por varias razones. **Solución:** usa una cuenta de Facebook activa o contacta a Soporte.
+  </Accordion>
+  <Accordion title="You have reached the limit for the number of Businesses you can create">
+    Hay un límite de cuentas de negocio que puedes crear. **Solución:** usa una cuenta existente, o elimina/cierra las que no uses.
+  </Accordion>
+  <Accordion title="Your Facebook account is too new to create a business account">
+    Las cuentas de Facebook nuevas deben esperar antes de crear un Business Manager. **Solución:** usa una cuenta activa existente o espera unas horas (puedes usarla activamente durante la espera).
+  </Accordion>
+  <Accordion title="We limit how often you can post, comment or do other things...">
+    Tu cuenta de Facebook fue marcada por comportamiento sospechoso. **Solución:** usa una cuenta activa existente sin problemas previos.
+  </Accordion>
+  <Accordion title="You're no longer allowed to use Facebook Products to advertise">
+    No puedes crear nuevas cuentas de Business Manager por comportamiento sospechoso previo. **Solución:** usa una cuenta activa existente sin problemas previos.
+  </Accordion>
+  <Accordion title="Your payment account is disabled">
+    Tu cuenta de pago fue deshabilitada por comportamiento sospechoso previo. **Solución:** contacta a Facebook.
+  </Accordion>
+  <Accordion title="A User Can Only Create One Business User At One Time">
+    Solo puedes crear una cuenta de negocio en un periodo dado. **Solución:** usa una cuenta de negocio existente para el onboarding.
+  </Accordion>
+  <Accordion title="The name you chose for your business isn't valid">
+    **Solución:** usa un nombre válido que coincida con el nombre de tu negocio.
+  </Accordion>
+</AccordionGroup>
+
+### B. Errores al crear la WhatsApp Business Account
+
+<AccordionGroup>
+  <Accordion title="User does not have permission to create WhatsApp Business Accounts">
+    No tienes permiso de nivel Admin en la cuenta de negocio seleccionada. **Solución:** obtén acceso Admin o selecciona una cuenta donde lo tengas.
+  </Accordion>
+  <Accordion title="This WhatsApp Business Account is not available to use">
+    No puedes seleccionar la WABA porque: no tienes permiso para gestionarla, o ya está gestionada por private apps u otras plataformas. **Solución:** solicita permiso de admin o desconéctala de las otras plataformas.
+  </Accordion>
+  <Accordion title="You can only create a limited number of WhatsApp Business Accounts...">
+    Intentaste crear varias WABA bajo un negocio sin verificar. **Solución:** solo puedes crear más cuando la verificación del negocio y de WhatsApp esté completa. Inicia la verificación en Business Manager.
+  </Accordion>
+  <Accordion title="We can't verify the Facebook Business Account that you selected">
+    La cuenta seleccionada no cumple las políticas para usar la WhatsApp Business API. **Solución:** revisa tu Business Manager; si tu verificación fue rechazada, recibiste un correo con las razones. Reenvía la verificación o usa una cuenta ya verificada.
+  </Accordion>
+  <Accordion title="Something has gone wrong. You will need to contact support and try again">
+    Podría ser un problema intermitente de WhatsApp. **Solución:** reintenta en unos minutos.
+  </Accordion>
+  <Accordion title="You have already linked the maximum number of phone numbers allowed">
+    Meta permite inicialmente máximo **2 números** por WABA. Para más, contacta a soporte de Meta. Según las políticas, las carteras de negocio se limitan a 2 números registrados, ampliable hasta 20. Si tu negocio está verificado o abre 1.000+ conversaciones iniciadas por el negocio en 30 días con plantillas de alta calidad, Meta puede aumentar el límite.
+  </Accordion>
+</AccordionGroup>
+
+### C. Errores de configuración del número
+
+<AccordionGroup>
+  <Accordion title="This phone number already exists in your list of phone numbers">
+    Intentas agregar un número que ya está en tu WABA. **Solución:** vuelve al flujo o reinícialo para seleccionar el número existente.
+  </Accordion>
+  <Accordion title="This number is registered to an existing WhatsApp account">
+    El número ya estaba registrado en la plataforma (WhatsApp Messenger, Business App o Business API). **Solución:** ve a los ajustes de "WhatsApp Cloud" y **De-register** el número para usarlo, o registra uno nuevo. Puede tardar hasta 3 minutos en quedar disponible.
+  </Accordion>
+  <Accordion title="Your verified name violates WhatsApp guidelines">
+    El nombre del perfil de negocio del número no cumple las guías. **Solución:** revisa las guías de Display Name e intenta de nuevo.
+  </Accordion>
+  <Accordion title="Something has gone wrong (Business Profile)">
+    Hubo un problema al crear el perfil de negocio del número. **Solución:** vuelve a ingresar el nombre correcto según las guías y los demás datos.
+  </Accordion>
+</AccordionGroup>
+
+### D. Errores de verificación del número
+
+<AccordionGroup>
+  <Accordion title="Phone number ownership is already verified">
+    El número ya fue verificado. **Solución:** refresca la página para ver los cambios.
+  </Accordion>
+  <Accordion title="Your phone number doesn't appear to be valid">
+    Se ingresó un número incorrecto o de formato no soportado. **Solución:** verifica que el número esté operativo y validado por un proveedor. Los números IVR no están soportados.
+  </Accordion>
+  <Accordion title="You have guessed too many times">
+    El sistema limita los intentos de verificación para prevenir spam. **Solución:** espera aproximadamente 12 horas antes de reintentar.
+  </Accordion>
+  <Accordion title="There was an error verifying this phone number">
+    Hubo un problema con el código de verificación. **Solución:** reintenta más tarde.
+  </Accordion>
+  <Accordion title="You have requested your code too many times">
+    El sistema limita las solicitudes de código dentro de un periodo. **Solución:** vuelve al flujo después del tiempo indicado y solicita el código de nuevo.
+  </Accordion>
+</AccordionGroup>
