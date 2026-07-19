@@ -1,0 +1,166 @@
+---
+title: "WhatsApp Flows"
+description: "Crea secuencias de chat automatizadas específicas para WhatsApp que guían al usuario por pantallas predefinidas"
+icon: "whatsapp"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Frame caption="WhatsApp Flows">
+  <Placeholder />
+</Frame>
+
+**WhatsApp Flows** te permite crear secuencias de chat automatizadas específicas para las interacciones de WhatsApp. Estos flujos guían al usuario por pasos predefinidos, mejoran la eficiencia de respuesta y aumentan la interacción con el cliente.
+
+## Acceder a WhatsApp Flows
+
+<Steps>
+  <Step title="Entra al Chatbot">
+    Ve a la sección **Chatbot** dentro de tu espacio de trabajo.
+  </Step>
+  <Step title="Abre Contenidos">
+    Selecciona **Contenidos**.
+  </Step>
+  <Step title="WhatsApp Flow">
+    En Contenidos, ubica y haz clic en **WhatsApp Flow**.
+  </Step>
+</Steps>
+
+<Frame caption="Sección WhatsApp Flow en Contenidos">
+  <Placeholder />
+</Frame>
+
+## Crear un nuevo WhatsApp Flow
+
+<Steps>
+  <Step title="Crear flujo">
+    Haz clic en **Create Flow** para iniciar la creación.
+  </Step>
+  <Step title="Nombre">
+    Ponle un nombre (ej. "Lead Signup").
+  </Step>
+  <Step title="Categoría">
+    Elige la categoría que mejor describa el propósito del flujo (ej. "Lead Generation").
+  </Step>
+  <Step title="Crear">
+    Haz clic en **Create** para confirmar.
+  </Step>
+</Steps>
+
+<Frame caption="Creación de un nuevo WhatsApp Flow: nombre y categoría">
+  <Placeholder />
+</Frame>
+
+## Personalizar tu WhatsApp Flow
+
+- **Pantalla de bienvenida:** edita el texto, el encabezado y el contenido de la pantalla inicial que saluda a los usuarios.
+- **Agregar elementos interactivos:** usa el editor para incorporar elementos como campos de captura de texto (nombre, correo, etc.), con el tipo de entrada deseado (texto, número, etc.) y requisitos opcionales.
+- **Construir un flujo multi-pantalla:** arma un flujo con varias pantallas que guíen al usuario por una secuencia de interacciones.
+
+<Frame caption="Editor del WhatsApp Flow: pantallas y elementos interactivos">
+  <Placeholder />
+</Frame>
+
+## Editar las pantallas de un WhatsApp Flow publicado
+
+Ahora puedes actualizar las pantallas de tus WhatsApp Flows publicados directamente desde el panel. Con la nueva opción **"Edit Screens"**, hacer cambios es más fluido que nunca: no necesitas despublicar ni interrumpir tus flujos en producción. Esto te ayuda a mantenerte ágil y hacer mejoras en tiempo real sin esfuerzo.
+
+<Frame caption="Opción Edit Screens en un flujo publicado">
+  <Placeholder />
+</Frame>
+
+## Probar y previsualizar tu flujo
+
+- **Vista previa:** usa el ícono del ojo para previsualizar cómo se ve y funciona el flujo desde la perspectiva del usuario.
+- **Probar el flujo:** realiza una interacción de prueba para asegurarte de que funcione como esperas.
+- **Publicar el flujo:** haz clic en **Publish** y luego en **Confirm**.
+
+<Frame caption="Vista previa y publicación del flujo">
+  <Placeholder />
+</Frame>
+
+## Conectar el WhatsApp Flow a tu subflujo
+
+<Steps>
+  <Step title="Text Note en Omni Channel">
+    En el Constructor de Flujos, selecciona **"Text Note"** en la sección **Omni Channel**.
+  </Step>
+  <Step title="WhatsApp Cloud → WhatsApp Flows">
+    Elige **WhatsApp Cloud** y luego **WhatsApp Flows**.
+  </Step>
+  <Step title="Mensaje posterior">
+    Edita el mensaje que se muestra después de completar el flujo (ej. "Regístrate hoy").
+  </Step>
+  <Step title="Texto del call to action">
+    Selecciona el texto del CTA (ej. "Claim Access Now").
+  </Step>
+  <Step title="Asocia el flujo">
+    Asocia el WhatsApp Flow creado ("Lead Signup" en este ejemplo) a este paso.
+  </Step>
+  <Step title="Guardar payload (opcional)">
+    Configura el guardado del payload en un campo JSON llamado "data" para capturar la información del usuario recolectada durante el flujo.
+  </Step>
+</Steps>
+
+<Frame caption="Conexión del WhatsApp Flow al subflujo">
+  <Placeholder />
+</Frame>
+
+### Rellenar formularios con campos personalizados de usuario
+
+Ahora puedes **rellenar los formularios con campos personalizados de usuario** directamente en el Constructor de Flujos, para una experiencia más dinámica y personalizada. Sigue estos pasos:
+
+<Steps>
+  <Step title="Agrega un WhatsApp Flow con un nodo de mensaje">
+    En el Constructor de Flujos, selecciona **"Enviar mensaje" → "Otros" → "WhatsApp Flow"**.
+
+    <Frame caption="Enviar mensaje → Otros → WhatsApp Flow">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Edita los ajustes del WhatsApp Flow">
+    Haz clic en **"Edit"** para abrir la configuración del WhatsApp Flow.
+
+    <Frame caption="Ajustes del WhatsApp Flow">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Completa los datos">
+    En la ventana emergente, ingresa los datos como **Body**, **Button Text** y selecciona tu WhatsApp Flow.
+
+    <Frame caption="Body, Button Text y selección del flujo">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Mapea los inputs a campos de usuario">
+    En la sección **"Inputs"** verás la opción de mapear los inputs a campos personalizados de usuario existentes. Por ejemplo:
+    - Campo **Name** → mapear a `{{user_name}}`
+    - Campo **Email** → mapear a `{{user_email}}`
+
+    <Frame caption="Mapeo de inputs a campos personalizados de usuario">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Guardar payload (opcional)">
+    Configura el guardado del payload en un campo JSON para capturar la información recolectada.
+
+    <Frame caption="Guardado del payload en un campo JSON">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Guardar y probar">
+    Guarda y prueba para asegurarte de que los datos ingresados en los campos de usuario coincidan con los datos del usuario del bot.
+  </Step>
+</Steps>
+
+## Conclusión
+
+WhatsApp Flows es una herramienta potente para diseñar y probar experiencias de chat automatizadas en WhatsApp. Siguiendo esta guía y experimentando con las funciones, puedes aprovechar esta funcionalidad para mejorar tus interacciones con los clientes.
+
+<Card type="note">
+  Si tienes dudas o necesitas más ayuda con los WhatsApp Flows, contacta al soporte de Botky.
+</Card>
