@@ -1,0 +1,45 @@
+---
+title: "Asistente de chat con IA"
+description: "Genera respuestas inteligentes con IA directamente dentro de Chat en vivo, usando instrucciones propias o predefinidas"
+icon: "wand-magic-sparkles"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+El **Asistente de chat** es una integración con inteligencia artificial dentro de Chat en vivo que te ayuda a generar respuestas inteligentes para tus conversaciones, mejorando la eficiencia y la calidad del soporte.
+
+<Steps>
+  <Step title="Abre Chat en vivo">
+    Y elige una conversación de la lista.
+  </Step>
+  <Step title="Abre el Asistente">
+    Busca el botón con ícono de robot, debajo del cuadro de escritura del mensaje.
+  </Step>
+  <Step title="Escribe una instrucción personalizada, o elige una predefinida">
+    Por ejemplo: "Escribe un mensaje disculpándote amablemente por la demora en resolver el problema del usuario" o "Explica la política de reembolsos en términos simples". También puedes elegir una desde el botón **Seleccionar** — al elegir un título, la instrucción correspondiente se completa automáticamente.
+  </Step>
+  <Step title="Crea nuevas instrucciones predefinidas (opcional)">
+    Haz clic en **+ Nueva**, ponle un título corto y claro (por ejemplo "Disculpa por demora en entrega"), escribe el contenido de la instrucción, y guarda — aparecerá disponible en la lista de "Seleccionar" para la próxima vez.
+  </Step>
+  <Step title="Genera la respuesta">
+    Haz clic en **Generar** y espera a que la IA cree una respuesta sugerida.
+  </Step>
+  <Step title="Revisa el mensaje generado">
+    Ajusta el texto si lo necesitas, o haz clic en **Regenerar** para que la IA proponga otra versión. Cuando estés conforme, haz clic en **Usar sugerencia**.
+  </Step>
+  <Step title="Envía la respuesta">
+    Vuelve a la ventana de Chat en vivo y haz clic en Enviar.
+  </Step>
+</Steps>
+
+<Frame caption="Panel del Asistente de chat con instrucción personalizada y respuesta generada">
+  <Placeholder />
+</Frame>
+
+<Card type="tip">
+  Personaliza tus instrucciones para escenarios específicos ("explica la solución paso a paso", "agradece al usuario por su paciencia"), y siempre revisa que la respuesta generada mantenga el tono y estilo de tu marca.
+</Card>
