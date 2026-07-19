@@ -1,0 +1,49 @@
+---
+title: "Admins"
+description: "Invita administradores y crea menús exclusivos para ellos con reportes e insights, sin darles acceso al backend"
+icon: "user-shield"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Además de los miembros regulares, puedes invitar **admins** solo a tu chatbot. Con una condición, puedes configurar menús de administrador para que accedan a cosas como reportes o insights del chatbot.
+
+## Invitar y gestionar admins
+
+Para invitar un admin, ve a **Herramientas** en el menú izquierdo y selecciona la pestaña **Admins**. Llegarás a la vista general.
+
+<Frame caption="Vista general de Admins">
+  <Placeholder />
+</Frame>
+
+Para agregar un nuevo admin, el usuario que quieres invitar debe ser **suscriptor** de tu chatbot. Si lo es, presiona el botón superior derecho **+ New Admin**. Aparecerá una ventana emergente donde puedes buscar y agregar al nuevo admin.
+
+<Frame caption="Ventana emergente para agregar un admin">
+  <Placeholder />
+</Frame>
+
+Escribe el nombre de la persona y presiona el signo **+** para agregarla como admin. Al hacerlo, volverás al menú principal donde puedes gestionar todos los admins.
+
+<Frame caption="Gestión de admins">
+  <Placeholder />
+</Frame>
+
+A la derecha de cada admin tienes la opción de eliminarlo si quieres.
+
+## Cómo configurar un flujo de admin
+
+Una vez designado un admin, puedes configurar flujos específicos para ellos. Es ideal si quieres darle a un dueño de negocio algo de información sobre lo que pasa dentro del chatbot, pero sin darle acceso al backend.
+
+Ve a un flujo, inserta un bloque de **Condición** y busca la condición **Is Admin**. Si la condición es "sí", puedes enviar al admin al modo admin, donde configuras el acceso a lo que quieras.
+
+<Frame caption="Ejemplo de flujo con la condición Is Admin">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Es una gran forma de que los dueños de negocio accedan a ciertas funciones desde el *front end*, sin tener que preocuparte por darles acceso al backend.
+</Card>
