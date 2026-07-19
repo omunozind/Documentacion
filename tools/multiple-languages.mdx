@@ -1,0 +1,65 @@
+---
+title: "Múltiples idiomas"
+description: "Ofrece una experiencia de chatbot en varios idiomas y deja que el usuario elija el suyo"
+icon: "language"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Con Botky puedes ofrecer una experiencia de chatbot en **múltiples idiomas**, y es muy fácil de configurar.
+
+## Cómo seleccionar el idioma
+
+<Steps>
+  <Step title="Ve a los ajustes de multi-idioma">
+    Ve a **Herramientas** en el menú izquierdo, selecciona **Múltiples idiomas** y haz clic en **New Language**.
+
+    <Frame caption="Sección Múltiples idiomas en Herramientas">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Elige tu idioma preferido">
+    Verás una lista de idiomas disponibles. Selecciona el que prefieras.
+
+    <Frame caption="Lista de idiomas disponibles">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Traduce tus flujos">
+    Haz clic en **Translate** y selecciona el flujo que quieres traducir.
+
+    <Frame caption="Selección del flujo a traducir">
+      <Placeholder />
+    </Frame>
+
+    Traduce cada nodo del flujo a tu idioma preferido.
+
+    <Frame caption="Traducción de cada nodo del flujo">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## Configurar la selección de idioma en tu flujo
+
+Para agregar una opción de selección de idioma:
+
+- Ve a tu flujo en el **Constructor de Flujos**.
+- Agrega un nodo de **Acción** donde quieras que el usuario elija su idioma.
+- En el nodo de Acción, selecciona **Acciones avanzadas** y luego **Set Language** (Establecer idioma).
+
+<Frame caption="Acción Set Language en un flujo">
+  <Placeholder />
+</Frame>
+
+## Ejemplo visual
+
+Así se ve la configuración del flujo:
+
+<Frame caption="Ejemplo de flujo con selección de idioma">
+  <Placeholder />
+</Frame>
