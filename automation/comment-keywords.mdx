@@ -4,71 +4,241 @@ description: "Responde automáticamente a comentarios en publicaciones de Facebo
 icon: "comment"
 ---
 
-Las **Palabras clave en comentarios (Comment Keywords)** permiten que tu bot interactúe automáticamente con quienes comentan en tus publicaciones de Facebook o Instagram. El sistema puede dar *like* a los comentarios, publicar respuestas públicas y enviar mensajes directos.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
 
-## Acceder
+Las **Palabras clave en comentarios (Comment Keywords)** permiten que tu bot responda automáticamente cuando un usuario comenta en tus publicaciones de Facebook o Instagram. El bot puede dar *like* a los comentarios, responder públicamente y enviar mensajes privados a quienes comentan.
 
-Ve a **Automatización → Palabras clave en comentarios** y haz clic en el botón **+ Comment Keyword** (arriba a la derecha).
+## Acceder a Comment Keywords
+
+Ve a **Automatización → Palabras clave en comentarios** y haz clic en el botón **+ Comment Keyword** (esquina superior derecha).
+
+<Frame caption="Sección de Comment Keywords y botón + Comment Keyword">
+  <Placeholder />
+</Frame>
 
 ## Pasos de configuración
 
-<Steps>
-  <Step title="Selecciona la publicación">
-    Elige la publicación de Facebook o Instagram a monitorear. Si no aparece, usa la opción de **ID de publicación personalizado**.
-  </Step>
-  <Step title="Define las condiciones del disparador">
-    Configura las palabras clave y el tipo de coincidencia.
-  </Step>
-  <Step title="Crea variaciones de respuesta">
-    Agrega varias variaciones de respuesta pública para evitar marcas de spam. **Tip:** incluye al menos **5 variaciones**.
-  </Step>
-  <Step title="Selecciona el flujo de mensaje privado">
-    Elige el flujo que enviará mensajes privados a quienes comentan. **Importante:** el mensaje inicial debe contener **solo 1 mensaje de texto con un botón**; el usuario debe interactuar para convertirse en suscriptor.
-  </Step>
-  <Step title="Guardar payload del comentario (avanzado)">
-    Actívalo para guardar los datos del comentario (ID de usuario, texto, detalles) en una variable JSON. Útil para respuestas de DM personalizadas con IA, o respuestas públicas con IA vía la API de Instagram/Facebook.
-  </Step>
-  <Step title="Retraso (opcional)">
-    Agrega retrasos antes de responder, para un ritmo más natural.
-  </Step>
-  <Step title="Ajustes adicionales">
-    Responder a nuevos usuarios, responder a suscriptores existentes, dar like a los comentarios, responder a las respuestas de los comentarios. Haz clic en **Guardar** para activar.
-  </Step>
-</Steps>
+### Paso 1: Selecciona la publicación
 
-### Condiciones de coincidencia
+Elige la publicación de Facebook o Instagram que quieres monitorear. Si no la encuentras, puedes elegir **ID de publicación personalizado** e insertarlo.
+
+<Frame caption="Selección de la publicación a monitorear">
+  <Placeholder />
+</Frame>
+
+### Paso 2: Define las condiciones del disparador
+
+Configura las palabras clave y el tipo de coincidencia. Opciones disponibles:
 
 | Condición | Descripción |
 |---|---|
-| **Es (Is)** | Coincidencia exacta con alguna palabra de la lista. |
-| **Contiene (Contains)** | Se dispara si la palabra aparece en cualquier parte del comentario (por defecto). |
-| **Empieza por (Starts with)** | El comentario debe empezar con la palabra. |
-| **Cualquier cosa (Is anything)** | Se dispara con cualquier comentario (el campo de palabra se desactiva). |
+| **Is** | Coincide exactamente con alguna palabra clave de la lista. |
+| **Contains** | Se dispara si la palabra aparece en cualquier parte del comentario (por defecto). |
+| **Starts with** | El comentario debe empezar con la palabra clave. |
+| **Is anything** | Se dispara con cualquier comentario (el campo de palabra se desactiva). |
+
+<Frame caption="Condiciones de coincidencia de palabras clave">
+  <Placeholder />
+</Frame>
+
+### Paso 3: Crea variaciones de respuesta
+
+Agrega varias variaciones de respuesta para los comentarios públicos.
+
+<Card type="note">
+  **Tip:** agrega al menos **5 variaciones** para evitar que la plataforma lo marque como spam.
+</Card>
+
+<Frame caption="Variaciones de respuesta pública">
+  <Placeholder />
+</Frame>
+
+### Paso 4: Selecciona el flujo de mensaje privado
+
+Elige el flujo que se dispara al enviar un mensaje privado a quien comenta.
+
+<Card type="warning">
+  El mensaje inicial debe contener **solo 1 mensaje de texto con un botón**. El usuario debe interactuar con ese mensaje para convertirse en suscriptor.
+</Card>
+
+<Frame caption="Selección del flujo de mensaje privado">
+  <Placeholder />
+</Frame>
+
+### Paso 5: Guardar payload del comentario (avanzado)
+
+Activa esta opción para guardar los datos del comentario (ID de usuario, texto del comentario y otros detalles) en una **variable JSON**, para casos de uso avanzados.
+
+Esto te permite usar la información del comentario dentro de tu subflujo de mensaje privado para crear respuestas personalizadas con IA. Por ejemplo:
+
+- **Respuestas de DM personalizadas:** usa integraciones de IA dentro de tu flujo para generar mensajes privados personalizados según el contenido del comentario.
+- **Respuestas públicas con IA:** genera respuestas públicas contextuales usando IA. Esto requiere usar el nodo de Acción avanzada de **Instagram API** o **Facebook API** dentro del subflujo (detallado en la sección de caso de uso más abajo).
+
+<Card type="note">
+  Consulta la sección **"Automatización de comentarios de Facebook Ads con IA"** abajo para ver un ejemplo de implementación completo.
+</Card>
+
+<Frame caption="Opción de guardar el payload del comentario en una variable JSON">
+  <Placeholder />
+</Frame>
+
+### Paso 6: Configura un retraso (opcional)
+
+Agrega un retraso antes de que el bot responda, para una experiencia más natural y humana.
+
+<Frame caption="Configuración de retraso antes de responder">
+  <Placeholder />
+</Frame>
+
+### Paso 7: Ajustes adicionales
+
+Opciones disponibles:
+
+- Responder a nuevos usuarios
+- Responder a suscriptores existentes
+- Dar like a los comentarios de los usuarios
+- Responder a las respuestas de los comentarios
+
+Haz clic en **Guardar** para activar tu automatización de Comment Keyword.
+
+## Tutoriales
+
+- **Automatización de comentarios de Facebook:** [Ver tutorial completo](https://www.youtube.com/watch?v=lCd4RVd1C60&list=PLYV-IhQ_GwTN32-tJXEPucR8ok3RGb1-a)
+- **Automatización de comentarios de Instagram:** [Ver tutorial](https://www.youtube.com/watch?v=vcxFWCrBCSA&list=PLYV-IhQ_GwTMIs3yHw_8Pg-zfCzUUwcZp)
 
 ---
 
-## Automatización de comentarios de Facebook Ads con IA
+# Usar IA para responder automáticamente los comentarios de tus Facebook Ads
 
-Puedes responder automáticamente a los comentarios de tus anuncios con likes y respuestas usando integración con IA.
+## Introducción
 
-<Steps>
-  <Step title="Crea el disparador de Comment Keyword">
-    Selecciona la publicación del anuncio de Facebook, pon la condición en **"Is anything"**, activa **"Guardar payload del comentario"** para el JSON, selecciona el subflujo de respuesta privada por Messenger, y activa: responder a nuevos usuarios, a suscriptores existentes, dar like y responder a respuestas.
-  </Step>
-  <Step title="Conecta Facebook Ads Manager">
-    Vincula tu cuenta de Ads Manager y tu página de Facebook en **Integraciones → Otros → Facebook Ads**.
-  </Step>
-</Steps>
+Existe una función mediante la cual, cuando un usuario comenta en tu *dark post* o anuncio, puedes darle un **Like** y **responder** a esos comentarios bajo el disparador de Comment Keyword.
 
-### Lógica del subflujo de comentarios
+## Crear la publicación del anuncio (FB Ad Post)
 
-1. Bloque de **Condición** que detecta palabras clave específicas.
-2. Acción de **Facebook API** para responder a los comentarios del anuncio.
-3. Entrega del mensaje privado por Messenger.
-4. **OpenAI embedding match** para evaluar la relevancia.
-5. Respuestas de IA condicionales según el puntaje de similitud.
-6. Generación de respuesta contextual vía ChatGPT.
+Crea una publicación de anuncio en Ads Manager.
 
-<Card type="note">
-  El resultado: respuestas automáticas y contextuales a los comentarios de tus anuncios, con personalización opcional por IA.
-</Card>
+<Frame caption="Creación de la publicación del anuncio en Ads Manager">
+  <Placeholder />
+</Frame>
+
+## Crear el disparador de Comment Keyword
+
+Ve a **Automatización → Comment Keywords → Crear nuevo Comment Keyword**.
+
+<Frame caption="Creación de un nuevo Comment Keyword">
+  <Placeholder />
+</Frame>
+
+Una vez que haces clic en Nuevo Comment Keyword, configuras esta función para que se dispare con los comentarios de tu FB Ad Post. Configura los parámetros requeridos:
+
+<Frame caption="Parámetros del Comment Keyword para el anuncio">
+  <Placeholder />
+</Frame>
+
+1. Selecciona el **FB Ads Post** para el cual necesitas responder los comentarios y dar likes.
+2. Comentario en **is Anything** (para dispararse con cualquier tipo de comentario).
+3. Público (Public) - **No se usa**.
+
+Estado en **Activo**.
+
+1. **Guardar payload del comentario** (la información del comentario junto con el ID de usuario y otros detalles se almacena en esta **variable JSON** para recuperar datos después).
+2. **Respuesta privada en Messenger** (selecciona el **subflujo** que se ejecuta cuando ocurre el disparador del comentario).
+
+Las siguientes opciones se activan (**Active**):
+
+- Responder a nuevos usuarios
+- Responder a suscriptores existentes
+- Dar like a los comentarios
+- Responder a las respuestas de los comentarios
+
+## Integración con Facebook Ads Manager
+
+Ve a **Integración → Otros → Facebook Ads**.
+
+<Frame caption="Integración con Facebook Ads Manager">
+  <Placeholder />
+</Frame>
+
+Aquí vinculas tu cuenta de Ads Manager junto con la página de tu cuenta de Facebook.
+
+## Crear el flujo del disparador de comentarios
+
+Ve al subflujo, que llamamos **Facebook ads comment trigger**. El concepto para construir este subflujo:
+
+1. Crea un **bloque de Condición** para diferenciar entre el comentario con la palabra clave **chatgpt** y las preguntas generales sobre tu negocio o servicios.
+2. Cuando el comentario es **chatgpt**, disparas un bloque de Acción donde llamas a la **Facebook API** con la función **Ads Post Comment Reply**.
+3. En esa función de Acción, recuperas y mapeas el **Post ID o Comment ID** desde la variable JSON declarada en la automatización del disparador.
+4. Luego envías un mensaje **PM** al usuario por su canal de Messenger.
+5. Si el comentario **no** es **chatgpt**, diriges a otro bloque de Acción con integración de **OpenAI**, donde haces un **Embedding Match** con el comentario del usuario para comprobar si está relacionado con tu negocio o servicios, y recuperas el **openai_embed_text** relacionado.
+6. Si el **Embed Score es > 0.8**, disparas un bloque de Acción con la integración **OpenAI - Create Chat Completion**.
+7. Ahí creas una nueva variación del output mapeado de **openai_embed_text** y envías esa respuesta de OpenAI al comentario del usuario en el FB Ad Post.
+8. Si el **Embed Score es < 0.8**, el comentario recogido en la variable JSON se envía al bloque de Acción con **OpenAI - Create Chat Completion**, con un nuevo mensaje de sistema para que OpenAI responda o salude según corresponda si es un mensaje de saludo.
+
+<Frame caption="Vista general del subflujo del disparador de comentarios">
+  <Placeholder />
+</Frame>
+
+**Bloque de Condición** → Variable JSON: `fb_ads_comment` coincide con **chatgpt**.
+
+<Frame caption="Bloque de Condición comparando con 'chatgpt'">
+  <Placeholder />
+</Frame>
+
+**Bloque de Acción** → Facebook API → función **Ads Post Comment Reply**.
+
+<Frame caption="Acción Ads Post Comment Reply de la Facebook API">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Configuración de la Acción Ads Post Comment Reply">
+  <Placeholder />
+</Frame>
+
+**Bloque de Mensaje** → envío de un mensaje **PM** por Messenger al usuario que comentó.
+
+**Bloque de Acción** → Integración con OpenAI - Embedding Match.
+
+<Frame caption="Acción de OpenAI - Embedding Match">
+  <Placeholder />
+</Frame>
+
+**Bloque de Condición** → comprueba que `openai_embed_score` sea mayor o igual a 0.8.
+
+**Bloque de Acción** → Integración con OpenAI - Create Chat Completion.
+
+<Frame caption="Acción de OpenAI - Create Chat Completion">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Configuración de Create Chat Completion (rama > 0.8)">
+  <Placeholder />
+</Frame>
+
+**Bloque de Acción** → Integración con OpenAI - Create Chat Completion (rama de saludo).
+
+<Frame caption="Create Chat Completion para la rama de saludo (< 0.8)">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Configuración adicional de Create Chat Completion">
+  <Placeholder />
+</Frame>
+
+**Bloque de Acción** → Acciones avanzadas → Facebook API.
+
+<Frame caption="Acción avanzada de Facebook API">
+  <Placeholder />
+</Frame>
+
+## Resultado final en los comentarios del FB Ad Post
+
+<Frame caption="Respuestas automáticas visibles en los comentarios del anuncio">
+  <Placeholder />
+</Frame>
+
+En conclusión, gestionar los comentarios de tus anuncios con OpenAI y ChatGPT es un proceso sencillo. Siguiendo estos pasos puedes automatizar tus respuestas y ahorrar tiempo. Personaliza tus respuestas y ajustes a tu gusto para gestionar los comentarios de forma efectiva.
