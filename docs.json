@@ -36,6 +36,10 @@
           {"group": "Configuración", "icon": "sliders", "pages": ["settings/overview", "settings/general", "settings/facebook", "settings/viber", "settings/live-chat", "settings/sso", "settings/rate-limit"]},
           {"group": "WebChat Widget", "icon": "comment-dots", "pages": ["webchat-widget/overview"]}
         ]
+      },
+      {
+        "group": "Omni Channel",
+        "pages": ["omni-channel/overview"]
       }
     ]
   },
