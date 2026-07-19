@@ -1,0 +1,53 @@
+---
+title: "Ajustes de límite de intentos (Rate Limit)"
+description: "Controla la frecuencia de las interacciones de los usuarios: llamadas API, pedidos falsos y notificaciones"
+icon: "gauge-high"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Frame caption="Ajustes de límite de intentos">
+  <Placeholder />
+</Frame>
+
+El **Límite de intentos (Rate Limit)** es una función valiosa del sistema del chatbot, que da a los administradores una forma simplificada de gestionar las interacciones de los usuarios.
+
+<Card type="note">
+  Lo encuentras en el flujo, en un nodo de Acción → **Acciones avanzadas → Rate Limit Attempt**.
+</Card>
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Limitar llamadas API" icon="code">
+    Asegura el cumplimiento con las restricciones de plataformas de terceros. Controla el número de llamadas API por usuario dentro de un periodo determinado.
+
+    <Frame caption="Límite de llamadas API">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Prevenir pedidos falsos" icon="cart-shopping">
+    Ayuda a mitigar pedidos fraudulentos en entornos de ecommerce. Restringe cuántos pedidos puede hacer un usuario en un periodo determinado.
+
+    <Frame caption="Prevención de pedidos falsos">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Controlar notificaciones" icon="bell">
+    Gestiona la frecuencia de las notificaciones enviadas a los usuarios, asegurando que no se saturen con demasiadas (especialmente en actualizaciones de pedidos de ecommerce).
+
+    <Frame caption="Control de la frecuencia de notificaciones">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+En resumen, el Límite de intentos ofrece a los administradores control sobre las interacciones de los usuarios, manteniendo el cumplimiento con plataformas externas y previniendo el abuso de los recursos del sistema.
+
+<Card type="note">
+  Video de referencia: [youtu.be/hkkRuNjXeyw](https://youtu.be/hkkRuNjXeyw?si=77-Xou-_lX4j2-tC)
+</Card>
