@@ -1,0 +1,94 @@
+---
+title: "Difusiones"
+description: "Envía mensajes masivos a tus usuarios filtrados por condiciones, con programación y control de velocidad de entrega"
+icon: "bullhorn"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Usa la función de **Difusiones (Broadcasts)** para enviar mensajes masivos a tus usuarios. Solo necesitas unos pocos ajustes.
+
+<Frame caption="Función de Difusiones">
+  <Placeholder />
+</Frame>
+
+Ve a **Difusiones** en la barra lateral izquierda y haz clic en **+ New Broadcast**.
+
+<Frame caption="Botón + New Broadcast">
+  <Placeholder />
+</Frame>
+
+## Configurar una difusión
+
+<Steps>
+  <Step title="Título de la difusión">
+    Ponle un título (es para ti, no lo ven los usuarios).
+  </Step>
+  <Step title="Selecciona un subflujo">
+    Elige el subflujo que se enviará.
+  </Step>
+  <Step title="Agrega condiciones">
+    Agrega condiciones para filtrar quién recibirá este mensaje de difusión.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de título, subflujo y condiciones">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  **Tip:** para enviar a **todos** los usuarios, prueba la condición **"If User Id has any value"** (si el User Id tiene cualquier valor).
+</Card>
+
+<Frame caption="Condición para enviar a todos los usuarios">
+  <Placeholder />
+</Frame>
+
+Completa el resto de los ajustes, como el **tipo de mensaje** y la **hora de envío**, y haz clic en **Save**.
+
+<Card type="note">
+  Si eliges **"Now"** en la programación, el mensaje se envía apenas haces clic en **Save**. Si no, puedes cancelar la difusión en cualquier momento antes de que se envíe.
+</Card>
+
+<Frame caption="Tipo de mensaje y programación de envío">
+  <Placeholder />
+</Frame>
+
+Aquí también es donde consultas el **historial y los datos** de tus difusiones.
+
+## Máximo de usuarios por minuto (Max Users Per Minute)
+
+El ajuste **Max Users Per Minute** te permite controlar cuántos usuarios reciben el mensaje de difusión por minuto. Esto ayuda a enviar los mensajes de forma más gradual, haciendo que la difusión parezca más humana y menos automatizada.
+
+<Card type="note">
+  Video de referencia: [youtube.com/watch?v=PnJrnMWdLQw](https://www.youtube.com/watch?v=PnJrnMWdLQw)
+</Card>
+
+<Frame caption="Ajuste Max Users Per Minute">
+  <Placeholder />
+</Frame>
+
+<Steps>
+  <Step title="Crea una nueva difusión">
+    Ve a **Create New Broadcast** y selecciona cualquier tipo de difusión que soporte esta función.
+
+    <Frame caption="Tipo de difusión que soporta Max Users Per Minute">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Configura el máximo por minuto">
+    En los ajustes, elige la opción **Max Users Per Minute**. El valor máximo es de **200 usuarios por minuto**.
+
+    <Frame caption="Configuración del máximo de usuarios por minuto">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+<Card type="note">
+  Esta función es especialmente útil si quieres evitar enviar la difusión demasiado rápido a un gran número de usuarios. Al ralentizar el proceso, la comunicación parece más gradual y humanizada, mejorando la experiencia del usuario.
+</Card>
