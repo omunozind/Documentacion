@@ -10,7 +10,7 @@ export const Placeholder = () => (
   </div>
 );
 
-**Petición externa** le permite a tu bot llamar a una API de terceros — para enviar datos, o para traer información y guardarla en tus campos.
+**Petición externa** le permite a tu bot llamar a una API de terceros: para enviar datos, o para traer información y guardarla en tus campos.
 
 ## Configuración de la petición
 
@@ -51,14 +51,18 @@ export const Placeholder = () => (
   <Accordion title="Parámetros de URL" icon="link">
     Para los parámetros del endpoint. Se recomienda ingresar un **valor de prueba** antes de probar la petición.
   </Accordion>
+
   <Accordion title="Encabezados (Headers)" icon="list">
     Se configuran igual que los parámetros de URL: pares clave-valor, con su valor de prueba.
   </Accordion>
+
   <Accordion title="Autorización" icon="lock">
     El sistema maneja la codificación base64 automáticamente — es menos propenso a errores que escribirlo a mano, especialmente con el formato de token "Bearer". Para autenticación básica (Basic Auth), puedes ingresar usuario y contraseña directamente.
   </Accordion>
+
   <Accordion title="Cuerpo (Body)" icon="box">
     Soporta 3 formatos:
+
     - **multipart/form-data** — para incluir archivos
     - **x-www-form-urlencoded** — pares clave-valor
     - **JSON crudo** — para enviar un objeto JSON directamente

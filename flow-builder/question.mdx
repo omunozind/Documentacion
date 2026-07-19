@@ -10,7 +10,7 @@ export const Placeholder = () => (
   </div>
 );
 
-El nodo **Pregunta** le pide un dato al usuario y espera su respuesta antes de que el flujo continúe. Puede ser tan simple como botones para elegir, o tan flexible como pedir una fecha, un teléfono, o un archivo.
+El nodo **Pregunta** le pide un dato al usuario, y espera su respuesta antes de que el flujo continúe. Puede ser tan simple como botones para elegir, o tan flexible como pedir una fecha, un teléfono, o un archivo.
 
 ## Respuestas rápidas (Quick Answers)
 
@@ -64,6 +64,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Elegir una opción (Ask for Choice)" icon="list-check">
     Muestra un número limitado de respuestas rápidas, y el usuario **solo puede elegir entre esas opciones** — no puede escribir una respuesta personalizada.
 
@@ -71,13 +72,15 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Fecha o fecha y hora" icon="calendar">
-    La mayoría de los canales no tienen un selector de fecha integrado, así que debes indicarle al usuario el formato exacto que esperas — por ejemplo: *"Escribe la fecha exactamente así: AAAA-MM-DD"* (o con hora: *AAAA-MM-DD hh:mm:ss*).
+    La mayoría de los canales no tienen un selector de fecha integrado, así que debes indicarle al usuario el formato exacto que esperas — por ejemplo: _"Escribe la fecha exactamente así: AAAA-MM-DD"_ (o con hora: _AAAA-MM-DD hh:mm:ss_).
 
     <Frame caption="Pregunta configurada para pedir fecha o fecha y hora">
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Teléfono" icon="phone">
     Solo se permiten los caracteres `0-9` y `+` — y el `+` únicamente al inicio. El número debe tener más de 6 caracteres.
 
@@ -85,6 +88,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Correo" icon="envelope">
     La validación básica revisa que el valor tenga una `@` y un punto `.`.
 
@@ -92,6 +96,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Ubicación" icon="location-dot">
     Este formato de pregunta es exclusivo del canal **WhatsApp** (solo números on-premise). Al activarse, WhatsApp le pide permiso al usuario para acceder a su ubicación actual — si el usuario la comparte, la latitud y longitud se guardan en el campo personalizado que hayas definido.
 
@@ -99,6 +104,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
       <Placeholder />
     </Frame>
   </Accordion>
+
   <Accordion title="Entrada silenciosa (Silent Input)" icon="ear-listen">
     Captura varias respuestas del usuario durante un período de tiempo y las une en una sola respuesta. Lo que la hace distinta de las demás preguntas: **no necesitas mostrarle ninguna pregunta al usuario** para capturar sus respuestas.
 
