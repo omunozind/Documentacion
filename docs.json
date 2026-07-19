@@ -14,8 +14,10 @@
           {"group": "Descripción general", "pages": ["flow-builder/overview", "flow-builder/field-variable", "flow-builder/publish-draft", "flow-builder/navigation-sidebar", "flow-builder/basic-operations"]},
           {"group": "Subflujos", "pages": ["flow-builder/sub-flow", "flow-builder/workflow", "flow-builder/function-flow"]},
           {"group": "Building Blocks / Pasos", "pages": ["flow-builder/send-message", "flow-builder/question",
-            {"group": "Acción", "pages": ["flow-builder/notifications",
-              {"group": "Acciones avanzadas", "pages": ["flow-builder/external-request", "flow-builder/smart-delay", "flow-builder/javascript-function", "flow-builder/send-sms-action", "flow-builder/update-user-profile", "flow-builder/trigger-workflow-action", "flow-builder/rate-limit-attempts"]}
+            {"group": "Acción", "icon": "bolt", "pages": [
+              {"group": "Acciones básicas", "icon": "list-check", "pages": ["flow-builder/tag-action", "flow-builder/json-operation", "flow-builder/set-variable-value", "flow-builder/clear-variable-value", "flow-builder/sequence-subscribe", "flow-builder/bot-subscribe", "flow-builder/email-opt-in-out", "flow-builder/sms-opt-in-out", "flow-builder/mark-conversation", "flow-builder/add-note-teammates", "flow-builder/delete-bot-user", "flow-builder/assign-agent", "flow-builder/resume-bot-automation", "flow-builder/talk-to-human", "flow-builder/add-remove-collaborators"]},
+              {"group": "Acciones avanzadas", "icon": "sliders", "pages": ["flow-builder/external-request", "flow-builder/smart-delay", "flow-builder/javascript-function", "flow-builder/send-sms-action", "flow-builder/update-user-profile", "flow-builder/trigger-workflow-action", "flow-builder/rate-limit-attempts"]},
+              "flow-builder/notifications"
             ]}
           ]}
         ]
