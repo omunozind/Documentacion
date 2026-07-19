@@ -1,0 +1,53 @@
+---
+title: "Registros de errores"
+description: "Encuentra y soluciona rápidamente los errores que ocurren dentro de tu chatbot"
+icon: "bug"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **Registros de errores (Error Logs)** te ayudan a solucionar los bugs que pueden ocurrir dentro de tu chatbot. Te ahorran mucho tiempo que de otra forma perderías tratando de encontrarlos por tu cuenta.
+
+## Registro de errores
+
+Para acceder, ve a **Herramientas** en el menú izquierdo y selecciona la primera pestaña, **Registros de errores**. Ahí tendrás una vista completa de todos los errores que han ocurrido en el chatbot.
+
+<Frame caption="Vista general de los registros de errores">
+  <Placeholder />
+</Frame>
+
+Desde ahí puedes ver la fecha del error, el tipo de error, qué usuario afectó, en qué subflujo ocurrió junto con el nodo que tiene el error, y más información.
+
+Si presionas el nodo del mensaje de error, te llevará directamente al punto donde se registró el problema. Esto acelera enormemente la resolución y te ahorra horas que perderías buscando el bug.
+
+## Disparador de registro de errores
+
+Puedes encontrar el **"Disparador de registro de errores"** en **Automatización → Disparadores**. También puedes acotar el contenido del mensaje de los errores.
+
+<Frame caption="Disparador de registro de errores en Automatización">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  El registro de errores solo se dispara **una vez cada 24 horas** por cada usuario.
+</Card>
+
+## Base de datos de errores comunes
+
+Puedes consultar la base de datos de errores comunes por canal:
+
+- Canal WebChat
+- Canal Messenger
+- Canal Instagram
+- Canal WhatsApp
+- Canal SMS
+- Canal Voice
+- Canal Viber
+- Canal Line
+- Canal VK
+- Canal WeChat
+- Canal Slack
