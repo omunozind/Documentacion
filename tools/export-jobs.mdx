@@ -1,0 +1,53 @@
+---
+title: "Trabajos de exportación (Export Jobs)"
+description: "Exporta todos tus usuarios del bot (o una selección filtrada) a un CSV descargable directamente en la plataforma"
+icon: "file-export"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky te permite exportar todos tus usuarios del bot (o una selección filtrada) a un archivo **CSV descargable** directamente desde la plataforma.
+
+Antes, los CSV se enviaban por correo, pero debido a complicaciones con SMTP y con el correo, ahora la función admite **descarga directa** en la plataforma.
+
+<Card type="note">
+  Un trabajo de exportación **expira a los 7 días** de su creación.
+</Card>
+
+<Card type="note">
+  Video de referencia: [youtu.be/ASh_kO9neKc](https://youtu.be/ASh_kO9neKc?feature=shared)
+</Card>
+
+## Acceder al trabajo de exportación
+
+Ve al Constructor de Flujos y selecciona la pestaña de **usuarios del bot**. Aplica los filtros que quieras (o continúa con todos los usuarios) y haz clic en el ícono de **descarga** en la esquina superior derecha.
+
+<Frame caption="Ícono de descarga en la pestaña de usuarios del bot">
+  <Placeholder />
+</Frame>
+
+Un aviso de confirmación te pedirá aprobar la exportación de los usuarios seleccionados.
+
+<Frame caption="Confirmación de la exportación">
+  <Placeholder />
+</Frame>
+
+Aparecerá un aviso posterior: **ignora** el mensaje sobre el envío por correo. En su lugar, ve a la sección de **Herramientas**.
+
+<Frame caption="Aviso sobre el envío por correo (ignorar)">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Sección de trabajos de exportación en Herramientas">
+  <Placeholder />
+</Frame>
+
+Al seleccionar el botón de **descarga**, se guarda el archivo CSV en tu dispositivo.
+
+<Card type="note">
+  Si estás **importando** contactos a los usuarios del bot, el progreso y el estado de la importación también aparecen en esta sección.
+</Card>
