@@ -1,0 +1,47 @@
+---
+title: "Personas"
+description: "Dale a tu chatbot un perfil humano con nombre y foto para aumentar la interacción y las conversiones"
+icon: "id-badge"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Las **Personas** ayudan a que tu chatbot se sienta más humano. Te permiten configurar un perfil personal con foto, para que la gente esté más dispuesta a conversar con el chatbot al sentir una experiencia más cercana.
+
+## Crear y gestionar tus Personas
+
+Para crear una nueva persona, ve a **Contenidos** en el menú izquierdo y luego a la pestaña **Personas**. Ahí tendrás la vista general de todas las personas que hayas creado en el chatbot.
+
+<Frame caption="Vista general de Personas">
+  <Placeholder />
+</Frame>
+
+Para crear una nueva, presiona el botón superior derecho **+ Nueva persona**. Aparecerá una ventana emergente donde configuras todo.
+
+<Frame caption="Ventana emergente para crear una persona">
+  <Placeholder />
+</Frame>
+
+Una vez creada, la persona estará disponible en la vista general. Desde ahí también puedes gestionarla: solo presiona el ícono de **lápiz** para editarla.
+
+<Frame caption="Gestión de una persona desde la vista general">
+  <Placeholder />
+</Frame>
+
+## Cómo usar las Personas
+
+Usas las personas configurándolas dentro de tus flujos. Ve a un flujo y crea un bloque de **Acción**. Selecciona **Acciones avanzadas** y luego **Establecer persona (Set persona)**.
+
+<Frame caption="Acción Establecer persona en un flujo">
+  <Placeholder />
+</Frame>
+
+Desde ahí puedes seleccionar cualquier persona que hayas creado antes, y el chatbot continuará la conversación con ese usuario usando ese perfil.
+
+<Card type="note">
+  Usar personas es una buena forma de aumentar la interacción y las conversiones. Por ejemplo, podrías empezar tu flujo comprobando con una condición el género del usuario y establecer la persona en consecuencia.
+</Card>
