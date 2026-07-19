@@ -1,0 +1,46 @@
+---
+title: "Google Gemini"
+description: "Conecta el modelo de IA de Google para generar texto y describir imágenes dentro de tu flujo"
+icon: "gem"
+---
+
+## Conectar Google Gemini
+
+<Steps>
+  <Step title="Ve a ai.google.dev">
+    Y haz clic en "Get Gemini API key in Google Studio".
+  </Step>
+  <Step title="Crea tu clave de API">
+    En aistudio.google.com/app/apikey, selecciona tu proyecto y genera la clave.
+  </Step>
+  <Step title="Copia la clave">
+  </Step>
+  <Step title="Pégala en Integraciones → Google Gemini">
+    Y guarda.
+  </Step>
+</Steps>
+
+## Acciones disponibles
+
+<CardGroup cols={2}>
+  <Card title="Crear finalización de chat" icon="message">
+    Envía mensajes y recibe respuestas. Puedes activar el historial, elegir el modelo preferido y ajustar parámetros como el máximo de tokens y la temperatura.
+
+    <Card type="warning">
+      Google Gemini **no admite mensajes de sistema** — esto lo hace algo más limitado que OpenAI para casos de uso muy específicos de negocio.
+    </Card>
+  </Card>
+  <Card title="Borrar historial de chat" icon="eraser">
+    Limpia el historial de conversación guardado.
+  </Card>
+  <Card title="Listar modelos disponibles" icon="list">
+    Consulta qué modelos de Gemini tienes disponibles.
+  </Card>
+  <Card title="Visión: de imagen a texto" icon="image">
+    Ingresa la URL de una imagen y recibe una descripción de su contenido.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  Las respuestas de Gemini llegan rápido, con una estructura distinta a la de OpenAI — el texto de respuesta se encuentra dentro de la sección "content" del resultado. Tanto el texto como las imágenes incluyen calificaciones de seguridad (por ejemplo: contenido sexual, discurso de odio, acoso o contenido peligroso).
+</Card>
