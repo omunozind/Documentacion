@@ -1,0 +1,32 @@
+---
+title: "Checklist del bot de SMS"
+description: "Lista rápida para dejar tu bot de SMS listo y funcionando"
+icon: "list-check"
+---
+
+Usa esta checklist para configurar correctamente tu bot de SMS:
+
+<Steps>
+  <Step title="Elige un proveedor">
+    Crea una cuenta con un proveedor soportado (Twilio, SignalWire, Telnyx, Message Media o Vudu Mobile) y obtén un número.
+  </Step>
+  <Step title="Conecta el proveedor a Botky">
+    Copia las credenciales (ej. Account SID y Auth Token de Twilio) y pégalas en el proveedor correspondiente en Botky. Guarda.
+  </Step>
+  <Step title="Agrega y sincroniza el número">
+    Usa **Add Phone Number** y sincroniza; verás el número en **Integración → Phone Numbers**.
+  </Step>
+  <Step title="Habilita la Geo-permission">
+    En Twilio, activa la geo-permission para las regiones/países a los que enviarás.
+  </Step>
+  <Step title="Crea el flujo">
+    Crea el flujo del número con el botón **+**.
+  </Step>
+  <Step title="Configura horas de telemarketing y opt-in">
+    Define las horas de telemarketing si aplica, y asegúrate de que los usuarios estén opt-in para SMS.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Si algo falla, revisa la página de **[FAQ y errores comunes](/channels/sms-faq)**.
+</Card>
