@@ -1,0 +1,221 @@
+---
+title: "Condición"
+description: "Dirige tu flujo por caminos distintos según se cumplan una o varias condiciones, con acceso a decenas de campos del sistema"
+icon: "code-branch"
+---
+
+Con el paso **Condición** puedes ir a distintos pasos o subflujos dependiendo de si se cumplen ciertas condiciones.
+
+## Cómo funciona
+
+<Steps>
+  <Step title="Haz clic en '+ Agregar grupo de condiciones'">
+    Define al menos un grupo. El grupo **"En otro caso" (Otherwise)** siempre está presente por defecto.
+  </Step>
+  <Step title="Crea todos los grupos que necesites">
+    La comparación va de arriba hacia abajo: en cuanto un grupo coincide, el sistema va al paso que le asignaste. Si ningún grupo coincide, se activa el grupo "En otro caso".
+  </Step>
+  <Step title="Elige entre 'Todas las condiciones' o 'Cualquier condición'">
+    Esta opción está en la esquina superior derecha de cada grupo. **Todas las condiciones** exige que se cumplan absolutamente todas las condiciones del grupo. **Cualquier condición** exige que se cumpla al menos una.
+  </Step>
+</Steps>
+
+<Card type="tip">
+  Aunque sea poco probable que se use, siempre es buena práctica asignarle un paso al grupo "En otro caso" — así tu flujo nunca se queda sin salida.
+</Card>
+
+<Frame caption="Configuración de grupos de condiciones con 'Todas' o 'Cualquier condición'">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Tipos de condición según la variable
+
+<AccordionGroup>
+  <Accordion title="Etiqueta y Secuencia" icon="tag">
+    El operador puede ser "está en" o "no está en" — puedes elegir varias etiquetas o secuencias a la vez.
+  </Accordion>
+  <Accordion title="Texto" icon="font">
+    Para "tiene algún valor" y "está vacío": al borrar una variable, esta queda vacía — por lo tanto "tiene algún valor" sería falso, y "está vacío" sería verdadero.
+  </Accordion>
+  <Accordion title="Número" icon="hashtag">
+    Todos los operadores numéricos estándar de comparación.
+  </Accordion>
+  <Accordion title="Fecha y hora (DateTime)" icon="clock">
+    El campo "valor" siempre debe escribirse en el formato `AAAA-MM-DD HH:mm:ss`, sin importar qué formato de visualización hayas elegido para esa variable.
+
+    <Card type="note">
+      "Antes/después" compara la fecha y hora completas, mientras que "hora antes/después" solo compara la parte de la hora.
+    </Card>
+  </Accordion>
+  <Accordion title="JSON" icon="brackets-curly">
+    Incluye operadores especiales para revisar coincidencias dentro de una lista. Los 3 últimos operadores de "tiene elemento que coincide con..." requieren que el JSON sea una lista de variables simples — no funcionan si tu JSON es una lista de otros JSON.
+  </Accordion>
+</AccordionGroup>
+
+## Nuevos filtros de fecha relativa
+
+<CardGroup cols={2}>
+  <Card title="Después de hace X días" icon="calendar-plus">
+    Filtra usuarios cuya última actividad ocurrió hace más de X días. Por ejemplo: revisa si la fecha de "Última vez visto" es de hace más de 30 días.
+  </Card>
+  <Card title="Antes de hace X días" icon="calendar-minus">
+    Filtra usuarios cuya última actividad ocurrió antes de X días atrás. Por ejemplo: revisa si "Última vez visto" es de hace más de 10 días.
+  </Card>
+  <Card title="Después de hace X minutos" icon="hourglass-start">
+    Igual que la anterior, pero en minutos — útil para actividad muy reciente.
+  </Card>
+  <Card title="Antes de hace X minutos" icon="hourglass-end">
+    Filtra actividad ocurrida antes de X minutos atrás.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  Útiles para dos cosas: identificar actividad reciente (para seguimientos oportunos) y analizar comportamiento pasado (para campañas de reactivación).
+</Card>
+
+## Entrada personalizada (Custom Input)
+
+Se usa para comparar valores dentro de una variable JSON. Busca "entrada personalizada" en el campo **si**: elige un valor dentro de un JSON, y luego compáralo igual que compararías una variable de texto normal.
+
+## Fórmula matemática
+
+También puedes usar fórmulas directamente en el valor de una condición (igual que en "Definir valor de variable"): `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()`, `ceil()`, `floor()`, `log()`, `pow()`, `round()`, `sqrt()`, `sin()`, `cos()`, `tan()`.
+
+<Card type="note">
+  Si la fórmula no es válida, el resultado será `0` para números y vacío para texto.
+</Card>
+
+## Campos del sistema disponibles en Condición
+
+Botky pone a tu disposición decenas de campos del sistema listos para usar dentro de cualquier condición.
+
+### Correo
+
+| Condición | Qué revisa |
+|---|---|
+| Email Click | Si se hizo clic en un correo específico |
+| Email Opened | Si se abrió un correo específico |
+| Email Delivered | Si un correo específico fue entregado |
+| Email Sent | Si un correo específico fue marcado como enviado |
+| Opted-In for Email | Si el usuario tiene activado el permiso de correo |
+
+### Verdadero/Falso (Booleanos)
+
+| Condición | Qué revisa |
+|---|---|
+| Subscribed to bot | Si el usuario está suscrito al bot |
+| Has Interacted in last 24h | Si el usuario interactuó en las últimas 24 horas |
+| Is Guest User | Si es un usuario invitado |
+| Is Tester | Si es un tester |
+| Is Admin | Si es un administrador |
+| Is assigned to agent | Si el usuario tiene un agente asignado |
+| Has SSO user connected | Si el usuario tiene SSO conectado |
+| Is Business Hours | Si la interacción ocurre dentro del horario laboral configurado |
+| Is assigned agent online | Si el agente asignado está conectado |
+| Has agents online | Si hay algún agente humano conectado en este momento |
+
+### Numéricos
+
+| Condición | Qué representa |
+|---|---|
+| Opted-In Date (minutes ago) | Minutos desde que el usuario se suscribió al bot |
+| Last seen (minutes ago) | Minutos desde que el usuario vio el último mensaje del bot |
+| Last interaction (minutes ago) | Minutos desde la última interacción del usuario con el flujo |
+| Last agent interaction (minutes ago) | Minutos desde la última interacción de un agente humano con el usuario |
+| Opted-In for Email (minutes ago) | Minutos desde que se activó el permiso de correo |
+| Opted-In for SMS (minutes ago) | Minutos desde que se activó el permiso de SMS |
+| Shopping cart total price | Precio total del carrito, guardado en el campo del sistema ORDER |
+| Agent Id | ID del sistema del agente humano |
+
+### Fecha y hora
+
+| Condición | Qué representa |
+|---|---|
+| Opted-In Date | Fecha en la que el usuario activó el permiso |
+| Last Seen | Fecha y hora de la última vez que el usuario vio un mensaje del bot |
+| BOT_CURRENT_TIME | Hora actual según la zona horaria del espacio de trabajo |
+| Created At | Fecha y hora de creación del usuario |
+| Last Interaction | Fecha y hora de la última interacción del usuario |
+| NOW | Hora actual en UTC |
+| Subscribed | Fecha y hora en la que el usuario se suscribió al bot |
+| TODAY | Fecha de hoy |
+
+### Campos del sistema (generales)
+
+| Condición | Qué representa |
+|---|---|
+| Agent Email | Correo del agente asignado |
+| Agent Name | Nombre del agente asignado |
+| Browser | Navegador del usuario (canal web) |
+| CRM Contact Id | ID asignado por el CRM integrado (por ejemplo GoHighLevel) |
+| Channel | Canal por el que interactúa el usuario |
+| City | Ciudad del usuario |
+| Country | País del usuario |
+| Department | Departamento asignado al usuario |
+| Device | Dispositivo desde el que interactúa |
+| Email | Correo del usuario |
+| First Name | Nombre del usuario |
+| Flow Ns | NS del flujo principal actual del bot |
+| Gender | Género del usuario |
+| IP | IP del usuario (canal web) |
+| Instagram Id | ID único de Meta para el usuario en Instagram |
+| Instagram User Name | Nombre de usuario de Instagram |
+| Interest | Interés asignado al usuario |
+| Language | Idioma del usuario |
+| Last Button Title | Último botón que presionó el usuario |
+| Last FB Comment | Último comentario del usuario en Facebook |
+| Last FB Comment Id | ID del último comentario |
+| Last FB Comment Post Id | ID de la publicación del último comentario |
+| Last Name | Apellido del usuario |
+| Last Node Ns | NS del último nodo visitado por el usuario |
+| Last Text Input | Último texto que escribió el usuario |
+| Lead Source | Origen del lead asignado |
+| Lead Status | Estado del lead asignado |
+| Live Chat Url | URL de Chat en vivo del usuario |
+| Locale | Configuración regional del usuario |
+| Market | Mercado asignado al usuario |
+| Page Id | ID de la página de Facebook |
+| Page Name | Nombre de la página de Facebook integrada |
+| Page User Name | Usuario del administrador de la página integrada |
+| Platform | Plataforma desde la que interactúa el usuario |
+| Profile Image | Imagen de perfil del usuario |
+| Region | Región del usuario |
+| SSO Url | URL de inicio de sesión único (SSO) |
+| Sub Flow Ns | NS del subflujo donde está actualmente el usuario |
+| Timezone | Zona horaria del usuario |
+| User Id | ID del usuario según el canal |
+| User Name | Nombre de usuario |
+| User Ns | Identificador único del usuario dentro de Botky |
+
+### Campos JSON del sistema
+
+| Condición | Qué representa |
+|---|---|
+| CART | Los productos que el usuario seleccionó, usando el Ecommerce nativo |
+| Claude | Historial de chat del usuario con Claude AI |
+| DialogFlow | Historial de chat del usuario con Dialogflow |
+| Gemini | Historial de chat del usuario con Google Gemini |
+| Last Error | Último error que le ocurrió al usuario |
+| Last Message | Último mensaje por el que pasó el usuario |
+| ORDER | El pedido realizado por el usuario, usando el Ecommerce nativo |
+| OpenAI | Historial de chat del usuario con OpenAI |
+| SELECT | Guarda el par clave-valor del elemento que el usuario seleccionó en el paso anterior — se usa mucho junto con "Para cada uno" |
+| SHOP | Información sobre el negocio del usuario |
+| User | Toda la información completa del usuario |
+
+### Otras condiciones
+
+| Condición | Qué representa |
+|---|---|
+| Segments | El segmento al que pertenece el usuario |
+| Tag | Si el usuario tiene cierta etiqueta |
+| Label | Si el usuario tiene cierta etiqueta de flujo |
+| Sequence Subscription | Si el usuario está suscrito a una secuencia |
+| Closing Notes | Las notas de cierre asignadas al usuario |
+| Board | El tablero al que está asignado el usuario |
+| Notification Topic | El tema de notificación asignado |
+| Assigned Agent | Si un agente específico está asignado al usuario |
+| Conversation Status | El estado de la conversación (Resuelta, Abierta, Pendiente, etc.) |
+| Custom Input | Te permite ingresar tus propias condiciones personalizadas — por ejemplo, usando un campo JSON personalizado |
