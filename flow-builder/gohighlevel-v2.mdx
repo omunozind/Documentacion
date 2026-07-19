@@ -1,0 +1,124 @@
+---
+title: "GoHighLevel CRM V2"
+description: "Conecta tu cuenta de GoHighLevel (API V2, con inicio de sesión OAuth) para gestionar contactos, citas y más desde tu flujo"
+icon: "chart-line"
+---
+
+**GoHighLevel** es una plataforma de marketing todo-en-uno con funciones robustas de gestión de clientes (CRM) — embudos de venta, seguimiento de leads, comunicación saliente, secuencias de seguimiento y agendamiento.
+
+Botky soporta ambas versiones de la API de GoHighLevel: 1.0 y 2.0. Esta página cubre la **versión 2**, que se conecta mediante inicio de sesión OAuth (usuario y contraseña).
+
+## Conectar GoHighLevel V2
+
+<Steps>
+  <Step title="Ve a Integraciones → GoHighLevel V2">
+  </Step>
+  <Step title="Inicia sesión con tu correo y contraseña">
+  </Step>
+  <Step title="Conecta tu cuenta">
+  </Step>
+  <Step title="Haz clic en Confirmar">
+    Esto te redirige de vuelta a Botky con la integración activa.
+  </Step>
+</Steps>
+
+## Cómo acceder a las acciones
+
+En cualquier canal, ve al Constructor de Flujos, haz clic derecho, entra a **Acción → Integraciones**, y ahí verás tanto "CRM Versión 1 API" como "CRM Versión 2 API".
+
+## Acciones disponibles por categoría
+
+<AccordionGroup>
+  <Accordion title="Ubicación" icon="location-dot">
+    - **Obtener información de ubicación** — ID, nombre de la empresa, dirección, zona horaria, correo y más.
+    - **Obtener etiquetas de ubicación**
+    - **Crear etiqueta de ubicación**
+    - **Actualizar etiqueta de ubicación**
+    - **Eliminar etiqueta de ubicación**
+  </Accordion>
+  <Accordion title="Contactos" icon="address-book">
+    - **Buscar contactos** (también por nombre)
+    - **Buscar contactos duplicados** (por correo o teléfono)
+    - **Obtener contacto** (por ID)
+    - **Crear contacto** (teléfono obligatorio; nombre, apellido, correo y otros campos opcionales)
+    - **Actualizar contacto**
+    - **Actualizar campos personalizados del contacto** (uno o varios)
+    - **Eliminar campo personalizado del contacto**
+    - **Crear o actualizar contacto (Upsert)** — si ya existe, lo actualiza; si no, lo crea
+    - **Eliminar contacto**
+    - **Crear nota en el contacto**
+    - **Agregar etiquetas al contacto**
+    - **Quitar etiquetas del contacto**
+  </Accordion>
+  <Accordion title="Mensajes" icon="message">
+    - **Enviar SMS** (texto y contacto)
+    - **Enviar correo** (contacto, asunto, cuerpo; remitente opcional)
+  </Accordion>
+  <Accordion title="Campañas" icon="bullhorn">
+    - **Obtener campañas**
+    - **Agregar contacto a campaña**
+    - **Quitar contacto de campaña**
+    - **Quitar contacto de todas las campañas**
+  </Accordion>
+  <Accordion title="Calendario" icon="calendar">
+    - **Obtener calendarios** (con horarios de apertura, etc.)
+    - **Obtener grupos de calendario**
+    - **Obtener calendario** (por ID)
+    - **Eliminar calendario**
+    - **Obtener horarios libres** (indicando fecha de inicio y fin en formato Unix)
+    - **Obtener citas de un contacto**
+    - **Obtener cita**
+    - **Crear cita**
+    - **Actualizar cita**
+    - **Crear bloqueo de horario**
+    - **Actualizar bloqueo de horario**
+    - **Eliminar evento**
+  </Accordion>
+  <Accordion title="Flujos de trabajo (Workflows)" icon="diagram-project">
+    - **Obtener flujos de trabajo**
+    - **Agregar contacto a flujo de trabajo**
+    - **Quitar contacto de flujo de trabajo**
+  </Accordion>
+  <Accordion title="Campos personalizados" icon="list-check">
+    - **Obtener campos personalizados**
+    - **Crear campo personalizado**
+    - **Actualizar campo personalizado**
+    - **Eliminar campo personalizado**
+  </Accordion>
+  <Accordion title="Valores personalizados" icon="tag">
+    - **Obtener valores personalizados**
+    - **Crear valor personalizado**
+    - **Actualizar valor personalizado**
+    - **Eliminar valor personalizado**
+  </Accordion>
+  <Accordion title="Oportunidades" icon="chart-line">
+    - **Buscar oportunidad**
+    - **Obtener embudos (pipelines)**
+    - **Obtener oportunidad**
+    - **Crear oportunidad**
+    - **Actualizar oportunidad**
+    - **Crear o actualizar oportunidad (Upsert)**
+    - **Actualizar estado de la oportunidad**
+    - **Eliminar oportunidad**
+  </Accordion>
+  <Accordion title="Usuarios" icon="user">
+    - **Obtener usuarios**
+    - **Obtener información de usuario**
+    - **Crear usuario**
+    - **Actualizar usuario**
+    - **Eliminar usuario**
+  </Accordion>
+  <Accordion title="Plantillas" icon="file-lines">
+    - **Obtener plantillas de SMS/correo**
+  </Accordion>
+</AccordionGroup>
+
+## Disparadores (Triggers)
+
+<Card type="warning">
+  Los disparadores solo están disponibles en la **versión 2** de la API, y únicamente en el canal Omnichannel. Además, solo funcionan para contactos que hayan sido creados desde Botky.
+</Card>
+
+Disparadores disponibles: contacto creado, contacto eliminado, etiqueta de contacto actualizada, estado de campaña actualizado, oportunidad creada/eliminada/actualizada, tarea creada/eliminada/actualizada, y cita completada.
+
+Cualquiera de estos eventos en GoHighLevel puede disparar el flujo que configures en Botky, logrando una sincronización en ambos sentidos.
