@@ -1,0 +1,65 @@
+---
+title: "FAQ y errores comunes (Instagram)"
+description: "Problemas frecuentes del canal de Instagram y cómo resolverlos"
+icon: "circle-question"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Algunos usuarios de Instagram no tienen foto de perfil
+
+En algunos casos falta la foto de perfil de ciertos usuarios. La razón: para algunos usuarios (especialmente los que vienen de comentarios en publicaciones de Instagram), Meta no envía la información completa del usuario a través de su API, por lo que no tenemos su foto de perfil.
+
+Además, una vez que el usuario interactúa o habla con el bot, Meta crea un usuario nuevo para eso, así que el usuario anterior permanece sin foto.
+
+Para los demás usuarios, puedes usar la acción **"update user profile"** para refrescar su información de perfil y zona horaria.
+
+## Error: "Message not sent because outside 24 hours"
+
+Este límite aplica a los canales de Meta (Messenger, Instagram, WhatsApp). Si el usuario no ha interactuado con tu bot en las últimas 24 horas, no puedes contactarlo directamente. Para WhatsApp necesitas un mensaje de plantilla; para Messenger, una notificación recurrente o única.
+
+<Card type="note">
+  No hay buenas opciones para contactar a un usuario de Instagram fuera de la ventana de 24 horas. Una alternativa es **capturar el correo** del usuario y contactarlo por email.
+</Card>
+
+## Error: "(#230) User consent is required to access user profile"
+
+<Frame caption="Error #230 de consentimiento del usuario">
+  <Placeholder />
+</Frame>
+
+Se trata del **consentimiento del usuario**. Se requiere consentimiento para acceder al perfil de un usuario, y este solo se establece cuando la persona **envía un mensaje** a un negocio, o hace clic en los *icebreakers* o el menú persistente. Si una persona solo comenta en una publicación pero no ha enviado un mensaje, tu app recibirá este error.
+
+## Las automatizaciones de Instagram no funcionan
+
+Si las automatizaciones de **DM** no funcionan pero otras (como las de comentarios) sí, podría ser por la **aprobación de usuarios (User approvals)** activada en tu perfil. Esa aprobación impide que Botky cree un usuario del bot y, sin usuario, no se disparan las automatizaciones de DM.
+
+<Frame caption="Ajuste de aprobación de usuarios en Instagram">
+  <Placeholder />
+</Frame>
+
+**Solución:** entra a los ajustes de tu perfil de Instagram y **desactiva User approvals**. Para gestionar quién puede enviarte solicitudes de mensaje:
+
+- Haz clic en **More** (abajo a la izquierda) y luego en **Settings**.
+- En **How others can interact with you**, haz clic en **Messages and story replies**.
+- Haz clic en **Message controls**.
+- Elige recibir las solicitudes de mensaje.
+
+## No se pueden enviar archivos por el bot en Instagram
+
+Correcto: el envío de archivos y documentos **no** está soportado en el canal de Instagram, porque las APIs de Meta no lo permiten para Instagram.
+
+## Errores de límite de tasa
+
+<AccordionGroup>
+  <Accordion title="Error 613 — rate limit exceeded" icon="triangle-exclamation">
+    *"2534040 (#613): The rate limit has exceeded. Please retry again after some time."* Facebook e Instagram tienen límites de tasa según el número de seguidores. Este error ocurre cuando tu cantidad de seguidores crece mucho en poco tiempo.
+  </Accordion>
+  <Accordion title="Error 100 — thread deleted" icon="triangle-exclamation">
+    *"2534001 (#100): The thread owner has archived or deleted this conversation or the thread does not exist."* Suele ocurrir cuando el suscriptor elimina el chat; significa que no quiere recibir más mensajes.
+  </Accordion>
+</AccordionGroup>
