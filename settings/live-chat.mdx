@@ -1,0 +1,283 @@
+---
+title: "Ajustes de Chat en vivo"
+description: "Visibilidad de conversaciones, funciones del Chat en vivo, URL personalizada, integraciones, notificaciones y más"
+icon: "comments"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **Ajustes de Chat en vivo** se acceden haciendo clic en la pestaña **Configuración** dentro del bot, y luego en **Chat en vivo**.
+
+<Frame caption="Acceso a los ajustes de Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Aquí encuentras todos los ajustes relacionados con el Chat en vivo, incluidas las notas de cierre y las notificaciones de agentes.
+
+## Visibilidad de conversaciones
+
+La función de **Visibilidad de conversaciones** te permite controlar qué conversaciones pueden ver los agentes y miembros del Chat en vivo. Es esencial para gestionar el acceso y la distribución del trabajo en tu equipo.
+
+<Card type="note">
+  Video de referencia: [youtu.be/E_YwjsU56uE](https://youtu.be/E_YwjsU56uE?si=QaXRAdImWkjioJhE)
+</Card>
+
+### Cómo acceder
+
+<Steps>
+  <Step title="Configuración">
+    Ve a **Configuración** en el menú principal del chatbot.
+  </Step>
+  <Step title="Chat en vivo">
+    Navega a **Chat en vivo**.
+  </Step>
+  <Step title="Visibilidad de conversaciones">
+    Ubica la sección **Conversation Visibility**.
+  </Step>
+</Steps>
+
+<Frame caption="Sección de Visibilidad de conversaciones">
+  <Placeholder />
+</Frame>
+
+### Opciones de visibilidad
+
+<AccordionGroup>
+  <Accordion title="1. Todas las conversaciones (por defecto)" icon="eye">
+    Todos los agentes tienen acceso a todas las conversaciones disponibles.
+    - **Dueños y Admins:** siempre ven todas.
+    - **Supervisores:** ven todas.
+    - **Agentes:** ven todas.
+  </Accordion>
+  <Accordion title="2. Solo las mías (asignadas a mí)" icon="user">
+    Los agentes solo ven las conversaciones asignadas directamente a ellos.
+    - **Dueños y Admins:** siempre ven todas.
+    - **Supervisores:** ven todas.
+    - **Agentes:** solo las asignadas a ellos individualmente.
+  </Accordion>
+  <Accordion title="3. Las mías + sin asignar" icon="user-plus">
+    Los agentes ven sus conversaciones y las que no tienen asignación.
+    - **Dueños y Admins:** siempre ven todas.
+    - **Supervisores:** ven todas.
+    - **Agentes:** las asignadas a ellos + las sin asignar.
+
+    *Las conversaciones sin asignar son las que no están designadas a ningún agente o grupo de agentes.*
+  </Accordion>
+  <Accordion title="4. Las mías + mis grupos" icon="users">
+    Los agentes ven las conversaciones asignadas a ellos y a los grupos a los que pertenecen.
+    - **Dueños y Admins:** siempre ven todas.
+    - **Supervisores:** solo las conversaciones de los grupos a los que pertenecen.
+    - **Agentes:** las asignadas a ellos + las de sus grupos.
+  </Accordion>
+  <Accordion title="5. Las mías + mis grupos + sin asignar" icon="users-rectangle">
+    Combinación de las opciones anteriores.
+    - **Dueños y Admins:** siempre ven todas.
+    - **Supervisores:** las de sus grupos + las sin asignar.
+    - **Agentes:** las asignadas + las de sus grupos + las sin asignar.
+  </Accordion>
+</AccordionGroup>
+
+### Ajustes adicionales de grupo
+
+Al configurar un grupo de agentes (en **Ajustes del espacio de trabajo → Grupos de agentes**), puedes definir una visibilidad adicional:
+
+- **Todas las conversaciones:** los agentes ven todas las conversaciones asignadas al grupo.
+- **Solo las asignadas a mí:** los agentes solo ven las conversaciones del grupo que les fueron asignadas específicamente.
+
+<Frame caption="Visibilidad dentro de un grupo de agentes">
+  <Placeholder />
+</Frame>
+
+### Ajustes de supervisor
+
+Para los supervisores hay un ajuste adicional:
+
+<Frame caption="Ajustes de supervisor">
+  <Placeholder />
+</Frame>
+
+- Accede al menú de **tres puntos** junto al supervisor.
+- Selecciona **Supervised Agents**.
+- Elige qué agentes serán supervisados.
+
+<Frame caption="Selección de agentes supervisados">
+  <Placeholder />
+</Frame>
+
+**Resultado:** el supervisor verá todas las conversaciones de los agentes seleccionados, permitiendo monitoreo y soporte dirigidos.
+
+### Jerarquía de permisos
+
+| Rol | Acceso |
+|---|---|
+| **Dueño (Owner)** | Siempre ve todas las conversaciones, sin importar los ajustes. |
+| **Admin** | Siempre ve todas las conversaciones, sin importar los ajustes. |
+| **Supervisor** | El acceso varía según la configuración seleccionada. |
+| **Agente en vivo** | Acceso limitado según la configuración de visibilidad. |
+| **Miembro** | Mismas restricciones que los agentes. |
+
+<Card type="warning">
+  **Notas importantes:**
+  - Los cambios en la visibilidad requieren **refrescar la página** para aplicarse.
+  - Dueños y Admins siempre mantienen acceso completo.
+  - Los ajustes de grupo tienen prioridad sobre los generales cuando aplican.
+  - Las conversaciones sin asignar incluyen las que no tienen agente o grupo designado.
+</Card>
+
+## Funciones del Chat en vivo
+
+Estas opciones se pueden configurar aquí:
+
+| Ajuste | Explicación |
+|---|---|
+| Deshabilitar la tecla Enter para enviar | Por defecto, Enter envía el mensaje. Desactívalo para que Enter agregue una nueva línea. |
+| Deshabilitar reasignar conversación por el agente | Impide que los agentes reasignen una conversación de ellos a otro agente y viceversa. |
+| Cualquier mensaje entrante reabre la conversación si está en Done o Pending | Cualquier respuesta del usuario mueve la conversación a Open, sin importar si estaba en Pending o Done. |
+| Ocultar ícono - Etiquetas de usuario | Oculta las etiquetas del overlay del usuario. |
+| Ocultar ícono - Labels | Oculta las Labels del overlay del usuario. |
+| Ocultar ícono - Secuencias suscritas | Oculta las secuencias suscritas del overlay del usuario. |
+| Ocultar ícono - Pedidos de tienda | Oculta los pedidos del overlay del usuario. |
+| Ocultar ícono - Generador de archivo de calendario | Desactiva la generación de archivos de calendario desde la bandeja de íconos. |
+| Ocultar ícono - Enviar subflujo | Desactiva el envío de subflujos desde la bandeja de íconos. |
+| Ocultar ícono - Agent Assist | Desactiva Agent Assist desde la bandeja de íconos. |
+| Mostrar ícono - URL personalizada | Habilita la función de URL personalizada en la bandeja de íconos. |
+| Ocultar mensaje de sistema - Todos | Oculta los mensajes de sistema para todos los miembros del espacio de trabajo. |
+| Ocultar mensaje de sistema - Agente / Supervisor | Oculta los mensajes de sistema solo para agentes y supervisores. |
+| Habilitar notas de cierre | Habilita las notas de cierre para los agentes. |
+| Categoría de nota de cierre obligatoria | Obliga a los agentes a ingresar una categoría de nota de cierre al mover a Done. |
+| Anteponer nombre del agente (WhatsApp) | En WhatsApp, antepone el nombre del agente en los mensajes que envía. |
+| Mostrar solo los últimos 4 dígitos del teléfono (agente / supervisor) | Enmascara el teléfono del usuario con `*`, dejando solo los últimos 4 dígitos. Aplica a agentes y supervisores; su uso principal es la privacidad. |
+| Deshabilitar reasignar por el agente | No permite que los agentes reasignen el chat a otra persona. |
+| Marcar como leído solo si lo vio un agente | Mantiene el chat como no leído si lo leyeron admins o supervisores. |
+
+### Anteponer el nombre del agente (Web Chat y WhatsApp)
+
+El ajuste **Prepend Agent Name** hace que el nombre del agente aparezca antes de cada mensaje que envía al tomar el chat. Ayuda a que los clientes identifiquen fácilmente con qué agente hablan, creando una experiencia más personalizada y transparente.
+
+<Steps>
+  <Step title="Accede a los ajustes de Chat en vivo">
+    Primero entra al bot donde quieres habilitar esta función.
+  </Step>
+  <Step title="Ubica el ajuste">
+    Ve a **Ajustes de Chat en vivo** en el menú de Configuración y busca la opción **Prepend Agent Name**.
+  </Step>
+  <Step title="Habilítalo">
+    Activa el interruptor. Una vez activo, todos los mensajes de los agentes mostrarán su nombre al inicio.
+  </Step>
+  <Step title="Guarda los cambios">
+    Guarda para que surtan efecto en las sesiones activas de web chat.
+  </Step>
+</Steps>
+
+<Frame caption="Ajuste Prepend Agent Name">
+  <Placeholder />
+</Frame>
+
+**Ejemplo:**
+- **Sin anteponer el nombre:** *"Hola, ¿en qué te puedo ayudar hoy?"*
+- **Anteponiendo el nombre:** *"John Doe: Hola, ¿en qué te puedo ayudar hoy?"*
+
+<Frame caption="Vista previa en el Chat en vivo">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Vista previa en WhatsApp">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  - **Disponibilidad:** este ajuste solo está disponible para web chat y WhatsApp.
+  - **Caso de uso:** útil cuando varios agentes pueden tomar una misma sesión de chat, para que los clientes sigan quién los atiende.
+</Card>
+
+## URL personalizada (Custom URL)
+
+<Frame caption="Configuración de URL personalizada">
+  <Placeholder />
+</Frame>
+
+Aquí puedes definir una URL personalizada para el usuario del bot que, al hacer clic, abre una plataforma externa con los detalles de ese usuario.
+
+Esta función se usa mucho con **CRMs**: permite a los agentes abrir su CRM desde dentro de Botky en un *iframe* y editar la información del usuario directamente desde una sola pantalla, sin salir de Botky.
+
+<Frame caption="URL personalizada abriendo un CRM en iframe">
+  <Placeholder />
+</Frame>
+
+Se ingresa la URL y se puede seleccionar una variable del sistema de las opciones disponibles. También puedes elegir el tamaño de ventana del iframe desde el desplegable **Target**. Asegúrate de que el ícono de URL personalizada esté habilitado en la bandeja de íconos.
+
+<Frame caption="Configuración de la URL y la variable del sistema">
+  <Placeholder />
+</Frame>
+
+Ve al Chat en vivo, haz clic en una conversación y verás el ícono de URL personalizada. Al hacer clic, debería abrir el popup.
+
+<Frame caption="Ícono de URL personalizada en el Chat en vivo">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Asegúrate de que tu CRM permita iframes o modales popup, de lo contrario la función podría no funcionar.
+</Card>
+
+<Frame caption="Popup de la URL personalizada abierto">
+  <Placeholder />
+</Frame>
+
+## Integración de Chat en vivo
+
+<Frame caption="Integración de Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Aquí puedes seleccionar la plataforma a la que quieres transferir el Chat en vivo una vez que la automatización del bot se pausa.
+
+<Frame caption="Plataformas soportadas para la transferencia">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Selección de la plataforma de transferencia">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Asegúrate de que la plataforma elegida ya esté integrada con Botky en la sección de integraciones del espacio de trabajo.
+</Card>
+
+## Minutos de auto-pausa del Chat en vivo
+
+Esta función te permite definir los minutos de auto-pausa cada vez que un agente toma el control de la automatización.
+
+<Frame caption="Minutos de auto-pausa del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Es el temporizador que corre durante el cual la automatización del bot está en pausa.
+
+## Remitente de SMS del Chat en vivo
+
+<Frame caption="Remitente de SMS del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Esta función te permite seleccionar el número desde el cual quieres enviar SMS a los usuarios del bot desde el Chat en vivo. Los números deben estar conectados en tu cuenta de **Twilio/Telnyx** en la sección de integraciones.
+
+## Perfil de correo del Chat en vivo
+
+<Frame caption="Perfil de correo del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Esta función te permite seleccionar el perfil de correo desde el cual puedes enviar correos directamente desde el Chat en vivo. El correo debe estar conectado en la sección **SMTP** de las integraciones.
+
+## Notificaciones de escritorio del Chat en vivo
+
+<Frame caption="Notificaciones de escritorio del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Esta función te permite configurar las notificaciones y elegir cuándo recibirlas. Se limita a las notificaciones de escritorio de la app web al usar un navegador.
