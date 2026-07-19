@@ -1,0 +1,49 @@
+---
+title: "Flujo de función"
+description: "Crea un flujo reutilizable que puedes llamar desde cualquier otro flujo"
+icon: "arrow-rotate-left"
+---
+
+Un **Flujo de función** te evita crear el mismo flujo una y otra vez para tareas repetitivas — por ejemplo, pedir el correo o el teléfono del usuario. En vez de repetir esos mismos pasos en cada conversación, los construyes **una sola vez** y los reutilizas desde donde los necesites.
+
+Lo especial: cuando el usuario termina el flujo de función, **regresa exactamente al punto donde se había quedado** en el flujo que lo llamó.
+
+## Cómo crear un flujo de función
+
+<Steps>
+  <Step title="Ve a 'Flujos' en la barra lateral">
+    Haz clic en **+ Nuevo Subflujo**.
+  </Step>
+  <Step title="Elige el tipo 'Flujo de función'">
+    Ponle un nombre y haz clic en **Crear** — esto te lleva directo al Constructor de Flujos.
+  </Step>
+  <Step title="Construye tu lógica reutilizable">
+    Por ejemplo, un flujo que simplemente pida el correo del usuario.
+  </Step>
+</Steps>
+
+## El bloque especial: Salida (Output)
+
+A diferencia de un subflujo normal, un flujo de función tiene acceso a un bloque adicional único: **Salida**.
+
+<Card title="Salida (Output)" icon="right-from-bracket">
+  Este bloque le permite al usuario volver exactamente al punto donde se quedó en el flujo que llamó a esta función — sin perder el hilo de la conversación original.
+</Card>
+
+<Frame caption="Bloque de Salida dentro de un Flujo de función">
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+</Frame>
+
+## Ejemplo práctico
+
+Un flujo de función que solo pide el correo electrónico del usuario: lo construyes una vez, y luego lo "llamas" desde cualquier otro flujo que necesite ese dato. Al completarse, el usuario continúa justo donde iba antes.
+
+## Múltiples salidas
+
+Un flujo de función puede tener **más de un bloque de Salida**. Cuando eso pasa, los títulos de cada salida aparecen como opciones dentro de un nodo **Ir a...**, para que decidas qué camino seguir según cuál salida se haya activado.
+
+<Card type="tip">
+  Esto es útil si tu flujo de función puede terminar de más de una forma — por ejemplo, "correo válido" vs. "correo inválido" — y quieres que el flujo que lo llamó reaccione distinto en cada caso.
+</Card>
