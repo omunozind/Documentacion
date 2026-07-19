@@ -1,0 +1,59 @@
+---
+title: "Disparadores"
+description: "Automatiza procesos cuando ocurre un evento: un pago, un opt-in, una etiqueta, un webhook y mucho más"
+icon: "bolt"
+---
+
+Los **Disparadores (Triggers)** automatizan procesos en tu bot. Por ejemplo, cuando un usuario hace opt-in para correo, puedes sincronizar sus datos con un CRM o Google Sheet.
+
+## Acceder a los disparadores
+
+Ve a **Automatización → Disparadores** en el menú izquierdo y haz clic en el botón azul **+ Nuevo disparador**.
+
+## Crear un disparador
+
+<Steps>
+  <Step title="Elige el tipo de disparador">
+    Por ejemplo: **"Order Paid"** (pedido pagado).
+  </Step>
+  <Step title="Configúralo">
+    Se abre una ventana donde puedes: activarlo o desactivarlo, definir **condiciones** para filtrar usuarios, y agregar **notas** aclaratorias para tu equipo.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar**.
+  </Step>
+  <Step title="Elige el subflujo">
+    Haz clic en **Elegir subflujo** para conectar la acción. Selecciónalo del popup o búscalo para encontrarlo más rápido.
+  </Step>
+</Steps>
+
+## Gestionar los disparadores
+
+- **Interruptor:** actívalo o desactívalo con el switch de la izquierda.
+- **Editar:** accede a los ajustes y a la opción de eliminar.
+
+## Disparadores disponibles
+
+<AccordionGroup>
+  <Accordion title="Usuario y suscripción" icon="user">
+    Nuevo usuario, usuario suscrito/desuscrito, opt-in/opt-out de correo o SMS.
+  </Accordion>
+  <Accordion title="Estado de la conversación" icon="comments">
+    Conversación abierta, pendiente, resuelta o inválida.
+  </Accordion>
+  <Accordion title="Interacciones del usuario" icon="hand-pointer">
+    Chat asignado a un agente, cambio de valor de un campo, etiqueta agregada/quitada, label agregada/quitada.
+  </Accordion>
+  <Accordion title="Secuencias" icon="clock-rotate-left">
+    Suscrito / desuscrito de una secuencia.
+  </Accordion>
+  <Accordion title="Pedidos" icon="cart-shopping">
+    Pedido pagado, procesando, enviado, completado, cancelado o reembolsado.
+  </Accordion>
+  <Accordion title="Integraciones de terceros" icon="puzzle-piece">
+    Disparadores de WhatsApp, referencia de anuncio de Facebook, LeadGen, eventos de factura de Stripe, webhooks de Shopify/WooCommerce, eventos de Calendly, disparadores de Instagram (mencionado, respuesta a historia, publicación compartida).
+  </Accordion>
+  <Accordion title="Otros" icon="ellipsis">
+    Disparador por fecha/hora, usuario terminó el Web Chat, webhook de CRM V2.
+  </Accordion>
+</AccordionGroup>
