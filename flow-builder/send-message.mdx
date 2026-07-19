@@ -1,0 +1,260 @@
+---
+title: "Enviar mensaje"
+description: "Todo lo que tu bot puede enviar: texto, imágenes, tarjetas, listas dinámicas y mensajes específicos por canal"
+icon: "message"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve para que tu bot le muestre algo al usuario — texto, una imagen, una tarjeta de producto, o incluso una lista generada automáticamente a partir de datos.
+
+<Frame caption="Selector de tipo de mensaje al enviar un mensaje">
+  <Placeholder />
+</Frame>
+
+## Tipos de mensaje generales
+
+<AccordionGroup>
+  <Accordion title="Texto y variables" icon="font">
+    Puedes escribir texto normal, o insertar variables (datos guardados de tu usuario o del bot) directamente en el mensaje. El editor de texto tiene corrector ortográfico y de gramática integrado (Grammarly), para que tus mensajes salgan bien redactados.
+  </Accordion>
+
+  <Accordion title="Insertar campos personalizados y emojis" icon="face-smile">
+    Donde veas el ícono `</>`, puedes insertar emojis o el valor de una variable. Dos formas de hacerlo:
+
+    1. Haz clic en el botón `</>` para abrir el buscador de campos
+    2. O simplemente escribe `{{` mientras redactas, y aparecerá la lista de campos disponibles
+
+    Así personalizas tus mensajes con datos dinámicos (nombre del usuario, un valor guardado, etc.) sin salir del editor.
+
+    <Frame caption="Buscador de campos personalizados y emojis dentro del editor de texto">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Imagen, audio, video y archivo" icon="paperclip">
+    Hay 4 formas de adjuntar contenido multimedia:
+
+    1. **Subir desde tu computador** (con límite de tamaño)
+    2. **Desde un link directo** (recomendado) — el link debe apuntar directo al archivo (terminar en `.jpg`, `.png`, etc.), no a una página web
+    3. **Buscar en la galería de GIFs** integrada
+    4. **Desde tu Librería** — todo lo que ya subiste antes (fotos, GIFs, audio, videos)
+
+    <Card type="note">
+      Límites de tamaño al subir desde tu computador: **Video** 10MB, **Audio** 5MB, **Archivo** 5MB, **Otros (imágenes, etc.)** 2MB.
+    </Card>
+
+    <Frame caption="Las 4 formas de adjuntar contenido multimedia">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Tarjeta (Card)" icon="id-card">
+    Una tarjeta muestra información de forma ordenada — ideal para productos. Tiene 4 posibles elementos: **imagen, título, subtítulo y botón**.
+
+    <Card type="note">
+      Para mostrar una tarjeta necesitas al menos el título, más uno de estos: imagen, subtítulo o botón.
+    </Card>
+
+    <Card type="warning">
+      Si quieres enviar una tarjeta en el canal de WhatsApp, la Tarjeta normal no funciona ahí — necesitas crear una **Plantilla de Carrusel** en su lugar.
+    </Card>
+
+    <Frame caption="Editor de tarjeta: imagen, título, subtítulo y botón">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title='Bucle "Para cada uno" (For Each)' icon="repeat">
+    En vez de escribir tarjeta por tarjeta a mano, "Para cada uno" genera automáticamente una tarjeta por cada elemento dentro de una variable de tipo JSON.
+
+    **Cómo usarlo:**
+    1. Selecciona la variable JSON de origen
+    2. Abre el buscador de variables
+    3. Elige **ITEM** para acceder a los datos de cada elemento
+
+    <Card type="note">
+      **Formato de valores:** para números (precios, porcentajes), fechas y horas, puedes elegir un formato de presentación sin perder el valor original. Por ejemplo, un precio `5` con el formato `"F03"` se muestra como `"$5"`, pero el bot sigue guardando el `5` original para hacer cálculos.
+    </Card>
+
+    **Claves especiales**, además de los datos normales de tu JSON:
+    - **INDEX** — el número de posición del elemento (empieza en 1) — útil para mostrar listas numeradas, ej. `{{ITEM.INDEX}}` → "1. producto"
+    - **KEY** — el nombre de la propiedad, cuando tu JSON es un objeto de clave-valor en vez de una lista
+    - **VALUE** — el valor de esa propiedad
+
+    **Botón dentro de "Para cada uno":** si le agregas un botón, aparece en cada tarjeta generada. Cuando el usuario elige una, el dato de esa tarjeta específica queda disponible en un campo especial llamado **SELECT**.
+
+    <Frame caption='Configuración del bucle "Para cada uno" seleccionando la variable JSON e ITEM'>
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Contenido dinámico" icon="server">
+    Envía una solicitud a tu servidor (o a uno externo) para pedir una respuesta y mostrarla al usuario. Es para cuando la lógica de tu bot depende de otro sistema — por ejemplo, tu propio motor de IA analizando la pregunta del usuario. Una sola respuesta puede incluir varios mensajes, botones y quick replies con acciones.
+
+    <Frame caption="Configuración de una solicitud de Contenido dinámico">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Ubicación" icon="location-dot">
+    Busca el lugar en el mapa, haz clic derecho sobre él para copiar la latitud y longitud, y pégalas en el nodo junto con el nombre del lugar. Puedes agregar una etiqueta con información extra (como el número de piso u oficina).
+
+    <Frame caption="Selector de ubicación en el mapa">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Producto de Ecommerce" icon="cart-shopping">
+    Para enviar productos de tu tienda integrada, revisa la sección de **Ecommerce** — ahí se explica cómo configurar y usar el sistema de ventas integrado de Botky.
+  </Accordion>
+
+  <Accordion title="Texto de depuración (Debug)" icon="bug">
+    Una forma fácil de enviar mensajes de prueba que **solo ven tus testers**, no los usuarios normales. Primero agrega testers en Herramientas → Testers → Nuevo Tester. Durante la vista previa, el texto de depuración es visible solo para ellos.
+
+    <Frame caption="Agregar un tester y enviar un texto de depuración">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Mensajes específicos por canal
+
+Algunos canales tienen tipos de mensaje propios, además de los generales de arriba.
+
+<Tabs>
+  <Tab title="Facebook">
+    Facebook permite que tu bot envíe texto con hasta **3 botones** y **10 quick replies**.
+
+    <CardGroup cols={2}>
+      <Card title="Botón" icon="square">
+        Una vez enviado, se queda visible en la conversación — el usuario puede presionarlo cuando quiera.
+      </Card>
+      <Card title="Quick reply" icon="bolt">
+        Parecido al botón, pero desaparece en cuanto el usuario lo usa.
+      </Card>
+    </CardGroup>
+
+    <Frame caption="Mensaje de Facebook con botones y quick replies configurados">
+      <Placeholder />
+    </Frame>
+
+    <Card type="note">
+      **Permiso de llamada**: envía una solicitud pidiéndole permiso al usuario para recibir una llamada de voz. En el nodo de mensaje, elige "Otros" → "(WhatsApp/Messenger) Permiso de llamada".
+    </Card>
+  </Tab>
+
+  <Tab title="WeChat">
+    WeChat permite hasta **10 botones** por mensaje, y tiene dos tipos de mensaje adicionales:
+
+    <CardGroup cols={2}>
+      <Card title="Artículo" icon="newspaper">
+        Envía contenido con formato de artículo dentro de la conversación.
+      </Card>
+      <Card title="Mini programa" icon="mobile">
+        Envía mini-programas asociados a tu cuenta oficial de WeChat.
+      </Card>
+    </CardGroup>
+
+    <Frame caption="Editor de Artículo de WeChat">
+      <Placeholder />
+    </Frame>
+
+    <Frame caption="Configuración de Mini Programa de WeChat">
+      <Placeholder />
+    </Frame>
+  </Tab>
+
+  <Tab title="WhatsApp">
+    <Card type="warning">
+      Para enviar mensajes relacionados a productos necesitas vincular tu número de WhatsApp con tu Catálogo de Facebook primero.
+    </Card>
+
+    Botky soporta estos tipos de mensaje específicos de WhatsApp:
+
+    <AccordionGroup>
+      <Accordion title="Plantilla (Template Message)">
+        Mensajes predefinidos y aprobados por WhatsApp.
+
+        <Steps>
+          <Step title="Crea o sincroniza tu plantilla">
+            En Contenidos → Plantillas de Mensaje, crea una nueva o sincroniza las que ya tengas aprobadas con el botón "Sincronizar".
+          </Step>
+          <Step title="Úsala en tu flujo">
+            En el nodo de mensaje, elige "Otros" → "(WhatsApp) Mensaje de Plantilla".
+          </Step>
+          <Step title="Selecciona la plantilla">
+            Elígela del menú desplegable.
+          </Step>
+          <Step title="Personaliza (opcional)">
+            Si la plantilla tiene variables, personaliza el contenido.
+          </Step>
+        </Steps>
+
+        <Frame caption="Selector de plantilla de WhatsApp dentro del nodo de mensaje">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Producto único">
+        Muestra un solo producto de tu Catálogo de Facebook. En el nodo de mensaje, elige "Otros" → "(WhatsApp) Producto Único", indica el ID del catálogo y el Retail ID del producto, junto con el texto del mensaje y del pie.
+
+        <Frame caption="Configuración de mensaje de Producto único">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Múltiples productos">
+        Igual al anterior, pero muestra hasta 30 productos. Además del Retail ID, mensaje y pie, aquí también puedes definir un texto de encabezado.
+
+        <Frame caption="Configuración de mensaje de Múltiples productos">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Mensaje de catálogo">
+        Muestra una lista de productos directamente desde tu Catálogo de Facebook (Retail ID, mensaje y pie).
+
+        <Frame caption="Configuración de Mensaje de catálogo">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Mensaje de lista">
+        Presenta una lista de opciones para que el usuario elija. Es importante: capturar la opción elegida, y usar un nodo de Condición después para dirigir el flujo según lo que el usuario seleccionó.
+
+        <Frame caption="Configuración de Mensaje de lista y sus opciones">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="WhatsApp Flow">
+        Envía un WhatsApp Flow que hayas creado. En el nodo de mensaje, elige "Otros" → "(WhatsApp Cloud) WhatsApp Flow".
+
+        <Card type="warning">
+          No uses un nodo de Acción para enviar plantillas — genera un error de "acción prohibida". Siempre usa el nodo de Mensaje para esto.
+        </Card>
+
+        <Frame caption="Selector de WhatsApp Flow dentro del nodo de mensaje">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Contacto (WhatsApp Contact)">
+        Envía una tarjeta de contacto al usuario, con nombre y teléfono. En el nodo de mensaje, haz clic en "+ Agregar elemento", elige "Otros" y selecciona "(WhatsApp) Contacto".
+
+        <Frame caption="Configuración de tarjeta de Contacto">
+          <Placeholder />
+        </Frame>
+      </Accordion>
+
+      <Accordion title="Permiso de llamada">
+        Envía una solicitud pidiéndole permiso al usuario para recibir una llamada de voz. Disponible tanto en WhatsApp como en Messenger. En el nodo de mensaje, elige "Otros" → "(WhatsApp/Messenger) Permiso de llamada".
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
