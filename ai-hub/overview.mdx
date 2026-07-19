@@ -1,0 +1,240 @@
+---
+title: "AI Hub"
+description: "Crea chatbots con IA sin complicaciones: Agentes de IA, Funciones de IA y Tareas de IA dentro de Botky"
+icon: "robot"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+El **AI Hub** de Botky te permite construir chatbots con IA sin tener que lidiar manualmente con los *chat completions* ni con los *assistants*. Con los **Agentes de IA** puedes crear bots conversacionales avanzados que se integran con OpenAI (y otras plataformas de IA generativa populares), ejecutan tareas por su cuenta y ofrecen interacciones dinámicas y naturales — con muy poco esfuerzo.
+
+Sirve igual para soporte al cliente, generación de prospectos o automatización de flujos de trabajo.
+
+<Card type="note">
+  El AI Hub tiene tres piezas principales: **Agentes de IA** (conversacionales, con habilidades y funciones), **Funciones de IA** (acciones concretas que el agente puede invocar) y **Tareas de IA** (mini-procesos de una sola tarea).
+</Card>
+
+## Acceder a los Agentes y Funciones de IA
+
+Dentro de tu bot, haz clic en **AI Hub** en la barra lateral izquierda para acceder a los agentes y funciones de IA.
+
+<Frame caption="Acceso al AI Hub desde la barra lateral">
+  <Placeholder />
+</Frame>
+
+---
+
+## Crear un Agente de IA
+
+Haz clic en **+ Agente de IA** para crear uno nuevo.
+
+### Nombre y descripción
+
+Ingresa el **nombre** y la **descripción** del agente. La descripción es un texto breve que da suficiente contexto sobre cuál va a ser la función del agente.
+
+<Card type="note">
+  **Ejemplo de descripción:** *Este agente está a cargo de agendar citas con los usuarios. Primero debe capturar los datos del usuario (nombre, apellido y correo). Luego debe obtener los horarios disponibles y dejar que el usuario elija. Una vez elegida la fecha y hora, el agente debe reservar la cita.*
+</Card>
+
+### Ajustes
+
+Aquí decides qué **modelo** (y plataforma) usar, y ajustas los parámetros que modifican el comportamiento del agente.
+
+Botky soporta actualmente **OpenAI, Deepseek y Grok** para crear agentes (pronto se sumarán más, incluidos Google Gemini y Claude).
+
+<Card type="warning">
+  Si tu caso de uso requiere que el agente use **funciones**, es mejor usar modelos superiores como `gpt-4-turbo-preview`: son más estables y precisos al invocar funciones.
+</Card>
+
+Otros parámetros que puedes ajustar:
+
+<AccordionGroup>
+  <Accordion title="Temperatura y repeticiones" icon="sliders">
+    Controlan qué tan creativas o deterministas son las respuestas, y cuántas veces se reintenta.
+  </Accordion>
+  <Accordion title="Auto-resumen de la conversación" icon="compress">
+    El campo **"Número de mensajes antes de auto-resumir"** ayuda a manejar conversaciones largas: cuando se alcanza el límite (ej. 10, 50 o 100 mensajes), el sistema crea un resumen conciso del historial y lo reinserta como una sola entrada. Así conserva el contexto clave sin saturar el historial. Puedes ajustar el límite máximo de tokens del resumen: **500 tokens** basta para chats de texto generales, y **1.000 tokens** se recomienda para tareas complejas como reservar citas.
+  </Accordion>
+  <Accordion title="Formato de salida: texto o JSON" icon="code">
+    Al final puedes elegir si la salida del agente será en **texto** o en **JSON**.
+  </Accordion>
+</AccordionGroup>
+
+<Frame caption="Ajustes del Agente de IA: modelo, temperatura, auto-resumen y salida">
+  <Placeholder />
+</Frame>
+
+#### Modo avanzado del Agente
+
+Cuando activas el **Modo avanzado**, el agente **no le responde directamente** al usuario. En su lugar, guarda la respuesta en el campo del sistema **"Last AI Agent Reply"**. Debes seleccionar un **workflow** que procese esa respuesta antes de enviársela al usuario.
+
+**Qué habilita:**
+- **Formateo de respuesta** — divide respuestas largas en varias secciones para que se lean mejor.
+- **Integración de medios** — agrega imágenes, videos o adjuntos para enriquecer la respuesta.
+- **Automatización con workflow** — procesa el contenido generado por IA para mejorar cómo se entrega y presenta.
+
+<Card type="warning">
+  Con el **Modo avanzado** activado, la función de **Auto Sugerencias** queda deshabilitada.
+</Card>
+
+### Prompt del Agente
+
+Aquí defines el comportamiento del agente. Se divide en varias partes:
+
+<Steps>
+  <Step title="Rol / Persona">
+    Define cómo quieres que se comporte el agente y qué papel debe adoptar.
+
+    **Ejemplo de rol:** *El Agente de Reservas es responsable de agendar citas con los usuarios. Debe capturar datos como nombre, apellido y correo, obtener los horarios disponibles, permitir que el usuario elija su hora preferida y finalizar la reserva. El tono debe ser profesional y amable.*
+  </Step>
+  <Step title="Habilidades (Skills)">
+    Define todas las capacidades que quieres que el agente ejecute (recolectar datos, tomar horarios, etc.). En esta sección también verás qué **funciones** vas a necesitar configurar para tus objetivos. Se estructuran como `### Skill 1: ...`, `### Skill 2: ...`, con sus reglas y condiciones.
+  </Step>
+  <Step title="Información de productos y servicios">
+    Ingresa descripciones detalladas de tus productos y servicios (especificaciones, opciones de reserva, precios, referencias). Así los usuarios acceden a la información sin tener que preguntar una y otra vez.
+  </Step>
+  <Step title="Restricciones (Constraints)">
+    Define los comportamientos que **NO** quieres que la IA tenga: preguntas que no debe hacer, palabras que no debe usar, cómo manejar errores, etc.
+  </Step>
+</Steps>
+
+<Card type="note">
+  **Botón "Generar prompt del agente":** genera automáticamente las secciones de rol, persona, habilidades y restricciones a partir de tu descripción. Útil si no tienes experiencia escribiendo prompts, o si prefieres partir de una base predefinida y luego ajustarla.
+</Card>
+
+<Frame caption="Editor del Prompt del Agente con rol, habilidades y restricciones">
+  <Placeholder />
+</Frame>
+
+---
+
+## Crear Funciones de IA
+
+Haz clic en **+ Función de IA** para crear una nueva.
+
+<Steps>
+  <Step title="Nombre y descripción">
+    Define el nombre y una descripción de lo que hace la función. Ej: *Esta función captura los datos del usuario (nombre, apellido y correo) y valida el formato del correo.*
+  </Step>
+  <Step title="Prompt de la función">
+    Define el prompt completo: qué debe hacer la función, sus pasos de ejecución, restricciones, reglas de formato, manejo de errores y condiciones.
+  </Step>
+  <Step title="Valores a capturar">
+    Define qué valores quieres extraer (nombre, apellido, etc.), descríbelos y elige en qué **Campo de Usuario (CUF)** se guardará cada uno.
+  </Step>
+  <Step title="Flujo a disparar">
+    Adjunta el **workflow** (solo se permiten workflows) que se ejecutará cuando se invoque la función.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Marca la casilla **"Requerido"** para que un valor sea obligatorio. La casilla **"Memoria"** revisa el historial de la conversación: si el valor ya existe, se salta la pregunta y pasa al siguiente parámetro.
+</Card>
+
+<Card type="note">
+  Ahora puedes usar nodos de **"Enviar mensaje"** dentro de los workflows, para que los Agentes de IA envíen medios y contenido dinámico según la información recibida.
+</Card>
+
+El workflow adjunto te permite enviar los valores capturados a otra plataforma (vía integraciones nativas como Google Sheets, o llamadas API con el nodo de Solicitud externa), o traer información de una fuente externa y devolvérsela al agente para que la conversación siga fluyendo.
+
+<Frame caption="Configuración de una Función de IA: valores a capturar y workflow">
+  <Placeholder />
+</Frame>
+
+### Seleccionar la Función de IA
+
+Para que un Agente pueda usar una función, debes **seleccionarla dentro de la configuración del Agente**. Una vez seleccionada, se muestra con un resumen de su prompt.
+
+<Card type="note">
+  Al seleccionar o deseleccionar una función, su prompt aparece o desaparece del resumen del agente.
+</Card>
+
+### Usar Funciones de IA
+
+Las Funciones de IA **solo se pueden usar dentro de workflows**. Selecciona el nodo **"Salida de Función de IA" (AI Function Output)** desde la pestaña de Agentes de IA en el bloque de Acción: esos son los datos que le devolverás al agente después de que se llame la función y se procese el workflow.
+
+<Frame caption="Nodo de Salida de Función de IA dentro de un workflow">
+  <Placeholder />
+</Frame>
+
+---
+
+## Usar un Agente de IA
+
+Crea un nodo de **Acción** y selecciona **"Acción de IA" (AI Action)**. Luego haz clic en **Editar acción** para elegir el Agente.
+
+<Steps>
+  <Step title="Selecciona el agente primario">
+    Es el agente que se dispara y responde primero.
+  </Step>
+  <Step title="Agentes secundarios (opcional)">
+    El agente primario **hereda las funciones** de los secundarios. Sin embargo, la persona, el rol y los ajustes de modelo (LLM) del agente **primario** se aplican a los secundarios. Útil para ampliar capacidades sin alterar el comportamiento central.
+  </Step>
+  <Step title="Timeout de inactividad">
+    Si el usuario deja de responder a mitad de la conversación, este tiempo se dispara y puedes hacer seguimiento para que vuelva a interactuar.
+  </Step>
+  <Step title="Guardar salida en un CUF (opcional)">
+    Puedes guardar la salida en un Campo de Usuario. Es opcional y pensado solo para depuración: si no lo guardas, la respuesta del bot igual se envía automáticamente.
+  </Step>
+</Steps>
+
+Para usar el Agente, basta con enviarle el flujo al usuario y el Agente empezará a conversar.
+
+<Card type="note">
+  Puedes **encadenar varios Agentes** (agentes adicionales) para enrutar al usuario según tu necesidad. Al agente adicional se le envía el título y una descripción corta en el *system prompt*; una vez identificada la intención, la conectas con otra acción de Agente de IA. Así cubres el máximo de casos de uso optimizando el consumo de tokens.
+</Card>
+
+La conversación completa se guarda en el nuevo campo del sistema tipo JSON llamado **"AI Messages"**.
+
+### Timeout de entrada incompleta
+
+El **Timeout de entrada incompleta** hace que el agente espere una cantidad de segundos para capturar **todas** las respuestas del usuario y procesarlas como una sola. Así el agente procesa la entrada completa antes de responder.
+
+<Card type="note">
+  Cada nuevo mensaje **reinicia** el temporizador. Ej: si el timeout es 10 s y el usuario escribe "hola", empieza la cuenta; si a los 6 s envía "cómo estás", el temporizador vuelve a 10 s en vez de seguir desde 7.
+</Card>
+
+---
+
+## Crear Tareas de IA
+
+Desde el AI Hub, haz clic en **Tareas de IA** y luego en **+ Tarea de IA**. Las Tareas de IA son básicamente una combinación de *chat completions* empaquetados para realizar **una sola tarea**.
+
+<Steps>
+  <Step title="Nombre y prompt">
+    Define el nombre y el prompt de lo que quieres que haga la tarea. Puedes usar uno de los **presets** disponibles como guía.
+  </Step>
+  <Step title="Ajustes">
+    Define el modelo y parámetros como temperatura y máximo de tokens.
+  </Step>
+  <Step title="Campo de salida">
+    Si la tarea produce un resultado (ej. extraer cierta información de un texto más grande), define el **Campo de Usuario (CUF)** donde se guardará.
+  </Step>
+</Steps>
+
+### Usar Tareas de IA
+
+En el bloque de Acción, haz clic en **Acciones de IA** y selecciona **Tareas de IA** del desplegable. Elige la tarea y, en el campo de entrada, ingresa el contenido sobre el cual quieres aplicarla. El resultado puede mapearse a un campo de usuario para usarlo en otros flujos.
+
+<Frame caption="Uso de una Tarea de IA en el bloque de Acción">
+  <Placeholder />
+</Frame>
+
+---
+
+## Diagnóstico de la IA
+
+Hay dos formas principales de diagnosticar las respuestas de la IA:
+
+<Tabs>
+  <Tab title="Campo 'AI Messages'">
+    Analiza el campo del sistema tipo JSON **"AI Messages"**. Ve a la vista general del usuario del bot y haz clic en ese JSON para ver, paso a paso, qué pregunta el usuario y qué responde la IA. También puedes ver **cuándo se llama una función**.
+  </Tab>
+  <Tab title="Chat en vivo">
+    Analiza la conversación completa desde el **Chat en vivo** (con los mensajes de sistema habilitados). Ahí ves qué Agente se está usando, cuándo se llama una función (al pasar el cursor ves los argumentos y salidas), y cuándo se rellenan los campos de usuario.
+  </Tab>
+</Tabs>
