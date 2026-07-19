@@ -1,0 +1,99 @@
+---
+title: "Campo (Variable)"
+description: "Cómo funcionan los campos personalizados: dónde vive cada dato de tu bot y de tus usuarios"
+icon: "database"
+---
+
+Un **campo** (también llamado variable) es un contenedor que guarda un valor. Son la forma en que tu bot recuerda cosas — desde el nombre de un usuario hasta la dirección de tu negocio.
+
+## Campo de usuario vs. campo de bot
+
+<CardGroup cols={2}>
+  <Card title="Campo de usuario" icon="user">
+    Cada usuario tiene su propio valor. Por ejemplo, **nombre** y **correo** son campos de usuario — cada persona que habla con tu bot tiene los suyos, y no se comparten entre usuarios.
+  </Card>
+  <Card title="Campo de bot" icon="robot">
+    Le pertenece al bot, no a cada usuario. Por ejemplo, un bot de restaurante guarda la **dirección** y el **teléfono** del restaurante como campos de bot — no tiene sentido manejar una dirección distinta por cada usuario.
+  </Card>
+</CardGroup>
+
+## Campos del sistema
+
+Además de los campos que tú creas, Botky trae campos ya definidos automáticamente, con nombre y tipo fijos. Algunos existen solo en ciertos canales.
+
+<Accordion title="Campos de usuario del sistema más importantes">
+  - **User Ns** — identificación del usuario dentro de Botky (no editable)
+  - **User Id** — identificación del usuario según el canal (no editable)
+  - **First Name / Last Name / Email / Phone** — datos de perfil, editables desde un paso de Pregunta o Acción
+  - **Last Text Input** — el último mensaje de texto que escribió el usuario
+  - **Last Interaction** — fecha y hora de la última interacción
+  - **NOW / TODAY** — fecha y hora actual, según la zona horaria del usuario
+  - **ITEM / SELECT** — usados dentro de listas: cada elemento de un JSON, y el elemento que el usuario seleccionó
+</Accordion>
+
+<Accordion title="Campos de bot del sistema más importantes">
+  - **Flow Ns** — identificación del bot dentro de Botky (no editable)
+  - **BOT_CURRENT_TIME** — fecha y hora actual según la zona horaria de tu espacio de trabajo
+  - **SHOP / CART / ORDER** — datos de tu tienda, carrito y pedidos (integración de Ecommerce)
+</Accordion>
+
+## El ID de usuario cambia según el canal
+
+Cada canal identifica a los usuarios de forma distinta:
+
+| Canal | Formato de ejemplo |
+|---|---|
+| Facebook | `6288386817841812` |
+| Instagram | `6570462892993643` |
+| WeChat | `oNzS3wpEjnA3tXmOcNxpqtAnBwWg` |
+| WhatsApp / SMS / Voice | Número de teléfono del usuario |
+
+<Card type="warning">
+  Este ID solo es único **dentro de tu página de Facebook, tu cuenta de WeChat**, etc. — no es un identificador único en todo Facebook o WeChat en general.
+</Card>
+
+## Tipos de variable
+
+<AccordionGroup>
+  <Accordion title="Texto" icon="font">
+    Letras, palabras, frases. Soporta operaciones como recortar, cambiar mayúsculas/minúsculas, codificar y decodificar.
+  </Accordion>
+  <Accordion title="Número" icon="hashtag">
+    Valores numéricos (ej. `123.45`). Soporta operaciones matemáticas: suma, resta, multiplicación, división, módulo, potencia, logaritmo, raíz, redondeo.
+  </Accordion>
+  <Accordion title="Booleano" icon="toggle-on">
+    Solo puede ser `1` o `0` (verdadero o falso). El sistema trata como **falso**: vacío, `null`, `"false"`, `0`, `"no"`. Cualquier otro valor se considera **verdadero**.
+  </Accordion>
+  <Accordion title="Fecha" icon="calendar">
+    Valores de fecha (ej. `2021-03-30`). Soporta formatear y sumar/restar meses, semanas o días.
+  </Accordion>
+  <Accordion title="Fecha y hora (DateTime)" icon="clock">
+    Fecha y hora juntas (ej. `2022-01-01T12:00:00+10:00`). Soporta formatear y sumar/restar meses, semanas, días, horas o minutos.
+  </Accordion>
+  <Accordion title="JSON (Array)" icon="brackets-curly">
+    Guarda una serie de variables. Soporta operaciones más avanzadas: cargar, obtener, actualizar, quitar, contar, sumar, promediar, ordenar, mezclar, invertir.
+  </Accordion>
+</AccordionGroup>
+
+## Cómo crear un campo personalizado
+
+Hay dos formas:
+
+<Tabs>
+  <Tab title="Desde Contenidos">
+    <Steps>
+      <Step title="Ve a Contenidos → Campos de usuario o Campos de bot">
+        Haz clic en el botón de crear.
+      </Step>
+      <Step title="Ponle un nombre">
+        Es obligatorio. Luego elige el tipo de variable y, opcionalmente, agrega una descripción.
+      </Step>
+      <Step title="Configura valores (solo campos de bot)">
+        Puedes definir un valor por defecto y un valor de ejemplo.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Sobre la marcha, dentro de un paso">
+    Mientras configuras un paso de Pregunta o Acción, escribe el nombre del nuevo campo en el cuadro "Nombre del campo", haz clic en él dentro de la lista desplegable, y elige el tipo de variable correspondiente. Así creas el campo sin salir de lo que estabas haciendo.
+  </Tab>
+</Tabs>
