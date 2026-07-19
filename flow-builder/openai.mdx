@@ -1,0 +1,124 @@
+---
+title: "OpenAI y ChatGPT"
+description: "Genera texto, imágenes y respuestas inteligentes con OpenAI, y entrena a tu bot con tu propia base de conocimiento"
+icon: "brain"
+---
+
+**OpenAI** le permite a tu bot generar respuestas, crear imágenes y mucho más usando inteligencia artificial — funciona en todos los canales que soporta Botky: Messenger, Instagram, WhatsApp, Google Business Messenger, Voice, SMS, Viber, Line, VK, Web Chat y WeChat.
+
+## Conectar tu cuenta de OpenAI
+
+<Steps>
+  <Step title="Entra a platform.openai.com">
+    Inicia sesión con tus credenciales.
+  </Step>
+  <Step title="Ve a la pestaña 'Personal'">
+    En la esquina superior derecha.
+  </Step>
+  <Step title="Genera una clave de API (API key)">
+  </Step>
+  <Step title="Pega la clave en Botky y guarda">
+  </Step>
+</Steps>
+
+<Card type="warning">
+  Solo podrás ver tu clave de API una vez — guárdala en un lugar seguro apenas la generes.
+</Card>
+
+## Acciones nativas de OpenAI
+
+<AccordionGroup>
+  <Accordion title="Crear finalización de texto (Text Completion)" icon="font">
+    Envía un texto (prompt) a OpenAI y recibe una respuesta.
+
+    **Campos de entrada:** Prompt (tu pregunta o instrucción), Modelo (por defecto `text-davinci-003`), Máximo de tokens, Temperatura (qué tan aleatoria es la respuesta; por defecto `1`), Penalización de presencia (fomenta frases únicas), Número de finalizaciones, Mejor de N finalizaciones.
+
+    <Card type="tip">
+      Si las respuestas se ven cortadas, aumenta el máximo de tokens. Prueba distintos valores de temperatura y penalización según tu caso de uso.
+    </Card>
+  </Accordion>
+
+  <Accordion title="Generación de imágenes" icon="image">
+    Genera imágenes a partir de un texto descriptivo.
+
+    **Campos de entrada:** Prompt, Número de imágenes (por defecto `1`), Tamaño (512x512, 256x256 o 1024x1024).
+
+    <Card type="note">
+      Generar imágenes requiere más procesamiento y puede tardar un poco más. Entre más específico sea tu prompt, mejor será el resultado.
+    </Card>
+  </Accordion>
+
+  <Accordion title="De voz a texto (Speech to Text)" icon="microphone">
+    Convierte audio en texto — útil para sistemas de respuesta de voz (IVR).
+
+    **Campos de entrada:** URL pública del archivo de audio (debe empezar con `https://` y terminar en `.mp3`, `.mp4`, `.mpeg`, `.mpga`, `.m4a`, `.wav` o `.webm`), Idioma (formato ISO-639-1, por ejemplo `es`, `en`).
+  </Accordion>
+
+  <Accordion title="Traducir audio al inglés" icon="language">
+    Convierte un audio directamente a texto en inglés.
+
+    **Campos de entrada:** URL pública del archivo de audio (mismos formatos que la opción anterior).
+  </Accordion>
+
+  <Accordion title="Crear finalización de chat (ChatGPT)" icon="message">
+    Envía un texto a ChatGPT — hasta 10 veces más rápido y económico que la finalización de texto normal.
+
+    **Campos de entrada:** Mensaje de sistema (contexto opcional sobre tu negocio/asistente), Mensaje (la entrada principal), Recordar historial (Sí/No), Modelo (por defecto `gpt-3.5-turbo`), Máximo de tokens, Temperatura, Penalización de presencia, Número de finalizaciones, Mejor de N finalizaciones.
+
+    <Card type="note">
+      El historial de la conversación se guarda automáticamente en un campo del sistema llamado `{{openAI}}`. Este campo tiene un límite de 20,000 caracteres — si se supera, se elimina el historial más antiguo para hacer espacio al más reciente.
+    </Card>
+  </Accordion>
+</AccordionGroup>
+
+## Borrar el historial de chat recordado
+
+Elimina el contenido del campo del sistema que guarda el historial de ChatGPT, para reiniciar la conversación desde cero.
+
+## Embeddings: construye tu propia base de conocimiento
+
+Los **embeddings** le permiten a OpenAI responder con información específica de tu negocio, en vez de respuestas genéricas de internet.
+
+<Steps>
+  <Step title="Ve a Integraciones → OpenAI → 'Nuevo Embedding'">
+  </Step>
+  <Step title="Completa los campos">
+    **Tipo** (clasificación opcional, útil si tienes muchos embeddings), **Encabezado** (el título o resumen del tema), **Texto** (el contenido principal, máximo 1000 caracteres).
+  </Step>
+</Steps>
+
+### Importar embeddings desde CSV
+
+Haz clic en la flecha junto a "Nuevo Embedding" y elige **Importar CSV**.
+
+<Card type="warning">
+  La primera fila de cada columna debe llevar el nombre del campo (`type`, `heading`, `text`, etc.), todo en minúsculas. Si tu archivo tiene caracteres especiales (como acentos), usa la opción "Importar CSV sin vista previa".
+</Card>
+
+### Acciones de coincidencia con embeddings
+
+<CardGroup cols={2}>
+  <Card title="Coincidencia de embedding" icon="magnifying-glass">
+    Compara un texto de entrada con el embedding que mejor coincida en tu base de conocimiento. Devuelve el encabezado y texto del embedding encontrado, junto con un puntaje de coincidencia (recomendado: 0.79 o más).
+  </Card>
+  <Card title="Coincidencia de embedding y finalización" icon="wand-magic-sparkles">
+    Igual que la anterior, pero además genera una respuesta completa a partir del embedding encontrado. Puedes agregar una introducción para darle más contexto y precisión al resultado.
+  </Card>
+</CardGroup>
+
+## Casos de uso
+
+<CardGroup cols={2}>
+  <Card title="Afinar ChatGPT para tu negocio" icon="briefcase">
+    Combina embeddings con ChatGPT para responder preguntas específicas de tu negocio.
+  </Card>
+  <Card title="Generar un flujo completo con IA" icon="wand-magic-sparkles">
+    Crea flujos completos con una simple instrucción (por ejemplo: "crea un flujo para pedir una pizza").
+  </Card>
+  <Card title="Potenciar Chat en vivo con un asistente de IA" icon="headset">
+    Usa embeddings para generar sugerencias de respuesta automáticas para tus agentes.
+  </Card>
+  <Card title="Responder comentarios de Facebook e Instagram" icon="comments">
+    Responde automáticamente a comentarios en redes sociales con información relevante de tu negocio.
+  </Card>
+</CardGroup>
