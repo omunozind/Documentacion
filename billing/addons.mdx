@@ -1,5 +1,5 @@
 ---
-title: "Workspace Add-ons: Extend UChat Capabilities"
+title: "Workspace Add-ons: Extend UChat Workspace Capabilities"
 sidebarTitle: "Add-ons"
 description: "Browse available add-ons for UChat workspaces — extra bots, members, users, webhooks, custom domains, and tickets — with default pricing."
 ---
@@ -27,20 +27,16 @@ Default prices are configurable by your administrator via the Custom Pricing set
 
 ## How Add-on Costs Work
 
-<CardGroup cols={1}>
-  <Card title="Wallet deduction on activation" icon="wallet">
-    When you apply an add-on to a workspace, Botky immediately deducts the add-on's price from your wallet balance. The add-on is activated on the workspace via the UChat API at the same time.
-  </Card>
-  <Card title="Insufficient balance blocks the operation" icon="ban">
-    If your wallet does not have enough funds to cover the add-on cost, Botky blocks the operation and displays an **"Insufficient Balance"** error with the amount needed. Top up your wallet and try again.
-  </Card>
-  <Card title="Removing an add-on does not trigger a refund" icon="circle-info">
-    Removing an add-on deactivates it on the workspace through the UChat API, but the cost already deducted from your wallet is not returned. Plan your add-on purchases accordingly.
-  </Card>
-</CardGroup>
+**Wallet deduction on activation** — When you apply an add-on to a workspace, Botky immediately deducts the add-on's price from your wallet balance and activates the feature on the workspace at the same time.
+
+**Insufficient balance blocks the operation** — If your wallet does not have enough funds to cover the add-on cost, Botky blocks the operation and displays an **"Insufficient Balance"** error showing how much is required versus how much you have available. Top up your wallet and try again.
+
+**Automatic refund on activation failure** — If Botky deducts the cost from your wallet but the UChat API call fails (for example, due to a temporary service error), the full amount is automatically refunded to your wallet. You are never charged for an add-on that was not successfully activated.
+
+**Removing an add-on does not trigger a refund** — Removing an add-on deactivates it on the workspace, but the cost already deducted from your wallet when it was applied is not returned. Plan your add-on purchases accordingly.
 
 <Warning>
-Add-on purchases are non-refundable within Botky. If you accidentally apply an add-on, contact your administrator — they can adjust your wallet balance manually, but the add-on removal itself will not credit your balance automatically.
+Add-on purchases are non-refundable within Botky except in the case of an activation failure (which is refunded automatically). If you accidentally apply an add-on, contact your administrator — they can adjust your wallet balance manually, but a successful add-on removal will not credit your balance automatically.
 </Warning>
 
 ## Managing Add-ons on a Workspace

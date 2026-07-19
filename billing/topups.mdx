@@ -1,5 +1,5 @@
 ---
-title: "Top Up Your Botky Wallet with Stripe"
+title: "Adding Funds to Your Botky Wallet via Stripe Top-ups"
 sidebarTitle: "Top-ups"
 description: "Add funds to your Botky wallet using a secure Stripe payment. Topped-up balance is available immediately for workspace operations."
 ---
@@ -34,10 +34,9 @@ All payments are processed securely by Stripe. Botky never stores, transmits, or
 
 For transparency, here is what happens after you complete the Stripe checkout:
 
-1. Stripe triggers a `checkout.session.completed` event on its side.
-2. Botky's webhook endpoint at `POST /wp-json/i360/v1/stripe-webhook` receives that event.
-3. The handler reads the `client_reference_id` (your user ID) and `amount_total` (converted from cents to dollars).
-4. Botky credits that amount to your `wallet_balance` and your updated total is immediately reflected in the dashboard.
+1. Stripe confirms the payment and sends a payment-completed notification to Botky automatically.
+2. Botky verifies the payment, identifies your account, and credits the exact amount you paid.
+3. Your updated wallet balance is immediately reflected in the dashboard header.
 
 This flow is fully automated — no administrator action is needed for a standard top-up.
 

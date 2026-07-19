@@ -1,5 +1,5 @@
 ---
-title: "Managing UChat Workspaces in Botky"
+title: "Managing UChat Workspaces in Botky: Complete Guide"
 sidebarTitle: "Workspaces"
 description: "Create, search, view, and manage your clients' UChat workspaces — including plans, add-ons, points, and status — from the Workspaces tab."
 ---
@@ -15,16 +15,19 @@ When you open the Workspaces tab, a paginated table loads all workspaces associa
 | Column | Description |
 |---|---|
 | **ID** | Unique numeric identifier assigned by UChat. |
-| **Workspace** | The company or workspace name. |
-| **Plan** | The active subscription plan (e.g., Business, Business Plus). |
-| **Usage** | Current contacts and agent (member) usage versus plan limits. |
+| **Workspace** | The workspace name and the owner's name below it. |
+| **Plan** | The active subscription plan (e.g., Business, Business Plus) and its billing renewal date. |
+| **Usage** | Current contact usage versus the plan's contact limit, shown as a progress bar. |
 | **Pts** | The workspace's available points balance. |
-| **Add-ons** | Number of active add-ons installed on the workspace. |
-| *(actions)* | Row-level button to open the workspace detail panel. |
+| **Add-ons** | A summary of active add-ons installed on the workspace. |
+| **Client** | The client associated with this workspace. |
+| **Contact** | The client's contact details (email and phone). |
+| **Teams** | Workspace team names linked to this entry. |
+| **Total** | The total number of workspaces the client belongs to. |
 
 ### Pagination and Search
 
-- Use the **Prev** and **Next** buttons at the bottom of the table to navigate between pages. The current page and total page count are displayed alongside the controls.
+- Use the numbered page buttons and the **Prev** / **Next** controls at the bottom of the table to navigate between pages. The current page range and total record count are displayed alongside the controls.
 - To search, type a **numeric ID** or a **workspace name** into the search field in the header bar, then press **Enter**. Searching by numeric ID fetches that single workspace directly; searching by name filters across all pages.
 - Click the **Refresh** button (circular arrow icon) to reload the list from UChat without leaving the page.
 
@@ -42,7 +45,7 @@ When you open the Workspaces tab, a paginated table loads all workspaces associa
     - **Name** — the admin user's full name.
     - **Email** — used as the login credential for the new UChat workspace.
     - **Password** — set a secure initial password.
-    - **Phone** — the admin's contact phone number.
+    - **Phone** — the admin's contact phone number (optional).
   </Step>
   <Step title="Enter the company name">
     Type the **Company Name** that will identify this workspace inside UChat.
@@ -50,19 +53,25 @@ When you open the Workspaces tab, a paginated table loads all workspaces associa
   <Step title="Choose a language">
     Select either **Spanish** or **English** as the workspace's default locale.
   </Step>
-  <Step title="Set optional trial days">
-    Enter a number in **Trial Days** if you want the workspace to start on a trial period. Leave blank or set to `0` to skip the trial.
+  <Step title="Set trial days">
+    Enter a number in **Trial Days** to start the workspace on a trial period. The default is **14 days**. Set to `0` to skip the trial entirely.
+  </Step>
+  <Step title="Add optional fields">
+    Two additional optional fields are available:
+
+    - **Template ID** — enter a template namespace to pre-populate the workspace with a bot template.
+    - **OpenAI Key** — attach an OpenAI API key to the workspace at creation time (format: `sk-...`).
   </Step>
   <Step title="Configure email verification">
-    Check **Verify Email** if you want UChat to send a confirmation email to the admin before they can log in. Leave unchecked to allow immediate access.
+    The **Verify Email** checkbox is enabled by default. Leave it checked to require the admin to confirm their email before logging in, or uncheck it to allow immediate access.
   </Step>
   <Step title="Submit the form">
-    Click **Create**. Botky calls the UChat Partner API, provisions the workspace, and deducts the plan cost from your wallet.
+    Click **Create**. Botky provisions the workspace via the UChat Partner API and deducts the plan cost from your wallet.
   </Step>
 </Steps>
 
 <Note>
-Your wallet is charged the plan cost at the moment of creation. The default Business plan costs **$20 USD**. If your admin has configured custom plan pricing for your account, that custom price applies instead.
+Your wallet is charged the plan cost at the moment of creation. The default Business plan costs **$20 USD**. If your account has custom plan pricing configured, that custom price applies instead.
 </Note>
 
 ---
@@ -73,9 +82,9 @@ Click any row in the workspaces table to open the **detail panel**, which slides
 
 Inside the panel you will find:
 
-- **Plan section** — the active plan with a **Change Plan** dropdown.
+- **Plan section** — the active plan name with a **Change Plan** dropdown.
 - **Points Management section** — the current points balance and an **Adjust Balance** input.
-- **Available Add-ons section** — a list of all add-ons with **Add** and **Remove** buttons.
+- **Available Add-ons section** — a list of all add-ons with quantity controls to add or remove units.
 - **Status toggle** — switches the workspace between Active and Paused.
 - **Danger Zone** — contains the **Delete Workspace** button.
 
@@ -88,19 +97,33 @@ Inside the panel you will find:
     Click the workspace row in the table to open the detail panel.
   </Step>
   <Step title="Select the new plan">
-    In the **Plan** section, open the **Change Plan** dropdown and choose the target plan from the list of available active plans.
+    In the **Plan** section, open the **Change Plan** dropdown and choose the target plan from the list of available active plans. Each plan shows its name and cost in USD.
   </Step>
   <Step title="Review the pending change">
-    Click **Save Changes**. A confirmation modal summarises the plan change and the cost that will be deducted from your wallet.
+    Click **Save Changes**. A confirmation summary lists the plan change and the cost that will be deducted from your wallet.
   </Step>
   <Step title="Confirm">
-    Click **Confirm** in the confirmation modal to apply the change. The workspace plan updates immediately and your wallet balance is deducted.
+    Click **Confirm and Save** in the confirmation modal to apply the change. The workspace plan updates immediately and your wallet balance is deducted.
   </Step>
 </Steps>
 
 <Warning>
-Plan changes deduct the full plan cost from your wallet at the time of change. Ensure your wallet balance is sufficient before switching plans. If your balance is too low, the action will be blocked and no changes will be applied.
+Plan changes deduct the full plan cost from your wallet at the time of the change. Ensure your wallet balance is sufficient before switching plans. If your balance is too low, the action will be blocked and no changes will be applied.
 </Warning>
+
+### Default Plan Prices
+
+| Plan | Default Price |
+|---|---|
+| Business | $20 / month |
+| Business Lite | $45 / month |
+| Business Plus | $99 / month |
+| Business Large | $149 / month |
+| Business Yearly | $990 / year |
+
+<Tip>
+These are the global default prices. If your account has custom plan pricing configured, those values apply instead of the defaults shown above.
+</Tip>
 
 ---
 
@@ -111,13 +134,13 @@ Plan changes deduct the full plan cost from your wallet at the time of change. E
     Click a workspace row to open the detail panel.
   </Step>
   <Step title="Scroll to Available Add-ons">
-    The **Available Add-ons** section lists every add-on that can be installed on the workspace.
+    The **Available Add-ons** section lists every add-on that can be installed on the workspace, showing the current quantity for each.
   </Step>
-  <Step title="Add or remove an add-on">
-    Click **Add** next to an add-on to install it, or **Remove** to uninstall it.
+  <Step title="Adjust quantities">
+    Use the **+** and **−** buttons next to each add-on to increase or decrease the installed quantity. The current quantity is displayed between the buttons.
   </Step>
-  <Step title="Confirm the change">
-    Click **Save Changes**. The confirmation modal shows the add-on action and its cost. Click **Confirm** to proceed.
+  <Step title="Confirm the changes">
+    Click **Save Changes**. The confirmation summary shows each add-on change and its total cost. Click **Confirm and Save** to proceed.
   </Step>
 </Steps>
 
@@ -135,7 +158,7 @@ Plan changes deduct the full plan cost from your wallet at the time of change. E
 | Custom Domain | $15 / month |
 
 <Tip>
-These are the global default prices. Your Botky admin can configure custom per-add-on prices for your account via the WordPress user profile. If custom prices are set, those values apply instead of the defaults shown above.
+These are the global default prices. If your account has custom per-add-on pricing configured, those values apply instead of the defaults shown above.
 </Tip>
 
 ---
@@ -148,9 +171,13 @@ Points are a UChat internal currency used for certain platform features. You can
 2. In the **Points Management** section, enter a value in the **Adjust Balance** input:
    - Enter a **positive number** to add points to the workspace.
    - Enter a **negative number** to deduct points from the workspace.
-3. Click **Save Changes** and confirm in the confirmation modal.
+3. Click **Save Changes** and confirm in the confirmation summary.
 
 The updated points total is reflected immediately in both the detail panel and the workspaces table.
+
+<Note>
+Adding or deducting points is free — there is no wallet charge for point adjustments.
+</Note>
 
 ---
 

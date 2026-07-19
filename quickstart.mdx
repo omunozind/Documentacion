@@ -1,5 +1,5 @@
 ---
-title: "Get Started with Botky in 5 Minutes"
+title: "Botky Quickstart: From Install to First Workspace"
 sidebarTitle: "Quickstart"
 description: "Install the Botky plugin, connect your UChat Partner API token, add funds to your wallet, and create your first client workspace in under 5 minutes."
 ---
@@ -26,7 +26,7 @@ This guide walks you through everything you need to go from zero to your first a
        - Find your token in your UChat partner account at [uchat.com.au](https://uchat.com.au) under your partner profile settings.
     3. Click **Save**.
 
-    Botky stores the token securely in your WordPress database. A confirmation message confirms the token was saved successfully.
+    Botky stores the token securely. A confirmation message confirms the token was saved successfully.
   </Step>
 
   <Step title="Top Up Your Wallet">
@@ -37,7 +37,7 @@ This guide walks you through everything you need to go from zero to your first a
     3. Click **Pay** — you are redirected to a Stripe-hosted checkout page.
     4. Complete the payment using a credit or debit card.
 
-    After a successful payment, Stripe sends a confirmation back to Botky and your wallet balance updates immediately. You can return to the **Wallet** tab at any time to review your current balance and transaction history.
+    After a successful payment, Stripe sends a confirmation back to Botky and your wallet balance updates immediately. You can view your current balance at any time in the header of the Workspaces and Clients tabs.
 
     <Note>
       Your wallet balance must be sufficient to cover the cost of the plan you assign before you can create or change a workspace. Check plan costs in the **Plans** tab before proceeding.
@@ -51,18 +51,29 @@ This guide walks you through everything you need to go from zero to your first a
     2. Click the **New** button.
     3. Fill in the workspace form:
 
-    | Field | Description |
-    |---|---|
-    | **First Name** | Client admin's first name |
-    | **Last Name** | Client admin's last name |
-    | **Email** | Client admin's email address (used to log in to UChat) |
-    | **Password** | Initial password for the client's UChat account |
-    | **Phone** | Client admin's phone number |
-    | **Company** | Client's company or brand name |
-    | **Language** | Interface language for the workspace (`en` or `es`) |
-    | **Trial Days** | Number of free trial days before billing starts |
+    | Field | Required | Description |
+    |---|---|---|
+    | **Name** | Yes | Client admin's first name |
+    | **Email** | Yes | Client admin's email address (used to log in to UChat) |
+    | **Password** | Yes | Initial password for the client's UChat account |
+    | **Phone** | No | Client admin's phone number |
+    | **Company Name** | Yes | Client's company or brand name for the workspace |
+    | **Language** | Yes | Interface language for the workspace (`en` for English, `es` for Spanish) |
+    | **Trial Days** | Yes | Number of free trial days before billing starts (default: 14) |
+    | **Verify Email** | No | Whether UChat sends an email verification to the client admin |
+    | **Template ID** | No | Optional UChat template namespace to pre-populate the workspace |
+    | **OpenAI Key** | No | Optional OpenAI API key to enable AI features in the workspace |
 
-    4. Select a **Plan** from the dropdown.
+    4. Select a **Plan** from the dropdown. Default plan costs are:
+
+    | Plan | Default Cost |
+    |---|---|
+    | Business | $20 / month |
+    | Business Lite | $45 / month |
+    | Business Plus | $99 / month |
+    | Business Large | $149 / month |
+    | Business Yearly | $990 / year |
+
     5. Click **Create**.
 
     Botky calls the UChat Partner API, provisions the workspace, and deducts the plan cost from your wallet. The new workspace appears in the workspaces table within a few seconds.
@@ -77,7 +88,7 @@ Now that your first workspace is live, explore the rest of the dashboard to mana
   <Card title="Manage Workspaces" icon="server" href="/dashboard/workspaces">
     Edit client details, change plans, suspend workspaces, or delete them as needed.
   </Card>
-  <Card title="Top-up History" icon="receipt" href="/billing/topups">
-    Review past Stripe payments and track how your wallet balance has changed over time.
+  <Card title="Plans & Add-ons" icon="puzzle-piece" href="/billing/plans">
+    Review all available UChat plans and add-ons, including default pricing and how to set custom rates.
   </Card>
 </CardGroup>

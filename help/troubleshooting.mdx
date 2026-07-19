@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot Common Botky Issues"
+title: "How to Fix Common Botky Connection and Billing Issues"
 sidebarTitle: "Troubleshooting"
 description: "Step-by-step fixes for common Botky problems — connection errors, insufficient balance, failed workspace operations, and Stripe top-up issues."
 ---
@@ -75,7 +75,7 @@ This page covers the most common issues you may encounter while using Botky and 
   </Accordion>
 
   <Accordion title="Wallet balance not updated after Stripe payment">
-    Botky credits your wallet through a Stripe webhook, which normally fires within seconds of a completed payment. Occasional delays can occur due to network latency between Stripe and your server.
+    Botky credits your wallet automatically once it receives payment confirmation from Stripe, which normally happens within seconds of a completed payment. Occasional delays can occur due to network latency between Stripe and your server.
 
     - **Wait 1–2 minutes** and then refresh the dashboard to check whether the balance has updated.
     - If the balance is still unchanged after **5 minutes**, contact your WordPress administrator — they can manually adjust your wallet balance from your WordPress user profile.

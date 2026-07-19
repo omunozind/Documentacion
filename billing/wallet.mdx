@@ -1,5 +1,5 @@
 ---
-title: "Your Botky Wallet: Pre-funded Billing Balance"
+title: "Botky Wallet: How Your Pre-funded Billing Balance Works"
 sidebarTitle: "Wallet"
 description: "Understand how the Botky wallet works — a pre-funded USD balance that auto-deducts when you create workspaces, change plans, or add add-ons."
 ---
@@ -16,7 +16,9 @@ Every billable operation deducts the corresponding cost from your balance the mo
 - **Changing a plan** — deducts the new plan's price
 - **Adding an add-on** — deducts the add-on's price
 
-If your balance is insufficient at the time of an operation, Botky blocks the action and displays an **"Insufficient Balance"** error showing exactly how much you need. No partial charges are applied.
+If your balance is insufficient at the time of an operation, Botky blocks the action and displays an **"Insufficient Balance"** error showing exactly how much you need versus how much you have available. No partial charges are applied.
+
+If your balance is sufficient but the underlying UChat API call fails after your wallet has already been deducted (for example, when applying an add-on), Botky automatically refunds the full amount back to your wallet. You are never charged for an operation that did not complete successfully.
 
 ## Balance Indicator Colors
 

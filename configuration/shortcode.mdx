@@ -1,14 +1,14 @@
 ---
 title: "Embed the Botky Partner Panel with [botky_panel]"
 sidebarTitle: "Shortcode"
-description: "Use the [botky_panel] WordPress shortcode to embed the full Botky partner dashboard in any page or post on your site."
+description: "Use the [botky_panel] WordPress shortcode to embed the full Botky partner dashboard in any page or post, with automatic language support."
 ---
 
 The `[botky_panel]` shortcode lets you embed the full Botky partner dashboard anywhere on your WordPress site — ideal for giving partners a branded front-end portal without granting them access to the WordPress admin area. Drop it into any page and your partners get a self-service hub for workspaces, clients, billing, and settings, all under your own domain and branding.
 
 ## Basic Usage
 
-```
+```text
 [botky_panel]
 ```
 
@@ -19,10 +19,10 @@ Paste this shortcode into the content area of any WordPress page, post, or widge
 The shortcode renders differently depending on whether the visitor is logged in to WordPress:
 
 <CardGroup cols={2}>
-  <Card title="Logged-In Users" icon="circle-check">
+  <Card title="Logged-In Users" icon="circle-check" href="/dashboard/overview">
     The full Botky dashboard renders inline. Partners can manage workspaces, view and create clients, handle billing, and configure their API credentials — all without leaving your site.
   </Card>
-  <Card title="Guest Users (Not Logged In)" icon="circle-xmark">
+  <Card title="Guest Users (Not Logged In)" icon="circle-xmark" href="/configuration/api-credentials">
     A clean login prompt is displayed with a **Log In** button. After the user authenticates, WordPress redirects them back to the dashboard page automatically.
   </Card>
 </CardGroup>
@@ -57,11 +57,9 @@ The shortcode renders differently depending on whether the visitor is logged in 
 
 ## Language Support
 
-The panel automatically renders in the correct language based on your WordPress site locale. Botky calls `get_locale()` at render time:
+The panel automatically renders in the correct language based on your WordPress site language setting. No additional configuration is needed to switch languages — update your site language under **Settings → General → Site Language** and the panel will follow.
 
-| Locale | Language rendered |
+| WordPress Site Language | Language rendered |
 |---|---|
-| Starts with `en` (e.g. `en_US`, `en_GB`) | English |
-| Any other locale (e.g. `es_ES`, `es_MX`) | Spanish |
-
-No additional configuration is needed to switch languages — update your WordPress site language under **Settings → General → Site Language** and the panel will follow.
+| English (e.g. English (US), English (UK)) | English |
+| Any other language (e.g. Spanish, French) | Spanish |

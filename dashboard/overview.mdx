@@ -1,7 +1,7 @@
 ---
-title: "Botky Dashboard: Your Partner Control Center"
+title: "Botky Partner Dashboard: Navigation & Layout Guide"
 sidebarTitle: "Overview"
-description: "A tour of the Botky partner dashboard — sidebar navigation, wallet balance display, workspace and client views, and settings."
+description: "A complete tour of the Botky partner dashboard — sidebar navigation, wallet balance, connection status, and links to every major feature."
 ---
 
 The Botky dashboard is the central hub for managing every aspect of your UChat reseller business. From a single screen you can provision new client workspaces, monitor plan usage, top up balances, and configure your API connection — all without leaving WordPress.
@@ -11,21 +11,21 @@ The Botky dashboard is the central hub for managing every aspect of your UChat r
 The dark sidebar on the left organises every feature into clearly labelled sections.
 
 <CardGroup cols={2}>
-  <Card title="Management" icon="layout-grid">
+  <Card title="Management" icon="layout-grid" href="/dashboard/workspaces">
     Houses the core day-to-day tools you use to run your partner account.
 
     - **Workspaces** — create and manage all your clients' UChat workspaces, plans, add-ons, and points.
     - **Clients** — browse and search every user registered under your partner account.
   </Card>
-  <Card title="Billing" icon="credit-card">
+  <Card title="Billing" icon="credit-card" href="/billing/wallet">
     Contains the financial tools that keep your account funded.
 
     - **Top-ups** — add funds to your wallet via Stripe so you can pay for new workspaces and add-ons.
   </Card>
-  <Card title="Settings" icon="settings">
+  <Card title="Settings" icon="settings" href="/configuration/api-credentials">
     Found at the bottom of the sidebar. Enter and save your UChat Partner API key here so the dashboard can communicate with UChat on your behalf.
   </Card>
-  <Card title="Log Out" icon="log-out">
+  <Card title="Log Out" icon="log-out" href="/introduction">
     Also at the bottom of the sidebar. Ends your WordPress session and redirects you to the home page.
   </Card>
 </CardGroup>
@@ -38,7 +38,7 @@ Keep an eye on the wallet badge before making bulk changes. If your balance is t
 
 ## Connection Status Indicator
 
-Directly below your username in the sidebar you will find a small coloured dot that reflects your API connection status:
+Directly below your username in the sidebar you will find a small coloured indicator that reflects your API connection status:
 
 | State | Indicator | Meaning |
 |---|---|---|
