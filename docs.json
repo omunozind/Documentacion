@@ -32,7 +32,8 @@
           {"group": "Automatización", "icon": "gears", "pages": ["automation/overview", "automation/keywords", "automation/sequences", "automation/triggers", "automation/intents", "automation/comment-keywords", "automation/facebook-lead-forms"]},
           {"group": "Contenidos", "icon": "folder-open", "pages": ["content/overview", "content/user-fields", "content/bot-fields", "content/tags", "content/labels", "content/nodes", "content/custom-events", "content/closing-notes", "content/user-menus", "content/personas", "content/message-templates", "content/whatsapp-flows", "content/notification-topics", "content/customer-feedback", "content/utility-messaging-templates"]},
           {"group": "Herramientas", "icon": "screwdriver-wrench", "pages": ["tools/overview", "tools/error-logs", "tools/testers", "tools/admins", "tools/widgets", "tools/multiple-languages", "tools/shortcuts", "tools/export-jobs", "tools/custom-reports", "tools/facebook-ads", "tools/inbound-webhooks", "tools/smart-delays", "tools/blacklists", "tools/facebook-ads-welcome-message"]},
-          {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]}
+          {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]},
+          {"group": "Configuración", "icon": "sliders", "pages": ["settings/overview", "settings/general", "settings/facebook", "settings/viber", "settings/live-chat", "settings/sso", "settings/rate-limit"]}
         ]
       }
     ]
