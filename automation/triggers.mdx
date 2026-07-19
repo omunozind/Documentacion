@@ -10,7 +10,7 @@ export const Placeholder = () => (
   </div>
 );
 
-Los **Disparadores (Triggers)** automatizan procesos en tu bot. Por ejemplo, cuando un usuario hace opt-in para correo, puedes sincronizar sus datos con un CRM o Google Sheet.
+Los **Disparadores (Triggers)** te ayudan a automatizar ciertos procesos en el bot. Por ejemplo, cuando un usuario hace opt-in para correo, quizás quieras sincronizar ese dato con un CRM o un Google Sheet.
 
 ## Acceder a los disparadores
 
@@ -37,7 +37,11 @@ Ve a **Automatización → Disparadores** en el menú izquierdo y haz clic en el
   </Step>
 </Steps>
 
-<Frame caption="Ventana de configuración de un disparador y selección de subflujo">
+<Frame caption="Ventana de configuración de un disparador">
+  <Placeholder />
+</Frame>
+
+<Frame caption="Selección del subflujo a conectar con el disparador">
   <Placeholder />
 </Frame>
 
@@ -50,28 +54,76 @@ Ve a **Automatización → Disparadores** en el menú izquierdo y haz clic en el
   <Placeholder />
 </Frame>
 
-## Disparadores disponibles
+## Lista completa de disparadores disponibles
 
-<AccordionGroup>
-  <Accordion title="Usuario y suscripción" icon="user">
-    Nuevo usuario, usuario suscrito/desuscrito, opt-in/opt-out de correo o SMS.
-  </Accordion>
-  <Accordion title="Estado de la conversación" icon="comments">
-    Conversación abierta, pendiente, resuelta o inválida.
-  </Accordion>
-  <Accordion title="Interacciones del usuario" icon="hand-pointer">
-    Chat asignado a un agente, cambio de valor de un campo, etiqueta agregada/quitada, label agregada/quitada.
-  </Accordion>
-  <Accordion title="Secuencias" icon="clock-rotate-left">
-    Suscrito / desuscrito de una secuencia.
-  </Accordion>
-  <Accordion title="Pedidos" icon="cart-shopping">
-    Pedido pagado, procesando, enviado, completado, cancelado o reembolsado.
-  </Accordion>
-  <Accordion title="Integraciones de terceros" icon="puzzle-piece">
-    Disparadores de WhatsApp, referencia de anuncio de Facebook, LeadGen, eventos de factura de Stripe, webhooks de Shopify/WooCommerce, eventos de Calendly, disparadores de Instagram (mencionado, respuesta a historia, publicación compartida).
-  </Accordion>
-  <Accordion title="Otros" icon="ellipsis">
-    Disparador por fecha/hora, usuario terminó el Web Chat, webhook de CRM V2.
-  </Accordion>
-</AccordionGroup>
+### Usuario y suscripción
+- New user (Nuevo usuario)
+- User Subscribed to Bot
+- User Unsubscribed from Bot
+- User Opted-in for Email
+- User Opted-out for Email
+- User Opted-in for SMS
+- User Opted-out for SMS
+
+### Estado de la conversación
+- Conversation is Open
+- Conversation is Pending
+- Conversation is Done
+- Conversation is Invalid
+
+### Interacciones y sistema
+- Chat assigned to an agent
+- User field value changed
+- Moved to board
+- Error logged
+- Tag Added
+- Tag Removed
+- Label Added
+- Label Removed
+
+### Secuencias
+- Subscribed to sequence
+- Unsubscribed from sequence
+
+### Fecha y hora
+- Date/Time based trigger
+
+### Pedidos
+- Order Paid
+- Order Processing
+- Order Shipped
+- Order Completed
+- Order Cancelled
+- Order Refunded
+
+### WhatsApp
+- WhatsApp Welcome Message
+- WhatsApp Order Received
+- WhatsApp Product Enquiry
+- WhatsApp Ad Referral
+
+### Facebook
+- Facebook Ad Referral
+- Facebook LeadGen
+
+### Stripe
+- Stripe Invoice Payment Succeeded
+- Stripe Invoice Payment Failed
+
+### Webhooks y CRM
+- CRM V2 Webhook
+- Shopify Webhook
+- Woocommerce Webhook
+
+### Web Chat
+- User Ended Web Chat
+
+### Calendly
+- Calendly - Booked
+- Calendly - Rescheduled
+- Calendly - Cancelled
+
+### Instagram
+- Mentioned in Story
+- Story Replied
+- Media Post Shared
