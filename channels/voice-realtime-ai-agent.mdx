@@ -1,0 +1,109 @@
+---
+title: "Agente de Voz IA en tiempo real"
+description: "Llamadas conversacionales entrantes y salientes automatizadas con la Realtime API de OpenAI y voces de ElevenLabs"
+icon: "robot"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky permite tener **llamadas conversacionales de ida y vuelta en tiempo real** usando la nueva **Realtime API de OpenAI**. Con esto puedes manejar automáticamente llamadas **entrantes y salientes** usando Agentes de Voz IA. Esta función conserva todas las funciones previas del canal de Voz y agrega más.
+
+## Requisitos previos
+
+1. **OpenAI** conectado a tu espacio de trabajo (actualmente solo OpenAI está soportado para voz).
+2. Integración de **Twilio** activa y un número disponible.
+3. Un **bot de Voz** conectado al número activo de Twilio.
+
+## Integrar OpenAI con Botky
+
+Ve a la pestaña **Integraciones** del panel de tu espacio de trabajo y haz clic en **OpenAI**, bajo Inteligencia Artificial.
+
+<Frame caption="Integración de OpenAI">
+  <Placeholder />
+</Frame>
+
+## Integrar Twilio con Botky
+
+De forma similar, conecta Twilio y agrega un número en **Integraciones**. Más detalles en la página del **[Canal de Voz](/channels/voice)**.
+
+## Crear y usar Agentes de Voz IA
+
+Igual que en los canales de texto, los agentes del canal de voz se crean con la misma lógica. Más detalles en el **[AI Hub](/ai-hub/overview)**.
+
+<Steps>
+  <Step title="Crea el nodo de Agente de IA">
+    Dentro del subflujo, crea un nodo de **Agente de IA** y conéctalo al nodo **Start**. Asegúrate de que este subflujo sea el flujo principal o conecta el agente dentro del flujo principal.
+
+    <Frame caption="Nodo de Agente de IA conectado al Start">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Selecciona el agente y el primer mensaje">
+    Elige el agente en el desplegable de **primary agent**. El campo **"first message"** es el texto que el agente dice al conectarse la llamada; si se deja vacío, el agente espera a que el usuario hable primero.
+
+    <Frame caption="Selección del agente y first message">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Elige la voz">
+    Desde la pestaña **voice**, selecciona el conjunto de voces por defecto de OpenAI para personalizar tu agente.
+
+    <Frame caption="Selección de voz de OpenAI">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Modelo, contexto y timeouts">
+    Puedes seleccionar un modelo específico para la transcripción, dar más contexto en el prompt, y configurar el **response timeout** y el **idle timeout** para afinar la experiencia.
+
+    <Frame caption="Ajustes de modelo, contexto y timeouts">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+Puedes ampliar la funcionalidad del agente disparando distintos subflujos o lógica según la llamada a función.
+
+<Frame caption="Disparar subflujos según la llamada a función">
+  <Placeholder />
+</Frame>
+
+## Integración y uso de ElevenLabs
+
+Para integrar **ElevenLabs**, ve a la pestaña de **Integraciones** del panel. Esta integración te permite usar tus **voces personalizadas** con el modelo en tiempo real.
+
+<Frame caption="Integración de ElevenLabs">
+  <Placeholder />
+</Frame>
+
+Para cambiar a tu voz, copia el **Voice ID** desde tu dashboard de ElevenLabs, selecciona **ElevenLabs** en el desplegable y pega el Voice ID en el campo. El Agente de IA usará entonces tu voz personalizada.
+
+<Frame caption="Pegar el Voice ID de ElevenLabs">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  También puedes fijar esto por defecto a nivel de subflujo, configurándolo dentro del nodo **Start**.
+</Card>
+
+## Grabaciones y otros ajustes
+
+Para fijar la voz de ElevenLabs por defecto en todos los flujos, define el Voice ID en los **ajustes del bot**.
+
+<Frame caption="Voice ID por defecto en los ajustes del bot">
+  <Placeholder />
+</Frame>
+
+También puedes configurar la **grabación** de las llamadas de voz. Hay cuatro opciones:
+
+- **None** — no se graba nada.
+- **Inbound Calls** — solo llamadas entrantes (de personas que llaman al número del bot).
+- **Outbound Calls** — solo llamadas salientes (iniciadas por el bot).
+- **All Calls** — se graban todas las llamadas.
+
+<Frame caption="Ajustes de grabación de llamadas">
+  <Placeholder />
+</Frame>
