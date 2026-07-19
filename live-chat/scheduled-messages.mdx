@@ -1,0 +1,60 @@
+---
+title: "Mensajes programados"
+description: "Programa respuestas o plantillas de WhatsApp para que se envíen más tarde, sin tener que estar presente"
+icon: "clock"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta función te permite planear mensajes de seguimiento o comunicaciones sensibles al tiempo, sin necesidad de estar presente cuando llegue el momento de enviarlos.
+
+## Cómo programar un mensaje
+
+<Steps>
+  <Step title="Escribe tu mensaje en Chat en vivo">
+  </Step>
+  <Step title="Haz clic en el ícono de programar">
+  </Step>
+  <Step title="Elige el momento de envío">
+    Puedes usar un intervalo preestablecido (5 minutos, 10 minutos, 1 hora, hasta 24 horas) o definir una hora personalizada.
+  </Step>
+</Steps>
+
+<Frame caption="Programar un mensaje: intervalos preestablecidos o personalizados">
+  <Placeholder />
+</Frame>
+
+## Tipos de mensaje programado
+
+<CardGroup cols={2}>
+  <Card title="Respuesta programada" icon="reply">
+    Programa una respuesta directamente dentro del chat. Ajusta la hora según necesites, y revisa la lista de todos tus mensajes programados para gestionarlos fácilmente.
+  </Card>
+  <Card title="Plantilla de WhatsApp programada" icon="whatsapp">
+    Programa el envío de una plantilla de WhatsApp eligiendo la plantilla específica y la hora de envío.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  La hora personalizada se programa según la zona horaria de tu espacio de trabajo, para asegurar que el mensaje llegue exactamente en el momento correcto.
+</Card>
+
+<Card type="warning">
+  Si programas un envío de WhatsApp para más de 24 horas después, **debes** usar una plantilla aprobada — un mensaje normal solo funciona dentro de esa ventana de 24 horas.
+</Card>
+
+## Gestionar mensajes programados en Chat en vivo
+
+No puedes editar el contenido del mensaje, pero sí puedes enviarlo de inmediato o cancelar su envío.
+
+## Ver todos tus mensajes programados
+
+Ve a **Herramientas → Mensajes programados** para ver la lista completa: hora programada, tipo de mensaje, contenido o plantilla, usuario del bot y quién lo creó. Desde ahí puedes enviar cualquiera de inmediato o eliminarlo.
+
+<Frame caption="Lista completa de mensajes programados en Herramientas">
+  <Placeholder />
+</Frame>
