@@ -1,0 +1,57 @@
+---
+title: "Enviar múltiples archivos"
+description: "Adjunta y envía hasta 5 archivos o imágenes juntos en un mismo mensaje desde Chat en vivo"
+icon: "paperclip"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los agentes ahora pueden enviarle a un suscriptor varios archivos o imágenes juntos, en un mismo mensaje — hasta **5 a la vez**.
+
+## Dos formas de elegir los archivos
+
+<CardGroup cols={2}>
+  <Card title="Subir tu archivo" icon="upload">
+    Súbelo directamente desde tu computador dentro de la ventana de selección de medios.
+  </Card>
+  <Card title="Librería" icon="images">
+    Elige archivos o imágenes que ya tengas guardados en tu librería.
+  </Card>
+</CardGroup>
+
+<Card type="note">
+  Puedes enviar hasta 5 archivos o imágenes a la vez. Deben estar ya en tu Librería, o subirse uno por uno desde la ventana de subida antes de enviarlos.
+</Card>
+
+## Cómo enviarlos
+
+<Steps>
+  <Step title="Abre Chat en vivo">
+    Elige la conversación, y haz clic en el ícono de imagen o adjuntar, al final del área de escritura.
+  </Step>
+  <Step title="Elige tus archivos">
+    **Subir tu archivo:** sube directamente desde tu dispositivo — cada archivo se sube por separado y aparece en la lista. **Librería:** haz clic en cada imagen para seleccionarla (aparece una marca azul) — el contador te muestra cuántas llevas (por ejemplo, "5 / 5 seleccionados"). Para archivos que no son imágenes (PDF, documentos, hojas de cálculo), la Librería muestra íconos según el tipo de archivo — el mismo límite de 5 aplica.
+  </Step>
+  <Step title="Confirma y envía">
+    Haz clic en **Guardar** para adjuntarlos — aparecerán como miniaturas en el área de escritura. Haz clic en **Enviar** para despachar todos juntos.
+  </Step>
+  <Step title="Verifica la entrega">
+    Cada archivo aparece como un mensaje individual del agente, en secuencia dentro de la conversación.
+  </Step>
+</Steps>
+
+<Frame caption="Selección de múltiples archivos desde la Librería, con contador de seleccionados">
+  <Placeholder />
+</Frame>
+
+## Límites y notas
+
+| Elemento | Detalle |
+|---|---|
+| Máximo por envío | Hasta 5 archivos o imágenes a la vez |
+| Origen del archivo | Debe subirse por la pestaña de subida, o ya estar en tu Librería — todavía no se soporta arrastrar y soltar varios archivos directamente en el chat |
+| Selección desde Librería | Úsala para elegir rápido entre lo que ya subiste antes, sin necesidad de volver a subirlo |
