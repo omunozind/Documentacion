@@ -1,0 +1,78 @@
+---
+title: "Petición externa"
+description: "Llama a APIs de terceros desde tu flujo: envía datos y mapea la respuesta a tus campos"
+icon: "cloud-arrow-up"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+**Petición externa** le permite a tu bot llamar a una API de terceros — para enviar datos, o para traer información y guardarla en tus campos.
+
+## Configuración de la petición
+
+<Steps>
+  <Step title="Elige el tipo de petición">
+    Por ejemplo `GET`, `POST`, etc.
+  </Step>
+  <Step title="Pega la URL del endpoint">
+    La dirección a la que se hará la llamada.
+  </Step>
+  <Step title="Ajusta los parámetros necesarios">
+    Parámetros de URL, encabezados (headers), cuerpo (body) y autorización — ver detalle abajo.
+  </Step>
+  <Step title="Prueba la petición">
+    Usa el botón de prueba para verificar que funciona antes de guardar.
+  </Step>
+  <Step title="Revisa la respuesta">
+    Examina los datos que devuelve la API.
+  </Step>
+  <Step title="Selecciona qué datos necesitas">
+    Elige las partes de la respuesta que te interesan.
+  </Step>
+  <Step title="Mapea a tus campos">
+    Asigna cada dato de la respuesta a un campo personalizado.
+  </Step>
+  <Step title="Guarda">
+    Confirma el mapeo.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de una Petición externa: tipo, URL y parámetros">
+  <Placeholder />
+</Frame>
+
+## Las 4 secciones de configuración
+
+<AccordionGroup>
+  <Accordion title="Parámetros de URL" icon="link">
+    Para los parámetros del endpoint. Se recomienda ingresar un **valor de prueba** antes de probar la petición.
+  </Accordion>
+  <Accordion title="Encabezados (Headers)" icon="list">
+    Se configuran igual que los parámetros de URL: pares clave-valor, con su valor de prueba.
+  </Accordion>
+  <Accordion title="Autorización" icon="lock">
+    El sistema maneja la codificación base64 automáticamente — es menos propenso a errores que escribirlo a mano, especialmente con el formato de token "Bearer". Para autenticación básica (Basic Auth), puedes ingresar usuario y contraseña directamente.
+  </Accordion>
+  <Accordion title="Cuerpo (Body)" icon="box">
+    Soporta 3 formatos:
+    - **multipart/form-data** — para incluir archivos
+    - **x-www-form-urlencoded** — pares clave-valor
+    - **JSON crudo** — para enviar un objeto JSON directamente
+  </Accordion>
+</AccordionGroup>
+
+## Probar y mapear la respuesta
+
+Al hacer clic en "Probar", se muestra la respuesta junto con su código de estado. Puedes expandir los encabezados de la respuesta para ver los datos, y generar automáticamente la ruta JSON (JSON path) haciendo clic sobre cada valor.
+
+<Card type="tip">
+  Siempre proporciona datos de prueba antes de usar el botón de prueba — así puedes verificar que la petición realmente funciona.
+</Card>
+
+<Frame caption="Respuesta de la petición con código de estado y mapeo de JSON path">
+  <Placeholder />
+</Frame>
