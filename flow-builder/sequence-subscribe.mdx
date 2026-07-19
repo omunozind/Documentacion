@@ -1,0 +1,51 @@
+---
+title: "Suscribir y cancelar suscripción a una secuencia"
+description: "Cómo enviar automáticamente una serie de mensajes programados a tus usuarios"
+icon: "list-ol"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Una **Secuencia** entrega automáticamente una lista de mensajes a tus usuarios de forma programada — ideal para comunicaciones espaciadas en el tiempo.
+
+## Crear una secuencia
+
+<Steps>
+  <Step title="Ve a Automatización → Secuencia">
+    Y haz clic en **+ Nueva secuencia**.
+  </Step>
+  <Step title="Configura tu secuencia">
+    Ponle una etiqueta (nombre), elige el flujo que se enviará, y define el intervalo de tiempo entre cada envío.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para activarla.
+  </Step>
+</Steps>
+
+<Frame caption="Configuración de una nueva secuencia: etiqueta, flujo e intervalo">
+  <Placeholder />
+</Frame>
+
+<Card type="warning">
+  Ten en cuenta los límites de envío de mensajes del canal que estés usando.
+</Card>
+
+## Suscribir a una secuencia
+
+Se usa como una acción dentro de **Acciones básicas**, para inscribir al usuario en la secuencia que elijas.
+
+<Frame caption="Selección de la secuencia a la que suscribir al usuario">
+  <Placeholder />
+</Frame>
+
+## Cancelar suscripción a una secuencia
+
+Quita al usuario de una secuencia activa, de modo que deje de recibir los siguientes mensajes programados.
+
+<Frame caption="Cancelar la suscripción del usuario a una secuencia">
+  <Placeholder />
+</Frame>
