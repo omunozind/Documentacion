@@ -1,0 +1,45 @@
+---
+title: "Reanudar automatización del bot"
+description: "Vuelve a activar las respuestas automáticas del bot después de una pausa, desde el flujo o desde Chat en vivo"
+icon: "play"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Cuando el bot deja de responder (por ejemplo, porque un agente tomó la conversación), los mensajes del usuario pueden quedar sin respuesta hasta que alguien intervenga. Aquí ves las dos formas de reanudar la automatización.
+
+## Reanudar desde una acción
+
+<Steps>
+  <Step title="Ve al nodo de Acción">
+    En el punto del flujo donde quieras reanudar la automatización.
+  </Step>
+  <Step title="Elige Acciones básicas → Reanudar automatización">
+    Esto reactiva al bot para que siga respondiendo al usuario sin interrupciones.
+  </Step>
+</Steps>
+
+<Frame caption="Acción 'Reanudar automatización' dentro de Acciones básicas">
+  <Placeholder />
+</Frame>
+
+## Reanudar desde Chat en vivo
+
+Cuando un agente atiende una conversación, normalmente hay un temporizador que controla ese período de atención humana.
+
+<Steps>
+  <Step title="Ubica el temporizador">
+    Aparece mientras el agente está atendiendo la conversación.
+  </Step>
+  <Step title="Haz clic en la X">
+    Esto cierra el temporizador y reanuda la automatización del bot de inmediato.
+  </Step>
+</Steps>
+
+<Frame caption="Temporizador de atención con la opción de cerrar (X) para reanudar el bot">
+  <Placeholder />
+</Frame>
