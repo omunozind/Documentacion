@@ -1,0 +1,196 @@
+---
+title: "Webhooks entrantes (Inbound Webhooks)"
+description: "Recibe datos desde cualquier lugar hacia el chatbot con una petición POST, e incluso inicia conversaciones con usuarios nuevos"
+icon: "arrow-right-to-bracket"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Frame caption="Webhooks entrantes">
+  <Placeholder />
+</Frame>
+
+Un **webhook entrante (Inbound Webhook)** es una herramienta potente para recibir datos desde cualquier lugar hacia el chatbot mediante una petición **POST**.
+
+Con los webhooks entrantes, tu bot incluso puede **iniciar una conversación** con un usuario que nunca le habló antes. Por ejemplo, cuando un cliente llena su información de contacto en tu web, envías los datos a un webhook entrante de un chatbot (digamos un bot de SMS), y el bot puede enviarle un mensaje de confirmación a su teléfono. Si el webhook está en un bot de voz, ¡el bot incluso puede llamar al cliente de inmediato!
+
+<Card type="warning">
+  **Limitación:** cada bot tiene hasta **5 webhooks entrantes**, con un límite de **500 peticiones por 24 horas**. El reinicio funciona así: 24 horas después de la primera petición (hay un *timestamp* en los headers de la respuesta que puedes revisar). El límite es por 24 horas, no por día calendario, así que no se reinicia a una hora fija.
+</Card>
+
+## Crear un webhook entrante
+
+Está disponible en casi todos los canales. En tu Constructor de Flujos, ve a **Herramientas → Webhooks entrantes**.
+
+<Frame caption="Sección Webhooks entrantes en Herramientas">
+  <Placeholder />
+</Frame>
+
+Haz clic en **New Inbound Webhook**, dale un nombre y haz clic en **Save**.
+
+<Frame caption="Crear un nuevo webhook entrante">
+  <Placeholder />
+</Frame>
+
+Verás la interfaz de edición:
+
+<Frame caption="Interfaz de edición del webhook entrante">
+  <Placeholder />
+</Frame>
+
+### Dirección del webhook (Webhook Address)
+
+Esta zona te muestra a dónde enviar los datos y el método, que es **POST**. Cada webhook entrante tiene una URL única en todo el sistema de Botky.
+
+### Ejemplo del JSON recibido
+
+Esta zona muestra un JSON de ejemplo como referencia. Describe la estructura de los datos que recibiremos, y lo necesitamos para encontrar los valores de **identificación del usuario** y los **datos a guardar**. Hay 2 formas de obtener un JSON de ejemplo:
+
+1. Escribirlo/pegarlo manualmente aquí.
+2. Escuchar datos en tiempo real de una prueba en vivo.
+
+### Valores para identificar a un usuario
+
+Cada vez que el webhook recibe datos, primero revisa las rutas que especifiques aquí para ver si encuentra un usuario existente en el chatbot. Si el usuario no está en el sistema, el chatbot creará un nuevo perfil. Así es como el chatbot inicia una conversación sin haber hablado antes con el usuario.
+
+Sin embargo, algunos canales no permiten que el chatbot inicie la conversación primero, por temas de privacidad y spam. Por ejemplo, tu bot de SMS puede enviar mensajes mientras tengas el número del destinatario, pero tu chatbot de Facebook Messenger no puede enviar mensajes a un usuario que nunca le habló antes.
+
+#### Proceso de identificación del usuario
+
+<Steps>
+  <Step title="Revisa user_ns">
+    Si hay un `user_ns` válido, usuario encontrado. Si no, siguiente paso.
+  </Step>
+  <Step title="Revisa phone / email">
+    Si se encuentra un usuario por `phone` o `email`, usuario encontrado. Si no, siguiente paso.
+  </Step>
+  <Step title="Verifica phone">
+    Si no hay usuario en el sistema, ¿es `phone` un número válido? Si sí, se crea el perfil de usuario. Si no, el webhook no se procesa.
+  </Step>
+</Steps>
+
+### Zona de mapeo
+
+La lista de mapeo muestra qué valor debe guardarse en qué campo personalizado. Cuando obtengas un JSON de ejemplo en la zona anterior, haz clic en **Preview Payload** para abrir la herramienta de mapeo.
+
+## Registros del webhook (Logs)
+
+<Frame caption="Registros del webhook entrante">
+  <Placeholder />
+</Frame>
+
+Cada petición se guarda en **Logs**. Haz clic en un registro para ver el JSON recibido.
+
+## Límite del webhook entrante
+
+Por defecto, el límite es de **500 peticiones por 24 horas**.
+
+<Frame caption="Límite de peticiones del webhook entrante">
+  <Placeholder />
+</Frame>
+
+Si superas el límite, tienes la opción de ampliar a más peticiones por día. Estas son las opciones:
+
+| Límite | Costo | Aprox. mensual |
+|---|---|---|
+| 500/día | Incluido | ~15K peticiones/mes |
+| 1000/día | $20 al mes | ~30K peticiones/mes |
+| 2000/día | $40 al mes | ~60K peticiones/mes |
+| 3000/día | $60 al mes | ~90K peticiones/mes |
+| 4000/día | $80 al mes | ~120K peticiones/mes |
+| 5000/día | $100 al mes | ~150K peticiones/mes |
+| 10000/día | $200 al mes | ~300K peticiones/mes |
+
+<Card type="note">
+  Para ampliar el límite de peticiones, contacta al **soporte de Botky**.
+</Card>
+
+<Card type="note">
+  Video de referencia: [youtube.com/watch?v=izBF3qbYKUw](https://www.youtube.com/watch?v=izBF3qbYKUw)
+</Card>
+
+## Depurar el error de máximo de peticiones
+
+Si no estás recibiendo los datos en el webhook entrante, o no los encuentras en los logs, es muy posible que hayas alcanzado el límite diario. Para probarlo, envía la petición al webhook desde Postman o desde una **Solicitud externa** de Botky, y revisa la información en el header:
+
+<Frame caption="Header con rate-limit-remaining">
+  <Placeholder />
+</Frame>
+
+Como ves, hay un **rate-limit-remaining**: si es `0`, significa que ya alcanzaste el límite y deberías ampliarlo.
+
+## Demo: confirmación de reserva
+
+Una herramienta perfecta para probar tu webhook entrante ya viene incorporada: consigue un chatbot (cualquier canal) y pruébalo en un **paso de Acción**. Abre otra página de Botky en paralelo, deja la edición del webhook en la Página 1 y selecciona una Solicitud externa en la Página 2.
+
+<Frame caption="Edición del webhook y solicitud externa en paralelo">
+  <Placeholder />
+</Frame>
+
+Sigue los pasos 1 a 8 de la captura:
+
+<Frame caption="Pasos 1 a 8 de la prueba">
+  <Placeholder />
+</Frame>
+
+Proporciona los datos que se enviarán al chatbot y haz clic en **Test**: obtendrás un error de "webhook inactive" porque aún no lo hemos activado. Está bien, haz clic en **Done** en la Página 1 y verás los datos guardados.
+
+<Frame caption="Datos guardados tras el test">
+  <Placeholder />
+</Frame>
+
+Baja un poco y sigue los pasos 1, 2, 3 para indicarle al sistema dónde están los valores `phone` y `email` en el JSON:
+
+<Frame caption="Indicar phone y email en el JSON">
+  <Placeholder />
+</Frame>
+
+Finalmente, mapea el resto de los datos al chatbot:
+
+<Frame caption="Mapeo del resto de los datos">
+  <Placeholder />
+</Frame>
+
+**Guarda** la edición de tu webhook entrante:
+
+<Frame caption="Guardar el webhook entrante">
+  <Placeholder />
+</Frame>
+
+Entra al subflujo y enviémosle un mensaje al usuario del bot:
+
+<Frame caption="Enviar un mensaje al usuario en el subflujo">
+  <Placeholder />
+</Frame>
+
+**Publica** el flujo y hagamos una prueba en vivo con la solicitud externa otra vez:
+
+<Frame caption="Prueba en vivo tras publicar">
+  <Placeholder />
+</Frame>
+
+Esta vez corre sin error porque activamos el webhook y usamos un número real. Ve a **Logs** y verás que se creó un nuevo perfil de usuario con éxito. Del lado del usuario:
+
+<Frame caption="Nuevo perfil de usuario creado, visto del lado del usuario">
+  <Placeholder />
+</Frame>
+
+## Preguntas frecuentes
+
+### ¿El webhook entrante no funciona en tu dominio personalizado?
+
+Si los webhooks entrantes bajo tu **dominio personalizado** dejan de funcionar mientras que bajo el dominio de Botky funcionan bien, el problema podría estar en tu configuración de **Cloudflare**.
+
+A veces Cloudflare detecta automáticamente las peticiones a tu dominio y las clasifica como ataques de bots, bloqueándolas por un intervalo de tiempo. Para evitarlo, ve a los ajustes de tu panel de Cloudflare, en la pestaña de **seguridad**, y desactiva **"Bot Fight Mode"**.
+
+<Frame caption="Desactivar Bot Fight Mode en Cloudflare">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  Otra razón por la que los webhooks pueden dejar de funcionar es alcanzar su umbral diario. Revisa siempre que no estés al máximo de los límites.
+</Card>
