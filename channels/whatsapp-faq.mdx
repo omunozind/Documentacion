@@ -1,0 +1,76 @@
+---
+title: "FAQ y errores comunes (WhatsApp)"
+description: "Soluciones a los errores más frecuentes del canal de WhatsApp"
+icon: "circle-question"
+---
+
+## Errores comunes del canal de WhatsApp
+
+<AccordionGroup>
+  <Accordion title="131053 - Media upload error">
+    Suele deberse a que la **URL** que usas en el mensaje o la plantilla **no es públicamente accesible**, o a que el **formato de archivo** no está soportado por WhatsApp. **Solución:** revisa que la URL empiece con `https`, termine con la extensión del archivo, y que el archivo sea siempre público.
+  </Accordion>
+  <Accordion title="Blocked by Integrity. Integrity requirements not met">
+    Puede dispararse al usar la función **WhatsApp Flow**. Para ciertas funciones, Meta requiere un **Meta Business Manager verificado**. Verifica el estado de tu negocio.
+  </Accordion>
+  <Accordion title="2018062 (#100) - unsupported/misspelled parameters">
+    La solicitud incluyó parámetros no soportados o mal escritos. Es posible que uses variables de campos personalizados que **no tienen valor**. **Solución:** agrega una verificación condicional de todas las variables antes de usarlas, y revisa en los registros de errores el valor de cada una. [Códigos de error](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes).
+  </Accordion>
+  <Accordion title="131048 - Restrictions on how many messages can be sent">
+    Enviaste muchos mensajes que fueron bloqueados o marcados como spam, así que Meta limitó tu número. Mantén una **calidad de cuenta saludable** o tu número/WABA podría bloquearse.
+  </Accordion>
+  <Accordion title="Not enough funds on your conversation prepaid balance">
+    No tienes fondos suficientes en tu cuenta de proveedor (ej. 360dialog). **Solución:** recarga saldo en tu cuenta del proveedor (Insights & Billing).
+  </Accordion>
+  <Accordion title="(#200) Permissions error">
+    El permiso no fue otorgado o fue removido. Al conectar tu cuenta de WhatsApp debes seleccionar **todos** los permisos requeridos.
+  </Accordion>
+  <Accordion title="Error 28 - Resolving timed out after 10000 ms">
+    Al llamar a la API de Meta para enviar el mensaje, tardó más de 10 segundos (timeout por defecto de Meta). Puede ser lentitud del servidor de Meta. Revisa el [estado de la API de Meta](https://metastatus.com/); si no hay caída, contacta al soporte de Botky.
+  </Accordion>
+  <Accordion title="131008 - Required parameter is missing">
+    Falta un parámetro requerido. Suele pasar porque una variable de campo personalizado **no tiene valor**. **Solución:** agrega verificación condicional y revisa los registros de errores.
+  </Accordion>
+  <Accordion title="WhatsApp Message Template not found">
+    Usaste una plantilla que no encontramos en tu cuenta de WhatsApp. Puede que la hayas cambiado o eliminado en el Business Manager y los cambios no se sincronizaron a Botky.
+  </Accordion>
+  <Accordion title="Business account has been locked">
+    Meta bloqueó tu cuenta de WhatsApp Business. Debes contactar a Meta. Revisa las notificaciones en tu WhatsApp Manager.
+  </Accordion>
+  <Accordion title="130472 - User's phone number is part of an experiment">
+    El mensaje no se envió porque forma parte de un experimento (Marketing Message Experiment). [Más info](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes).
+  </Accordion>
+  <Accordion title="131047 / 470 - Re-engagement message (más de 24 horas)">
+    Han pasado más de 24 horas desde el último mensaje iniciado por el usuario; la sesión está cerrada y no puedes usar mensajes de formato libre. **Solución:** restringe el envío si no hubo mensaje entrante en 24h, o contacta al usuario con un **mensaje de plantilla**.
+  </Accordion>
+  <Accordion title="131056 - Business/Consumer pair rate limit hit">
+    Demasiados mensajes enviados del mismo remitente al mismo destinatario en poco tiempo. **Solución:** espera y reintenta; puedes seguir enviando a otros números sin esperar.
+  </Accordion>
+  <Accordion title="Error validating access token">
+    El usuario cambió su contraseña de Facebook (o Meta cambió la sesión por seguridad), y Meta cerró sesión de las plataformas de terceros. **Solución:** **reconecta** el canal para restablecer la conexión.
+  </Accordion>
+  <Accordion title="131048 - Spam Rate limit hit">
+    Restricciones por mensajes bloqueados o marcados como spam. Revisa tu estado de calidad en WhatsApp Manager y la documentación de Quality-Based Rate Limits.
+  </Accordion>
+  <Accordion title="131026 - Receiver is incapable of receiving this message / Message Undeliverable">
+    No se pudo entregar el mensaje. Razones posibles: el número no es de WhatsApp; el destinatario no aceptó los nuevos Términos y Política de Privacidad; o usa una versión antigua de WhatsApp. **Solución:** confirma que el destinatario acepta ser contactado por WhatsApp y usa la última versión.
+  </Accordion>
+  <Accordion title="131042 - Business eligibility payment issue">
+    Errores relacionados con tu método de pago. Ve a tu Business Manager → WhatsApp Manager y revisa el billing. Meta cobra por las plantillas, así que configura una tarjeta válida.
+  </Accordion>
+  <Accordion title="(#100) Invalid Parameter">
+    Parámetro no soportado o mal escrito (ej. clave inesperada "index"). Revisa la referencia del endpoint para los parámetros soportados y su escritura correcta. Asegúrate de que la clave pública sea RSA de 2048 bits en formato PEM, y que no haya discrepancia con el phone number id.
+  </Accordion>
+  <Accordion title="132001 - Template name does not exist in the translation">
+    La plantilla no existe en el idioma especificado o no fue aprobada. Asegúrate de que esté aprobada y que el nombre y el locale de idioma sean correctos.
+  </Accordion>
+  <Accordion title="131053 - Downloading media failed with 401 Unauthorized">
+    Surge cuando hay un almacenamiento de terceros integrado (Cloudinary, S3, etc.) y se comparte un archivo sin los permisos requeridos. **Solución:** desconecta la integración de almacenamiento, o habilita los ajustes que nos permiten compartir los archivos.
+  </Accordion>
+  <Accordion title="(#100) Cannot migrate phone number: webhooks must be set up">
+    Surge al portar/migrar un número entre un proveedor y Cloud API mientras se conecta al mismo bot, al intentar registrar el número con el embedded signup. **Solución:** pausa y reanuda el bot actual, luego intenta de nuevo.
+  </Accordion>
+  <Accordion title="No se conecta el número Cloud API a Facebook Ads para entrega de mensajes">
+    Ocurre cuando agregas el número directamente en Ads Manager: Facebook muestra la opción de conectarlo con la WhatsApp Business App, lo que causa conflicto porque ya está registrado con la Cloud API. **Solución:** inicia sesión en Facebook, cambia a tu perfil de Página, vincula el número (registrado con Cloud API) a tu Página, y luego en Ads Manager selecciona ese número al configurar tu campaña de entrega de mensajes.
+  </Accordion>
+</AccordionGroup>
