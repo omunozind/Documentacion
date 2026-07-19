@@ -1,0 +1,116 @@
+---
+title: "Temas de notificación"
+description: "Continúa tus automatizaciones más allá del límite de 24 horas de los canales de Meta con notificaciones OTN y recurrentes"
+icon: "bell"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+En los canales de Meta (Facebook, Instagram, WhatsApp), solo puedes contactar a un usuario dentro de las **24 horas** posteriores a su interacción. Después de ese plazo, no puedes enviarle más mensajes ni automatizaciones.
+
+Para este caso, Facebook introdujo las **notificaciones**, que se envían a los usuarios después de suscribirlos. Te ayudan a continuar tus automatizaciones más allá del límite de 24 horas.
+
+<Card type="note">
+  Video de referencia: [youtu.be/EbhMFXk08zY](https://youtu.be/EbhMFXk08zY?si=FNql3in7M9KopV6S) · Documentación de Meta: [Marketing Messages](https://developers.facebook.com/docs/messenger-platform/marketing-messages)
+</Card>
+
+## Crear temas de notificación
+
+Dentro de tu bot, haz clic en **Contenidos** y luego en **Tema de notificación (Notification Topic)**.
+
+<Frame caption="Sección Tema de notificación en Contenidos">
+  <Placeholder />
+</Frame>
+
+Haz clic en **New Topic** para crear un nuevo tema de notificación.
+
+<Frame caption="Botón New Topic">
+  <Placeholder />
+</Frame>
+
+## Tipos de temas de notificación
+
+Facebook permite enviar dos tipos:
+
+<CardGroup cols={2}>
+  <Card title="One Time Notifications (OTN)" icon="1">
+    Solo se pueden enviar **una vez**.
+  </Card>
+  <Card title="Notificaciones recurrentes" icon="repeat">
+    Se pueden enviar en un **intervalo recurrente** de tiempo.
+  </Card>
+</CardGroup>
+
+<Card type="warning">
+  Ambos tipos requieren el **consentimiento del usuario**: debe suscribirse explícitamente antes de que puedas enviarle la notificación.
+</Card>
+
+## One Time Notifications (OTN)
+
+Para crear una OTN, haz clic en **New Topic** y selecciona **"ONCE"** en el tipo.
+
+<Frame caption="Crear una OTN seleccionando ONCE">
+  <Placeholder />
+</Frame>
+
+Cuando termines, haz clic en **Guardar**.
+
+<Frame caption="Guardar la OTN">
+  <Placeholder />
+</Frame>
+
+Antes de poder enviarla a un usuario, primero debemos suscribirlo.
+
+<Frame caption="Suscripción del usuario a la OTN">
+  <Placeholder />
+</Frame>
+
+Crea un nodo **"Enviar mensaje"**, haz clic en **Notification Message** y selecciona la opción **"OTN Request"**.
+
+<Frame caption="OTN Request en un nodo de Enviar mensaje">
+  <Placeholder />
+</Frame>
+
+Selecciona el tema que quieres enviar, agrega algún texto y envíaselo al usuario. Cuando el usuario haga clic en **"Notify Me"**, puedes suscribirlo a una secuencia para enviarle la OTN cuando lo necesites.
+
+<Frame caption="El usuario acepta con Notify Me">
+  <Placeholder />
+</Frame>
+
+## Notificaciones recurrentes
+
+Haz clic en **New Topic** y selecciona **"RECURRING"** en la pestaña de frecuencia.
+
+<Frame caption="Crear una notificación recurrente">
+  <Placeholder />
+</Frame>
+
+Para suscribir a los usuarios a una notificación recurrente, crea un nodo **"Enviar mensaje"**, selecciona **Notifications** y luego **"Daily Notification Topic"**.
+
+<Frame caption="Daily Notification Topic en un nodo de Enviar mensaje">
+  <Placeholder />
+</Frame>
+
+De igual forma, si hacen clic en **"Get Messages"**, puedes suscribirlos a una secuencia que les enviará los mensajes recurrentes en el intervalo que elijas.
+
+## Cómo enviar los mensajes de notificación
+
+Para enviar notificaciones (tanto OTN como recurrentes), crea un nodo **"Enviar mensaje"**, selecciona **Notifications** y luego **"Send Notification Message"**.
+
+<Frame caption="Send Notification Message en un nodo de Enviar mensaje">
+  <Placeholder />
+</Frame>
+
+Selecciona el tema que quieres enviar. El mensaje que sigue al anterior debe contener el contenido de la notificación. Por ejemplo:
+
+<Frame caption="Configuración del mensaje de notificación">
+  <Placeholder />
+</Frame>
+
+<Card type="note">
+  El último nodo de "Enviar mensaje" del flujo es el contenido que quieres enviar a los usuarios, mientras que el nodo intermedio es el **iniciador** que le avisa a Facebook que se trata de una notificación.
+</Card>
