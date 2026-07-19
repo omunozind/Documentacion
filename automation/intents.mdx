@@ -1,0 +1,38 @@
+---
+title: "Intenciones (Functions)"
+description: "Detecta la intención del usuario y ejecuta funciones, recolectando parámetros hasta completarlos"
+icon: "wand-magic-sparkles"
+---
+
+Las **Intenciones (Functions)** permiten que el bot detecte lo que el usuario quiere hacer y ejecute una función en consecuencia. Para implementarlas, primero debes establecer una **Intención** dentro de Automatización.
+
+## Cómo funciona (workflow de ejemplo)
+
+<Steps>
+  <Step title="Limpiar el historial del chat">
+    Es el paso base y crítico: permite iterar por ciclos de *completion* hasta reunir con éxito todos los parámetros.
+  </Step>
+  <Step title="Mensaje de sistema">
+    Un mensaje simple instruye al modelo a confirmar que **todos** los parámetros fueron obtenidos antes de concluir la llamada a la función.
+  </Step>
+  <Step title="Mapear parámetros y probar">
+    Establece las intenciones, mapea los parámetros y prueba exhaustivamente que se recolectan correctamente.
+  </Step>
+  <Step title="Devolver al chat si falta algo">
+    Si algún parámetro queda incompleto, regresa al usuario al ciclo de *chat completion*.
+  </Step>
+</Steps>
+
+## Manejo de la salida
+
+El manejo de la salida requiere evaluar el **motivo de finalización (finish reason)** del chat:
+
+<Card type="note">
+  Cuando el *finish reason* indica que ocurrió una **llamada a función**, significa que todos los parámetros ya se capturaron, y puedes entregarle el resultado directamente al usuario.
+</Card>
+
+Esta metodología no se limita a agendar citas: aplica a muchos otros tipos de intención.
+
+<Card type="note">
+  Hay un video tutorial disponible: [youtube.com/watch?v=67nWUjxw41w](https://www.youtube.com/watch?v=67nWUjxw41w)
+</Card>
