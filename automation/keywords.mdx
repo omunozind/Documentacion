@@ -1,0 +1,45 @@
+---
+title: "Palabras clave"
+description: "Lleva al usuario directo a un subflujo escribiendo una palabra clave, sin perderse entre menús y botones"
+icon: "key"
+---
+
+Con las **Palabras clave (Keywords)**, el usuario puede saltar directo a un subflujo escribiendo una palabra, en lugar de perderse entre menús o botones.
+
+## Cómo configurarlas
+
+<Steps>
+  <Step title="Abre Automatización → Palabras clave">
+    Ve a **Automatización** en la barra lateral y haz clic en **Palabras clave**.
+  </Step>
+  <Step title="Crea una nueva">
+    Haz clic en **+ Nueva palabra clave**.
+  </Step>
+  <Step title="Elige la condición">
+    Selecciona entre **es**, **contiene** o **empieza por**.
+  </Step>
+  <Step title="Escribe las palabras clave">
+    Una o varias, separadas **solo por comas** (sin espacios).
+  </Step>
+  <Step title="Elige el subflujo a enviar">
+    El subflujo que se disparará cuando coincida la palabra.
+  </Step>
+</Steps>
+
+## Respuesta por defecto (Default Reply)
+
+El sistema envía una **Respuesta por defecto** cuando el bot no logra determinar una respuesta adecuada. Si el interruptor está apagado o no hay un subflujo asignado a la Respuesta por defecto, se envía el **flujo principal** en su lugar.
+
+<Card type="note">
+  **Tip:** durante las pruebas, puedes responder con cualquier cosa para reiniciar rápido la conversación. También puedes ajustar con qué frecuencia se dispara la Respuesta por defecto; por defecto es **"Cada vez" (Every Time)**.
+</Card>
+
+## Respuesta por defecto avanzada
+
+Para un bot más inteligente que pueda:
+- Responder con **frases** en lugar de solo subflujos.
+- Entender **varios idiomas**, más allá de la coincidencia de palabras.
+
+<Card type="note">
+  La solución es usar la **integración de Google Dialogflow**. Revisa su guía de configuración para los detalles.
+</Card>
