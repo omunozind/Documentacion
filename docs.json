@@ -19,7 +19,11 @@
               {"group": "Acciones avanzadas", "icon": "sliders", "pages": ["flow-builder/external-request", "flow-builder/smart-delay", "flow-builder/javascript-function", "flow-builder/send-sms-action", "flow-builder/update-user-profile", "flow-builder/trigger-workflow-action", "flow-builder/rate-limit-attempts"]},
               {"group": "Integraciones", "icon": "puzzle-piece", "pages": ["flow-builder/data-store", "flow-builder/calendly", "flow-builder/dialogflow", "flow-builder/openai", "flow-builder/google-gemini", "flow-builder/coze", "flow-builder/claude-ai", "flow-builder/gohighlevel-v2", "flow-builder/gohighlevel-v1", "flow-builder/google-sheets", "flow-builder/cloudinary", "flow-builder/zapier", "flow-builder/make-integromat", "flow-builder/pabbly-connect", "flow-builder/stripe", "flow-builder/shopify", "flow-builder/woocommerce", "flow-builder/google-maps", "flow-builder/mapbox", "flow-builder/s3-storage"]},
               "flow-builder/notifications"
-            ]}
+            ]},
+            "flow-builder/condition-step",
+            "flow-builder/split-step",
+            "flow-builder/send-email",
+            "flow-builder/goto-node"
           ]}
         ]
       }
