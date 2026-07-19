@@ -1,0 +1,70 @@
+---
+title: "Formularios de Facebook (Lead Forms)"
+description: "Dispara automatizaciones desde los Instant Forms de Facebook por WhatsApp, SMS o correo, y rastrea la fuente del anuncio"
+icon: "clipboard-list"
+---
+
+Los **Facebook Lead Forms** permiten recolectar datos del usuario (nombre, teléfono, correo) con campos precompletados. Esto simplifica el proceso: el usuario solo debe enviar el formulario para iniciar tu automatización.
+
+## Cómo configurar el disparador
+
+<Steps>
+  <Step title="Conecta tus páginas de Facebook">
+    Vincúlalas en el canal Omni.
+  </Step>
+  <Step title="Crea Instant Forms">
+    Crea los formularios instantáneos y enlázalos a tus páginas.
+  </Step>
+  <Step title="Configura la automatización">
+    Ve a **Automatización → Facebook Lead Forms** para configurarla.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Video de referencia: [youtu.be/ls4rwAVlxU0](https://youtu.be/ls4rwAVlxU0?si=pQLfKSIEqIW64ban)
+</Card>
+
+## Automatización por SMS, correo y WhatsApp
+
+<Tabs>
+  <Tab title="WhatsApp">
+    - Conecta WhatsApp al canal Omni.
+    - Dispara un **mensaje de plantilla** para iniciar la conversación.
+    - Al agregar un nuevo formulario, selecciona **"WhatsApp"** como canal por defecto para crear el usuario del bot.
+    - Selecciona tu subflujo para enviar el mensaje de plantilla de WhatsApp.
+  </Tab>
+  <Tab title="SMS">
+    - Selecciona **"Webchat"** como canal por defecto para crear el usuario del bot.
+    - Configura el bot de SMS y asegúrate de tener la respuesta por defecto lista.
+  </Tab>
+  <Tab title="Correo">
+    - Configura la **integración de correo** en la sección de Integraciones.
+    - Selecciona **"Webchat"** como canal por defecto para crear el usuario del bot.
+    - Asegúrate de que el usuario esté opt-in para correo, o usa la acción **"marcar correo como opt-in"**.
+  </Tab>
+</Tabs>
+
+## Cómo obtener la fuente de tráfico del anuncio (Instant Form)
+
+El *payload* del formulario contiene los campos **lead ID** y **ad ID**. El `ad_id` permite recuperar la información de la campaña en pasos posteriores.
+
+### Obtener nombre de campaña y de conjunto de anuncios
+
+<Steps>
+  <Step title="Usa la acción Get Lead Gen">
+    Ve a **Acción → Acción avanzada → Facebook API → acción "Get Lead Gen"**.
+  </Step>
+  <Step title="Indica el ad_id">
+    Coloca el `ad_id` en el campo **Lead Gen ID**.
+  </Step>
+  <Step title="Define los campos (opcional)">
+    Ingresa `id,name,campaign{id,name}` en el campo de *fields*.
+  </Step>
+  <Step title="Extrae los datos">
+    Obtén los nombres del *adset* y de la campaña desde la respuesta.
+  </Step>
+</Steps>
+
+<Card type="note">
+  Para más parámetros de fuente de tráfico, consulta la [documentación de la Facebook Marketing API](https://developers.facebook.com/docs/marketing-api/reference/adgroup#parameters).
+</Card>
