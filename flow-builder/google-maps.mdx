@@ -1,0 +1,43 @@
+---
+title: "Google Maps"
+description: "Calcula direcciones, distancias y coordenadas usando la API de Google Maps desde tu flujo"
+icon: "map"
+---
+
+## Conectar Google Maps
+
+<Steps>
+  <Step title="Crea tu clave de API">
+    Sigue la documentación oficial de Google para generarla, seleccionando tu proyecto y creando una clave nueva si es necesario.
+  </Step>
+  <Step title="Habilita las APIs necesarias">
+    Debes activar: Maps Datasets API, Maps Elevation API, Maps Embed API, Maps JavaScript API, Maps Static API, Geocoding API, Geolocation API, Places API, Directions API y Distance Matrix API.
+  </Step>
+  <Step title="Pega tu clave en Integraciones → Google Map">
+    Verifica que quede con estado "Verificado".
+  </Step>
+</Steps>
+
+## Agregar la ubicación de tu tienda
+
+Ve a **Ecommerce → Ubicación** para agregar nuevas ubicaciones de tiendas o puntos de interés dentro de tu espacio de trabajo.
+
+## Acciones disponibles
+
+<AccordionGroup>
+  <Accordion title="Obtener coordenadas por dirección" icon="location-dot">
+    Las coordenadas (geocodes) son la latitud y longitud de una dirección — útiles para ubicar marcadores en un mapa. Ingresa la dirección y completa los parámetros para obtenerlas.
+  </Accordion>
+  <Accordion title="Obtener dirección por coordenadas" icon="map-pin">
+    El proceso inverso: ingresa latitud y longitud para obtener la dirección correspondiente.
+  </Accordion>
+  <Accordion title="Obtener matriz de distancia" icon="ruler">
+    Calcula la distancia entre dos ubicaciones (por nombre de dirección o coordenadas). Elige el modo de viaje (auto, caminando, en bicicleta). La respuesta incluye distancia y duración del viaje.
+  </Accordion>
+  <Accordion title="Obtener dirección de viaje (por coordenadas)" icon="route">
+    Ingresa latitud y longitud de origen y destino para obtener los pasos del recorrido, distancia total e instrucciones. Puedes guardar el resultado en variables JSON.
+  </Accordion>
+  <Accordion title="Obtener dirección de viaje (por dirección)" icon="route">
+    Igual que la anterior, pero usando direcciones en vez de coordenadas — la estructura de la respuesta es idéntica.
+  </Accordion>
+</AccordionGroup>
