@@ -49,6 +49,11 @@
           {"group": "Voz", "icon": "phone", "pages": ["channels/voice", "channels/voice-realtime-ai-agent", "channels/voice-faq"]},
           {"group": "Telegram", "icon": "telegram", "pages": ["channels/telegram", "channels/telegram-faq"]}
         ]
+      },
+      {
+        "group": "Servicios de Reservas",
+        "icon": "calendar-check",
+        "pages": ["booking/overview"]
       }
     ]
   },
