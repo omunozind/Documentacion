@@ -13,10 +13,11 @@
         "pages": [
           {
             "group": "Construir tu bot",
+            "icon": "hammer",
             "pages": [
-              {"group": "Descripción general", "pages": ["flow-builder/overview", "flow-builder/field-variable", "flow-builder/publish-draft", "flow-builder/navigation-sidebar", "flow-builder/basic-operations"]},
-              {"group": "Subflujos", "pages": ["flow-builder/sub-flow", "flow-builder/workflow", "flow-builder/function-flow"]},
-              {"group": "Building Blocks / Pasos", "pages": ["flow-builder/send-message", "flow-builder/question",
+              {"group": "Descripción general", "icon": "book-open", "pages": ["flow-builder/overview", "flow-builder/field-variable", "flow-builder/publish-draft", "flow-builder/navigation-sidebar", "flow-builder/basic-operations"]},
+              {"group": "Subflujos", "icon": "code-branch", "pages": ["flow-builder/sub-flow", "flow-builder/workflow", "flow-builder/function-flow"]},
+              {"group": "Building Blocks / Pasos", "icon": "cubes", "pages": ["flow-builder/send-message", "flow-builder/question",
                 {"group": "Acción", "icon": "bolt", "pages": [
                   {"group": "Acciones básicas", "icon": "list-check", "pages": ["flow-builder/tag-action", "flow-builder/json-operation", "flow-builder/set-variable-value", "flow-builder/clear-variable-value", "flow-builder/sequence-subscribe", "flow-builder/bot-subscribe", "flow-builder/email-opt-in-out", "flow-builder/sms-opt-in-out", "flow-builder/mark-conversation", "flow-builder/add-note-teammates", "flow-builder/delete-bot-user", "flow-builder/assign-agent", "flow-builder/resume-bot-automation", "flow-builder/talk-to-human", "flow-builder/add-remove-collaborators"]},
                   {"group": "Acciones avanzadas", "icon": "sliders", "pages": ["flow-builder/external-request", "flow-builder/smart-delay", "flow-builder/javascript-function", "flow-builder/send-sms-action", "flow-builder/update-user-profile", "flow-builder/trigger-workflow-action", "flow-builder/rate-limit-attempts"]},
@@ -27,17 +28,20 @@
                 "flow-builder/split-step",
                 "flow-builder/send-email",
                 "flow-builder/goto-node"
-              ]}
+              ]},
+              {"group": "Tableros (CRM)", "icon": "table-columns", "pages": ["boards/overview"]}
             ]
           },
           {
             "group": "Hablar con tus clientes",
+            "icon": "headset",
             "pages": [
               {"group": "Chat en vivo", "icon": "comments", "pages": ["live-chat/overview", "live-chat/agent-groups", "live-chat/collaborators", "live-chat/user-data-segments", "live-chat/conversation-starter-prompt", "live-chat/sortable-options", "live-chat/search-messages", "live-chat/scheduled-messages", "live-chat/multiple-files-upload", "live-chat/chat-assistant", "live-chat/merge-bot-users"]},
               {"group": "Usuarios del bot", "icon": "users", "pages": ["bot-users/overview"]},
               {"group": "Widget web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]},
               {
                 "group": "Omnicanal",
+                "icon": "globe",
                 "pages": [
                   "omni-channel/overview",
                   "channels/webchat",
@@ -53,6 +57,7 @@
           },
           {
             "group": "Automatizar e IA",
+            "icon": "wand-magic-sparkles",
             "pages": [
               {"group": "Automatización", "icon": "gears", "pages": ["automation/overview", "automation/keywords", "automation/sequences", "automation/triggers", "automation/intents", "automation/comment-keywords", "automation/facebook-lead-forms"]},
               {"group": "AI Hub", "icon": "robot", "pages": ["ai-hub/overview", "ai-hub/ai-prompts", "ai-hub/auto-suggestions", "ai-hub/mcp-servers", "ai-hub/ai-agents-web-search", "ai-hub/knowledge-base", "ai-hub/settings"]}
@@ -60,6 +65,7 @@
           },
           {
             "group": "Contenido y herramientas",
+            "icon": "toolbox",
             "pages": [
               {"group": "Contenidos", "icon": "folder-open", "pages": ["content/overview", "content/user-fields", "content/bot-fields", "content/tags", "content/labels", "content/nodes", "content/custom-events", "content/closing-notes", "content/user-menus", "content/personas", "content/message-templates", "content/whatsapp-flows", "content/notification-topics", "content/customer-feedback", "content/utility-messaging-templates"]},
               {"group": "Herramientas", "icon": "screwdriver-wrench", "pages": ["tools/overview", "tools/error-logs", "tools/testers", "tools/admins", "tools/widgets", "tools/multiple-languages", "tools/shortcuts", "tools/export-jobs", "tools/custom-reports", "tools/facebook-ads", "tools/inbound-webhooks", "tools/smart-delays", "tools/blacklists", "tools/facebook-ads-welcome-message"]},
@@ -70,13 +76,13 @@
             "group": "CRM y Reservas",
             "icon": "address-book",
             "pages": [
-              {"group": "Tableros (CRM)", "icon": "table-columns", "pages": ["boards/overview"]},
               {"group": "Tickets (CRM)", "icon": "ticket", "pages": ["tickets/overview"]},
               {"group": "Servicios de Reservas", "icon": "calendar-check", "pages": ["booking/overview"]}
             ]
           },
           {
             "group": "Cuenta y configuración",
+            "icon": "user-gear",
             "pages": [
               {"group": "Configuración", "icon": "sliders", "pages": ["settings/overview", "settings/general", "settings/facebook", "settings/viber", "settings/live-chat", "settings/sso", "settings/rate-limit"]},
               {"group": "Espacio de trabajo", "icon": "gears", "pages": [
