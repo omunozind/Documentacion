@@ -1,5 +1,5 @@
 ---
-title: "Widget de Chat web"
+title: "Widget web"
 description: "Agrega un chatbot a cualquier sitio web sin depender de otro canal: contenido, ajustes, canales, apariencia, estilos de visualización y personalización avanzada"
 icon: "comment-dots"
 ---
@@ -10,9 +10,9 @@ export const Placeholder = () => (
   </div>
 );
 
-Con el **widget de Chat web** puedes agregar un chatbot a cualquier sitio web sin depender de otro canal. Esto te ayuda a aprovechar el poder del marketing conversacional sin las desventajas o restricciones que otros canales podrían tener.
+Con el **widget web** puedes agregar un chatbot a cualquier sitio web sin depender de otro canal. Esto te ayuda a aprovechar el poder del marketing conversacional sin las desventajas o restricciones que otros canales podrían tener.
 
-## Cómo acceder al widget de Chat web
+## Cómo acceder al widget web
 
 Para acceder al widget necesitas crear un chatbot **Omnicanal**. El Chat web solo está disponible bajo Omnicanal.
 
@@ -28,9 +28,9 @@ Al crear el Omnicanal, dale un nombre. Puedes crear un bot nuevo o convertir un 
   <Placeholder />
 </Frame>
 
-Después de crearlo, encontrarás el **widget de Chat web** en la barra lateral izquierda.
+Después de crearlo, encontrarás el **widget web** en la barra lateral izquierda.
 
-<Frame caption="Widget de Chat web en la barra lateral">
+<Frame caption="Widget web en la barra lateral">
   <Placeholder />
 </Frame>
 
@@ -201,7 +201,7 @@ En la pestaña de **Settings** tienes estas opciones:
 
 ### Canales (Channels)
 
-El widget de Chat web te permite redirigir a los usuarios a múltiples plataformas como WhatsApp, Facebook Messenger, Instagram, Telegram y más, para que se conecten contigo por su canal preferido.
+El widget web te permite redirigir a los usuarios a múltiples plataformas como WhatsApp, Facebook Messenger, Instagram, Telegram y más, para que se conecten contigo por su canal preferido.
 
 **Cómo funciona:** cuando un usuario visita tu widget por primera vez, ve un botón **Get Started** junto con varias opciones de canal (integradas vía Omnicanal). Si una plataforma como WhatsApp está vinculada al Omnicanal y el usuario hace clic en su ícono en lugar del botón Get Started, se le redirige automáticamente a esa plataforma.
 
@@ -268,7 +268,7 @@ Tienes 4 estilos para elegir:
 - **Popup Modal** — abre una ventana con la conversación; cualquier elemento de tu página puede ser el disparador si le aplicas una clase.
 
 <Card type="note">
-  Para una misma web, puedes instalar **distintos estilos** de Chat web en distintas páginas. Video de referencia: [youtube.com/watch?v=Jrcb-y9fw3E](https://www.youtube.com/watch?v=Jrcb-y9fw3E)
+  Para una misma web, puedes instalar **distintos estilos** de widget en distintas páginas. Video de referencia: [youtube.com/watch?v=Jrcb-y9fw3E](https://www.youtube.com/watch?v=Jrcb-y9fw3E)
 </Card>
 
 #### Design
@@ -367,7 +367,7 @@ Puedes agregar tu propio CSS para personalizar la interfaz del Chat web. Estos s
 
 ### Sección avanzada (Advanced)
 
-Hay muchas personalizaciones avanzadas que puedes hacer con el botón de Chat web.
+Hay muchas personalizaciones avanzadas que puedes hacer con el widget web.
 
 #### Instalar múltiples tipos de widget y distintos flujos de inicio
 
@@ -382,7 +382,7 @@ Puedes instalar tantos tipos de widget como quieras en cualquier página de tu d
     </Frame>
   </Step>
   <Step title="Agrega el ref al código de instalación">
-    En tu script de instalación del Chat web, agrega un signo de interrogación después de `.js`, luego `ref=` y pega el parámetro ref que copiaste. Esto **sobrescribe** el flujo de inicio por defecto y permite iniciar el flujo que prefieras.
+    En tu script de instalación del widget, agrega un signo de interrogación después de `.js`, luego `ref=` y pega el parámetro ref que copiaste. Esto **sobrescribe** el flujo de inicio por defecto y permite iniciar el flujo que prefieras.
 
     <Frame caption="Agregar el parámetro ref al script de instalación">
       <Placeholder />
@@ -416,7 +416,7 @@ Como usas el parámetro ref URL, también puedes agregar **payloads** al widget.
   </Step>
 </Steps>
 
-#### Pre-rellenar los datos del usuario del Chat web
+#### Pre-rellenar los datos del usuario
 
 Si ya tienes la información del usuario (nombre, correo, etc.), puedes pasarla directamente al usuario del Chat web, e incluso pasar parámetros extra a sus campos personalizados.
 
@@ -457,11 +457,11 @@ Si ya tienes la información del usuario (nombre, correo, etc.), puedes pasarla 
   El nombre del campo personalizado debe ser **exactamente el mismo** que tienes en tu chatbot de Botky. En el ejemplo, `provider` e `issue_title` deben existir con ese mismo nombre en el bot.
 </Card>
 
-<Frame caption="Parámetros extra pasados al usuario del Chat web">
+<Frame caption="Parámetros extra pasados al usuario">
   <Placeholder />
 </Frame>
 
 ## Preguntas frecuentes
 
-- ¿Puedo cambiar el pie (footer) del widget de Chat web?
-- ¿Se puede abrir el widget de Chat web por defecto sin hacer clic en el botón?
+- ¿Puedo cambiar el pie (footer) del widget web?
+- ¿Se puede abrir el widget web por defecto sin hacer clic en el botón?
