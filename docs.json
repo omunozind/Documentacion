@@ -29,7 +29,7 @@
                 "flow-builder/send-email",
                 "flow-builder/goto-node"
               ]},
-              {"group": "Tableros (CRM)", "icon": "table-columns", "pages": ["boards/overview"]}
+              "boards/overview"
             ]
           },
           {
@@ -37,8 +37,8 @@
             "icon": "headset",
             "pages": [
               {"group": "Chat en vivo", "icon": "comments", "pages": ["live-chat/overview", "live-chat/agent-groups", "live-chat/collaborators", "live-chat/user-data-segments", "live-chat/conversation-starter-prompt", "live-chat/sortable-options", "live-chat/search-messages", "live-chat/scheduled-messages", "live-chat/multiple-files-upload", "live-chat/chat-assistant", "live-chat/merge-bot-users"]},
-              {"group": "Usuarios del bot", "icon": "users", "pages": ["bot-users/overview"]},
-              {"group": "Widget web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]},
+              "bot-users/overview",
+              "webchat-widget/overview",
               {
                 "group": "Omnicanal",
                 "icon": "globe",
@@ -69,16 +69,13 @@
             "pages": [
               {"group": "Contenidos", "icon": "folder-open", "pages": ["content/overview", "content/user-fields", "content/bot-fields", "content/tags", "content/labels", "content/nodes", "content/custom-events", "content/closing-notes", "content/user-menus", "content/personas", "content/message-templates", "content/whatsapp-flows", "content/notification-topics", "content/customer-feedback", "content/utility-messaging-templates"]},
               {"group": "Herramientas", "icon": "screwdriver-wrench", "pages": ["tools/overview", "tools/error-logs", "tools/testers", "tools/admins", "tools/widgets", "tools/multiple-languages", "tools/shortcuts", "tools/export-jobs", "tools/custom-reports", "tools/facebook-ads", "tools/inbound-webhooks", "tools/smart-delays", "tools/blacklists", "tools/facebook-ads-welcome-message"]},
-              {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]}
+              "broadcasts/overview"
             ]
           },
           {
             "group": "CRM y Reservas",
             "icon": "address-book",
-            "pages": [
-              {"group": "Tickets (CRM)", "icon": "ticket", "pages": ["tickets/overview"]},
-              {"group": "Servicios de Reservas", "icon": "calendar-check", "pages": ["booking/overview"]}
-            ]
+            "pages": ["tickets/overview", "booking/overview"]
           },
           {
             "group": "Cuenta y configuración",
