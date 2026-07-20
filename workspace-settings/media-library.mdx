@@ -1,0 +1,37 @@
+---
+title: "Media Library"
+description: "Sube, elimina y descarga tus archivos multimedia directamente desde el workspace."
+icon: "photo-film"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Anteriormente solo era posible acceder a la Media Library dentro del Flow Builder, bajo el input de "rich media", pero ahora es más fácil subir, eliminar o incluso descargar tus archivos multimedia directamente.
+
+<Warning>
+El tamaño máximo de almacenamiento gratuito es de **1 GB** para planes de pago. **100 MB** es el límite de archivos multimedia para el plan gratuito. Si has alcanzado el límite de almacenamiento, deberás liberar espacio o usar un servicio de almacenamiento de terceros como Cloudinary o S3 Storage.
+</Warning>
+
+Para acceder a la media library, ve a **Workspace Settings → Media Library** desde el dashboard de tu workspace.
+
+<Frame><Placeholder /></Frame>
+
+## Cómo subir contenido directamente
+
+Para subir contenido directamente, simplemente haz clic en el botón **"Upload"**. Verás varias opciones de medios disponibles. Selecciona el tipo de medio deseado y sube el contenido correspondiente.
+
+<Frame><Placeholder /></Frame>
+
+## Cómo eliminar contenido
+
+Para eliminar contenido de forma individual, haz clic en el ícono de lápiz junto al contenido que deseas eliminar y luego presiona el botón de eliminar.
+
+<Frame><Placeholder /></Frame>
+
+Para eliminar contenido en lote (bulk), simplemente selecciona los elementos que quieres eliminar y haz clic en la opción **"Bulk Action"**.
+
+<Frame><Placeholder /></Frame>
