@@ -54,6 +54,11 @@
         "group": "Servicios de Reservas",
         "icon": "calendar-check",
         "pages": ["booking/overview"]
+      },
+      {
+        "group": "Tickets",
+        "icon": "ticket",
+        "pages": ["tickets/overview"]
       }
     ]
   },
