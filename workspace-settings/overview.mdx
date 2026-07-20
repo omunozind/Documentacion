@@ -10,28 +10,39 @@ export const Placeholder = () => (
   </div>
 );
 
-En tu dashboard, en la parte inferior de la barra lateral de la columna izquierda, encontrarás **"Workspace Settings"**. Esta pestaña se usa para configurar los ajustes relacionados con el workspace, como zonas horarias, nombre del workspace, invitar/eliminar miembros, gestionar roles y observar logs.
+En tu dashboard, en la parte inferior de la barra lateral de la columna izquierda, encontrarás **"Espacio de trabajo"**. Esta pestaña se usa para configurar los ajustes relacionados con el workspace, como zonas horarias, nombre del workspace, invitar/eliminar miembros, gestionar roles y observar logs.
 
 <Frame><Placeholder /></Frame>
 
-Encontrarás distintas pestañas dentro de Workspace Settings:
+Encontrarás distintas pestañas dentro de Espacio de trabajo. Haz clic en cada una para aprender más:
 
-### Profile
-
-### Members
-
-### Agent Groups
-
-### Tickets — solo disponible para partners de Botky
-
-### Conversation
-
-### Channels
-
-### Audit Logs — solo disponible para Owner y Admin
-
-### Media Library
+<CardGroup cols={2}>
+  <Card title="Profile" icon="id-card" href="/workspace-settings/profile">
+    Logo, nombre del workspace, zona horaria y tema predeterminado de los flujos.
+  </Card>
+  <Card title="Members" icon="users-gear" href="/workspace-settings/members">
+    Roles, invitaciones y control de permisos por sección.
+  </Card>
+  <Card title="Agent Groups" icon="people-group" href="/workspace-settings/agent-groups">
+    Organiza a tus agentes en vivo para asignarles conversaciones.
+  </Card>
+  <Card title="Tickets" icon="ticket" href="/tickets/overview">
+    Solo disponible para partners de Botky.
+  </Card>
+  <Card title="Conversation" icon="comments" href="/workspace-settings/conversation">
+    Conversation Mode y horario de oficina de los agentes.
+  </Card>
+  <Card title="Channels" icon="sliders" href="/workspace-settings/channels">
+    Muestra u oculta canales en el menú lateral.
+  </Card>
+  <Card title="Audit Logs" icon="clipboard-list" href="/workspace-settings/audit-logs">
+    Solo disponible para Owner y Admin.
+  </Card>
+  <Card title="Media Library" icon="photo-film" href="/workspace-settings/media-library">
+    Sube, elimina y descarga tus archivos multimedia.
+  </Card>
+</CardGroup>
 
 <Info>
-¿Tienes dudas sobre la configuración de tu workspace? Contacta al soporte de Botky.
+¿Tienes dudas sobre la configuración de tu Espacio de trabajo? Contacta al soporte de Botky.
 </Info>
