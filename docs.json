@@ -12,7 +12,7 @@
         "group": "Documentación",
         "pages": [
           {
-            "group": "Constructor de Flujos",
+            "group": "Construir tu bot",
             "pages": [
               {"group": "Descripción general", "pages": ["flow-builder/overview", "flow-builder/field-variable", "flow-builder/publish-draft", "flow-builder/navigation-sidebar", "flow-builder/basic-operations"]},
               {"group": "Subflujos", "pages": ["flow-builder/sub-flow", "flow-builder/workflow", "flow-builder/function-flow"]},
@@ -27,38 +27,58 @@
                 "flow-builder/split-step",
                 "flow-builder/send-email",
                 "flow-builder/goto-node"
-              ]},
+              ]}
+            ]
+          },
+          {
+            "group": "Hablar con tus clientes",
+            "pages": [
               {"group": "Chat en vivo", "icon": "comments", "pages": ["live-chat/overview", "live-chat/agent-groups", "live-chat/collaborators", "live-chat/user-data-segments", "live-chat/conversation-starter-prompt", "live-chat/sortable-options", "live-chat/search-messages", "live-chat/scheduled-messages", "live-chat/multiple-files-upload", "live-chat/chat-assistant", "live-chat/merge-bot-users"]},
               {"group": "Usuarios del bot", "icon": "users", "pages": ["bot-users/overview"]},
-              {"group": "Tableros", "icon": "table-columns", "pages": ["boards/overview"]},
-              {"group": "AI Hub", "icon": "robot", "pages": ["ai-hub/overview", "ai-hub/ai-prompts", "ai-hub/auto-suggestions", "ai-hub/mcp-servers", "ai-hub/ai-agents-web-search", "ai-hub/knowledge-base", "ai-hub/settings"]},
+              {"group": "Widget web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]},
+              {
+                "group": "Omnicanal",
+                "pages": [
+                  "omni-channel/overview",
+                  "channels/webchat",
+                  {"group": "Facebook", "icon": "facebook", "pages": ["channels/facebook", "channels/facebook-checklist", "channels/facebook-faq"]},
+                  {"group": "Instagram", "icon": "instagram", "pages": ["channels/instagram", "channels/instagram-checklist", "channels/instagram-faq"]},
+                  {"group": "WhatsApp", "icon": "whatsapp", "pages": ["channels/whatsapp", "channels/whatsapp-cloud-api", "channels/whatsapp-send-messages", "channels/whatsapp-products-catalog", "channels/whatsapp-click-to-ads", "channels/whatsapp-mm-lite", "channels/whatsapp-coexistence", "channels/whatsapp-calling", "channels/whatsapp-order-details", "channels/whatsapp-faq"]},
+                  {"group": "SMS", "icon": "comment-sms", "pages": ["channels/sms", "channels/sms-checklist", "channels/sms-faq", "channels/sms-twilio-messaging-service-sid"]},
+                  {"group": "Voz", "icon": "phone", "pages": ["channels/voice", "channels/voice-realtime-ai-agent", "channels/voice-faq"]},
+                  {"group": "Telegram", "icon": "telegram", "pages": ["channels/telegram", "channels/telegram-faq"]}
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Automatizar e IA",
+            "pages": [
               {"group": "Automatización", "icon": "gears", "pages": ["automation/overview", "automation/keywords", "automation/sequences", "automation/triggers", "automation/intents", "automation/comment-keywords", "automation/facebook-lead-forms"]},
+              {"group": "AI Hub", "icon": "robot", "pages": ["ai-hub/overview", "ai-hub/ai-prompts", "ai-hub/auto-suggestions", "ai-hub/mcp-servers", "ai-hub/ai-agents-web-search", "ai-hub/knowledge-base", "ai-hub/settings"]}
+            ]
+          },
+          {
+            "group": "Contenido y herramientas",
+            "pages": [
               {"group": "Contenidos", "icon": "folder-open", "pages": ["content/overview", "content/user-fields", "content/bot-fields", "content/tags", "content/labels", "content/nodes", "content/custom-events", "content/closing-notes", "content/user-menus", "content/personas", "content/message-templates", "content/whatsapp-flows", "content/notification-topics", "content/customer-feedback", "content/utility-messaging-templates"]},
               {"group": "Herramientas", "icon": "screwdriver-wrench", "pages": ["tools/overview", "tools/error-logs", "tools/testers", "tools/admins", "tools/widgets", "tools/multiple-languages", "tools/shortcuts", "tools/export-jobs", "tools/custom-reports", "tools/facebook-ads", "tools/inbound-webhooks", "tools/smart-delays", "tools/blacklists", "tools/facebook-ads-welcome-message"]},
-              {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]},
+              {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]}
+            ]
+          },
+          {
+            "group": "CRM y Reservas",
+            "icon": "address-book",
+            "pages": [
+              {"group": "Tableros (CRM)", "icon": "table-columns", "pages": ["boards/overview"]},
+              {"group": "Tickets (CRM)", "icon": "ticket", "pages": ["tickets/overview"]},
+              {"group": "Servicios de Reservas", "icon": "calendar-check", "pages": ["booking/overview"]}
+            ]
+          },
+          {
+            "group": "Cuenta y configuración",
+            "pages": [
               {"group": "Configuración", "icon": "sliders", "pages": ["settings/overview", "settings/general", "settings/facebook", "settings/viber", "settings/live-chat", "settings/sso", "settings/rate-limit"]},
-              {"group": "Widget web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]}
-            ]
-          },
-          {
-            "group": "Omnicanal",
-            "pages": [
-              "omni-channel/overview",
-              "channels/webchat",
-              {"group": "Facebook", "icon": "facebook", "pages": ["channels/facebook", "channels/facebook-checklist", "channels/facebook-faq"]},
-              {"group": "Instagram", "icon": "instagram", "pages": ["channels/instagram", "channels/instagram-checklist", "channels/instagram-faq"]},
-              {"group": "WhatsApp", "icon": "whatsapp", "pages": ["channels/whatsapp", "channels/whatsapp-cloud-api", "channels/whatsapp-send-messages", "channels/whatsapp-products-catalog", "channels/whatsapp-click-to-ads", "channels/whatsapp-mm-lite", "channels/whatsapp-coexistence", "channels/whatsapp-calling", "channels/whatsapp-order-details", "channels/whatsapp-faq"]},
-              {"group": "SMS", "icon": "comment-sms", "pages": ["channels/sms", "channels/sms-checklist", "channels/sms-faq", "channels/sms-twilio-messaging-service-sid"]},
-              {"group": "Voz", "icon": "phone", "pages": ["channels/voice", "channels/voice-realtime-ai-agent", "channels/voice-faq"]},
-              {"group": "Telegram", "icon": "telegram", "pages": ["channels/telegram", "channels/telegram-faq"]}
-            ]
-          },
-          {
-            "group": "Recursos",
-            "icon": "layer-group",
-            "pages": [
-              {"group": "Servicios de Reservas", "icon": "calendar-check", "pages": ["booking/overview"]},
-              {"group": "Tickets", "icon": "ticket", "pages": ["tickets/overview"]},
               {"group": "Espacio de trabajo", "icon": "gears", "pages": [
                 "workspace-settings/overview",
                 "workspace-settings/profile",
@@ -68,9 +88,13 @@
                 "workspace-settings/channels",
                 "workspace-settings/audit-logs",
                 "workspace-settings/media-library"
-              ]},
-              {"group": "Desarrolladores", "icon": "code", "pages": ["developers/overview", "developers/api", "developers/dynamic-content"]}
+              ]}
             ]
+          },
+          {
+            "group": "Desarrolladores",
+            "icon": "code",
+            "pages": ["developers/overview", "developers/api", "developers/dynamic-content"]
           }
         ]
       }
