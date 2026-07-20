@@ -36,15 +36,35 @@ Elige un grupo de tu lista de grupos de agentes, para que la conversación la at
 
 Botky trae varios grupos ya definidos:
 
-| Grupo | Incluye | Cómo reparte |
-|---|---|---|
-| Todos (Aleatorio) | Todos los miembros del espacio de trabajo (dueño, administradores, miembros y agentes) | Al azar, entre cualquier miembro |
-| Todos (Menos asignados) | Todos los miembros del espacio de trabajo | Al miembro con menos asignaciones pendientes |
-| Todos (Round Robin) | Todos los miembros del espacio de trabajo | En orden circular, turnándose uno por uno |
-| Solo agentes (Aleatorio) | Únicamente los agentes del espacio de trabajo | Al azar, entre cualquier agente |
-| Solo agentes (Menos asignados) | Únicamente los agentes del espacio de trabajo | Al agente con menos asignaciones pendientes |
-| Solo agentes (Round Robin) | Únicamente los agentes del espacio de trabajo | En orden circular, turnándose uno por uno |
+<AccordionGroup>
+  <Accordion title="Todos (Aleatorio)" icon="shuffle">
+    Incluye a todos los miembros del espacio de trabajo (dueño, administradores, miembros y agentes). Las tareas o conversaciones se asignan al azar a cualquier miembro del grupo.
 
-<Card type="tip">
-  Usa "Menos asignados" o "Round Robin" cuando quieras repartir la carga de trabajo de forma pareja entre tu equipo; usa "Aleatorio" cuando no te importe la carga actual de cada persona.
-</Card>
+    Útil cuando quieres distribuir tareas sin tener en cuenta la carga de trabajo actual ni roles específicos.
+  </Accordion>
+  <Accordion title="Todos (Menos asignados)" icon="scale-balanced">
+    Incluye a todos los miembros del espacio de trabajo. Las tareas o conversaciones se asignan al miembro con menos asignaciones pendientes, equilibrando la carga de trabajo de forma pareja.
+
+    Ideal para asegurar una distribución uniforme entre todos los usuarios del espacio de trabajo.
+  </Accordion>
+  <Accordion title="Todos (Round Robin)" icon="rotate">
+    Incluye a todos los miembros del espacio de trabajo. Las tareas o conversaciones se asignan en orden circular, asegurando que cada miembro reciba su turno de forma secuencial.
+
+    Adecuado para distribuir tareas de forma predecible y equitativa.
+  </Accordion>
+  <Accordion title="Solo agentes (Aleatorio)" icon="shuffle">
+    Incluye únicamente a los agentes del espacio de trabajo. Las tareas o conversaciones se asignan al azar a cualquier agente del grupo.
+
+    Útil para distribuir tareas entre agentes sin tener en cuenta su carga de trabajo actual.
+  </Accordion>
+  <Accordion title="Solo agentes (Menos asignados)" icon="scale-balanced">
+    Incluye únicamente a los agentes del espacio de trabajo. Las tareas o conversaciones se asignan al agente con menos asignaciones pendientes, equilibrando la carga de trabajo de forma pareja.
+
+    Ideal para una distribución uniforme específicamente entre agentes.
+  </Accordion>
+  <Accordion title="Solo agentes (Round Robin)" icon="rotate">
+    Incluye únicamente a los agentes del espacio de trabajo. Las tareas o conversaciones se asignan en orden circular, asegurando que cada agente reciba su turno de forma secuencial.
+
+    Adecuado para distribuir tareas entre agentes de forma predecible y equitativa.
+  </Accordion>
+</AccordionGroup>
