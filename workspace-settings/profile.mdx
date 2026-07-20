@@ -1,0 +1,34 @@
+---
+title: "Profile"
+description: "Edita el logo, nombre, zona horaria y tema predeterminado de tu workspace."
+icon: "id-card"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Para editar el perfil de tu workspace, haz clic en **Workspace Settings** y luego en **Profile**. Puedes cambiar tu logo, el nombre del workspace, la zona horaria y el tema predeterminado de los flujos.
+
+<Frame><Placeholder /></Frame>
+
+<Tip>
+La configuración de zona horaria de un workspace afecta la forma en que tu bot procesa los valores de tiempo. Por ejemplo, el valor de sistema `BOT_CURRENT_TIME` es distinto según la zona horaria configurada. Además, los valores de sistema `NOW` y `TODAY` se basan en la zona horaria de los usuarios del bot; si no tienen una zona horaria en su perfil, se usa la zona horaria del workspace.
+
+Por ejemplo, el usuario del bot en Messenger o en el Webchat suele tener zona horaria propia. El resto de los canales no cuentan con zona horaria del usuario.
+</Tip>
+
+## Gestión del workspace
+
+En la esquina superior izquierda de tu dashboard, haz clic en el nombre del workspace para cambiar de workspace. Haciendo clic en 1 y 2, pasarás a la página de gestión de workspaces:
+
+<Frame><Placeholder /></Frame>
+
+Aquí puedes ver todos los workspaces a los que te has unido. Como se marca en la captura, puedes:
+
+1. Crear nuevos workspaces (quien crea un workspace se convierte en su owner)
+2. Cambiar a ese workspace
+3. Si no eres el owner del workspace, hacer clic en la flecha amarilla para salir del workspace
+4. Si eres el owner del workspace, verás una X roja en su lugar. Haz clic en ella para eliminar el workspace
