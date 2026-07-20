@@ -1,0 +1,235 @@
+---
+title: "Dynamic Content"
+description: "Formato de respuesta JSON para enviar mensajes dinámicos, botones, tags y campos personalizados desde tu propio servidor."
+icon: "code"
+---
+
+## Formato de respuesta
+
+Formato de respuesta para el envío de mensajes dinámicos:
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "simple text"
+      },
+      {
+        ...Another messages
+      }
+    ],
+    "actions": [  //optional
+      {
+        "action": "add_tag",
+        "tag_name": "example tag"
+      },
+      {
+        ...Another actions
+      }
+    ],
+    "quick_replies": [ //optional
+      {
+        "type": "node",
+        "caption": "Quick reply text",
+        "target": "My Content"
+      },
+      {
+        ...Another quick replies
+      }
+    ]
+  }
+}
+```
+
+La versión actual de la Dynamic Block API es `v1`. El bloque dinámico tiene un límite de no más de 10 mensajes en el bloque `messages`, 11 quick replies y 5 acciones. Las propiedades `"buttons"`, `"actions"` y `"quick_replies"` son opcionales.
+
+## Tipos de botones (Button types)
+
+`url`, `call`, `node`
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "simple text with button",
+        "buttons": [
+          {
+          	"type": "url",
+          	"caption": "Show",
+          	"url": "https://botky.example.com"
+          },
+          {
+          	"type": "call",
+          	"caption": "Show",
+          	"phone": "+61412345678"
+          },
+          {
+        	"type": "node",
+        	"caption": "Show",
+        	"target": "My Content"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+## Enviar texto (Sending text)
+
+Usa esta respuesta para enviar mensajes de texto.
+
+Los botones `url`, `flow` y `node` se pueden usar con mensajes de texto.
+
+Las propiedades `"buttons"`, `"actions"` y `"quick_replies"` son opcionales.
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "simple text with button",
+        "buttons": [
+          {
+            "type": "url",
+            "caption": "External link",
+            "url": "https://botky.com.au"
+          }
+        ]
+      }
+    ],
+    "actions": [],
+    "quick_replies": []
+  }
+}
+```
+
+Enviar mensajes como respuesta a un mensaje anterior por su ID (canales disponibles: Facebook, WhatsApp, TikTok):
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "text one reply to message",
+        "reply_to_mid": "m_5rqZy3-yriLwL9zUjT"
+      },
+      {
+        "type": "text",
+        "text": "text two"
+      },
+      {
+        "type": "text",
+        "text": "text three reply to another message",
+        "reply_to_mid": "m_X98YmVGhuSSrsBoh9t"
+      }
+    ]
+  }
+}
+```
+
+## Enviar imágenes (Sending images)
+
+Esta respuesta se usa para enviar archivos de imagen. Messenger admite imágenes JPG, PNG y GIF. Puedes usar los botones `url`, `call`, `buy`, `flow` y `node`.
+
+Las propiedades `"buttons"`, `"actions"` y `"quick_replies"` son opcionales.
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "image",
+        "url": "https://image.amazonaws.com/ca/xxxxxxzzzzzzzzz.png"
+      }
+    ],
+    "actions": [],
+    "quick_replies": []
+  }
+}
+```
+
+Enviar múltiples imágenes (solo Facebook):
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "files",
+        "items": [
+          {"type": "image", "url": "https://image.amazonaws.com/ca/aaaa.png"},
+          {"type": "image", "url": "https://image.amazonaws.com/ca/bbbb.png"}
+        ]
+      }
+    ]
+  }
+}
+```
+
+## Acción: agregar tag (Action add tag)
+
+Usa esta respuesta para agregar un Tag a un contacto. Debe existir un Tag con el mismo nombre en tu bot.
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "simple text"
+      }
+    ],
+    "actions": [
+      {
+        "action": "add_tag",
+        "tag_name": "your tag"
+      }
+    ],
+    "quick_replies": []
+  }
+}
+```
+
+El nombre del tag enviado mediante el parámetro `tag_name` debe coincidir con uno de los Tags existentes.
+
+## Acción: definir el valor de un campo de usuario personalizado (Action set custom user field value)
+
+Usa esta respuesta para definir el valor de un campo de usuario personalizado (custom user field) del bot user. Debe existir un Custom Field con el mismo nombre en tu bot.
+
+```json
+{
+  "version": "v1",
+  "content": {
+    "messages": [
+      {
+        "type": "text",
+        "text": "simple text"
+      }
+    ],
+    "actions": [
+      {
+        "action": "set_field_value",
+        "field_name": "your field name",
+        "value": "some value"
+      }
+    ],
+    "quick_replies": []
+  }
+}
+```
+
+El nombre del campo enviado mediante `field_name` debe coincidir con el nombre de uno de los Custom Fields existentes dentro del bot. Debes controlar el tipo de dato registrado en los Custom Fields; el tipo de dato debe coincidir con el tipo del Custom Field.
