@@ -1,11 +1,69 @@
 ---
 title: "Espera inteligente"
-description: "Pausa un flujo durante un tiempo antes de continuar al siguiente paso"
+description: "Pausa un flujo durante un tiempo (fijo, una fecha exacta, o dinámico según un campo) antes de continuar al siguiente paso"
 icon: "hourglass-half"
 ---
 
-**Espera inteligente** pausa tu flujo por un tiempo antes de seguir al siguiente paso.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
 
-<Card type="warning">
-  La documentación de referencia para esta acción todavía está en progreso — no hay detalles publicados sobre los campos exactos de configuración más allá de un video tutorial. Cuando tengamos acceso al panel de Botky, completamos esta página con los pasos y capturas reales.
-</Card>
+Se agregó una nueva ventana en la sección de **Herramientas** para las Esperas inteligentes. Esta función te permite ver a todos los usuarios que están actualmente en un estado de espera inteligente. Con esta ventana, puedes monitorear y gestionar fácilmente a los usuarios pausados en el flujo, con mayor visibilidad y control sobre las esperas activas.
+
+<Frame caption="Ventana de Herramientas mostrando los usuarios en Espera inteligente">
+  <Placeholder />
+</Frame>
+
+<Note>
+Las Esperas inteligentes solo se muestran en esta ventana si el tiempo de espera es mayor a 1 minuto.
+</Note>
+
+## Cómo funciona
+
+La Espera inteligente tiene un campo **Delay Type** (tipo de espera) con tres opciones:
+
+<AccordionGroup>
+  <Accordion title="Duration (Duración)" icon="clock">
+    Espera por una cantidad fija de tiempo. Ingresa la espera como un número y una unidad (por ejemplo, 30 segundos). También puedes activar **Set continue time limit** para controlar cuándo se le permite continuar al flujo: define un rango **Continue between** (por ejemplo, de 08:00 a 22:00), elige los días de la semana, y selecciona la zona horaria (zona horaria del usuario del bot o del workspace).
+  </Accordion>
+  <Accordion title="Specified Date and Time (Fecha y hora específica)" icon="calendar-days">
+    Espera hasta una fecha y hora exactas. En **Delay until**, elige un día y una hora. No habrá espera si la fecha y hora especificadas ya pasaron.
+  </Accordion>
+  <Accordion title="Dynamic Date and Time (Fecha y hora dinámica)" icon="calendar-clock">
+    Espera hasta una fecha y hora tomadas de un campo, con un desfase (offset) opcional. En **Delay until**, selecciona un campo personalizado o un campo de sistema (como `NOW`, `Last Interaction`, `Subscribed`, `BOT_CURRENT_TIME`, `Last Agent Interaction`, `Created At`, o `Last Agent Read At`). Define un **Offset** como un número más segundos, minutos u horas, para continuar antes o después de esa fecha y hora. No habrá espera si la fecha y hora final (el valor del campo más el offset) ya pasó.
+  </Accordion>
+</AccordionGroup>
+
+<Frame caption="Configuración del campo Delay Type con sus tres opciones">
+  <Placeholder />
+</Frame>
+
+## Qué se muestra en la ventana de Esperas inteligentes
+
+Cada Espera inteligente tiene un ID asignado para facilitar su identificación y gestión.
+
+- **Schedule Time:** indica cuándo se levantará la Espera inteligente — muestra la hora exacta en que terminará la espera y el bot retomará la interacción.
+- **Node:** indica desde qué nodo se disparó la Espera inteligente, dándote contexto de dónde se originó dentro del flujo.
+- **Bot User:** aquí puedes ver al usuario del bot que está actualmente bajo la Espera inteligente. Esto ayuda a identificar qué usuarios están afectados por la espera en un momento dado.
+- **Created At:** muestra cuándo se inició la Espera inteligente, dándote una idea de cuánto tiempo lleva el usuario en espera.
+
+Tienes la posibilidad de cancelar la Espera inteligente de un usuario en particular en cualquier momento, dándote control total para gestionar las esperas según lo necesites.
+
+<Frame caption="Listado de usuarios en Espera inteligente con opción de cancelar">
+  <Placeholder />
+</Frame>
+
+## Casos de uso
+
+- **Mensajes de seguimiento (Follow-Up Messaging):** puedes usar las Esperas inteligentes para enviar mensajes de seguimiento a usuarios que mostraron interés en un producto pero se fueron sin completar la compra. Dispara Esperas inteligentes para enviar 3-4 mensajes a lo largo de horas o días, recordándoles amablemente sobre el producto, ofreciendo descuentos, o sugiriendo artículos relacionados.
+- **Recordatorios de eventos (Event Reminders):** para usuarios que mostraron interés en un evento próximo (webinar, oferta, lanzamiento de producto) pero no completaron su registro o inscripción, las Esperas inteligentes pueden usarse para enviar recordatorios oportunos. Los mensajes se pueden enviar 10 horas, 5 horas o una hora antes del evento para incentivar la participación.
+
+---
+
+Las Esperas inteligentes son una excelente forma de mantener a tus usuarios comprometidos sin abrumarlos. Usándolas estratégicamente, puedes enviar mensajes de seguimiento, recordatorios, e incluso mensajes de reenganche en el momento justo. Ya sea para recordar un carrito abandonado, dar seguimiento después de una compra, o animar a los usuarios a volver después de un tiempo, las Esperas inteligentes ayudan a mantener tus interacciones oportunas y relevantes.
+
+<Warning>
+Las esperas inteligentes funcionan en un formato de cola (queue) cuando la espera configurada es mayor a 1 minuto. Las colas se ejecutan una vez por minuto, así que dependiendo de cuándo se haya disparado la Espera inteligente, esto puede significar que se sume 1-2 minutos adicionales de espera al total configurado en el nodo de Espera inteligente.
+</Warning>
