@@ -1,0 +1,308 @@
+---
+title: "Tickets"
+description: "Sistema interno de tickets: crea listas de incidencias, asígnalas a tu equipo y gestiónalas desde el chat en vivo, el Flow Builder o mediante disparadores."
+icon: "ticket"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky es una plataforma basada en chat. Muchas veces surgen incidencias que no se pueden resolver de forma instantánea dentro de la conversación: pueden requerir la colaboración de distintos departamentos, por lo que no es viable dar una solución inmediata al usuario del bot.
+
+Para estos casos, Botky incluye el complemento **Tickets**. Con Tickets puedes crear listas de incidencias y asignarlas a los usuarios, funcionando como un sistema de tickets interno.
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/B7Hgh4vTYeQ" title="Tickets en Botky" frameborder="0" allowfullscreen></iframe>
+
+## Cómo usar Tickets
+
+Desde el dashboard de tu workspace, haz clic en la configuración del workspace y luego en la pestaña **Tickets**.
+
+<Frame><Placeholder /></Frame>
+
+Haz clic en el botón **"+List"** para crear una nueva lista.
+
+<Frame><Placeholder /></Frame>
+
+Una vez completado, haz clic en el botón **create**.
+
+<Frame><Placeholder /></Frame>
+
+### Vistas (Views)
+
+<Frame><Placeholder /></Frame>
+
+La vista (**View**) muestra cuántos elementos hay actualmente en una lista. Esto equivale a la cantidad de tickets presentes en una plantilla específica.
+
+<Frame><Placeholder /></Frame>
+
+Puedes usar los filtros ya existentes para filtrar los resultados, así como ver todos los elementos haciendo clic en la vista **"All Items"**.
+
+<Frame><Placeholder /></Frame>
+
+También puedes crear una nueva vista y cambiar la respuesta según el resultado que desees.
+
+<Frame><Placeholder /></Frame>
+
+También puedes filtrar los elementos según su estado actual. Actualmente los estados mostrados arriba están disponibles para usarse.
+
+### Permisos de vistas para miembros (Views Permission for Members)
+
+Con la nueva función **Views Permission**, los owners y admins ahora tienen la opción de ocultar ciertas vistas en la sección de Tickets, como la vista **"All Items"**. Esto te permite controlar qué ve tu equipo, asegurando que solo los roles seleccionados tengan acceso a todos los detalles del ticket cuando sea necesario.
+
+<Frame><Placeholder /></Frame>
+
+#### Vista predeterminada (Default View)
+
+Por defecto, los miembros pueden ver todas las vistas disponibles, incluyendo **"Assigned to me"**, **"Done"**, **"Not Done"**, **"Status"** y **"All Items"**. Además, puedes crear más vistas. Esta configuración brinda visibilidad y flexibilidad completas para que los miembros den seguimiento y gestionen los tickets según lo necesiten.
+
+<Frame><Placeholder /></Frame>
+
+### Títulos de gráfico personalizados en la vista de Tickets
+
+Los títulos de gráfico personalizados ayudan a que las métricas de los tickets sean más intuitivas, indicando claramente el propósito de cada gráfico. Esto mejora la visibilidad y facilita que los usuarios interpreten los datos rápidamente sin necesitar explicaciones adicionales, aumentando así la productividad general en la gestión de tickets.
+
+Guía paso a paso para configurar esta función:
+
+<Steps>
+  <Step title="Accede a la sección de Tickets">
+    - Desde el **dashboard de Botky**, ve a la barra lateral y selecciona **Tickets**.
+    - Esto abrirá una lista de los proyectos de tickets que gestionas o das seguimiento.
+  </Step>
+  <Step title="Selecciona tu proyecto y vista">
+    - En la lista de Tickets, ubica el proyecto para el cual quieres definir un título de gráfico personalizado.
+    - Haz clic en **Views** junto al nombre del proyecto para abrir las vistas disponibles.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Edita la configuración de la vista">
+    - Busca la vista específica (por ejemplo, "Assigned to me") donde quieres aplicar un título de gráfico personalizado.
+    - Haz clic en el ícono **Edit** (ícono de lápiz) para abrir la configuración **Edit View** de esta vista.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Elige el diseño del gráfico (layout)">
+    - En la configuración de **Edit View**, verás opciones de diseño (layout).
+    - Selecciona **Chart** como tipo de diseño para habilitar la configuración del gráfico.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Configura la agrupación (opcional)">
+    - Usa el desplegable **Group By** para organizar los datos dentro del gráfico según criterios específicos, como **Status** o **Assignee**.
+    - Esta opción de agrupación ayuda a estructurar aún más los datos dentro de tu gráfico personalizado.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Define un título personalizado">
+    - En el campo **Current Items Chart**, escribe el título que desees.
+    - Por ejemplo, podrías usar títulos como "Open Tickets by Status" o "Tickets Assigned to Me" para que coincida con el propósito del gráfico.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Aplica y guarda los cambios">
+    - Haz clic en **Save** para aplicar el título de gráfico personalizado y la configuración de la vista.
+    - Repite los pasos 5 y 6 para el **New Items Chart** y el **Change Logs Chart** si deseas definir títulos personalizados para estos también.
+  </Step>
+  <Step title="Verifica el título del gráfico configurado">
+    Después de definir y guardar el título de tu gráfico, podrás ver el nombre configurado mostrado en el gráfico. A continuación, un ejemplo:
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+</Steps>
+
+Siguiendo estos pasos, podrás personalizar fácilmente los títulos de tus gráficos, ofreciendo una experiencia visual más informativa y profesional a tus usuarios cuando utilicen la función de Tickets.
+
+### Agrupar por Agent Type y Rating Type en la lista de tickets
+
+Puedes agrupar tus tickets por los campos **Agent Type** y **Rating Type** tanto en la vista **Table** como en la vista **Board**. Esta función permite una mejor organización de los tickets, permitiendo que los equipos vean rápidamente los tickets según agentes o tipos de valoración específicos, lo que agiliza los flujos de soporte y facilita la gestión y evaluación del desempeño.
+
+**Cómo usarlo:**
+
+<Steps>
+  <Step title="Ve a la lista de tickets">
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Selecciona Edit View">
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="En el campo Group By, elige Agent Type o Rating Type">
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Configura ajustes adicionales según sea necesario y haz clic en Save">
+  </Step>
+</Steps>
+
+**Ejemplo visual de la vista Board agrupada por agentes:**
+
+<Frame><Placeholder /></Frame>
+
+**Ejemplo visual de la vista Table agrupada por agentes:**
+
+<Frame><Placeholder /></Frame>
+
+Esta imagen anterior demuestra la nueva función, con la opción de agrupar tickets por **Assigned Agent** resaltada.
+
+### Ocultar la vista "All Items"
+
+Una de las funciones clave de esta actualización es la posibilidad de ocultar la vista **"All Items"** para miembros específicos. Al crear o editar una lista, puedes elegir limitar esta vista para que solo los roles seleccionados tengan acceso.
+
+Por ejemplo, si eliges ocultar la vista "All Items" para un admin, este ya no podrá verla.
+
+<Frame><Placeholder /></Frame>
+
+Ahora, con la vista "All Items" oculta, el admin designado ya no verá una lista completa de tickets.
+
+<Frame><Placeholder /></Frame>
+
+### Ocultar vistas específicas
+
+Además de la vista "All Items", también puedes ocultar otras vistas específicas, como "Not Done".
+
+Por ejemplo, si ocultas la vista "Not Done" para un admin en particular, este no verá los tickets que no se han completado.
+
+<Frame><Placeholder /></Frame>
+
+Ahora, con la vista "Not Done" oculta, el admin ya no ve ningún ticket incompleto.
+
+<Frame><Placeholder /></Frame>
+
+Con estos permisos de vistas, puedes gestionar fácilmente la visibilidad para asegurarte de que los miembros solo vean lo que necesitan.
+
+<Note>
+Solo los owners o admins pueden configurar estos permisos, así que asegúrate de tener el nivel de acceso correcto para hacer estos ajustes.
+</Note>
+
+### Campos (Fields)
+
+<Frame><Placeholder /></Frame>
+
+La opción **Fields** te permite agregar, quitar o hacer obligatorio un campo determinado al momento de añadir un elemento a la lista. Puedes usar los campos ya existentes, así como los **System fields** disponibles y los **Custom fields**.
+
+Esto te permitirá hacer obligatorio cualquier campo necesario al añadir un elemento a la lista.
+
+Actualmente están disponibles los siguientes campos de sistema (System fields):
+
+<Frame><Placeholder /></Frame>
+
+Para los campos personalizados (custom fields), puedes usar estos tipos de CUF; la cantidad máxima permitida de campos disminuye a medida que agregas uno a la plantilla.
+
+<Frame><Placeholder /></Frame>
+
+Para los CUF de tipo Select, puedes agregar una lista desplegable de opciones a elegir.
+
+<Frame><Placeholder /></Frame>
+
+## Usar Tickets en el chat en vivo (Livechat)
+
+En el chat en vivo, puedes abrir una conversación y agregar un elemento a la lista desde la sección de resumen del usuario del bot (bot user overview).
+
+<Frame><Placeholder /></Frame>
+
+Te pedirá los campos requeridos que hayas configurado para la plantilla y agregará el elemento a la lista.
+
+<Frame><Placeholder /></Frame>
+
+También puedes acceder a la sección de Tickets desde la pestaña de resumen del chat en vivo del workspace.
+
+<Frame><Placeholder /></Frame>
+
+<Frame><Placeholder /></Frame>
+
+También puedes cambiar el orden de las tareas arrastrándolas hacia arriba o abajo según la prioridad o tu preferencia. Para hacerlo, haz clic en **"Edit View"** y cámbialo de **"Table"** a **"Board"**.
+
+<Frame><Placeholder /></Frame>
+
+<Frame><Placeholder /></Frame>
+
+## Usar Tickets en el Flow Builder
+
+También puedes crear elementos para la lista usando la acción **"Tickets API"** dentro de la pestaña de acciones avanzadas del nodo de acción.
+
+<Frame><Placeholder /></Frame>
+
+Las siguientes acciones están disponibles:
+
+<Frame><Placeholder /></Frame>
+
+<Steps>
+  <Step title="Lists">
+    Obtiene todas las listas disponibles.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="List Tickets">
+    Obtiene todos los elementos disponibles en la lista.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="List Field Options">
+    Obtiene todos los campos disponibles en una lista específica.
+
+    <Frame><Placeholder /></Frame>
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Create Ticket">
+    Crea y añade un elemento a la lista.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Update Ticket">
+    Actualiza un elemento existente.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Get Ticket">
+    Obtiene la información de un ticket específico.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Delete Ticket">
+    Elimina un elemento existente.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Add Comment">
+    Agrega un comentario a un elemento existente.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+</Steps>
+
+## Usar los disparadores de Tickets (Ticket Triggers)
+
+También puedes utilizar los disparadores disponibles para la función de tickets; actualmente se soportan los siguientes:
+
+<Frame><Placeholder /></Frame>
+
+<Frame><Placeholder /></Frame>
+
+Puedes guardar los datos entrantes en un payload JSON y, según la información, disparar ciertas automatizaciones.
+
+## API de Tickets
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/F_DHeQL4AHQ" title="API de Tickets" frameborder="0" allowfullscreen></iframe>
+
+En este video, exploramos a fondo el **sistema de Tickets** de Botky, una función clave que simplifica la gestión de soporte y tareas. Veremos cómo gestionar de forma eficiente las consultas de los clientes o las actualizaciones de tareas utilizando la **API de Tickets** directamente dentro del Flow Builder. Ya sea que estés atendiendo solicitudes de soporte o resolviendo incidencias, el sistema de tickets de Botky garantiza una experiencia fluida.
+
+## Activar el complemento Tickets
+
+### Usuarios de Botky
+
+Para activar el complemento, contacta al soporte de Botky indicando tu ID de workspace; el equipo de soporte se encargará de habilitar la función para tu workspace.
+
+El precio del complemento es de **$20/mes**.
+
+### Partners
+
+Para los partners, el complemento está disponible por defecto en su workspace de partner. Para los clientes de un partner, este puede activar el complemento desde la pestaña **Workspace** (disponible únicamente para workspaces en un plan de pago).
+
+<Frame><Placeholder /></Frame>
+
+Para acceder a esto: **Whitelabel Settings → Workspace Tab → Selected Workspace → Change Plan**.
+
+<Info>
+¿Tienes dudas sobre cómo activar o configurar el complemento Tickets? Contacta al soporte de Botky.
+</Info>
