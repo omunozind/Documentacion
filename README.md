@@ -1,55 +1,33 @@
-# Mintlify Starter Kit
+# Documentación de Botky
 
-Use the starter kit to get your docs deployed and ready to customize.
+Este repositorio contiene el código fuente de la documentación oficial de **Botky**, desplegada con [Mintlify](https://mintlify.com) en [botky.mintlify.app](https://botky.mintlify.app) y en el dominio personalizado `docs.botky.chat`.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Estructura
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+- `docs.json` — configuración del sitio: navegación, colores de marca, logo, favicon y menú contextual.
+- Cada carpeta de nivel superior (`flow-builder/`, `omni-channel/`, `channels/`, `automation/`, `content/`, `tools/`, `tickets/`, `booking/`, `workspace-settings/`, `developers/`, etc.) contiene las páginas `.mdx` de esa sección.
+- Todas las páginas viven en la **raíz del repositorio** (no dentro de una carpeta `docs/`), siguiendo la convención que espera Mintlify para este proyecto.
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## Desarrollo local
 
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+Instala el [Mintlify CLI](https://www.npmjs.com/package/mint) para previsualizar los cambios localmente:
 
 ```bash
-npx skills add https://mintlify.com/docs
-```
-
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
 npm i -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Desde la raíz del repositorio (donde está `docs.json`):
 
-```
+```bash
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+Previsualiza en `http://localhost:3000`.
 
-## Publishing changes
+## Publicar cambios
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+Los cambios se despliegan automáticamente a producción al hacer push a la rama `main`, a través de la app de GitHub de Mintlify.
 
-## Need help?
+## Soporte
 
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+¿Dudas sobre la documentación o el producto? Contacta al soporte de Botky.
