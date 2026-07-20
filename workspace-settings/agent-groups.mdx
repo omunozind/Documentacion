@@ -1,0 +1,37 @@
+---
+title: "Agent Groups"
+description: "Organiza a tus agentes en vivo en grupos para asignarles conversaciones."
+icon: "people-group"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los **Agents Groups** se usan para organizar a tus agentes en vivo en distintos grupos y así asignarles conversaciones.
+
+Por ejemplo, un grupo podría encargarse de atender las consultas de los usuarios mientras que otro grupo podría encargarse del outreach.
+
+<Frame><Placeholder /></Frame>
+
+Para crear un agent group, haz clic en el botón **"+Group"**.
+
+<Frame><Placeholder /></Frame>
+
+Escribe el nombre del grupo. Decide la asignación por estado (esto define si a los agentes que están en línea se les asignará una conversación primero o a los que no lo están). Decide el método de asignación (esto define el orden de asignación de las conversaciones; por ejemplo, un **Round robin** delegará un número igual de conversaciones a cada agente, etc.).
+
+Activa/desactiva el interruptor a la derecha para incluir o excluir personas del grupo. Los miembros para los que este interruptor esté activado quedarán incluidos en el grupo.
+
+Por último, activa/desactiva el **Group Chat** si quieres que los agentes en vivo de un grupo determinado puedan comunicarse entre sí.
+
+<Frame><Placeholder /></Frame>
+
+El **"weighting"** (ponderación) gestiona si ciertos miembros del equipo deben tener prioridad sobre otros al asignar conversaciones.
+
+Para usar estos agent groups, puedes utilizar el nodo de acción dentro del Flow Builder para asignarlos en distintos puntos de tu flujo.
+
+<Frame><Placeholder /></Frame>
+
+Desplázate hacia abajo para ver tu agent group recién creado o elige uno de los ya disponibles.
