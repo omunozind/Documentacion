@@ -61,7 +61,7 @@
         "pages": ["tickets/overview"]
       },
       {
-        "group": "Workspace Settings",
+        "group": "Espacio de trabajo",
         "icon": "gears",
         "pages": [
           "workspace-settings/overview",
