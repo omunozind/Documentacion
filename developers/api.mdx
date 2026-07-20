@@ -1,0 +1,113 @@
+---
+title: "API"
+description: "Cómo autorizarte, generar tu API key y obtener el curl y la URL de tus peticiones a la API de Botky."
+icon: "plug"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Consulta el detalle completo de la API en la documentación Swagger de Botky (tu proveedor te compartirá el enlace a la documentación interactiva).
+
+## Introducción a las APIs
+
+La **API de Botky** se usa para obtener datos del flujo que construyes. Estos son algunos ejemplos de lo que puedes hacer con la API de Botky:
+
+- Obtener el flujo que has construido en Botky.
+- Crear, eliminar u obtener datos, incluyendo el tag de flujo o el campo de flujo (flow field).
+- Trabajar con los datos de los suscriptores: obtener su información, editar su tag o campo, así como el subflujo enviado a los suscriptores.
+- Configurar todos los datos usados en ecommerce, como carritos o productos.
+
+Si necesitas trabajar con los datos anteriores, las siguientes secciones te explican los pasos para usar la API de Botky.
+
+## Autorizarte
+
+Dado que la protección de los datos es importante para la API, se necesitan varios atributos para autorizar tu identidad. Por lo tanto, el primer paso que debes hacer es ingresar la información de autorización. Necesitas hacer clic en el botón **Authorize**, como se muestra en la siguiente figura.
+
+<Frame><Placeholder /></Frame>
+
+Luego, hay tres atributos que debes completar en el cuadro de texto.
+
+<Frame><Placeholder /></Frame>
+
+A continuación, cómo encontrar estos atributos.
+
+### Generar API Key (http, Bearer)
+
+<Steps>
+  <Step title="Inicia sesión en tu cuenta de Botky">
+    En la esquina superior derecha se mostrará el nombre y avatar de tu cuenta. Haz clic en él y elige **Your Settings** en la lista desplegable.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Ve a la sección de API Keys">
+    Haz clic en el botón correspondiente dentro de User Settings. Escribe el nombre que quieras darle a la key y haz clic en el botón **Create**.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Obtén tu key">
+    Obtendrás la key en una ventana emergente.
+
+    <Frame><Placeholder /></Frame>
+
+    <Warning>
+    Esta es la única vez que se mostrará la key, ¡así que asegúrate de no perderla! Puedes revocar la key en cualquier momento desde tu configuración de API.
+    </Warning>
+
+    Al cerrar la ventana verás la información básica de la key, **excepto el valor de la key**.
+  </Step>
+</Steps>
+
+## Obtener el Curl y la Request URL
+
+El **Curl** se usa en las peticiones a la API. En la documentación de la API de Botky, necesitas realizar algunas acciones antes de obtener el curl.
+
+Aquí usamos **Get Flow Tag** como ejemplo.
+
+<Frame><Placeholder /></Frame>
+
+<Steps>
+  <Step title="Expande la categoría">
+    Haz clic en la operación de expandir de la categoría, en este caso **Flow Tag**. Luego busca la acción y la función, **Get /flow/tags**. Haz clic en la fila y se desplegará una sección como la siguiente.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Autorízate (si hace falta)">
+    Este ícono significa **authorize**. Si ya lo hiciste antes, este paso no es necesario. De lo contrario, haz lo mismo que se mencionó antes en la sección de [Autorizarte](#autorizarte).
+  </Step>
+  <Step title="Haz clic en Try it out">
+    Verás que la parte de **Parameters o Request body** se puede completar y que el botón **Execute** aparece en la parte inferior de esta sección.
+
+    <Frame><Placeholder /></Frame>
+  </Step>
+  <Step title="Ejecuta la petición">
+    Ingresa los parámetros o el request body requeridos y haz clic en el botón **Execute**. Finalmente obtendrás el **Curl** y la **Request URL**.
+
+    <Frame><Placeholder /></Frame>
+
+    <Tip>
+    Haz clic en el botón **Clear** si necesitas reiniciar los parámetros.
+    </Tip>
+  </Step>
+</Steps>
+
+## Respuestas (Responses)
+
+Esta parte muestra el resultado JSON que obtendrás de la API de Botky. Normalmente, si el código es 200, significa que obtuviste la respuesta con éxito. Si el código es 400, significa que hay un error en tu petición.
+
+<Frame><Placeholder /></Frame>
+
+## Example Value / Schema
+
+<Frame><Placeholder /></Frame>
+
+Además del valor de ejemplo, puedes hacer clic en "Schema" para ver más detalles, como qué valor es obligatorio.
+
+<Frame><Placeholder /></Frame>
+
+<Info>
+¿Tienes dudas sobre la API de Botky? Contacta al soporte de Botky.
+</Info>
