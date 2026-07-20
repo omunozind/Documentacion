@@ -34,7 +34,7 @@
           {"group": "Herramientas", "icon": "screwdriver-wrench", "pages": ["tools/overview", "tools/error-logs", "tools/testers", "tools/admins", "tools/widgets", "tools/multiple-languages", "tools/shortcuts", "tools/export-jobs", "tools/custom-reports", "tools/facebook-ads", "tools/inbound-webhooks", "tools/smart-delays", "tools/blacklists", "tools/facebook-ads-welcome-message"]},
           {"group": "Difusiones", "icon": "bullhorn", "pages": ["broadcasts/overview"]},
           {"group": "Configuración", "icon": "sliders", "pages": ["settings/overview", "settings/general", "settings/facebook", "settings/viber", "settings/live-chat", "settings/sso", "settings/rate-limit"]},
-          {"group": "Widget de Chat web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]}
+          {"group": "Widget web", "icon": "comment-dots", "pages": ["webchat-widget/overview"]}
         ]
       },
       {
