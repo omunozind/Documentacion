@@ -41,13 +41,19 @@ Para borrar el valor de una variable de texto, número, booleano, fecha o fecha 
 
 Esta operación asigna un valor a cualquier tipo de variable. En el caso de variables de texto, también te permite concatenar (unir) varias variables de texto entre sí.
 
-<Card type="note">
-  Si la fórmula no es válida, el resultado será `0` para números, y vacío para texto.
-</Card>
+<Tip>
+Para variables de texto, "Asignar valor" también se puede usar para conectar varias variables de texto entre sí. Fíjate en dónde va el valor original y el valor operado.
+</Tip>
 
 ## Fórmula matemática
 
-Operaciones soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()`, `ceil()`, `floor()`, `log()`, `pow()`, `round()`, `sqrt()`, `sin()`, `cos()`, `tan()`.
+Con esta operación puedes hacer cálculos con fórmulas directamente en el paso de Acción → **Definir valor de variable**, y también en el paso de Condición → **Valor**.
+
+Operaciones y funciones matemáticas soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()`, `ceil()`, `floor()`, `log()`, `pow()`, `round()`, `sqrt()`, `sin()`, `cos()`, `tan()`.
+
+<Note>
+Si la fórmula no es válida, el sistema devolverá `0` para variables de número, y vacío para variables de texto.
+</Note>
 
 ## Operaciones de variable de texto
 
@@ -64,12 +70,20 @@ Operaciones soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()
   </Accordion>
   <Accordion title="Reemplazar texto" icon="repeat">
     Sensible a mayúsculas/minúsculas. Por ejemplo, `"Hola, Botky!"` se convierte en `"Hola de nuevo, Botky!"`.
+
+    <Card type="note">
+      En la variante sensible a mayúsculas/minúsculas, debes escribir exactamente `"Hola"` y no `"hola"` o `"HOLA"`.
+    </Card>
   </Accordion>
   <Accordion title="Cambiar mayúsculas/minúsculas" icon="font">
     Convierte todo a minúsculas (`"hola, botky!"`) o a mayúsculas (`"HOLA, BOTKY!"`).
   </Accordion>
   <Accordion title="Generar texto aleatorio" icon="dice">
     Crea códigos a partir de una plantilla. Por ejemplo, la plantilla `"code: XXXX-####-xxxx"` genera algo como `"code: UBWT-3657-lkzb"`.
+
+    <Card type="note">
+      Esta función es útil cuando necesitas generar un código de verificación de un solo uso, o un código de referencia.
+    </Card>
   </Accordion>
   <Accordion title="Codificar/decodificar URL" icon="link">
     Codifica (`"Hola%2C%20Botky!"`) o decodifica texto para que sea seguro usarlo en una URL.
@@ -81,7 +95,14 @@ Operaciones soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()
     Convierte espacios en guiones y quita caracteres especiales. Por ejemplo, `"es un buen día"` se convierte en `"es-un-buen-dia"`.
   </Accordion>
   <Accordion title="Texto antes/después" icon="arrows-left-right">
-    Extrae la parte del texto que está antes o después de un delimitador que definas.
+    Extrae la parte del texto que está antes o después de un delimitador que definas. Existen 4 variantes:
+
+    | Variante | Ejemplo (antes) | Ejemplo (después) |
+    |---|---|---|
+    | Obtener el texto antes de otro texto | `name: Botky, city: Melbourne` | `name` |
+    | Obtener el texto antes de la **última** aparición de otro texto | `name: Botky, city: Melbourne` | `name: Botky, city` |
+    | Obtener el texto después de otro texto | `name: Botky, city: Melbourne` | `Botky, city: Melbourne` |
+    | Obtener el texto después de la **última** aparición de otro texto | `name: Botky, city: Melbourne` | `Melbourne` |
   </Accordion>
 </AccordionGroup>
 
@@ -95,7 +116,11 @@ Operaciones soportadas: `+`, `-`, `*`, `e`, `pi`, `PI`, `abs()`, `min()`, `max()
     Genera valores numéricos aleatorios.
   </Accordion>
   <Accordion title="Operaciones aritméticas" icon="calculator">
-    Suma, resta, multiplicación, división, módulo, potencia, logaritmo, raíz cuadrada.
+    Suma, resta, multiplicación, división, módulo, potencia, logaritmo natural, raíz cuadrada.
+
+    <Card type="tip">
+      En "logaritmo natural", cuando quieras calcular `log2(8) = ?`, pon `8` como **Value** y `2` como **Number**.
+    </Card>
   </Accordion>
   <Accordion title="Redondeo" icon="circle-half-stroke">
     Reduce decimales. Por ejemplo, `7.8693` se redondea a `7.87`.
