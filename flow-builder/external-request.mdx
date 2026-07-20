@@ -28,22 +28,33 @@ export const Placeholder = () => (
     Usa el botón de prueba para verificar que funciona antes de guardar.
   </Step>
   <Step title="Revisa la respuesta">
-    Examina los datos que devuelve la API.
+    Examina los datos que devuelve la API. Al expandir "Response Headers" (encabezados de la respuesta), los datos recibidos se muestran resaltados en azul.
   </Step>
   <Step title="Selecciona qué datos necesitas">
-    Elige las partes de la respuesta que te interesan.
+    Elige las partes de la respuesta que te interesan haciendo clic en el círculo del lado izquierdo de cada valor.
+  </Step>
+  <Step title="Ruta JSON (JSON path)">
+    Al hacer clic sobre un valor, la ruta JSON (JSON path) de ese dato seleccionado se muestra automáticamente.
+
+    <Note>
+    El símbolo `$` significa "el JSON completo" (todo el objeto de respuesta).
+    </Note>
   </Step>
   <Step title="Mapea a tus campos">
-    Asigna cada dato de la respuesta a un campo personalizado.
+    Elige a qué campo personalizado quieres guardar el dato. Si el campo todavía no existe, puedes crear uno nuevo aquí mismo: escribe el nombre del campo y haz clic en él dentro del menú desplegable. Luego haz clic en el botón **Add** para agregarlo a la lista de mapeo.
   </Step>
   <Step title="Guarda">
-    Confirma el mapeo.
+    El mapeo final se muestra en la lista. Agrega tantos mapeos como necesites y haz clic en **Save**.
   </Step>
 </Steps>
 
 <Frame caption="Configuración de una Petición externa: tipo, URL y parámetros">
   <Placeholder />
 </Frame>
+
+<Warning>
+Asegúrate de proporcionar un dato de prueba (testing value) para al menos uno de los campos/variables en la configuración antes de usar el botón **Test**.
+</Warning>
 
 ## Las 4 secciones de configuración
 
@@ -57,24 +68,28 @@ export const Placeholder = () => (
   </Accordion>
 
   <Accordion title="Autorización" icon="lock">
-    El sistema maneja la codificación base64 automáticamente — es menos propenso a errores que escribirlo a mano, especialmente con el formato de token "Bearer". Para autenticación básica (Basic Auth), puedes ingresar usuario y contraseña directamente.
+    El sistema maneja la codificación base64 automáticamente — es menos propenso a errores que escribirlo a mano, especialmente con el formato de token "Bearer" (a veces se olvida el espacio después de "Bearer"). Para autenticación básica (Basic Auth), puedes ingresar usuario y contraseña directamente y el sistema hace la codificación base64 por ti.
   </Accordion>
 
   <Accordion title="Cuerpo (Body)" icon="box">
     Soporta 3 formatos:
 
-    - **multipart/form-data** — para incluir archivos
-    - **x-www-form-urlencoded** — pares clave-valor
-    - **JSON crudo** — para enviar un objeto JSON directamente
+    - **multipart/form-data** — para incluir archivos directamente en los parámetros.
+    - **x-www-form-urlencoded** — funciona igual que las secciones de Parámetros de URL o Encabezados: pares clave-valor.
+    - **JSON crudo (raw JSON)** — en vez de listar todos los valores en x-www-form-urlencoded, puedes pegar directamente un ejemplo de payload en JSON crudo. Del lado izquierdo, en **Body Content**, pega o escribe tu JSON; al insertar una variable, el **Test body content** se actualiza de inmediato del lado derecho, para que especifiques un valor de prueba en formato JSON.
+
+    <Tip>
+    Haz clic en **Copy from body content** para copiar toda la estructura JSON. Todas las variables se reemplazarán por `{{nombre_variable}}`. Quita el placeholder y coloca tus valores de prueba.
+    </Tip>
   </Accordion>
 </AccordionGroup>
 
 ## Probar y mapear la respuesta
 
-Al hacer clic en "Probar", se muestra la respuesta junto con su código de estado. Puedes expandir los encabezados de la respuesta para ver los datos, y generar automáticamente la ruta JSON (JSON path) haciendo clic sobre cada valor.
+Al hacer clic en "Probar" (junto al endpoint de la URL o en la sección de Respuesta), se muestra la respuesta junto con su código de estado. Puedes expandir los encabezados de la respuesta para ver los datos (se resaltan en azul), y generar automáticamente la ruta JSON (JSON path) haciendo clic sobre cada valor.
 
 <Card type="tip">
-  Siempre proporciona datos de prueba antes de usar el botón de prueba — así puedes verificar que la petición realmente funciona.
+  Además de mapear los datos del cuerpo de la respuesta, también puedes guardar valores del encabezado (header) de la respuesta para usarlos después: simplemente expande el encabezado, haz clic en un valor dentro de él y la ruta JSON hacia ese valor se mostrará automáticamente ahí.
 </Card>
 
 <Frame caption="Respuesta de la petición con código de estado y mapeo de JSON path">
