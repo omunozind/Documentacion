@@ -1,0 +1,595 @@
+---
+title: "Servicios de Reservas"
+description: "Sistema completo de gestión de citas: crea servicios de reserva, programa citas con recordatorios automáticos y da seguimiento a todo el ciclo de vida de la reserva."
+icon: "calendar-check"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+## Descripción general
+
+El **Servicio de Reservas** es un sistema integral de gestión de citas que te permite:
+
+- Crear y gestionar servicios de reserva para tu negocio
+- Programar citas con recordatorios automáticos
+- Dar seguimiento al estado de la reserva durante todo su ciclo de vida
+- Enviar seguimientos automáticos después de las citas
+- Integrarlo con los flujos de trabajo de tu chatbot
+
+<Warning>
+Los servicios de reserva se comparten entre **todos los bots de tu workspace**, con un límite máximo de **20 servicios de reserva**.
+</Warning>
+
+---
+
+## Funciones principales
+
+### 1. Servicios de Reservas
+
+- Define distintos tipos de citas (consultas, reuniones, servicios, etc.)
+- Establece una duración predeterminada para cada tipo de servicio
+- Configura identificadores de servicio personalizados (Service UID)
+- Activa o desactiva servicios según lo necesites
+
+### 2. Recordatorios automáticos
+
+- Configura hasta **5 secuencias de recordatorio** por servicio
+- Configura el momento del recordatorio (días, horas, minutos antes de la cita)
+- Personaliza los mensajes de recordatorio
+- Disparo automático del recordatorio según la hora programada
+
+### 3. Seguimientos automáticos
+
+- Configura hasta **5 secuencias de seguimiento** por servicio
+- Envía seguimientos después de citas completadas o de ausencias (no show)
+- Configura el momento del seguimiento (días, horas, minutos después de la cita)
+- Personaliza los mensajes de seguimiento
+
+### 4. Gestión del estado de la reserva
+
+Da seguimiento a las reservas durante todo su ciclo de vida:
+
+| Estado | Descripción |
+| --- | --- |
+| **Pending** (Pendiente) | Estado inicial de la reserva |
+| **Confirmed** (Confirmada) | La reserva ha sido confirmada |
+| **In Progress** (En curso) | La reunión o cita ha comenzado |
+| **Completed** (Completada) | Finalizada con éxito |
+| **Cancelled** (Cancelada) | La reserva fue cancelada |
+| **No Show** (Ausencia) | El cliente no asistió |
+| **Inactive** (Inactivo) | El servicio ya no está activo |
+
+### 5. Información de la reserva
+
+- Horas de inicio y fin
+- Duración (en minutos)
+- Detalles de la ubicación
+- Seguimiento del origen (source)
+- Metadatos personalizados
+- Sistema de valoración (0-5 estrellas)
+- Motivos de cancelación / reprogramación
+- Registros de auditoría completos (logs)
+
+---
+
+## Primeros pasos
+
+### Requisitos previos
+
+- Cuenta de workspace con el complemento **Ticket/Lists/Bookings** habilitado
+- Acceso a la gestión de servicios de reserva
+- Conocimiento básico de la zona horaria de tu workspace
+
+### Pasos de configuración inicial
+
+<Steps>
+  <Step title="Ir a Booking Services">
+    - Entra en la configuración de tu workspace
+    - Selecciona **Booking Services** en el menú
+  </Step>
+  <Step title="Crea tu primer servicio de reserva">
+    - Haz clic en el botón **+ Booking Service**
+    - Completa la información requerida
+    - Configura los recordatorios y seguimientos
+    - Guarda tu servicio
+  </Step>
+  <Step title="Integra con el chatbot">
+    - Usa el **Service UID** para referenciar el servicio en los flujos de tu bot
+    - Configura disparadores para los eventos de reserva
+    - Configura las respuestas automáticas
+  </Step>
+</Steps>
+
+---
+
+## Cómo funciona
+
+### Arquitectura del sistema
+
+El sistema de reservas funciona sobre la base de tareas programadas:
+
+1. **Creación de la reserva:** cuando se crea una reserva, el sistema genera automáticamente las programaciones de recordatorios y seguimientos según tu configuración.
+
+2. **Procesamiento de recordatorios:**
+   - Se ejecuta cada minuto
+   - Busca recordatorios pendientes dentro de una ventana de 2 horas
+   - Envía los recordatorios y actualiza el estado a "sent" (enviado)
+
+3. **Eventos de la reunión:**
+   - **Inicio de la reunión:** se dispara automáticamente cuando se alcanza la hora de inicio
+   - **Fin de la reunión:** se dispara automáticamente cuando se alcanza la hora de fin
+
+4. **Procesamiento de seguimientos:**
+   - Se programan tras completar la reserva o marcarla como ausencia
+   - Se ejecutan con la misma frecuencia que los recordatorios
+   - Solo se envían para reservas completadas o con ausencia
+
+---
+
+## Configurar servicios de reserva
+
+### Paso 1: Crear un servicio de reserva
+
+**Campos requeridos:**
+
+- **Name** (Nombre): nombre visible de tu servicio (máx. 100 caracteres)
+- **Service UID**: identificador único con caracteres alfanuméricos (máx. 50 caracteres)
+  - No se puede cambiar después de crearlo
+  - Ejemplos: `consultation_30min`, `demo_call`, `support_session`
+- **Description** (Descripción): descripción detallada (máx. 1.000 caracteres)
+- **Default Duration** (Duración predeterminada): duración en minutos (0-1000)
+- **Status** (Estado): Active o Inactive
+
+### Paso 2: Configurar recordatorios
+
+Para cada recordatorio:
+
+1. **Sequence Number** (Número de secuencia): se asigna automáticamente (1-5)
+2. **Title** (Título): descripción breve (máx. 50 caracteres)
+3. **Description** (Descripción): mensaje detallado (máx. 500 caracteres)
+4. **Timing** (Momento): define cuándo enviar el recordatorio
+   - Días antes de la hora de inicio
+   - Horas antes de la hora de inicio
+   - Minutos antes de la hora de inicio
+5. **Status** (Estado): Active o Inactive
+
+**Ejemplo de configuración de recordatorios:**
+
+```
+Recordatorio 1:
+- Título: "Tu cita es mañana"
+- Días: 1, Horas: 0, Minutos: 0
+- Descripción: "Tu cita es mañana a las [HORA]"
+
+Recordatorio 2:
+- Título: "Tu cita es en 1 hora"
+- Días: 0, Horas: 1, Minutos: 0
+- Descripción: "Tu cita comienza en 1 hora"
+```
+
+### Paso 3: Configurar seguimientos
+
+Para cada seguimiento:
+
+1. **Sequence Number** (Número de secuencia): se asigna automáticamente (1-5)
+2. **Title** (Título): descripción breve (máx. 50 caracteres)
+3. **Description** (Descripción): mensaje detallado (máx. 500 caracteres)
+4. **Timing** (Momento): define cuándo enviar el seguimiento
+   - Días después de la hora de fin
+   - Horas después de la hora de fin
+   - Minutos después de la hora de fin
+5. **Status** (Estado): Active o Inactive
+
+**Ejemplo de configuración de seguimientos:**
+
+```
+Seguimiento 1:
+- Título: "¿Cómo estuvo tu cita?"
+- Días: 0, Horas: 2, Minutos: 0
+- Descripción: "Nos encantaría conocer tu experiencia"
+
+Seguimiento 2:
+- Título: "Encuesta de seguimiento"
+- Días: 1, Horas: 0, Minutos: 0
+- Descripción: "Tómate un momento para completar nuestra encuesta"
+```
+
+---
+
+## Gestionar reservas
+
+### Crear una reserva
+
+**Información requerida:**
+
+- Service UID o Booking Service ID
+- Hora de inicio (en la zona horaria del workspace)
+- Estado inicial (Pending o Confirmed)
+
+**Información opcional:**
+
+- Duración personalizada (sustituye a la predeterminada)
+- Ubicación (máx. 1.000 caracteres)
+- Origen / Source (máx. 100 caracteres)
+- Metadatos (máx. 5.000 caracteres)
+- Notas (máx. 1.000 caracteres)
+
+<Note>
+**Notas importantes:**
+- La hora de inicio debe estar en el futuro
+- Los recordatorios se programan automáticamente
+</Note>
+
+### Acciones sobre la reserva
+
+<AccordionGroup>
+  <Accordion title="1. Confirmar reserva (Confirm Booking)" icon="circle-check">
+    - Cambia el estado de Pending a Confirmed
+    - Solo está disponible para reservas pendientes
+    - Despacha el evento `BOOKING_CONFIRMED`
+  </Accordion>
+
+  <Accordion title="2. Reprogramar reserva (Reschedule Booking)" icon="calendar-days">
+    - Actualiza la hora de inicio, la hora de fin y la duración
+    - Puede cambiar el estado a Pending o Confirmed
+    - Conserva los recordatorios ya enviados
+    - Reprograma los recordatorios restantes
+    - Requiere un motivo de reprogramación (máx. 500 caracteres)
+
+    **Restricciones:**
+
+    - No se pueden reprogramar reservas en curso (in progress)
+    - No se pueden reprogramar reservas en estado final (cancelada, completada, ausencia)
+  </Accordion>
+
+  <Accordion title="3. Cancelar reserva (Cancel Booking)" icon="ban">
+    - Cambia el estado a Cancelled
+    - Cancela todos los recordatorios y seguimientos pendientes
+    - Requiere un motivo de cancelación (máx. 500 caracteres)
+    - No se pueden cancelar reservas en estado final
+  </Accordion>
+
+  <Accordion title="4. Marcar como completada (Mark as Completed)" icon="check-double">
+    - Cambia el estado a Completed
+    - Omite los recordatorios no enviados
+    - Programa los mensajes de seguimiento
+    - No se pueden completar reservas en estado final
+  </Accordion>
+
+  <Accordion title="5. Marcar como ausencia (Mark as No Show)" icon="user-slash">
+    - Cambia el estado a No Show
+    - Omite los recordatorios no enviados
+    - Programa los mensajes de seguimiento (igual que al completar)
+    - No se pueden marcar como ausencia las reservas en estado final
+  </Accordion>
+
+  <Accordion title="6. Actualizar valoración (Update Rating)" icon="star">
+    - Establece una valoración de 0 a 5 estrellas
+    - Se puede actualizar en cualquier momento
+    - Registra el cambio de valoración en el log
+  </Accordion>
+
+  <Accordion title="7. Actualizar detalles de la reserva (Update Booking Details)" icon="pen-to-square">
+    - Modifica la ubicación, el origen o los metadatos
+    - No afecta al estado ni a la programación
+  </Accordion>
+
+  <Accordion title="8. Eliminar reserva (Delete Booking)" icon="trash">
+    - Elimina la reserva de forma permanente
+    - Borra todos los recordatorios, seguimientos y logs asociados
+    - No se puede deshacer
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Recordatorios y seguimientos
+
+### Comportamiento de los recordatorios
+
+**Programación:**
+
+- Se crean cuando se crea la reserva
+- Se calculan como: `hora_de_inicio - (días + horas + minutos)`
+- El estado se define como "pending" si está en el futuro, o "skipped" si ya pasó
+
+**Envío:**
+
+- Los recordatorios se envían cuando se alcanza la hora programada
+- El estado cambia a "sent"
+- Se registra la marca de tiempo del envío
+- Dispara el evento `REMINDER_SENDING`
+
+**Estados:**
+
+- **Pending** (Pendiente): esperando a ser enviado
+- **Sent** (Enviado): entregado con éxito
+- **Skipped** (Omitido): no enviado (pasó la hora o la reserva se canceló)
+- **Cancelled** (Cancelado): la reserva fue cancelada
+
+**Reprogramación:**
+
+- Solo se reprograman los recordatorios no enviados
+- Los recordatorios enviados se conservan
+- Se calculan nuevas horas programadas
+
+### Comportamiento de los seguimientos
+
+**Programación:**
+
+- Solo se crean cuando la reserva se marca como Completed o No Show
+- Se calculan como: `hora_de_fin + (días + horas + minutos)`
+- El estado se define como "pending" si está en el futuro, o "skipped" si ya pasó
+
+**Envío:**
+
+- Los seguimientos se envían cuando se alcanza la hora programada
+- El estado cambia a "sent"
+- Se registra la marca de tiempo del envío
+- Dispara el evento `FOLLOWUP_SENDING`
+
+<Warning>
+**Importante:** los seguimientos **NO** se crean en el momento de la reserva. Solo se programan tras completarla o marcarla como ausencia. Las reservas canceladas no reciben seguimientos.
+</Warning>
+
+---
+
+## Ciclo de vida de la reserva
+
+### Transiciones de estado
+
+```
+Created → Pending → Confirmed → In Progress → Completed
+                 ↓                          ↓
+              Cancelled                  No Show
+```
+
+### Flujo de eventos
+
+1. **BOOKING_CREATED**: creación inicial de la reserva
+2. **BOOKING_CONFIRMED**: reserva confirmada por el usuario o el sistema
+3. **REMINDER_SENDING**: cada recordatorio en el momento en que se envía
+4. **MEETING_STARTED**: se alcanzó la hora de inicio
+5. **MEETING_ENDED**: se alcanzó la hora de fin (completa la reserva automáticamente)
+6. **BOOKING_COMPLETED**: completada manual o automáticamente
+7. **BOOKING_NO_SHOW**: marcada como ausencia
+8. **FOLLOWUP_SENDING**: cada seguimiento en el momento en que se envía
+9. **UPDATE_RATING**: valoración actualizada
+10. **BOOKING_RESCHEDULED**: se cambió la hora de la reserva
+11. **BOOKING_CANCELLED**: reserva cancelada
+
+### Cambios de estado automáticos
+
+- **Pending/Confirmed → In Progress**: cuando se alcanza `start_time`
+- **In Progress → Completed**: cuando se alcanza `end_time` (mediante el proceso automático)
+
+---
+
+## Acciones de la API
+
+### Gestión de servicios
+
+- `list_booking_services`: obtiene todos los servicios de reserva
+- `get_booking_service`: obtiene los detalles de un servicio específico
+- `list_booking_service_reminders`: obtiene los recordatorios de un servicio
+- `list_booking_service_followups`: obtiene los seguimientos de un servicio
+
+### Gestión de reservas
+
+- `list_bookings`: obtiene las reservas (filtradas por usuario, servicio o estado)
+- `get_booking`: obtiene los detalles de una reserva específica
+- `create_booking`: crea una nueva reserva
+- `confirm_booking`: confirma una reserva pendiente
+- `reschedule_booking`: cambia la hora de la reserva
+- `cancel_booking`: cancela la reserva
+- `mark_booking_completed`: marca como completada
+- `mark_booking_no_show`: marca como ausencia
+- `update_booking_rating`: actualiza la valoración
+
+### Parámetros
+
+**Parámetros comunes:**
+
+- `bot_user_ns`: identificador del usuario del bot (para pruebas)
+- `service_uid`: identificador único del servicio
+- `booking_id`: ID de la reserva específica
+
+**Creación de la reserva:**
+
+- `start_time`: formato ISO 8601 UTC (ej. `"2020-01-02T12:30:00Z"`)
+- `duration`: minutos (opcional; si no se especifica usa la duración predeterminada)
+- `pending_or_confirmed`: estado inicial
+- `location`: ubicación de la cita
+- `source`: origen de la reserva
+- `metadata`: datos personalizados (cadena JSON)
+- `notes`: notas adicionales
+
+**Actualizaciones de estado:**
+
+- `reschedule_reason`: motivo de la reprogramación (máx. 500 caracteres)
+- `cancel_reason`: motivo de la cancelación (máx. 500 caracteres)
+- `rating`: número entre 0 y 5
+
+---
+
+## Diagramas de secuencia
+
+### Flujo de creación de la reserva
+
+```
+User → System: Create Booking Request
+System → Database: Create booking record
+System → Database: Generate reminder schedules
+System → Database: Save reminder records
+System → EventDispatcher: Dispatch BOOKING_CREATED
+EventDispatcher → Triggers: Process configured triggers
+System → User: Return booking confirmation
+```
+
+### Flujo de procesamiento de recordatorios
+
+```
+CronJob → System: Run reminder processor (every minute)
+System → Database: Query pending reminders (2-hour window)
+Database → System: Return pending reminders
+System → Validator: Check booking status
+Validator → System: Validate service is active
+System → BotUser: Retrieve bot user details
+System → EventDispatcher: Dispatch REMINDER_SENDING event
+EventDispatcher → Triggers: Execute reminder flow
+System → Database: Update reminder status to 'sent'
+System → Database: Record sent timestamp
+```
+
+### Flujo de finalización de la reserva
+
+```
+User/System → System: Mark booking complete
+System → Database: Update booking status to 'completed'
+System → Database: Skip unsent reminders
+System → Database: Calculate follow-up schedules
+System → Database: Create follow-up records
+System → EventDispatcher: Dispatch BOOKING_COMPLETED
+EventDispatcher → Triggers: Process completion triggers
+System → User: Return success response
+```
+
+### Automatización del inicio y fin de la reunión
+
+```
+CronJob → System: Run booking processor (every minute)
+System → Database: Query bookings with start_time reached
+Database → System: Return matching bookings
+System → EventDispatcher: Dispatch MEETING_STARTED event
+System → Database: Update status to 'in_progress'
+
+[Más adelante...]
+
+System → Database: Query bookings with end_time reached
+Database → System: Return matching bookings
+System → EventDispatcher: Dispatch MEETING_ENDED event
+System → Database: Update status to 'completed'
+System → Database: Schedule follow-ups
+```
+
+### Flujo de reprogramación
+
+```
+User → System: Reschedule request
+System → Validator: Check booking status
+Validator → System: Validate can reschedule
+System → Database: Get sent reminder sequences
+System → Database: Delete unsent reminders
+System → Database: Update booking times
+System → Database: Increment reschedule_count
+System → Database: Calculate new reminder schedules
+System → Database: Create new reminder records
+System → EventDispatcher: Dispatch BOOKING_RESCHEDULED
+System → User: Return updated booking
+```
+
+<Frame caption="Diagrama de secuencia del sistema de reservas">
+  <Placeholder />
+</Frame>
+
+---
+
+## Buenas prácticas
+
+### 1. Configuración del servicio
+
+- Usa nombres de servicio claros y descriptivos
+- Crea Service UIDs únicos y fáciles de referenciar
+- Establece duraciones predeterminadas realistas
+- Prueba los tiempos de recordatorios y seguimientos antes de publicar
+
+### 2. Estrategia de recordatorios
+
+- No abuses de los recordatorios (2-3 suelen ser suficientes)
+- Espacia los recordatorios adecuadamente (ej. 1 día antes, 1 hora antes)
+- Redacta mensajes de recordatorio claros y accionables
+- Incluye los detalles relevantes de la reserva en los recordatorios
+
+### 3. Estrategia de seguimientos
+
+- Envía un seguimiento inmediato para pedir opinión (2-4 horas después)
+- Envía la solicitud de encuesta 24 horas después de la cita
+- Mantén los mensajes de seguimiento breves y enfocados
+- Incluye siempre opciones para darse de baja
+
+### 4. Gestión de reservas
+
+- Indica siempre los motivos de cancelación para tus analíticas
+- Usa el campo de notas para registrar contexto importante
+- Actualiza las valoraciones para medir la calidad del servicio
+- Revisa los logs de reservas con regularidad
+
+### 5. Pruebas
+
+- Prueba el ciclo de vida completo de la reserva antes del lanzamiento
+- Verifica los tiempos de los recordatorios en tu zona horaria
+- Prueba escenarios de reprogramación
+- Valida que los disparadores de eventos se ejecuten correctamente
+
+---
+
+## Solución de problemas
+
+<AccordionGroup>
+  <Accordion title="Los recordatorios no se envían" icon="bell-slash">
+    - Comprueba que el recordatorio esté en "Active"
+    - Verifica que la hora programada esté en el futuro
+    - Confirma que el servicio de reserva esté activo
+    - Comprueba que el estado de la reserva no sea un estado final
+  </Accordion>
+
+  <Accordion title="Los seguimientos no se envían" icon="paper-plane">
+    - Los seguimientos solo se envían tras completar la reserva o marcarla como ausencia
+    - Comprueba que el seguimiento esté en "Active"
+    - Verifica que la reserva se completara o se marcara como ausencia (no cancelada)
+    - Confirma que la hora programada sea correcta
+  </Accordion>
+
+  <Accordion title="No se puede reprogramar" icon="calendar-xmark">
+    - Asegúrate de que la reserva no esté en estado final
+    - Verifica que la reserva no esté actualmente en curso
+    - Comprueba que el servicio siga activo
+  </Accordion>
+
+  <Accordion title="Problemas de zona horaria" icon="globe">
+    - Todas las horas se almacenan en UTC
+    - Las horas mostradas se convierten a la zona horaria del workspace
+    - Verifica que la configuración de zona horaria del workspace sea correcta
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Límites y restricciones
+
+- **Máximo de servicios de reserva:** 20 por workspace
+- **Máximo de recordatorios:** 5 por servicio
+- **Máximo de seguimientos:** 5 por servicio
+- **Límites de campos:**
+
+| Campo | Límite |
+| --- | --- |
+| Name (Nombre) | 100 caracteres |
+| Service UID | 50 caracteres |
+| Description (Descripción) | 1.000 caracteres |
+| Título de recordatorio / seguimiento | 50 caracteres |
+| Descripción de recordatorio / seguimiento | 500 caracteres |
+| Motivo de reprogramación | 500 caracteres |
+| Motivo de cancelación | 500 caracteres |
+| Location (Ubicación) | 1.000 caracteres |
+| Source (Origen) | 100 caracteres |
+| Metadata (Metadatos) | 5.000 caracteres |
+| Notes (Notas) | 1.000 caracteres |
+
+<Info>
+¿Necesitas ayuda con la configuración de tus servicios de reserva? Contacta al soporte de Botky.
+</Info>
