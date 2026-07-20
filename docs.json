@@ -2,6 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Botky",
+  "logo": "https://botky.chat/wp-content/uploads/2026/02/logo-BOTKY.png",
   "colors": {"primary": "#042940", "light": "#DBF227", "dark": "#042940"},
   "background": {"dark": "#042940"},
   "appearance": {"default": "light"},
