@@ -1,0 +1,177 @@
+---
+title: "Audit Logs"
+description: "Da seguimiento a los cambios en tu workspace: quién los hizo, qué se creó, actualizó o eliminó."
+icon: "clipboard-list"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+<Note>
+Esta configuración solo está disponible para el owner y el admin del workspace.
+</Note>
+
+Los **Audit Logs** le dan a los usuarios la capacidad de dar seguimiento a los cambios que ocurren en su workspace. La información incluye qué miembros del equipo cambiaron de workspace, qué flujos se modificaron, qué nodos se eliminaron/crearon y quién hizo los cambios.
+
+<Frame><Placeholder /></Frame>
+
+Los Audit Logs ofrecen un análisis completo de la actividad que ocurre en los workspaces y brindan una capa adicional de seguridad y responsabilidad al gestionar un equipo de miembros.
+
+<Frame><Placeholder /></Frame>
+
+Puedes usar los filtros en la parte superior izquierda de la interfaz para filtrar por usuarios, acción y sujeto, y así monitorear cambios específicos que ocurran en un flujo o dentro del workspace.
+
+## Lista de acciones (Actions List)
+
+| Acción | Explicación |
+|--------|-------------|
+| create | Significa que se está creando un nodo, como un nodo de acción para realizar una acción o un nodo de envío de mensaje para enviar un mensaje |
+| delete | Significa que algo se elimina. Puede ser un nodo, un disparador, un CUF o un usuario del bot |
+| install | Significa que se instaló una plantilla o un mini-app en el bot |
+| link | Significa que se vinculó una integración con el workspace. Un ejemplo sería una conexión SMTP o una integración de OpenAI |
+| login | Significa que un usuario inició sesión en el workspace |
+| logout | Significa que un usuario cerró sesión en el workspace |
+| switch | Significa que un usuario cambió de un workspace a otro |
+| system | Significa que hubo un evento del sistema |
+| uninstall | Significa que se desinstaló un mini-app del workspace |
+| unlink | Significa que se desvinculó una integración del workspace |
+| update | Significa que se actualizó un nodo; un ejemplo sería actualizar el texto de un nodo Send Message |
+
+## Lista de sujetos (Subjects List)
+
+| Sujeto | Explicación |
+|---------|-------------|
+| addon | Indica cuando se agrega el complemento |
+| agent_segment | Segmento usado por el agente para la búsqueda global |
+| board | Indica un cambio en el tablero (board) |
+| board_column | Indica un cambio en la columna del tablero |
+| bot | Indica un cambio en el bot |
+| bot_action | Indica un cambio en la acción del bot |
+| bot_addon | Indica un cambio en el complemento del bot |
+| bot_comment | Automatización -> Palabra clave de comentario |
+| bot_event | Contenidos -> evento personalizado |
+| bot_fb_ads | Indica un cambio en el payload de Facebook Ads |
+| bot_fb_feedback | Contenidos -> Comentarios de clientes |
+| bot_fb_lead_form | Indica un cambio en el FB Lead Form |
+| bot_field | Indica un cambio en el campo del bot |
+| bot_intent | Automatización -> Intents |
+| bot_keyword | Automatización -> Keywords |
+| bot_lang | Indica un cambio en el idioma del bot |
+| bot_menu | Indica un cambio en el menú del bot |
+| bot_message | Nodo de envío de mensaje |
+| bot_node | Indica un cambio en el nodo del bot |
+| bot_question | Nodo de pregunta |
+| bot_report | Herramientas -> Reporte personalizado |
+| bot_segment | Usuarios del bot -> Segmento |
+| bot_sequence | Automatización -> Secuencia |
+| bot_shorcut | Herramientas -> Atajo |
+| bot_tag | Indica un cambio en la etiqueta del bot |
+| bot_template | Habilita el registro de acciones relacionadas con plantillas, como creación, eliminación y actualización |
+| bot_template_install | Actualizaciones en una plantilla instalada, como poder editar, poder ver, deshabilitar la actualización automática, etc. |
+| bot_template_link | Para generar un enlace de un solo uso |
+| bot_tester | Herramientas -> Tester |
+| bot_trigger | Automatización -> Disparador |
+| bot_user | Usuario del bot |
+| bot_widget | Herramientas -> Widget |
+| broadcast | Indica el envío de la difusión |
+| calendly | Integración -> Calendly |
+| Change email | |
+| chatwood | Bot -> Chatwoot |
+| chatwood_agnet | Integración -> Agente de Chatwoot |
+| Claude | Integración -> Claude |
+| Closing note | Bot -> Contenidos -> Notas de cierre |
+| Cloudinary | Indica conexión con Cloudinary |
+| crm_v1 | Integración -> GHL CRM v1 |
+| custom menu | Partner -> Menú personalizado |
+| data_store | Acciones del data store (filas y registros) con almacenamiento como MySQL |
+| discount_code | Ecommerce -> Código de descuento |
+| email_template | Mis Contenidos -> Plantilla de correo |
+| Facebook | Bot -> Facebook |
+| facebook_ads | Habilita el registro de la eliminación de una cuenta de Facebook Ads |
+| facebook_business | Habilita el registro de la eliminación de una cuenta de Facebook Business |
+| facebook_group | Habilita el registro de la eliminación de un grupo de Facebook |
+| facebook_agent | |
+| gemini | Habilita el registro de las acciones de la integración con Google Gemini (actualización) y su eliminación |
+| gohighlevel | Integración -> GHL |
+| google_business | Integración |
+| google_business_message | Bot -> Google Business Message |
+| google_dialogflow | Integración |
+| google_gmail | Integración |
+| google_map | Habilita el registro de las acciones de la integración con Google Maps (actualización) y su eliminación |
+| google_sheet | Integración |
+| google_tag_manager | Integración |
+| inbound_webhook | Herramientas -> Webhook entrante |
+| Instagram | Bot |
+| intercom | Bot |
+| intercom_agent | Integración |
+| jivochat | Bot |
+| jivochat_agent | Integración |
+| line | Bot |
+| live_chat_webhook | Integración |
+| mailchimp | Integración |
+| mapbox | Integración |
+| mark email deleted | |
+| mark email verified | |
+| messagemedia | Integración |
+| mini_app | Habilita el registro de acciones relacionadas con tableros, como creación, eliminación, actualización e instalación |
+| mongodb | Integración |
+| mysql | Integración |
+| node | Habilita el registro de acciones relacionadas con nodos, como creación y eliminación |
+| nodes | Habilita el registro de acciones relacionadas con nodos (acciones de bloque), como pegado y eliminación |
+| one_time_link | Plantilla -> crear/eliminar enlace de un solo uso |
+| openai | Habilita el registro de acciones relacionadas con OpenAI: integración (actualización) y eliminación |
+| openai_embedding | Integración -> OpenAI |
+| openai_system_message | Integración -> OpenAI |
+| otn_topic | Contenidos -> Temas de notificación |
+| paypal | Integración |
+| persona | Habilita el registro de acciones de persona, como creación, eliminación y actualización |
+| pgsql | Habilita el registro de acciones de PostgreSQL: integración (actualización) y eliminación |
+| phone_number | Integración |
+| plan | Partner -> Cambio de plan |
+| product | Ecommerce -> Producto |
+| product_tag | Habilita el registro de acciones de etiquetas de producto, como creación, eliminación y actualización |
+| product_type | Habilita el registro de acciones de tipo de producto, como creación, eliminación y actualización |
+| product_variant | Habilita el registro de acciones de variante de producto, como creación, eliminación y actualización |
+| product_vendor | Habilita el registro de acciones de proveedor de producto, como creación, eliminación y actualización |
+| s3storage | Habilita el registro de acciones de S3 Storage: integración (actualización) y eliminación |
+| sendgrid | Integración |
+| shop_collection | Ecommerce |
+| shop_location | Ecommerce |
+| shop_order | Ecommerce |
+| shop_setting | Ecommerce |
+| Shopify | Integración |
+| signalwire | Integración |
+| slack | Bot |
+| slack_agent | Integración |
+| slack_webhook | Integración |
+| sms | Bot |
+| smtp | Integración -> SMTP |
+| stripe | Integración |
+| sub_flow | Flujo -> Subflujo |
+| team | Crear/eliminar workspace |
+| team_folder | Carpeta para contenidos a nivel de workspace, como etiquetas |
+| team_group | Agent group |
+| team_label | Contenidos -> Etiquetas |
+| telegram | Bot |
+| telnyx | Bot |
+| twilio | Integración |
+| user | Usuario -> inicio/cierre de sesión |
+| user_addon | Workspace agregar/eliminar miembro |
+| user_field | Contenidos -> Campo de usuario |
+| Viber | Bot |
+| videosdk | Integración |
+| vk | Bot |
+| voice | Bot |
+| Vudu | Integración |
+| waapi | Bot |
+| WeChat | Bot |
+| WhatsApp | Bot |
+| whatsapp_channel | Vincular/desvincular un canal de WhatsApp múltiple al mismo bot |
+| whatsapp_cloud | Bot |
+| whatsapp_flow | Contenidos -> Flujo de WhatsApp |
+| whatsapp_template | Contenidos -> Plantilla de WhatsApp |
+| woocommerce | Integración |
+| workspace | Partner crea workspace |
