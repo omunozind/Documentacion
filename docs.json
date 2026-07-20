@@ -51,33 +51,23 @@
         ]
       },
       {
-        "group": "Servicios de Reservas",
-        "icon": "calendar-check",
-        "pages": ["booking/overview"]
-      },
-      {
-        "group": "Tickets",
-        "icon": "ticket",
-        "pages": ["tickets/overview"]
-      },
-      {
-        "group": "Espacio de trabajo",
-        "icon": "gears",
+        "group": "Recursos",
+        "icon": "layer-group",
         "pages": [
-          "workspace-settings/overview",
-          "workspace-settings/profile",
-          "workspace-settings/members",
-          "workspace-settings/agent-groups",
-          "workspace-settings/conversation",
-          "workspace-settings/channels",
-          "workspace-settings/audit-logs",
-          "workspace-settings/media-library"
+          {"group": "Servicios de Reservas", "icon": "calendar-check", "pages": ["booking/overview"]},
+          {"group": "Tickets", "icon": "ticket", "pages": ["tickets/overview"]},
+          {"group": "Espacio de trabajo", "icon": "gears", "pages": [
+            "workspace-settings/overview",
+            "workspace-settings/profile",
+            "workspace-settings/members",
+            "workspace-settings/agent-groups",
+            "workspace-settings/conversation",
+            "workspace-settings/channels",
+            "workspace-settings/audit-logs",
+            "workspace-settings/media-library"
+          ]},
+          {"group": "Desarrolladores", "icon": "code", "pages": ["developers/overview", "developers/api", "developers/dynamic-content"]}
         ]
-      },
-      {
-        "group": "Desarrolladores",
-        "icon": "code",
-        "pages": ["developers/overview", "developers/api", "developers/dynamic-content"]
       }
     ]
   },
