@@ -73,6 +73,11 @@
           "workspace-settings/audit-logs",
           "workspace-settings/media-library"
         ]
+      },
+      {
+        "group": "Desarrolladores",
+        "icon": "code",
+        "pages": ["developers/overview", "developers/api", "developers/dynamic-content"]
       }
     ]
   },
