@@ -11,6 +11,9 @@
   "background": {"dark": "#042940"},
   "appearance": {"default": "light"},
   "icons": {"library": "fontawesome"},
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
   "navigation": {
     "groups": [
       {
