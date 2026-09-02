@@ -4,12 +4,6 @@ description: "Construye agentes robustos con soporte nativo de Base de conocimie
 icon: "globe"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Los **Agentes de IA** incorporan mejoras importantes que facilitan construir agentes más potentes y confiables. Con soporte **nativo** para **Base de conocimiento con IA**, **servidores MCP** y **búsqueda web**, ya no necesitas soluciones alternativas complicadas ni funciones manuales.
 
 <Card type="note">
@@ -23,7 +17,7 @@ Los **Agentes de IA** incorporan mejoras importantes que facilitan construir age
 Asegúrate de que el proveedor OpenAI esté conectado en tu espacio de trabajo. Es necesario para crear y conectar los *vector stores* y archivos. Ve a **Integraciones → OpenAI**.
 
 <Frame caption="Conexión del proveedor OpenAI en Integraciones">
-  <Placeholder />
+  <img src="/images/ai-hub/ai-agents-web-search-1.png" alt="Conexión del proveedor OpenAI en Integraciones" />
 </Frame>
 
 <Steps>
@@ -31,21 +25,21 @@ Asegúrate de que el proveedor OpenAI esté conectado en tu espacio de trabajo. 
     Los archivos deben tener una extensión válida: `.pdf`, `.xls`, `.doc`, etc. Sin la extensión correcta, el sistema no puede leerlos ni indexarlos, y los archivos inválidos causan errores o son rechazados. Puedes subirlos desde tu computador o indicar la URL del archivo.
 
     <Frame caption="Subida de archivos para el Vector Store">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-2.png" alt="Subida de archivos para el Vector Store" />
     </Frame>
   </Step>
   <Step title="Crear el Vector Store">
     Ve a la sección **Vector Store**. Crea uno, asígnale un nombre y define una fecha de expiración (opcional, para stores temporales; `0` = sin expiración). Selecciona los archivos que ya subiste en la sección de Archivos.
 
     <Frame caption="Creación de un Vector Store y selección de archivos">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-3.png" alt="Creación de un Vector Store y selección de archivos" />
     </Frame>
   </Step>
   <Step title="Construir la Base de conocimiento">
     Después de crear el vector store, crea una **Base de conocimiento**. Ingresa el nombre, la descripción (opcional) y selecciona los Vector Stores asociados. Una vez creada, puedes usarla en los Agentes de IA.
 
     <Frame caption="Construcción de la Base de conocimiento">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-4.png" alt="Construcción de la Base de conocimiento" />
     </Frame>
   </Step>
 </Steps>
@@ -57,14 +51,14 @@ Asegúrate de que el proveedor OpenAI esté conectado en tu espacio de trabajo. 
     Dentro de un Agente de IA, ve a **Ajustes → Modelos**. Selecciona **OpenAI - Responses** y elige el modelo deseado. El valor por defecto es **gpt-4.1**.
 
     <Frame caption="Selección de OpenAI - Responses en los ajustes del agente">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-5.png" alt="Selección de OpenAI - Responses en los ajustes del agente" />
     </Frame>
   </Step>
   <Step title="Usar herramientas con OpenAI Responses">
     Ahora puedes conectar directamente los **Servidores MCP** y la **Base de conocimiento** al Agente. No hay necesidad de disparar funciones o acciones de IA separadas para ellos. Esto reduce errores y complejidad.
 
     <Frame caption="Conexión de MCP y Base de conocimiento al agente">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-6.png" alt="Conexión de MCP y Base de conocimiento al agente" />
     </Frame>
   </Step>
   <Step title="Integración de búsqueda web">
@@ -76,7 +70,7 @@ Asegúrate de que el proveedor OpenAI esté conectado en tu espacio de trabajo. 
     - Ejemplo: `google.com, app.google.com`
 
     <Frame caption="Configuración de búsqueda web y restricción de dominios">
-      <Placeholder />
+      <img src="/images/ai-hub/ai-agents-web-search-7.png" alt="Configuración de búsqueda web y restricción de dominios" />
     </Frame>
   </Step>
 </Steps>
