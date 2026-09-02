@@ -4,18 +4,12 @@ description: "Controla si un usuario puede recibir correos electrónicos de tu b
 icon: "envelope-circle-check"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 ## Activar permiso de correo (Opt-in)
 
 Le permite a tu bot enviarle correos a un usuario. Coloca esta acción **antes** de cualquier nodo de envío de correo.
 
 <Frame caption="Configuración de la acción Activar permiso de correo">
-  <Placeholder />
+  <img src="/images/flow-builder/email-opt-in-out-1.png" alt="Configuración de la acción Activar permiso de correo" />
 </Frame>
 
 ## Desactivar permiso de correo (Opt-out)
@@ -23,7 +17,7 @@ Le permite a tu bot enviarle correos a un usuario. Coloca esta acción **antes**
 Útil cuando quieres evitar que un usuario reciba correos — muy recomendable antes de hacer un envío masivo por correo.
 
 <Frame caption="Configuración de la acción Desactivar permiso de correo">
-  <Placeholder />
+  <img src="/images/flow-builder/email-opt-in-out-2.png" alt="Configuración de la acción Desactivar permiso de correo" />
 </Frame>
 
 <Card type="warning">
@@ -49,5 +43,5 @@ Para configurar el permiso de correo de varios usuarios a la vez:
 </Steps>
 
 <Frame caption="Interfaz de acciones en lote para permiso de correo">
-  <Placeholder />
+  <img src="/images/flow-builder/email-opt-in-out-3.png" alt="Interfaz de acciones en lote para permiso de correo" />
 </Frame>

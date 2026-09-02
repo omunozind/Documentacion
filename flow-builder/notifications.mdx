@@ -4,12 +4,6 @@ description: "Cómo enviar notificaciones por WhatsApp, correo y chat en vivo de
 icon: "bell"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Una **Notificación** es un tipo de acción que le permite a tu bot avisarle algo a alguien — a un usuario, a tu equipo, o a un agente humano — sin necesidad de que esa persona esté en medio de una conversación con el bot en ese momento. Es distinta de un paso normal de "Enviar mensaje": aquí el bot **inicia** el contacto, en vez de responder a algo que el usuario dijo.
 
 Vamos a ver los 3 canales de notificación más importantes para Botky: **WhatsApp**, **Correo** y **Chat en vivo**.
@@ -29,7 +23,7 @@ Le permite a tu bot enviarle un mensaje de WhatsApp a alguien de forma proactiva
 </Card>
 
 <Frame caption="Configuración de una notificación directa de WhatsApp">
-  <Placeholder />
+  <img src="/images/flow-builder/notifications-1.png" alt="Configuración de una notificación directa de WhatsApp" />
 </Frame>
 
 ### Notificación con Plantilla de WhatsApp
@@ -65,7 +59,7 @@ Si tu plantilla incluye un **botón de respuesta rápida**, existen dos formas d
 </Card>
 
 <Frame caption="Configuración de una notificación con Plantilla de WhatsApp y sus parámetros">
-  <Placeholder />
+  <img src="/images/flow-builder/notifications-2.png" alt="Configuración de una notificación con Plantilla de WhatsApp y sus parámetros" />
 </Frame>
 
 ---
@@ -95,7 +89,7 @@ Envía un correo electrónico simple — útil para avisos internos (por ejemplo
 </Steps>
 
 <Frame caption="Configuración de una notificación por correo: remitente y destinatario">
-  <Placeholder />
+  <img src="/images/flow-builder/notifications-3.png" alt="Configuración de una notificación por correo: remitente y destinatario" />
 </Frame>
 
 ---
@@ -111,5 +105,5 @@ En vez de enviarle algo a un usuario externo, esta notificación aparece **dentr
 Es una notificación de **texto libre**: escribes lo que quieras que vea el agente (por ejemplo, "Cliente premium esperando desde hace 10 minutos, ID: `{{User Ns}}`"), y aparece directamente en su bandeja.
 
 <Frame caption="Notificación de texto apareciendo en el panel de Chat en vivo">
-  <Placeholder />
+  <img src="/images/flow-builder/notifications-4.png" alt="Notificación de texto apareciendo en el panel de Chat en vivo" />
 </Frame>
