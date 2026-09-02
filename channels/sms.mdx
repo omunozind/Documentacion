@@ -4,12 +4,6 @@ description: "Comunícate por mensajes de texto SMS con altas tasas de apertura,
 icon: "comment-sms"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Los chatbots de **SMS** ofrecen una forma directa y eficiente de comunicarte con tu audiencia por mensajes de texto.
 
 ## Por qué SMS
@@ -41,28 +35,28 @@ Esta guía usa **Twilio** como proveedor; los demás tienen un proceso similar.
     Distintos proveedores soportan distintos bots. Crea una cuenta con ellos y elige tu número. En este ejemplo usamos Twilio.
 
     <Frame caption="Selección del proveedor">
-      <Placeholder />
+      <img src="/images/channels/sms-1.png" alt="Selección del proveedor" />
     </Frame>
   </Step>
   <Step title="Regístrate y obtén números">
     En Twilio, regístrate e inicia sesión para llegar a tu dashboard. Haz clic en **"Get a Trial Number"**, y en la ventana elige **"Choose this Number"** o busca otro. ¡Ya tienes tu número!
 
     <Frame caption="Obtener un número en Twilio">
-      <Placeholder />
+      <img src="/images/channels/sms-2.png" alt="Obtener un número en Twilio" />
     </Frame>
   </Step>
   <Step title="Conecta Twilio a Botky">
     En tu cuenta de Twilio, copia el **Account SID** y el **Auth Token**. En el panel de Botky, selecciona Twilio como proveedor: 1) pega los valores en los campos correspondientes, 2) haz clic en **Save**, 3) haz clic en **Add Phone Number** (para SMS o Voz) o **Add WhatsApp Number**.
 
     <Frame caption="Conexión de Twilio con Botky">
-      <Placeholder />
+      <img src="/images/channels/sms-3.png" alt="Conexión de Twilio con Botky" />
     </Frame>
   </Step>
   <Step title="Sincroniza los números">
     Haz clic en **Add Number** tras conectar tu proveedor. Verás todos tus números conectados en la página **"Phone Numbers"** de **Integración**. Luego, con el botón **+** creas un nuevo flujo, y con el otro botón abres el flujo del número.
 
     <Frame caption="Números conectados en Integración">
-      <Placeholder />
+      <img src="/images/channels/sms-4.png" alt="Números conectados en Integración" />
     </Frame>
   </Step>
 </Steps>

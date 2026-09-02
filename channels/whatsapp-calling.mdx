@@ -4,12 +4,6 @@ description: "Inicia y gestiona llamadas de WhatsApp desde el Chat en vivo o con
 icon: "phone"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Botky permite iniciar y usar la función de **llamadas de WhatsApp** recién introducida por Meta. Puedes llamar a contactos desde el Chat en vivo y usar **Agentes de IA** para responder llamadas por ti.
 
 ## Habilitar las llamadas (Embedded Signup)
@@ -17,7 +11,7 @@ Botky permite iniciar y usar la función de **llamadas de WhatsApp** recién int
 Si tu espacio de trabajo usa embedded signup, una vez integrado WhatsApp verás el **ícono de llamada** junto a tu número. Haz clic en él para habilitar los permisos, y opcionalmente configura las **horas de negocio**. Haz clic en **Save** para completar.
 
 <Frame caption="Ícono de llamada junto al número y permisos">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-calling-1.png" alt="Ícono de llamada junto al número y permisos" />
 </Frame>
 
 ## Habilitar las llamadas (método webhook antiguo)
@@ -29,7 +23,7 @@ Si tu espacio de trabajo aún usa el método webhook antiguo, hay pasos extra:
     Ve a [developers.facebook.com/apps](https://developers.facebook.com/apps/), selecciona tu app de WhatsApp → **Webhooks → WhatsApp business account** y habilita el permiso **"Calls"**.
 
     <Frame caption="Habilitar el permiso Calls en Webhooks">
-      <Placeholder />
+      <img src="/images/channels/whatsapp-calling-2.png" alt="Habilitar el permiso Calls en Webhooks" />
     </Frame>
   </Step>
   <Step title="Configura los ajustes de llamada del número">
@@ -68,7 +62,7 @@ Puedes abrir la ventana enviando un mensaje de plantilla y esperando su respuest
 El usuario recibe un mensaje; una vez que selecciona **"Always allow calls"**, podrás llamarlo cuando la ventana esté abierta. Las llamadas también se pueden iniciar desde el Chat en vivo, o disparar desde el Constructor de Flujos con **Bloque de Acción → AI Agent → Whatsapp/Messenger AI Call**.
 
 <Frame caption="Iniciar llamada desde el flujo o el Chat en vivo">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-calling-3.png" alt="Iniciar llamada desde el flujo o el Chat en vivo" />
 </Frame>
 
 ## Disparador de llamadas
@@ -87,7 +81,7 @@ Puedes configurar un Agente de IA para gestionar las llamadas. Ve a **AI Hub →
 - Activar/desactivar el **takeover** por un agente humano.
 
 <Frame caption="Configuración del Agente de IA para llamadas">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-calling-4.png" alt="Configuración del Agente de IA para llamadas" />
 </Frame>
 
 <Card type="warning">

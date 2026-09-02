@@ -4,12 +4,6 @@ description: "Errores frecuentes del canal de SMS y cómo resolverlos"
 icon: "circle-question"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 ## Errores comunes del canal de SMS
 
 <AccordionGroup>
@@ -17,7 +11,7 @@ export const Placeholder = () => (
     En el canal de SMS hay un ajuste de **horas de telemarketing** (en los ajustes del canal). Debes seleccionar las horas de trabajo (atento a la zona horaria). Si el SMS se envía fuera de esas horas, no se entregará.
 
     <Frame caption="Ajuste de horas de telemarketing">
-      <Placeholder />
+      <img src="/images/channels/sms-faq-1.png" alt="Ajuste de horas de telemarketing" />
     </Frame>
 
     Una vez configuradas, todos los mensajes del canal de SMS (flujo, secuencia, difusión) se bloquean si se envían fuera de esas horas. Sin embargo, las acciones **Acción → Notificación → Notificación SMS** y **Acción → Acción avanzada → Enviar mensaje SMS** **no** se ven afectadas por estas horas.
@@ -34,7 +28,7 @@ export const Placeholder = () => (
     Ocurre al intentar enviar un SMS a un usuario que no ha hecho opt-in. Puedes hacerlo manualmente o usar la acción **"SMS Opt-in"** en el nodo de Acción. También puedes ir a **Usuarios del bot**, seleccionar el contacto y elegir la acción **"Set SMS Opt-in"**.
 
     <Frame caption="Acción Set SMS Opt-in">
-      <Placeholder />
+      <img src="/images/channels/sms-faq-2.png" alt="Acción Set SMS Opt-in" />
     </Frame>
   </Accordion>
 </AccordionGroup>
