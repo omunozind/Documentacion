@@ -4,12 +4,6 @@ description: "Muestra y vende tus productos y servicios en WhatsApp con mensajes
 icon: "cart-shopping"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Puedes mostrar y compartir tus productos y servicios con tus clientes para que naveguen y agreguen artículos al carrito **sin salir del chat**.
 
 <Card type="warning">
@@ -32,7 +26,7 @@ Primero debes subir tu inventario a Facebook, en formato de **catálogo**. Puede
 De vuelta en Botky, ve al canal **WhatsApp Cloud**, haz clic en **"View Catalog"** para traer todos los catálogos de tu cuenta de negocio, y selecciona **"Facebook to Local"** para sincronizar todos los productos a tu ecommerce integrado.
 
 <Frame caption="Sincronización de catálogo Facebook → Local">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-products-catalog-1.png" alt="Sincronización de catálogo Facebook → Local" />
 </Frame>
 
 <Card type="warning">
@@ -40,7 +34,7 @@ De vuelta en Botky, ve al canal **WhatsApp Cloud**, haz clic en **"View Catalog"
 </Card>
 
 <Frame caption="Coincidencia entre SKU (Botky) y ContentID (Facebook)">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-products-catalog-2.png" alt="Coincidencia entre SKU (Botky) y ContentID (Facebook)" />
 </Frame>
 
 ## Conectar el catálogo con el número de WhatsApp
@@ -52,19 +46,19 @@ Debes conectar tu número de WhatsApp con un catálogo de productos. Solo despu�
 Una vez sincronizado el catálogo en el ecommerce integrado, puedes usar el envío de producto en el nodo de **Enviar mensaje**. En **WhatsApp Cloud API → "View catalogue"** verás el **catalog ID** conectado con tu WABA.
 
 <Frame caption="Catalog ID conectado con la WABA">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-products-catalog-3.png" alt="Catalog ID conectado con la WABA" />
 </Frame>
 
 Puedes enviar un **mensaje de producto único** o un **mensaje de múltiples productos**.
 
 <Frame caption="Envío de producto único o múltiples productos">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-products-catalog-4.png" alt="Envío de producto único o múltiples productos" />
 </Frame>
 
 Para múltiples productos, elige cuántas secciones incluir y selecciona los **retail IDs** (que son los ContentID del catálogo de Facebook). Si ya sincronizaste el catálogo con el ecommerce de Botky, usa la acción **"Get products"** (en **Acciones → ecommerce → Get products**) para poblar dinámicamente los retail IDs con filtros integrados.
 
 <Frame caption="Acción Get products para poblar retail IDs">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-products-catalog-5.png" alt="Acción Get products para poblar retail IDs" />
 </Frame>
 
 ## Disparadores

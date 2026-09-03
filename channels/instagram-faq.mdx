@@ -4,12 +4,6 @@ description: "Problemas frecuentes del canal de Instagram y cómo resolverlos"
 icon: "circle-question"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 ## Algunos usuarios de Instagram no tienen foto de perfil
 
 En algunos casos falta la foto de perfil de ciertos usuarios. La razón: para algunos usuarios (especialmente los que vienen de comentarios en publicaciones de Instagram), Meta no envía la información completa del usuario a través de su API, por lo que no tenemos su foto de perfil.
@@ -29,7 +23,7 @@ Este límite aplica a los canales de Meta (Messenger, Instagram, WhatsApp). Si e
 ## Error: "(#230) User consent is required to access user profile"
 
 <Frame caption="Error #230 de consentimiento del usuario">
-  <Placeholder />
+  <img src="/images/channels/instagram-faq-1.png" alt="Error #230 de consentimiento del usuario" />
 </Frame>
 
 Se trata del **consentimiento del usuario**. Se requiere consentimiento para acceder al perfil de un usuario, y este solo se establece cuando la persona **envía un mensaje** a un negocio, o hace clic en los *icebreakers* o el menú persistente. Si una persona solo comenta en una publicación pero no ha enviado un mensaje, tu app recibirá este error.
@@ -39,7 +33,7 @@ Se trata del **consentimiento del usuario**. Se requiere consentimiento para acc
 Si las automatizaciones de **DM** no funcionan pero otras (como las de comentarios) sí, podría ser por la **aprobación de usuarios (User approvals)** activada en tu perfil. Esa aprobación impide que Botky cree un usuario del bot y, sin usuario, no se disparan las automatizaciones de DM.
 
 <Frame caption="Ajuste de aprobación de usuarios en Instagram">
-  <Placeholder />
+  <img src="/images/channels/instagram-faq-2.png" alt="Ajuste de aprobación de usuarios en Instagram" />
 </Frame>
 
 **Solución:** entra a los ajustes de tu perfil de Instagram y **desactiva User approvals**. Para gestionar quién puede enviarte solicitudes de mensaje:

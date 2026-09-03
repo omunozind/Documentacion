@@ -4,12 +4,6 @@ description: "Respuesta de voz automatizada (IVR) para llamadas: nodos de Pregun
 icon: "phone"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 El **bot de Voz** es una respuesta de voz automatizada a llamadas y mensajes que agiliza la forma en que los clientes interactúan con una empresa.
 
 ## Casos de uso
@@ -26,14 +20,14 @@ El **bot de Voz** es una respuesta de voz automatizada a llamadas y mensajes que
 Tras iniciar sesión en Botky, busca el ícono del bot de voz en el lado izquierdo y haz clic para abrir los ajustes del número de voz.
 
 <Frame caption="Ajustes del número de voz">
-  <Placeholder />
+  <img src="/images/channels/voice-1.png" alt="Ajustes del número de voz" />
 </Frame>
 
 - Verás un dashboard para agregar números. Botky ofrece varias opciones; principalmente se usan **Twilio** y **SignalWire**, pero también puedes ingresar tu propio número.
 - Para agregar un número, haz clic en **Add Phone Number**.
 
 <Frame caption="Agregar número para el bot de Voz">
-  <Placeholder />
+  <img src="/images/channels/voice-2.png" alt="Agregar número para el bot de Voz" />
 </Frame>
 
 ## Flujo de Voz
@@ -45,7 +39,7 @@ Los flujos de **IVR (Interactive Voice Response)** son similares a los de cualqu
 El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco partes**: **speech, DTMF, record, transfer** y **payment**.
 
 <Frame caption="Nodo de Pregunta del bot de Voz con sus 5 opciones">
-  <Placeholder />
+  <img src="/images/channels/voice-3.png" alt="Nodo de Pregunta del bot de Voz con sus 5 opciones" />
 </Frame>
 
 <AccordionGroup>
@@ -58,7 +52,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     4. Como en los bots de texto, el nodo puede tener **botones de respuesta** para saltar a otro nodo o disparar otro flujo.
 
     <Frame caption="Opción Speech del nodo de Pregunta">
-      <Placeholder />
+      <img src="/images/channels/voice-4.png" alt="Opción Speech del nodo de Pregunta" />
     </Frame>
 
     **Ajustes avanzados de Speech:**
@@ -68,7 +62,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     - **DTMF input:** permite ingresar la cantidad de dígitos que el usuario tecleará (teléfono, número de ticket, tarjeta).
 
     <Frame caption="Ajustes avanzados de Speech">
-      <Placeholder />
+      <img src="/images/channels/voice-5.png" alt="Ajustes avanzados de Speech" />
     </Frame>
   </Accordion>
   <Accordion title="DTMF (teclado)" icon="hashtag">
@@ -81,7 +75,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     5. En ajustes avanzados solo está el botón **stop gathering**, para detener el proceso indicando un número o tecla.
 
     <Frame caption="Opción DTMF del nodo de Pregunta">
-      <Placeholder />
+      <img src="/images/channels/voice-6.png" alt="Opción DTMF del nodo de Pregunta" />
     </Frame>
   </Accordion>
   <Accordion title="Record (grabación)" icon="record-vinyl">
@@ -92,7 +86,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     3. En ajustes avanzados: define una tecla para detener la grabación, la duración máxima, recortar el silencio o reproducir un *beep* al iniciar.
 
     <Frame caption="Opción Record del nodo de Pregunta">
-      <Placeholder />
+      <img src="/images/channels/voice-7.png" alt="Opción Record del nodo de Pregunta" />
     </Frame>
 
     **Las grabaciones** se guardan en Botky; accede a ellas desde el menú izquierdo, en la sección de grabaciones.
@@ -108,7 +102,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     6. En avanzado: grabar la llamada, terminarla con un número/tecla, y mostrar el caller ID.
 
     <Frame caption="Opción Transfer del nodo de Pregunta">
-      <Placeholder />
+      <img src="/images/channels/voice-8.png" alt="Opción Transfer del nodo de Pregunta" />
     </Frame>
   </Accordion>
   <Accordion title="Payment (pago)" icon="credit-card">
@@ -123,7 +117,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
     7. Usa el botón **Payment fail** si el pago falla, para informar y repetir u realizar otra operación.
 
     <Frame caption="Opción Payment del nodo de Pregunta">
-      <Placeholder />
+      <img src="/images/channels/voice-9.png" alt="Opción Payment del nodo de Pregunta" />
     </Frame>
   </Accordion>
 </AccordionGroup>
@@ -133,7 +127,7 @@ El nodo de Pregunta en Voz es distinto al de texto. Tiene principalmente **cinco
 El nodo de Mensaje en Voz es muy distinto al de texto: **convierte en voz** el texto que escribas. Tiene tres opciones simples: **mensaje**, **audio** y ajustes para el texto tras la música en espera. Puedes cambiar el idioma con **Text to Speech Language**.
 
 <Frame caption="Nodo de Mensaje del bot de Voz">
-  <Placeholder />
+  <img src="/images/channels/voice-10.png" alt="Nodo de Mensaje del bot de Voz" />
 </Frame>
 
 <AccordionGroup>
@@ -157,5 +151,5 @@ El **nodo de Comentario** permite poner comentarios en los flujos o sobre nodos 
 3. **Tamaño de fuente:** desde extra pequeño hasta extra grande.
 
 <Frame caption="Nodo de Comentario en el flujo">
-  <Placeholder />
+  <img src="/images/channels/voice-11.png" alt="Nodo de Comentario en el flujo" />
 </Frame>

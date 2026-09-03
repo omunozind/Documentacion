@@ -4,14 +4,8 @@ description: "Recibe datos desde cualquier lugar hacia el chatbot con una petici
 icon: "arrow-right-to-bracket"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 <Frame caption="Webhooks entrantes">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-1.png" alt="Webhooks entrantes" />
 </Frame>
 
 Un **webhook entrante (Inbound Webhook)** es una herramienta potente para recibir datos desde cualquier lugar hacia el chatbot mediante una petición **POST**.
@@ -27,19 +21,19 @@ Con los webhooks entrantes, tu bot incluso puede **iniciar una conversación** c
 Está disponible en casi todos los canales. En tu Constructor de Flujos, ve a **Herramientas → Webhooks entrantes**.
 
 <Frame caption="Sección Webhooks entrantes en Herramientas">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-2.png" alt="Sección Webhooks entrantes en Herramientas" />
 </Frame>
 
 Haz clic en **New Inbound Webhook**, dale un nombre y haz clic en **Save**.
 
 <Frame caption="Crear un nuevo webhook entrante">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-3.png" alt="Crear un nuevo webhook entrante" />
 </Frame>
 
 Verás la interfaz de edición:
 
 <Frame caption="Interfaz de edición del webhook entrante">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-4.png" alt="Interfaz de edición del webhook entrante" />
 </Frame>
 
 ### Dirección del webhook (Webhook Address)
@@ -80,7 +74,7 @@ La lista de mapeo muestra qué valor debe guardarse en qué campo personalizado.
 ## Registros del webhook (Logs)
 
 <Frame caption="Registros del webhook entrante">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-5.png" alt="Registros del webhook entrante" />
 </Frame>
 
 Cada petición se guarda en **Logs**. Haz clic en un registro para ver el JSON recibido.
@@ -90,7 +84,7 @@ Cada petición se guarda en **Logs**. Haz clic en un registro para ver el JSON r
 Por defecto, el límite es de **500 peticiones por 24 horas**.
 
 <Frame caption="Límite de peticiones del webhook entrante">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-6.png" alt="Límite de peticiones del webhook entrante" />
 </Frame>
 
 Si superas el límite, tienes la opción de ampliar a más peticiones por día. Estas son las opciones:
@@ -98,19 +92,19 @@ Si superas el límite, tienes la opción de ampliar a más peticiones por día. 
 | Límite | Costo | Aprox. mensual |
 |---|---|---|
 | 500/día | Incluido | ~15K peticiones/mes |
-| 1000/día | $20 al mes | ~30K peticiones/mes |
-| 2000/día | $40 al mes | ~60K peticiones/mes |
-| 3000/día | $60 al mes | ~90K peticiones/mes |
-| 4000/día | $80 al mes | ~120K peticiones/mes |
-| 5000/día | $100 al mes | ~150K peticiones/mes |
-| 10000/día | $200 al mes | ~300K peticiones/mes |
+| 1000/día | Comunícate con soporte | ~30K peticiones/mes |
+| 2000/día | Comunícate con soporte | ~60K peticiones/mes |
+| 3000/día | Comunícate con soporte | ~90K peticiones/mes |
+| 4000/día | Comunícate con soporte | ~120K peticiones/mes |
+| 5000/día | Comunícate con soporte | ~150K peticiones/mes |
+| 10000/día | Comunícate con soporte | ~300K peticiones/mes |
 
 <Card type="note">
   Para ampliar el límite de peticiones, contacta al **soporte de Botky**.
 </Card>
 
 <Card type="note">
-  Video de referencia: [youtube.com/watch?v=izBF3qbYKUw](https://www.youtube.com/watch?v=izBF3qbYKUw)
+  Video pendiente
 </Card>
 
 ## Depurar el error de máximo de peticiones
@@ -118,7 +112,7 @@ Si superas el límite, tienes la opción de ampliar a más peticiones por día. 
 Si no estás recibiendo los datos en el webhook entrante, o no los encuentras en los logs, es muy posible que hayas alcanzado el límite diario. Para probarlo, envía la petición al webhook desde Postman o desde una **Solicitud externa** de Botky, y revisa la información en el header:
 
 <Frame caption="Header con rate-limit-remaining">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-7.png" alt="Header con rate-limit-remaining" />
 </Frame>
 
 Como ves, hay un **rate-limit-remaining**: si es `0`, significa que ya alcanzaste el límite y deberías ampliarlo.
@@ -128,55 +122,55 @@ Como ves, hay un **rate-limit-remaining**: si es `0`, significa que ya alcanzast
 Una herramienta perfecta para probar tu webhook entrante ya viene incorporada: consigue un chatbot (cualquier canal) y pruébalo en un **paso de Acción**. Abre otra página de Botky en paralelo, deja la edición del webhook en la Página 1 y selecciona una Solicitud externa en la Página 2.
 
 <Frame caption="Edición del webhook y solicitud externa en paralelo">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-8.png" alt="Edición del webhook y solicitud externa en paralelo" />
 </Frame>
 
 Sigue los pasos 1 a 8 de la captura:
 
 <Frame caption="Pasos 1 a 8 de la prueba">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-9.png" alt="Pasos 1 a 8 de la prueba" />
 </Frame>
 
 Proporciona los datos que se enviarán al chatbot y haz clic en **Test**: obtendrás un error de "webhook inactive" porque aún no lo hemos activado. Está bien, haz clic en **Done** en la Página 1 y verás los datos guardados.
 
 <Frame caption="Datos guardados tras el test">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-10.png" alt="Datos guardados tras el test" />
 </Frame>
 
 Baja un poco y sigue los pasos 1, 2, 3 para indicarle al sistema dónde están los valores `phone` y `email` en el JSON:
 
 <Frame caption="Indicar phone y email en el JSON">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-11.png" alt="Indicar phone y email en el JSON" />
 </Frame>
 
 Finalmente, mapea el resto de los datos al chatbot:
 
 <Frame caption="Mapeo del resto de los datos">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-12.png" alt="Mapeo del resto de los datos" />
 </Frame>
 
 **Guarda** la edición de tu webhook entrante:
 
 <Frame caption="Guardar el webhook entrante">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-13.png" alt="Guardar el webhook entrante" />
 </Frame>
 
 Entra al subflujo y enviémosle un mensaje al usuario del bot:
 
 <Frame caption="Enviar un mensaje al usuario en el subflujo">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-14.png" alt="Enviar un mensaje al usuario en el subflujo" />
 </Frame>
 
 **Publica** el flujo y hagamos una prueba en vivo con la solicitud externa otra vez:
 
 <Frame caption="Prueba en vivo tras publicar">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-15.png" alt="Prueba en vivo tras publicar" />
 </Frame>
 
 Esta vez corre sin error porque activamos el webhook y usamos un número real. Ve a **Logs** y verás que se creó un nuevo perfil de usuario con éxito. Del lado del usuario:
 
 <Frame caption="Nuevo perfil de usuario creado, visto del lado del usuario">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-16.png" alt="Nuevo perfil de usuario creado, visto del lado del usuario" />
 </Frame>
 
 ## Preguntas frecuentes
@@ -188,7 +182,7 @@ Si los webhooks entrantes bajo tu **dominio personalizado** dejan de funcionar m
 A veces Cloudflare detecta automáticamente las peticiones a tu dominio y las clasifica como ataques de bots, bloqueándolas por un intervalo de tiempo. Para evitarlo, ve a los ajustes de tu panel de Cloudflare, en la pestaña de **seguridad**, y desactiva **"Bot Fight Mode"**.
 
 <Frame caption="Desactivar Bot Fight Mode en Cloudflare">
-  <Placeholder />
+  <img src="/images/tools/inbound-webhooks-17.png" alt="Desactivar Bot Fight Mode en Cloudflare" />
 </Frame>
 
 <Card type="note">

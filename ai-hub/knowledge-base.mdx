@@ -4,12 +4,6 @@ description: "Un repositorio centralizado para que tus Agentes de IA y flujos ac
 icon: "book"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Una **Base de conocimiento** en Botky es un repositorio centralizado de información que permite a tus Agentes de IA y flujos de automatización acceder a los datos específicos de tu negocio, para ofrecer respuestas más precisas y contextualizadas.
 
 ## Estructura de la Base de conocimiento
@@ -36,7 +30,7 @@ Una Base de conocimiento tiene dos componentes principales:
 Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → Inteligencia Artificial → OpenAI**.
 
 <Frame caption="Conexión de la API Key de OpenAI">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-1.png" alt="Conexión de la API Key de OpenAI" />
 </Frame>
 
 ### Paso a paso
@@ -46,14 +40,14 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
     Entra a cualquier chatbot y ve a **AI Hub → Base de conocimiento**.
 
     <Frame caption="Sección Base de conocimiento en el AI Hub">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-2.png" alt="Sección Base de conocimiento en el AI Hub" />
     </Frame>
   </Step>
   <Step title="Crea un Vector Store">
     Haz clic en **Crear nuevo Vector Store**.
 
     <Frame caption="Botón Crear nuevo Vector Store">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-3.png" alt="Botón Crear nuevo Vector Store" />
     </Frame>
 
     **Configuración del Vector Store:**
@@ -62,21 +56,21 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
     - Sube archivos directamente o selecciona archivos existentes.
 
     <Frame caption="Configuración del Vector Store: nombre, expiración y archivos">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-4.png" alt="Configuración del Vector Store: nombre, expiración y archivos" />
     </Frame>
   </Step>
   <Step title="Agrega archivos">
     Haz clic en **Archivos** para agregar más documentos.
 
     <Frame caption="Agregar archivos a la Base de conocimiento">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-5.png" alt="Agregar archivos a la Base de conocimiento" />
     </Frame>
   </Step>
   <Step title="Crea la Base de conocimiento">
     Haz clic en el botón **+**.
 
     <Frame caption="Botón + para crear la Base de conocimiento">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-6.png" alt="Botón + para crear la Base de conocimiento" />
     </Frame>
 
     - Ponle nombre.
@@ -85,7 +79,7 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
     - Guarda los ajustes.
 
     <Frame caption="Nombre, descripción y Vector Store de la Base de conocimiento">
-      <Placeholder />
+      <img src="/images/ai-hub/knowledge-base-7.png" alt="Nombre, descripción y Vector Store de la Base de conocimiento" />
     </Frame>
   </Step>
 </Steps>
@@ -97,13 +91,13 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
 **Ubicación:** AI Hub → Agentes de IA.
 
 <Frame caption="Base de conocimiento en un Agente de IA">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-8.png" alt="Base de conocimiento en un Agente de IA" />
 </Frame>
 
 → Model Responses → OpenAI Responses.
 
 <Frame caption="Model Responses → OpenAI Responses">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-9.png" alt="Model Responses → OpenAI Responses" />
 </Frame>
 
 **Configuración:**
@@ -112,7 +106,7 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
 - El Agente de IA consultará automáticamente estos archivos para responder las preguntas del usuario.
 
 <Frame caption="Activar y seleccionar la Base de conocimiento en el agente">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-10.png" alt="Activar y seleccionar la Base de conocimiento en el agente" />
 </Frame>
 
 **Cómo funciona:** cada vez que el Agente de IA necesite referencias para crear respuestas sobre tu negocio, accederá automáticamente a los archivos de la Base de conocimiento seleccionada.
@@ -122,13 +116,13 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
 **Ubicación:** Constructor de Flujos → Acciones → Integraciones → OpenAI.
 
 <Frame caption="Acción de OpenAI en el Constructor de Flujos">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-11.png" alt="Acción de OpenAI en el Constructor de Flujos" />
 </Frame>
 
 → Buscar en Base de conocimiento (Search Knowledge Base).
 
 <Frame caption="Opción Buscar en Base de conocimiento">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-12.png" alt="Opción Buscar en Base de conocimiento" />
 </Frame>
 
 **Ajustes disponibles:**
@@ -141,7 +135,7 @@ Conecta tu **API Key de OpenAI** en: **Espacio de trabajo → Integraciones → 
 - **Remove Key Values:** opción para quitar parámetros específicos del payload (útil para no superar el límite de **20.000 caracteres** de los campos JSON).
 
 <Frame caption="Ajustes de Buscar en Base de conocimiento">
-  <Placeholder />
+  <img src="/images/ai-hub/knowledge-base-13.png" alt="Ajustes de Buscar en Base de conocimiento" />
 </Frame>
 
 ## Ventajas de crear una Base de conocimiento

@@ -4,18 +4,12 @@ description: "Continúa tus automatizaciones más allá del límite de 24 horas 
 icon: "bell"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 En los canales de Meta (Facebook, Instagram, WhatsApp), solo puedes contactar a un usuario dentro de las **24 horas** posteriores a su interacción. Después de ese plazo, no puedes enviarle más mensajes ni automatizaciones.
 
 Para este caso, Facebook introdujo las **notificaciones**, que se envían a los usuarios después de suscribirlos. Te ayudan a continuar tus automatizaciones más allá del límite de 24 horas.
 
 <Card type="note">
-  Video de referencia: [youtu.be/EbhMFXk08zY](https://youtu.be/EbhMFXk08zY?si=FNql3in7M9KopV6S) · Documentación de Meta: [Marketing Messages](https://developers.facebook.com/docs/messenger-platform/marketing-messages)
+  Video pendiente · Documentación de Meta: [Marketing Messages](https://developers.facebook.com/docs/messenger-platform/marketing-messages)
 </Card>
 
 ## Crear temas de notificación
@@ -23,13 +17,13 @@ Para este caso, Facebook introdujo las **notificaciones**, que se envían a los 
 Dentro de tu bot, haz clic en **Contenidos** y luego en **Tema de notificación (Notification Topic)**.
 
 <Frame caption="Sección Tema de notificación en Contenidos">
-  <Placeholder />
+  <img src="/images/content/notification-topics-1.png" alt="Sección Tema de notificación en Contenidos" />
 </Frame>
 
 Haz clic en **New Topic** para crear un nuevo tema de notificación.
 
 <Frame caption="Botón New Topic">
-  <Placeholder />
+  <img src="/images/content/notification-topics-2.png" alt="Botón New Topic" />
 </Frame>
 
 ## Tipos de temas de notificación
@@ -54,31 +48,31 @@ Facebook permite enviar dos tipos:
 Para crear una OTN, haz clic en **New Topic** y selecciona **"ONCE"** en el tipo.
 
 <Frame caption="Crear una OTN seleccionando ONCE">
-  <Placeholder />
+  <img src="/images/content/notification-topics-3.png" alt="Crear una OTN seleccionando ONCE" />
 </Frame>
 
 Cuando termines, haz clic en **Guardar**.
 
 <Frame caption="Guardar la OTN">
-  <Placeholder />
+  <img src="/images/content/notification-topics-4.png" alt="Guardar la OTN" />
 </Frame>
 
 Antes de poder enviarla a un usuario, primero debemos suscribirlo.
 
 <Frame caption="Suscripción del usuario a la OTN">
-  <Placeholder />
+  <img src="/images/content/notification-topics-5.png" alt="Suscripción del usuario a la OTN" />
 </Frame>
 
 Crea un nodo **"Enviar mensaje"**, haz clic en **Notification Message** y selecciona la opción **"OTN Request"**.
 
 <Frame caption="OTN Request en un nodo de Enviar mensaje">
-  <Placeholder />
+  <img src="/images/content/notification-topics-6.png" alt="OTN Request en un nodo de Enviar mensaje" />
 </Frame>
 
 Selecciona el tema que quieres enviar, agrega algún texto y envíaselo al usuario. Cuando el usuario haga clic en **"Notify Me"**, puedes suscribirlo a una secuencia para enviarle la OTN cuando lo necesites.
 
 <Frame caption="El usuario acepta con Notify Me">
-  <Placeholder />
+  <img src="/images/content/notification-topics-7.png" alt="El usuario acepta con Notify Me" />
 </Frame>
 
 ## Notificaciones recurrentes
@@ -86,13 +80,13 @@ Selecciona el tema que quieres enviar, agrega algún texto y envíaselo al usuar
 Haz clic en **New Topic** y selecciona **"RECURRING"** en la pestaña de frecuencia.
 
 <Frame caption="Crear una notificación recurrente">
-  <Placeholder />
+  <img src="/images/content/notification-topics-8.png" alt="Crear una notificación recurrente" />
 </Frame>
 
 Para suscribir a los usuarios a una notificación recurrente, crea un nodo **"Enviar mensaje"**, selecciona **Notifications** y luego **"Daily Notification Topic"**.
 
 <Frame caption="Daily Notification Topic en un nodo de Enviar mensaje">
-  <Placeholder />
+  <img src="/images/content/notification-topics-9.png" alt="Daily Notification Topic en un nodo de Enviar mensaje" />
 </Frame>
 
 De igual forma, si hacen clic en **"Get Messages"**, puedes suscribirlos a una secuencia que les enviará los mensajes recurrentes en el intervalo que elijas.
@@ -102,13 +96,13 @@ De igual forma, si hacen clic en **"Get Messages"**, puedes suscribirlos a una s
 Para enviar notificaciones (tanto OTN como recurrentes), crea un nodo **"Enviar mensaje"**, selecciona **Notifications** y luego **"Send Notification Message"**.
 
 <Frame caption="Send Notification Message en un nodo de Enviar mensaje">
-  <Placeholder />
+  <img src="/images/content/notification-topics-10.png" alt="Send Notification Message en un nodo de Enviar mensaje" />
 </Frame>
 
 Selecciona el tema que quieres enviar. El mensaje que sigue al anterior debe contener el contenido de la notificación. Por ejemplo:
 
 <Frame caption="Configuración del mensaje de notificación">
-  <Placeholder />
+  <img src="/images/content/notification-topics-11.png" alt="Configuración del mensaje de notificación" />
 </Frame>
 
 <Card type="note">

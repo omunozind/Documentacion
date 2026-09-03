@@ -17,7 +17,7 @@ Las **Palabras clave en comentarios (Comment Keywords)** permiten que tu bot res
 Ve a **Automatización → Palabras clave en comentarios** y haz clic en el botón **+ Comment Keyword** (esquina superior derecha).
 
 <Frame caption="Sección de Comment Keywords y botón + Comment Keyword">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-1.png" alt="Sección de Comment Keywords y botón + Comment Keyword" />
 </Frame>
 
 ## Pasos de configuración
@@ -27,7 +27,7 @@ Ve a **Automatización → Palabras clave en comentarios** y haz clic en el bot�
 Elige la publicación de Facebook o Instagram que quieres monitorear. Si no la encuentras, puedes elegir **ID de publicación personalizado** e insertarlo.
 
 <Frame caption="Selección de la publicación a monitorear">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-2.png" alt="Selección de la publicación a monitorear" />
 </Frame>
 
 ### Paso 2: Define las condiciones del disparador
@@ -42,7 +42,7 @@ Configura las palabras clave y el tipo de coincidencia. Opciones disponibles:
 | **Is anything** | Se dispara con cualquier comentario (el campo de palabra se desactiva). |
 
 <Frame caption="Condiciones de coincidencia de palabras clave">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-3.png" alt="Condiciones de coincidencia de palabras clave" />
 </Frame>
 
 ### Paso 3: Crea variaciones de respuesta
@@ -54,7 +54,7 @@ Agrega varias variaciones de respuesta para los comentarios públicos.
 </Card>
 
 <Frame caption="Variaciones de respuesta pública">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-4.png" alt="Variaciones de respuesta pública" />
 </Frame>
 
 ### Paso 4: Selecciona el flujo de mensaje privado
@@ -66,7 +66,7 @@ Elige el flujo que se dispara al enviar un mensaje privado a quien comenta.
 </Card>
 
 <Frame caption="Selección del flujo de mensaje privado">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-5.png" alt="Selección del flujo de mensaje privado" />
 </Frame>
 
 ### Paso 5: Guardar payload del comentario (avanzado)
@@ -83,7 +83,7 @@ Esto te permite usar la información del comentario dentro de tu subflujo de men
 </Card>
 
 <Frame caption="Opción de guardar el payload del comentario en una variable JSON">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-6.png" alt="Opción de guardar el payload del comentario en una variable JSON" />
 </Frame>
 
 ### Paso 6: Configura un retraso (opcional)
@@ -91,7 +91,7 @@ Esto te permite usar la información del comentario dentro de tu subflujo de men
 Agrega un retraso antes de que el bot responda, para una experiencia más natural y humana.
 
 <Frame caption="Configuración de retraso antes de responder">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-7.png" alt="Configuración de retraso antes de responder" />
 </Frame>
 
 ### Paso 7: Ajustes adicionales
@@ -107,8 +107,8 @@ Haz clic en **Guardar** para activar tu automatización de Comment Keyword.
 
 ## Tutoriales
 
-- **Automatización de comentarios de Facebook:** [Ver tutorial completo](https://www.youtube.com/watch?v=lCd4RVd1C60&list=PLYV-IhQ_GwTN32-tJXEPucR8ok3RGb1-a)
-- **Automatización de comentarios de Instagram:** [Ver tutorial](https://www.youtube.com/watch?v=vcxFWCrBCSA&list=PLYV-IhQ_GwTMIs3yHw_8Pg-zfCzUUwcZp)
+- **Automatización de comentarios de Facebook:** Video pendiente
+- **Automatización de comentarios de Instagram:** Video pendiente
 
 ---
 
@@ -123,7 +123,7 @@ Existe una función mediante la cual, cuando un usuario comenta en tu *dark post
 Crea una publicación de anuncio en Ads Manager.
 
 <Frame caption="Creación de la publicación del anuncio en Ads Manager">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-8.png" alt="Creación de la publicación del anuncio en Ads Manager" />
 </Frame>
 
 ## Crear el disparador de Comment Keyword
@@ -131,13 +131,13 @@ Crea una publicación de anuncio en Ads Manager.
 Ve a **Automatización → Comment Keywords → Crear nuevo Comment Keyword**.
 
 <Frame caption="Creación de un nuevo Comment Keyword">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-9.png" alt="Creación de un nuevo Comment Keyword" />
 </Frame>
 
 Una vez que haces clic en Nuevo Comment Keyword, configuras esta función para que se dispare con los comentarios de tu FB Ad Post. Configura los parámetros requeridos:
 
 <Frame caption="Parámetros del Comment Keyword para el anuncio">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-10.png" alt="Parámetros del Comment Keyword para el anuncio" />
 </Frame>
 
 1. Selecciona el **FB Ads Post** para el cual necesitas responder los comentarios y dar likes.
@@ -161,7 +161,7 @@ Las siguientes opciones se activan (**Active**):
 Ve a **Integración → Otros → Facebook Ads**.
 
 <Frame caption="Integración con Facebook Ads Manager">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-11.png" alt="Integración con Facebook Ads Manager" />
 </Frame>
 
 Aquí vinculas tu cuenta de Ads Manager junto con la página de tu cuenta de Facebook.
@@ -180,23 +180,23 @@ Ve al subflujo, que llamamos **Facebook ads comment trigger**. El concepto para 
 8. Si el **Embed Score es < 0.8**, el comentario recogido en la variable JSON se envía al bloque de Acción con **OpenAI - Create Chat Completion**, con un nuevo mensaje de sistema para que OpenAI responda o salude según corresponda si es un mensaje de saludo.
 
 <Frame caption="Vista general del subflujo del disparador de comentarios">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-12.png" alt="Vista general del subflujo del disparador de comentarios" />
 </Frame>
 
 **Bloque de Condición** → Variable JSON: `fb_ads_comment` coincide con **chatgpt**.
 
 <Frame caption="Bloque de Condición comparando con 'chatgpt'">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-13.png" alt="Bloque de Condición comparando con 'chatgpt'" />
 </Frame>
 
 **Bloque de Acción** → Facebook API → función **Ads Post Comment Reply**.
 
 <Frame caption="Acción Ads Post Comment Reply de la Facebook API">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-14.png" alt="Acción Ads Post Comment Reply de la Facebook API" />
 </Frame>
 
 <Frame caption="Configuración de la Acción Ads Post Comment Reply">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-15.png" alt="Configuración de la Acción Ads Post Comment Reply" />
 </Frame>
 
 **Bloque de Mensaje** → envío de un mensaje **PM** por Messenger al usuario que comentó.
@@ -204,7 +204,7 @@ Ve al subflujo, que llamamos **Facebook ads comment trigger**. El concepto para 
 **Bloque de Acción** → Integración con OpenAI - Embedding Match.
 
 <Frame caption="Acción de OpenAI - Embedding Match">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-16.png" alt="Acción de OpenAI - Embedding Match" />
 </Frame>
 
 **Bloque de Condición** → comprueba que `openai_embed_score` sea mayor o igual a 0.8.
@@ -212,21 +212,21 @@ Ve al subflujo, que llamamos **Facebook ads comment trigger**. El concepto para 
 **Bloque de Acción** → Integración con OpenAI - Create Chat Completion.
 
 <Frame caption="Acción de OpenAI - Create Chat Completion">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-17.png" alt="Acción de OpenAI - Create Chat Completion" />
 </Frame>
 
 <Frame caption="Configuración de Create Chat Completion (rama > 0.8)">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-18.png" alt="Configuración de Create Chat Completion (rama > 0.8)" />
 </Frame>
 
 **Bloque de Acción** → Integración con OpenAI - Create Chat Completion (rama de saludo).
 
 <Frame caption="Create Chat Completion para la rama de saludo (< 0.8)">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-19.png" alt="Create Chat Completion para la rama de saludo (< 0.8)" />
 </Frame>
 
 <Frame caption="Configuración adicional de Create Chat Completion">
-  <Placeholder />
+  <img src="/images/automation/comment-keywords-20.png" alt="Configuración adicional de Create Chat Completion" />
 </Frame>
 
 **Bloque de Acción** → Acciones avanzadas → Facebook API.

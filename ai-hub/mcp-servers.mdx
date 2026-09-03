@@ -4,16 +4,10 @@ description: "Conecta la IA a herramientas externas con el Model Context Protoco
 icon: "server"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 **MCP** significa **Model Context Protocol**, una función del AI Hub que simplifica conectar la IA a herramientas externas — **sin necesidad de configurar endpoints de API complejos**.
 
 <Card type="note">
-  Video introductorio: [youtu.be/qHVao5KHzx0](https://youtu.be/qHVao5KHzx0?si=Pw4VHO2z8lXo36VD)
+  Video pendiente
 </Card>
 
 ## Beneficios clave
@@ -28,7 +22,7 @@ export const Placeholder = () => (
 En el menú izquierdo, haz clic en **AI Hub** y ahí verás los **Servidores MCP**.
 
 <Frame caption="Sección de Servidores MCP dentro del AI Hub">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-1.png" alt="Sección de Servidores MCP dentro del AI Hub" />
 </Frame>
 
 ## Cómo integrar un servidor MCP
@@ -38,7 +32,7 @@ En el menú izquierdo, haz clic en **AI Hub** y ahí verás los **Servidores MCP
 - Sigue siempre el mismo proceso: **Nombre → URL → Autenticación (opcional) → Seleccionar herramientas → Guardar → Usar en flujos.**
 
 <Frame caption="Proceso de integración de un servidor MCP">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-2.png" alt="Proceso de integración de un servidor MCP" />
 </Frame>
 
 ### Ejemplo: conectar Shopify
@@ -48,7 +42,7 @@ En el menú izquierdo, haz clic en **AI Hub** y ahí verás los **Servidores MCP
 Ve a **OpenAI Playground → Tools → Add MCP Server**. Desde ahí puedes integrar varias herramientas como Shopify, Stripe, Intercom, HubSpot y más, y copiar la URL generada para usarla en tu integración.
 
 <Frame caption="OpenAI Playground → Tools → Add MCP Server">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-3.png" alt="OpenAI Playground → Tools → Add MCP Server" />
 </Frame>
 
 #### Dashboard de OpenAI
@@ -56,7 +50,7 @@ Ve a **OpenAI Playground → Tools → Add MCP Server**. Desde ahí puedes integ
 Ingresa la URL de tu tienda para generar la URL del servidor MCP, ver la autenticación requerida (si aplica) y la lista de herramientas disponibles.
 
 <Frame caption="Dashboard de OpenAI con la URL del servidor MCP y las herramientas">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-4.png" alt="Dashboard de OpenAI con la URL del servidor MCP y las herramientas" />
 </Frame>
 
 #### Paso 2 — Agregar un servidor
@@ -64,7 +58,7 @@ Ingresa la URL de tu tienda para generar la URL del servidor MCP, ver la autenti
 Para agregar un servidor, simplemente ingresa el **nombre**, la **URL** y los datos de **autenticación** requeridos.
 
 <Frame caption="Agregar un servidor MCP con nombre, URL y autenticación">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-5.png" alt="Agregar un servidor MCP con nombre, URL y autenticación" />
 </Frame>
 
 ## Cómo usarlo dentro del Constructor de Flujos
@@ -79,7 +73,7 @@ Para agregar un servidor, simplemente ingresa el **nombre**, la **URL** y los da
 - Selecciona los **Servidores MCP**, configura los tokens y la temperatura.
 
 <Frame caption="Configuración de Create Model Response con los Servidores MCP">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-6.png" alt="Configuración de Create Model Response con los Servidores MCP" />
 </Frame>
 
 ### Datos de ejemplo
@@ -87,7 +81,7 @@ Para agregar un servidor, simplemente ingresa el **nombre**, la **URL** y los da
 En la respuesta de ejemplo recibirás una lista de datos. Identifica y selecciona la **ruta correcta** (resaltada en el ejemplo), ya que es la que lleva a los resultados deseados. Extrae los datos de esa ruta y guárdalos en una variable.
 
 <Frame caption="Respuesta de ejemplo: identificar la ruta correcta y guardarla en una variable">
-  <Placeholder />
+  <img src="/images/ai-hub/mcp-servers-7.png" alt="Respuesta de ejemplo: identificar la ruta correcta y guardarla en una variable" />
 </Frame>
 
 <Card type="note">

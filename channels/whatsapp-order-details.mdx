@@ -4,12 +4,6 @@ description: "Envía solicitudes de pago y actualizaciones de pedido por WhatsAp
 icon: "receipt"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 <Card type="warning">
   **Order Details** solo está disponible para **cuentas de pago de Brasil**, y todos los montos están en **BRL**.
 </Card>
@@ -24,7 +18,7 @@ La función opera con **dos pasos** en el flujo de Botky:
 - **WhatsApp Order Status** — envía un mensaje de seguimiento que actualiza el estado del pedido y del pago (ej. procesando, enviado, pagado).
 
 <Frame caption="Los dos pasos en el Constructor de Flujos, cada uno con rama 'If send WhatsApp failed'">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-order-details-1.png" alt="Los dos pasos en el Constructor de Flujos, cada uno con rama 'If send WhatsApp failed'" />
 </Frame>
 
 Ambos son funciones de **plantilla de mensaje** de WhatsApp, y requieren crear la plantilla en Botky y la aprobación de Meta antes de usarse.
@@ -82,7 +76,7 @@ Ambos son funciones de **plantilla de mensaje** de WhatsApp, y requieren crear l
 </Steps>
 
 <Frame caption="Creación de una plantilla de Order Details">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-order-details-2.png" alt="Creación de una plantilla de Order Details" />
 </Frame>
 
 | Punto clave | Contenido |
@@ -127,7 +121,7 @@ Las etiquetas de los botones las genera y localiza Meta y **no** se pueden perso
 Cuando hay más de una opción, el cliente ve la(s) principal(es) como botones directos y el resto agrupadas bajo **"Mais formas de pagar"**.
 
 <Frame caption="Ejemplo del mensaje Order Details con opciones de pago">
-  <Placeholder />
+  <img src="/images/channels/whatsapp-order-details-3.png" alt="Ejemplo del mensaje Order Details con opciones de pago" />
 </Frame>
 
 ## Limitaciones y problemas conocidos

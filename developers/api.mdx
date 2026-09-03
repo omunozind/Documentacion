@@ -4,13 +4,14 @@ description: "Cómo autorizarte, generar tu API key y obtener el curl y la URL d
 icon: "plug"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
+Toda la API está documentada de forma interactiva con Swagger. Ahí encuentras cada endpoint, sus parámetros y puedes probar las peticiones.
 
-Consulta el detalle completo de la API en la documentación Swagger de Botky (tu proveedor te compartirá el enlace a la documentación interactiva).
+| | |
+| --- | --- |
+| Documentación interactiva (Swagger UI) | **[app.botky.chat/api](https://app.botky.chat/api)** |
+| URL base de las peticiones | `https://app.botky.chat/api` |
+| Especificación OpenAPI (JSON) | [app.botky.chat/api-docs](https://app.botky.chat/api-docs) |
+| Autenticación | Header `Authorization: Bearer <API_KEY>` |
 
 ## Introducción a las APIs
 
@@ -27,11 +28,11 @@ Si necesitas trabajar con los datos anteriores, las siguientes secciones te expl
 
 Dado que la protección de los datos es importante para la API, se necesitan varios atributos para autorizar tu identidad. Por lo tanto, el primer paso que debes hacer es ingresar la información de autorización. Necesitas hacer clic en el botón **Authorize**, como se muestra en la siguiente figura.
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-1.png" alt="api" /></Frame>
 
 Luego, hay tres atributos que debes completar en el cuadro de texto.
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-2.png" alt="api" /></Frame>
 
 A continuación, cómo encontrar estos atributos.
 
@@ -41,17 +42,17 @@ A continuación, cómo encontrar estos atributos.
   <Step title="Inicia sesión en tu cuenta de Botky">
     En la esquina superior derecha se mostrará el nombre y avatar de tu cuenta. Haz clic en él y elige **Your Settings** en la lista desplegable.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-3.png" alt="api" /></Frame>
   </Step>
   <Step title="Ve a la sección de API Keys">
     Haz clic en el botón correspondiente dentro de User Settings. Escribe el nombre que quieras darle a la key y haz clic en el botón **Create**.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-4.png" alt="api" /></Frame>
   </Step>
   <Step title="Obtén tu key">
     Obtendrás la key en una ventana emergente.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-5.png" alt="api" /></Frame>
 
     <Warning>
     Esta es la única vez que se mostrará la key, ¡así que asegúrate de no perderla! Puedes revocar la key en cualquier momento desde tu configuración de API.
@@ -67,13 +68,13 @@ El **Curl** se usa en las peticiones a la API. En la documentación de la API de
 
 Aquí usamos **Get Flow Tag** como ejemplo.
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-6.png" alt="api" /></Frame>
 
 <Steps>
   <Step title="Expande la categoría">
     Haz clic en la operación de expandir de la categoría, en este caso **Flow Tag**. Luego busca la acción y la función, **Get /flow/tags**. Haz clic en la fila y se desplegará una sección como la siguiente.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-7.png" alt="api" /></Frame>
   </Step>
   <Step title="Autorízate (si hace falta)">
     Este ícono significa **authorize**. Si ya lo hiciste antes, este paso no es necesario. De lo contrario, haz lo mismo que se mencionó antes en la sección de [Autorizarte](#autorizarte).
@@ -81,12 +82,12 @@ Aquí usamos **Get Flow Tag** como ejemplo.
   <Step title="Haz clic en Try it out">
     Verás que la parte de **Parameters o Request body** se puede completar y que el botón **Execute** aparece en la parte inferior de esta sección.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-8.png" alt="api" /></Frame>
   </Step>
   <Step title="Ejecuta la petición">
     Ingresa los parámetros o el request body requeridos y haz clic en el botón **Execute**. Finalmente obtendrás el **Curl** y la **Request URL**.
 
-    <Frame><Placeholder /></Frame>
+    <Frame><img src="/images/developers/api-9.png" alt="api" /></Frame>
 
     <Tip>
     Haz clic en el botón **Clear** si necesitas reiniciar los parámetros.
@@ -98,15 +99,15 @@ Aquí usamos **Get Flow Tag** como ejemplo.
 
 Esta parte muestra el resultado JSON que obtendrás de la API de Botky. Normalmente, si el código es 200, significa que obtuviste la respuesta con éxito. Si el código es 400, significa que hay un error en tu petición.
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-10.png" alt="api" /></Frame>
 
 ## Example Value / Schema
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-11.png" alt="api" /></Frame>
 
 Además del valor de ejemplo, puedes hacer clic en "Schema" para ver más detalles, como qué valor es obligatorio.
 
-<Frame><Placeholder /></Frame>
+<Frame><img src="/images/developers/api-12.png" alt="api" /></Frame>
 
 <Info>
 ¿Tienes dudas sobre la API de Botky? Contacta al soporte de Botky.
