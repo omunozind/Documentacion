@@ -4,12 +4,6 @@ description: "Bloquea el envío de mensajes a ciertos usuarios en el canal de SM
 icon: "ban"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 <Card type="warning">
   Esta función solo está disponible en los bots de **SMS**.
 </Card>
@@ -77,7 +71,7 @@ Si un usuario intenta contactarte de nuevo, o entra al sistema cuando ya está e
 El disparador monitorea **todos los bots** del espacio de trabajo. Puedes configurarlo en uno de los bots para manejar las excepciones.
 
 <Frame caption="Disparador Matched In Blacklist">
-  <Placeholder />
+  <img src="/images/tools/blacklists-8.png" alt="Disparador Matched In Blacklist" />
 </Frame>
 
 Para configurarlo, ve a la pestaña de **Automatización** y selecciona **"Matched In Blacklist"** del desplegable.
