@@ -4,16 +4,10 @@ description: "Todo lo que tu bot puede enviar: texto, imágenes, tarjetas, lista
 icon: "message"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve para que tu bot le muestre algo al usuario — texto, una imagen, una tarjeta de producto, o incluso una lista generada automáticamente a partir de datos.
 
 <Frame caption="Selector de tipo de mensaje al enviar un mensaje">
-  <img src="/images/flow-builder/send-message.png" alt="Selector de tipo de mensaje al enviar un mensaje" />
+  <img src="/images/flow-builder/send-message-1.png" alt="Selector de tipo de mensaje al enviar un mensaje" />
 </Frame>
 
 ## Tipos de mensaje generales
@@ -32,7 +26,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     Así personalizas tus mensajes con datos dinámicos (nombre del usuario, un valor guardado, etc.) sin salir del editor.
 
     <Frame caption="Buscador de campos personalizados y emojis dentro del editor de texto">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-2.png" alt="Buscador de campos personalizados y emojis dentro del editor de texto" />
     </Frame>
   </Accordion>
 
@@ -49,7 +43,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     </Card>
 
     <Frame caption="Las 4 formas de adjuntar contenido multimedia">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-3.png" alt="Las 4 formas de adjuntar contenido multimedia" />
     </Frame>
   </Accordion>
 
@@ -65,7 +59,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     </Card>
 
     <Frame caption="Editor de tarjeta: imagen, título, subtítulo y botón">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-4.png" alt="Editor de tarjeta: imagen, título, subtítulo y botón" />
     </Frame>
   </Accordion>
 
@@ -89,7 +83,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     **Botón dentro de "Para cada uno":** si le agregas un botón, aparece en cada tarjeta generada. Cuando el usuario elige una, el dato de esa tarjeta específica queda disponible en un campo especial llamado **SELECT**.
 
     <Frame caption='Configuración del bucle "Para cada uno" seleccionando la variable JSON e ITEM'>
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-5.png" alt="Configuración del bucle 'Para cada uno' seleccionando la variable JSON e ITEM" />
     </Frame>
   </Accordion>
 
@@ -97,7 +91,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     Envía una solicitud a tu servidor (o a uno externo) para pedir una respuesta y mostrarla al usuario. Es para cuando la lógica de tu bot depende de otro sistema — por ejemplo, tu propio motor de IA analizando la pregunta del usuario. Una sola respuesta puede incluir varios mensajes, botones y quick replies con acciones.
 
     <Frame caption="Configuración de una solicitud de Contenido dinámico">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-6.png" alt="Configuración de una solicitud de Contenido dinámico" />
     </Frame>
   </Accordion>
 
@@ -105,7 +99,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     Busca el lugar en el mapa, haz clic derecho sobre él para copiar la latitud y longitud, y pégalas en el nodo junto con el nombre del lugar. Puedes agregar una etiqueta con información extra (como el número de piso u oficina).
 
     <Frame caption="Selector de ubicación en el mapa">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-7.png" alt="Selector de ubicación en el mapa" />
     </Frame>
   </Accordion>
 
@@ -117,7 +111,7 @@ El nodo **Enviar mensaje** es el más usado del Constructor de Flujos: sirve par
     Una forma fácil de enviar mensajes de prueba que **solo ven tus testers**, no los usuarios normales. Primero agrega testers en Herramientas → Testers → Nuevo Tester. Durante la vista previa, el texto de depuración es visible solo para ellos.
 
     <Frame caption="Agregar un tester y enviar un texto de depuración">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-8.png" alt="Agregar un tester y enviar un texto de depuración" />
     </Frame>
   </Accordion>
 </AccordionGroup>
@@ -140,7 +134,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
     </CardGroup>
 
     <Frame caption="Mensaje de Facebook con botones y quick replies configurados">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-9.png" alt="Mensaje de Facebook con botones y quick replies configurados" />
     </Frame>
 
     <Card type="note">
@@ -161,11 +155,11 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
     </CardGroup>
 
     <Frame caption="Editor de Artículo de WeChat">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-10.png" alt="Editor de Artículo de WeChat" />
     </Frame>
 
     <Frame caption="Configuración de Mini Programa de WeChat">
-      <Placeholder />
+      <img src="/images/flow-builder/send-message-11.png" alt="Configuración de Mini Programa de WeChat" />
     </Frame>
   </Tab>
 
@@ -196,7 +190,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         </Steps>
 
         <Frame caption="Selector de plantilla de WhatsApp dentro del nodo de mensaje">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-12.png" alt="Selector de plantilla de WhatsApp dentro del nodo de mensaje" />
         </Frame>
       </Accordion>
 
@@ -204,7 +198,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         Muestra un solo producto de tu Catálogo de Facebook. En el nodo de mensaje, elige "Otros" → "(WhatsApp) Producto Único", indica el ID del catálogo y el Retail ID del producto, junto con el texto del mensaje y del pie.
 
         <Frame caption="Configuración de mensaje de Producto único">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-13.png" alt="Configuración de mensaje de Producto único" />
         </Frame>
       </Accordion>
 
@@ -212,7 +206,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         Igual al anterior, pero muestra hasta 30 productos. Además del Retail ID, mensaje y pie, aquí también puedes definir un texto de encabezado.
 
         <Frame caption="Configuración de mensaje de Múltiples productos">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-14.png" alt="Configuración de mensaje de Múltiples productos" />
         </Frame>
       </Accordion>
 
@@ -220,7 +214,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         Muestra una lista de productos directamente desde tu Catálogo de Facebook (Retail ID, mensaje y pie).
 
         <Frame caption="Configuración de Mensaje de catálogo">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-15.png" alt="Configuración de Mensaje de catálogo" />
         </Frame>
       </Accordion>
 
@@ -228,7 +222,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         Presenta una lista de opciones para que el usuario elija. Es importante: capturar la opción elegida, y usar un nodo de Condición después para dirigir el flujo según lo que el usuario seleccionó.
 
         <Frame caption="Configuración de Mensaje de lista y sus opciones">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-16.png" alt="Configuración de Mensaje de lista y sus opciones" />
         </Frame>
       </Accordion>
 
@@ -240,7 +234,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         </Card>
 
         <Frame caption="Selector de WhatsApp Flow dentro del nodo de mensaje">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-17.png" alt="Selector de WhatsApp Flow dentro del nodo de mensaje" />
         </Frame>
       </Accordion>
 
@@ -248,7 +242,7 @@ Algunos canales tienen tipos de mensaje propios, además de los generales de arr
         Envía una tarjeta de contacto al usuario, con nombre y teléfono. En el nodo de mensaje, haz clic en "+ Agregar elemento", elige "Otros" y selecciona "(WhatsApp) Contacto".
 
         <Frame caption="Configuración de tarjeta de Contacto">
-          <Placeholder />
+          <img src="/images/flow-builder/send-message-18.png" alt="Configuración de tarjeta de Contacto" />
         </Frame>
       </Accordion>
 

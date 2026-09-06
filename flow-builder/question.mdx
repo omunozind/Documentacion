@@ -4,12 +4,6 @@ description: "Cómo pedirle datos al usuario y validar su respuesta antes de con
 icon: "circle-question"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 El nodo **Pregunta** le pide un dato al usuario, y espera su respuesta antes de que el flujo continúe. Puede ser tan simple como botones para elegir, o tan flexible como pedir una fecha, un teléfono, o un archivo.
 
 ## Respuestas rápidas (Quick Answers)
@@ -27,7 +21,7 @@ Las respuestas rápidas son más cómodas para el usuario que tener que escribir
 El bot revisa las respuestas rápidas en orden, y usa la primera que coincida con lo que escribió el usuario (sin importar mayúsculas/minúsculas).
 
 <Frame caption="Configuración de respuestas rápidas: texto de respuesta y valor de respuesta">
-  <Placeholder />
+  <img src="/images/flow-builder/question-1.png" alt="Configuración de respuestas rápidas: texto de respuesta y valor de respuesta" />
 </Frame>
 
 ## Botón de saltar (Skip)
@@ -35,7 +29,7 @@ El bot revisa las respuestas rápidas en orden, y usa la primera que coincida co
 Si la pregunta se puede omitir, agrégale un botón de "Saltar" — puedes editar el texto que muestra.
 
 <Frame caption="Botón de Saltar configurado en una pregunta">
-  <Placeholder />
+  <img src="/images/flow-builder/question-2.png" alt="Botón de Saltar configurado en una pregunta" />
 </Frame>
 
 ## Sin coincidencia (No Match)
@@ -43,7 +37,7 @@ Si la pregunta se puede omitir, agrégale un botón de "Saltar" — puedes edita
 Se activa cuando la respuesta del usuario no cumple el formato esperado — por ejemplo, un correo sin "@" o sin punto. Aquí puedes configurar un mensaje para pedir que lo intente de nuevo, y redirigir el flujo si falla varias veces seguidas.
 
 <Frame caption="Configuración de 'Sin coincidencia': mensaje de reintento y redirección">
-  <Placeholder />
+  <img src="/images/flow-builder/question-3.png" alt="Configuración de 'Sin coincidencia': mensaje de reintento y redirección" />
 </Frame>
 
 ## Sin respuesta (No Input)
@@ -51,7 +45,7 @@ Se activa cuando la respuesta del usuario no cumple el formato esperado — por 
 Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregunta expira después de **1 hora** — puedes acortar ese tiempo si lo necesitas.
 
 <Frame caption="Configuración de tiempo de expiración en 'Sin respuesta'">
-  <Placeholder />
+  <img src="/images/flow-builder/question-4.png" alt="Configuración de tiempo de expiración en 'Sin respuesta'" />
 </Frame>
 
 ## Tipos de pregunta
@@ -61,7 +55,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     Necesitas una variable de tipo **texto** para guardar la respuesta. Cuando el usuario sube el archivo, lo que se guarda es el **link a ese archivo**, no el archivo en sí.
 
     <Frame caption="Pregunta configurada para recibir un archivo multimedia">
-      <Placeholder />
+      <img src="/images/flow-builder/question-5.png" alt="Pregunta configurada para recibir un archivo multimedia" />
     </Frame>
   </Accordion>
 
@@ -69,7 +63,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     Muestra un número limitado de respuestas rápidas, y el usuario **solo puede elegir entre esas opciones** — no puede escribir una respuesta personalizada.
 
     <Frame caption="Pregunta de tipo 'Elegir una opción' con respuestas limitadas">
-      <Placeholder />
+      <img src="/images/flow-builder/question-6.png" alt="Pregunta de tipo 'Elegir una opción' con respuestas limitadas" />
     </Frame>
   </Accordion>
 
@@ -77,7 +71,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     La mayoría de los canales no tienen un selector de fecha integrado, así que debes indicarle al usuario el formato exacto que esperas — por ejemplo: _"Escribe la fecha exactamente así: AAAA-MM-DD"_ (o con hora: _AAAA-MM-DD hh:mm:ss_).
 
     <Frame caption="Pregunta configurada para pedir fecha o fecha y hora">
-      <Placeholder />
+      <img src="/images/flow-builder/question-7.png" alt="Pregunta configurada para pedir fecha o fecha y hora" />
     </Frame>
   </Accordion>
 
@@ -85,7 +79,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     Solo se permiten los caracteres `0-9` y `+` — y el `+` únicamente al inicio. El número debe tener más de 6 caracteres.
 
     <Frame caption="Pregunta configurada para validar un número de teléfono">
-      <Placeholder />
+      <img src="/images/flow-builder/question-8.png" alt="Pregunta configurada para validar un número de teléfono" />
     </Frame>
   </Accordion>
 
@@ -93,7 +87,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     La validación básica revisa que el valor tenga una `@` y un punto `.`.
 
     <Frame caption="Pregunta configurada para validar un correo electrónico">
-      <Placeholder />
+      <img src="/images/flow-builder/question-9.png" alt="Pregunta configurada para validar un correo electrónico" />
     </Frame>
   </Accordion>
 
@@ -101,7 +95,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     Este formato de pregunta es exclusivo del canal **WhatsApp** (solo números on-premise). Al activarse, WhatsApp le pide permiso al usuario para acceder a su ubicación actual — si el usuario la comparte, la latitud y longitud se guardan en el campo personalizado que hayas definido.
 
     <Frame caption="Solicitud de ubicación en WhatsApp">
-      <Placeholder />
+      <img src="/images/flow-builder/question-10.png" alt="Solicitud de ubicación en WhatsApp" />
     </Frame>
   </Accordion>
 
@@ -109,7 +103,7 @@ Redirige el flujo cuando el usuario no responde a tiempo. Por defecto, una pregu
     Captura varias respuestas del usuario durante un período de tiempo y las une en una sola respuesta. Lo que la hace distinta de las demás preguntas: **no necesitas mostrarle ninguna pregunta al usuario** para capturar sus respuestas.
 
     <Frame caption="Configuración de una Entrada silenciosa">
-      <Placeholder />
+      <img src="/images/flow-builder/question-11.png" alt="Configuración de una Entrada silenciosa" />
     </Frame>
   </Accordion>
 </AccordionGroup>
