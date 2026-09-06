@@ -4,12 +4,6 @@ description: "Agrega un chatbot a cualquier sitio web sin depender de otro canal
 icon: "comment-dots"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Con el **widget web** puedes agregar un chatbot a cualquier sitio web sin depender de otro canal. Esto te ayuda a aprovechar el poder del marketing conversacional sin las desventajas o restricciones que otros canales podrían tener.
 
 ## Cómo acceder al widget web
@@ -232,7 +226,7 @@ El widget web te permite redirigir a los usuarios a múltiples plataformas como 
 Personaliza tu Chat web para que coincida con los colores y preferencias de tu marca. Opciones: **Theme, Font, Colors, Start Chat Button**.
 
 <Frame caption="Pestaña de Apariencia">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-19.png" alt="Pestaña de Apariencia" />
 </Frame>
 
 <AccordionGroup>
@@ -255,7 +249,7 @@ Personaliza tu Chat web para que coincida con los colores y preferencias de tu m
 El estilo de visualización te da varias formas de usar el Chat web en tu web. Hay 5 secciones: **Style, Design, Install code, Set Custom User ID, Custom CSS**.
 
 <Frame caption="Opciones de Display Style">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-20.png" alt="Opciones de Display Style" />
 </Frame>
 
 #### Style
@@ -276,7 +270,7 @@ Tienes 4 estilos para elegir:
 En la pestaña **Design** configuras los ajustes del widget del estilo que seleccionaste.
 
 <Frame caption="Pestaña Design (ejemplo con Embed Chat Window)">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-21.png" alt="Pestaña Design (ejemplo con Embed Chat Window)" />
 </Frame>
 
 #### Install code
@@ -284,7 +278,7 @@ En la pestaña **Design** configuras los ajustes del widget del estilo que selec
 El código de instalación genera el script del estilo de widget que quieres poner en vivo en tu página. El código difiere según el estilo seleccionado.
 
 <Frame caption="Código de instalación del widget">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-22.png" alt="Código de instalación del widget" />
 </Frame>
 
 #### Set Custom User ID
@@ -294,7 +288,7 @@ Ahora puedes pasar información del usuario desde tu web directamente al bot Omn
 **Acceso:** dentro del bot Omnicanal, haz clic en **Webchat Widget Settings → Display Style → Set Custom User ID**.
 
 <Frame caption="Configuración de Set Custom User ID">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-23.png" alt="Configuración de Set Custom User ID" />
 </Frame>
 
 <Card type="note">
@@ -343,7 +337,7 @@ $identifier_hash = hash_hmac('sha256', $user_id, 'b02612a8bdf5e736c41ce2002181d1
 </Steps>
 
 <Frame caption="Snippet de Custom User ID en el sitio">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-24.png" alt="Snippet de Custom User ID en el sitio" />
 </Frame>
 
 #### Custom CSS
@@ -378,14 +372,14 @@ Puedes instalar tantos tipos de widget como quieras en cualquier página de tu d
     Crea un ref URL en la sección de **Herramientas** y conéctalo al flujo de tu preferencia. Luego copia el **parámetro ref**.
 
     <Frame caption="Creación de un ref URL en Herramientas">
-      <Placeholder />
+      <img src="/images/webchat-widget/overview-25.png" alt="Creación de un ref URL en Herramientas" />
     </Frame>
   </Step>
   <Step title="Agrega el ref al código de instalación">
     En tu script de instalación del widget, agrega un signo de interrogación después de `.js`, luego `ref=` y pega el parámetro ref que copiaste. Esto **sobrescribe** el flujo de inicio por defecto y permite iniciar el flujo que prefieras.
 
     <Frame caption="Agregar el parámetro ref al script de instalación">
-      <Placeholder />
+      <img src="/images/webchat-widget/overview-26.png" alt="Agregar el parámetro ref al script de instalación" />
     </Frame>
   </Step>
 </Steps>
@@ -401,7 +395,7 @@ Como usas el parámetro ref URL, también puedes agregar **payloads** al widget.
     En el ref URL que usaste, puedes agregar hasta **10 payloads** para el perfil del usuario.
 
     <Frame caption="Agregar payloads al ref URL">
-      <Placeholder />
+      <img src="/images/webchat-widget/overview-27.png" alt="Agregar payloads al ref URL" />
     </Frame>
   </Step>
   <Step title="Define el campo">
@@ -411,7 +405,7 @@ Como usas el parámetro ref URL, también puedes agregar **payloads** al widget.
     En tu script de instalación, agrega el dato al parámetro ref con **dos guiones** y luego el valor. Ej: `--ebook-7figure-income`. Cuando un visitante interactúe con ese widget, el valor se agregará a su perfil.
 
     <Frame caption="Payload agregado al perfil del usuario">
-      <Placeholder />
+      <img src="/images/webchat-widget/overview-28.png" alt="Payload agregado al perfil del usuario" />
     </Frame>
   </Step>
 </Steps>
@@ -458,7 +452,7 @@ Si ya tienes la información del usuario (nombre, correo, etc.), puedes pasarla 
 </Card>
 
 <Frame caption="Parámetros extra pasados al usuario">
-  <Placeholder />
+  <img src="/images/webchat-widget/overview-29.png" alt="Parámetros extra pasados al usuario" />
 </Frame>
 
 ## Preguntas frecuentes
