@@ -1,13 +1,151 @@
 ---
 title: "Plantillas de mensaje"
-description: "Plantillas de mensaje de WhatsApp, disponibles al usar la Meta Cloud API"
+description: "Qué son las plantillas de WhatsApp, sus categorías, sus bloques y cómo crearlas y aprobarlas con Meta"
 icon: "message-lines"
 ---
 
-Las **Plantillas de mensaje** te permiten crear mensajes predefinidos y aprobados por WhatsApp.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Las **plantillas de mensaje (Message Templates)** son mensajes predefinidos que debes enviar a Facebook para su aprobación antes de poder usarlos. Facebook revisa cada plantilla para evitar spam y verificar que cumpla con las políticas de la API de WhatsApp Business.
 
 <Card type="warning">
   Esta función solo está disponible si usas la **Meta Cloud API**.
 </Card>
 
-Para más orientación sobre cómo crear plantillas de mensaje de WhatsApp, consulta el tutorial dedicado en la guía de **Conexión con la WhatsApp Cloud API**, en la sección de **Plantillas de mensaje (Message Templates)**.
+## Cuándo usar una plantilla
+
+Debes enviar una plantilla siempre que estés **fuera de la ventana de servicio al cliente** — es decir, cuando hayan pasado más de 24 horas desde el último mensaje que te envió el usuario. También se usan para enviar notificaciones de forma habitual.
+
+Las plantillas usan **valores de marcador de posición** que se reemplazan con contenido dinámico (entre llaves dobles `{{ }}`) al enviar el mensaje. Pueden pensarse como el mensaje que abre una conversación de dos vías.
+
+Para más detalle, revisa la documentación oficial de Meta sobre [WhatsApp Business API Templating](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).
+
+<Card type="note">
+  El costo de las conversaciones de WhatsApp varía según el país o región y si la conversación la inicia el negocio o el usuario. Consulta la [página de precios de Meta](https://developers.facebook.com/docs/whatsapp/pricing/conversation-pricing) para el detalle actualizado.
+</Card>
+
+## Buenas prácticas para que Meta apruebe tu plantilla
+
+<AccordionGroup>
+  <Accordion title="Claridad" icon="magnifying-glass">
+    Sé específico. Quien revisa no conoce tu negocio y necesita contexto. Evita cualquier tono promocional (venta cruzada, mensajes en frío, encuestas para recolectar datos).
+  </Accordion>
+  <Accordion title="Ortografía" icon="spell-check">
+    Revisa errores de ortografía y gramática, y usa el formato correcto (llaves dobles para los parámetros).
+  </Accordion>
+  <Accordion title="Nombre claro" icon="tag">
+    En vez de `plantilla_014`, usa algo como `detalle_pedido_bus`. El nombre le da contexto a quien revisa sobre cómo se va a usar.
+  </Accordion>
+  <Accordion title="Da contexto" icon="comment">
+    Si la plantilla busca reabrir la ventana de 24 horas, menciona brevemente la conversación anterior.
+  </Accordion>
+  <Accordion title="Elige bien la categoría" icon="list-check">
+    Usar la categoría correcta aumenta las probabilidades de aprobación y le da más información a Meta sobre el uso de la plantilla.
+  </Accordion>
+</AccordionGroup>
+
+## Categorías de plantilla
+
+<AccordionGroup>
+  <Accordion title="Marketing" icon="bullhorn">
+    Promociones, ofertas o información sobre tus productos, servicios o negocio.
+  </Accordion>
+  <Accordion title="Utilidad" icon="wrench">
+    Mensajes sobre un pedido o cuenta existente: confirmaciones, actualizaciones de estado, recibos.
+  </Accordion>
+  <Accordion title="Autenticación" icon="shield-halved">
+    Códigos para verificar una transacción o inicio de sesión (One-Time Password).
+  </Accordion>
+  <Accordion title="Carrusel" icon="images">
+    Un mensaje de texto acompañado de hasta 10 tarjetas tipo carrusel.
+  </Accordion>
+  <Accordion title="Oferta con tiempo limitado" icon="hourglass-half">
+    Muestra fechas de expiración y un contador en cuenta regresiva para códigos de oferta.
+  </Accordion>
+</AccordionGroup>
+
+Algunos ejemplos de uso dentro de cada categoría: actualización de cuenta (preferencias, membresía vencida), alertas, actualización de citas (cambio de horario, cancelación), respuesta automática fuera de horario, resolución de casos, actualización de pago (recibo, transacción), finanzas personales (recordatorio de pago), reservas (cambios de itinerario), envíos (en tránsito, entregado, retrasado), tickets (cambio de horario de un evento) y transporte (estado de vuelo, viaje cancelado). Si ninguna categoría aplica a tu caso, puedes usar **respuesta automática**.
+
+<Frame caption="Categorías disponibles al crear una plantilla">
+  <Placeholder />
+</Frame>
+
+## Bloques de una plantilla
+
+- **Encabezado (opcional):** título de la plantilla. Soporta texto, imagen, documento o video.
+- **Cuerpo:** el texto principal — es el único bloque obligatorio además de estar siempre presente.
+- **Pie de página:** solo texto; útil para información secundaria.
+- **Botones (opcionales):**
+  - **Respuesta rápida:** hasta 3 botones para obtener una respuesta rápida del usuario.
+  - **Llamado a la acción:** máximo una URL y un número de teléfono por plantilla.
+
+<Card type="note">
+  Todo ejemplo de medio (imagen, video, documento) debe ser una URL que apunte a un archivo válido.
+</Card>
+
+## Crear una plantilla
+
+<Steps>
+  <Step title="Ingresa a tu WhatsApp Business Manager">
+    Si tienes varias cuentas, selecciona la correspondiente en el desplegable y entra a **"Message Templates"**.
+
+    <Card type="warning">
+      Un número de prueba de WhatsApp no permite crear plantillas — necesitas un número real conectado.
+    </Card>
+  </Step>
+  <Step title="Crea la plantilla">
+    Haz clic en **"Create message template"**, en la esquina superior derecha. Ingresa el nombre, la categoría y el idioma.
+
+    <Frame caption="Formulario de creación de una plantilla estándar (solo texto)">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Envíala a revisión">
+    Envía la plantilla a Meta para su aprobación. Si sigues las buenas prácticas, la aprobación suele ser rápida.
+
+    <Frame caption="Plantilla aprobada por Meta">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Sincronízala a Botky">
+    Vuelve a Botky, entra al canal de WhatsApp y luego a **Contenidos → Plantillas de mensaje**.
+
+    <Frame caption="Canal de WhatsApp en Botky">
+      <Placeholder />
+    </Frame>
+
+    Haz clic en **"Sync WhatsApp Template"** — todas las plantillas aprobadas se sincronizan a Botky para que puedas usarlas.
+
+    <Frame caption="Sincronizar plantillas de WhatsApp">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+<Card type="tip">
+  También puedes crear la plantilla directamente en Botky con **"+ New Template"**, sin pasar por el Business Manager de Meta.
+</Card>
+
+## Páginas relacionadas
+
+<CardGroup cols={2}>
+  <Card title="Cómo usar las plantillas" icon="paper-plane" href="/content/using-message-templates">
+    En el Constructor de Flujos, en difusiones, en Chat en vivo.
+  </Card>
+  <Card title="Oferta con tiempo limitado" icon="hourglass-half" href="/content/limited-time-offer-template">
+    Crea campañas de descuento con fecha de expiración y cupón.
+  </Card>
+  <Card title="Plantilla de autenticación (OTP)" icon="shield-halved" href="/content/otp-template">
+    Verifica al usuario con un código de un solo uso.
+  </Card>
+  <Card title="Sincronización y novedades" icon="arrows-rotate" href="/content/message-templates-updates">
+    Edición de plantillas, analítica y dónde se están usando.
+  </Card>
+  <Card title="Títulos de plantilla" icon="tag" href="/content/message-template-titles">
+    Nombra tus plantillas para que los agentes las encuentren fácil en Chat en vivo.
+  </Card>
+</CardGroup>

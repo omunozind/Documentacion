@@ -1,0 +1,47 @@
+---
+title: "Títulos de las plantillas de mensaje"
+description: "Asigna un título a cada plantilla para que los agentes las identifiquen fácil en Chat en vivo, y restringe cuáles pueden usar"
+icon: "tag"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Los administradores pueden asignar **títulos** a las plantillas de mensaje de WhatsApp. Esto ayuda a los agentes de Chat en vivo a identificar y elegir la plantilla correcta por su título, en vez del nombre técnico. También existe una opción para restringir qué plantillas puede usar cada agente.
+
+## 1. Asignar un título a una plantilla
+
+Ve a la sección **Plantillas de mensaje**, dentro de Contenidos. Ahí cada plantilla tiene una columna **Título**. Selecciona una plantilla y escribe el título personalizado en el campo correspondiente — ese título es el que verán los agentes en Chat en vivo.
+
+<Frame caption="Columna Título en la lista de plantillas de mensaje">
+  <Placeholder />
+</Frame>
+
+## 2. Restringir la visibilidad para los agentes
+
+Para controlar si los agentes de Chat en vivo pueden usar las plantillas de WhatsApp, ve a **Configuración → Chat en vivo → Ajustes de Chat en vivo**. Busca esta opción al final de la lista:
+
+> **"Por defecto, no permitir el envío en el chat para plantillas de WhatsApp nuevas"**
+
+Al activarla, las plantillas que crees de ahora en adelante no aparecen por defecto en el chat — solo estarán disponibles las que permitas explícitamente. Esto te ayuda a mantener control sobre lo que tu equipo envía.
+
+<Frame caption="Casilla nueva dentro de los ajustes de Chat en vivo">
+  <Placeholder />
+</Frame>
+
+## 3. Usar las plantillas con título en Chat en vivo
+
+Cuando un agente inicia una conversación de WhatsApp desde Chat en vivo, puede elegir entre las plantillas que tiene permitidas. El selector ahora muestra el **título** de cada plantilla, lo que hace mucho más fácil encontrar el mensaje correcto.
+
+<Frame caption="Selector de plantilla en Chat en vivo mostrando los títulos asignados">
+  <Placeholder />
+</Frame>
+
+## Resumen
+
+- Puedes asignar títulos a las plantillas de WhatsApp para identificarlas fácilmente.
+- Un ajuste nuevo te permite restringir qué plantillas ven los agentes en Chat en vivo.
+- Solo las plantillas con título permitido aparecen para los agentes en el selector del chat.
