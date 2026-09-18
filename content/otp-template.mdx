@@ -1,0 +1,109 @@
+---
+title: "Plantilla de autenticación (OTP)"
+description: "Verifica al usuario en WhatsApp con un código de un solo uso (OTP), generado y validado dentro del flujo"
+icon: "shield-halved"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Esta guía explica cómo configurar la **autenticación por OTP (One-Time Password)** en WhatsApp usando una plantilla de mensaje de categoría **Authentication**.
+
+## 1. Crear la plantilla de mensaje de WhatsApp
+
+<Steps>
+  <Step title="Ve a Contenidos → Plantillas de mensaje y crea una nueva">
+    <Frame caption="Botón 'New Template' en Plantillas de mensaje">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Completa los detalles de la plantilla">
+    - **Nombre:** por ejemplo `otp_login`.
+    - **Categoría:** elige **Authentication**.
+    - **Contenido del mensaje:** personalízalo, por ejemplo *"Tu código de verificación es {{1}}. Por tu seguridad, no lo compartas con nadie."*
+    - **Campos opcionales:** agrega un aviso de seguridad (recomendado) y menciona el tiempo de vencimiento del código, por ejemplo *"Este código vence en 3 minutos."*
+    - Previsualiza el mensaje y envíalo a revisión. Una vez aprobado, queda listo para usar.
+
+    <Frame caption="Configuración de la plantilla de autenticación con su aviso de seguridad">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## 2. Configurar el flujo para usar la plantilla
+
+<Steps>
+  <Step title="Agrega un nodo de mensaje">
+    Crea un flujo nuevo o edita uno existente, agrega un nodo de **Enviar mensaje** y elige **Plantilla de mensaje** dentro de la categoría **"Otros"**.
+
+    <Frame caption="Elegir 'Plantilla de mensaje' dentro de 'Otros'">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Elige tu plantilla de OTP">
+    Selecciónala de la lista.
+
+    <Frame caption="Selección de la plantilla de OTP en la lista">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Inserta la variable del código">
+    Agrega el campo personalizado dinámico para el código, por ejemplo `{{OTP_Code}}`.
+
+    <Frame caption="Variable del código OTP insertada en la plantilla">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## 3. Generar el código OTP
+
+Antes de enviar el mensaje, genera un código único:
+
+<Steps>
+  <Step title="Agrega un nodo de Acción">
+    <Frame caption="Nodo de Acción antes del mensaje con la plantilla">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Selecciona 'Definir valor de variable'">
+    <Frame caption="Acción 'Definir valor de variable' para el código OTP">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Configúralo">
+    - **Nombre de la variable:** `OTP_Code`.
+    - **Operación:** elige **Generar texto aleatorio**.
+    - **Formato:** usa `####` para un código de 4 dígitos.
+
+    <Frame caption="Configuración: Generar texto aleatorio con formato de 4 dígitos">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## 4. Pedirle el código al usuario
+
+Agrega un nodo de **Pregunta**: *"Te enviamos un código por WhatsApp. Copia y pégalo aquí."* Guarda la respuesta en un campo personalizado, por ejemplo `Respuesta`.
+
+<Frame caption="Pregunta que solicita el código OTP al usuario">
+  <Placeholder />
+</Frame>
+
+## 5. Validar el código
+
+Agrega un nodo de **Condición** que compare `OTP_Code` (el generado) contra `Respuesta` (lo que escribió el usuario).
+
+<Frame caption="Condición comparando el código generado con la respuesta del usuario">
+  <Placeholder />
+</Frame>
+
+- **Si coincide:** continúa al siguiente paso — por ejemplo, "Usuario verificado".
+- **Si no coincide:** muestra un mensaje de error, como "Código inválido, intenta de nuevo", y considera agregar un botón para reiniciar el flujo de OTP.
+
+<Card type="note">
+  Asegúrate de que la plantilla esté aprobada antes de usarla, personaliza los mensajes al tono de tu marca, y prueba el flujo completo antes de publicarlo.
+</Card>

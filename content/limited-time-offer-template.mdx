@@ -1,0 +1,70 @@
+---
+title: "Plantilla de oferta con tiempo limitado"
+description: "Crea campañas de descuento en WhatsApp con fecha de expiración, código de cupón y contador en cuenta regresiva"
+icon: "hourglass-half"
+---
+
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+La categoría de plantilla **"Limited Time Offer"** de WhatsApp permite crear ofertas por tiempo limitado que siguen interesando al usuario incluso fuera de la ventana estándar de 24 horas — ideal para campañas de descuento.
+
+## Crear la plantilla
+
+<Steps>
+  <Step title="Ve a Contenidos → Plantillas de mensaje">
+    <Frame caption="Sección de Plantillas de mensaje">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Crea una nueva plantilla con la categoría 'Limited Time Offer'">
+    Haz clic en **"New Template"**, dale un nombre y elige la categoría **Limited Time Offer** — trae opciones pensadas para promociones con vencimiento.
+
+    <Frame caption="Categoría 'Limited Time Offer' al crear la plantilla">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Personaliza la oferta">
+    Agrega una imagen o video al encabezado, define la fecha de expiración y activa la opción de código de cupón. Completa el título y la URL de tu sitio donde está disponible la oferta, y envía la plantilla a revisión.
+
+    <Frame caption="Configuración de la oferta: encabezado, expiración y cupón">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Define los valores por defecto">
+    Una vez que Meta aprueba la plantilla, puedes definir sus valores por defecto.
+
+    <Frame caption="Opción de valores por defecto tras la aprobación">
+      <Placeholder />
+    </Frame>
+
+    Define la fecha de expiración, el código de cupón y la URL de la página de la oferta.
+
+    <Frame caption="Valores por defecto: fecha de expiración, cupón y URL">
+      <Placeholder />
+    </Frame>
+  </Step>
+</Steps>
+
+## Enviar la oferta desde un subflujo
+
+En el Constructor de Flujos, usa **Nodo de mensaje → Otros → Plantilla de mensaje de WhatsApp** y selecciona la plantilla de oferta.
+
+<Frame caption="Selección de la plantilla de oferta en el nodo de mensaje">
+  <Placeholder />
+</Frame>
+
+Al seleccionarla, puedes ingresar valores personalizados o usar los valores por defecto que configuraste.
+
+<Frame caption="Elegir entre valores personalizados o por defecto">
+  <Placeholder />
+</Frame>
+
+Así se ve la oferta recibida en el celular del usuario:
+
+<Frame caption="Oferta con tiempo limitado recibida en WhatsApp">
+  <Placeholder />
+</Frame>
