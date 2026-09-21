@@ -5,12 +5,6 @@ description: "Qué son las plantillas de WhatsApp, sus categorías, sus bloques 
 icon: "message-lines"
 ---
 
-export const Placeholder = () => (
-  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
-    Captura pendiente
-  </div>
-);
-
 Las **plantillas de mensaje (Message Templates)** son mensajes predefinidos que debes enviar a Facebook para su aprobación antes de poder usarlos. Facebook revisa cada plantilla para evitar spam y verificar que cumpla con las políticas de la API de WhatsApp Business.
 
 <Card type="warning">
@@ -72,7 +66,7 @@ Para más detalle, revisa la documentación oficial de Meta sobre [WhatsApp Busi
 Algunos ejemplos de uso dentro de cada categoría: actualización de cuenta (preferencias, membresía vencida), alertas, actualización de citas (cambio de horario, cancelación), respuesta automática fuera de horario, resolución de casos, actualización de pago (recibo, transacción), finanzas personales (recordatorio de pago), reservas (cambios de itinerario), envíos (en tránsito, entregado, retrasado), tickets (cambio de horario de un evento) y transporte (estado de vuelo, viaje cancelado). Si ninguna categoría aplica a tu caso, puedes usar **respuesta automática**.
 
 <Frame caption="Categorías disponibles al crear una plantilla">
-  <Placeholder />
+  <img src="/images/content/message-templates-1.png" alt="Categorías disponibles al crear una plantilla" />
 </Frame>
 
 ## Bloques de una plantilla
@@ -102,27 +96,27 @@ Algunos ejemplos de uso dentro de cada categoría: actualización de cuenta (pre
     Haz clic en **"Create message template"**, en la esquina superior derecha. Ingresa el nombre, la categoría y el idioma.
 
     <Frame caption="Formulario de creación de una plantilla estándar (solo texto)">
-      <Placeholder />
+      <img src="/images/content/message-templates-2.png" alt="Formulario de creación de una plantilla estándar (solo texto)" />
     </Frame>
   </Step>
   <Step title="Envíala a revisión">
     Envía la plantilla a Meta para su aprobación. Si sigues las buenas prácticas, la aprobación suele ser rápida.
 
     <Frame caption="Plantilla aprobada por Meta">
-      <Placeholder />
+      <img src="/images/content/message-templates-3.png" alt="Plantilla aprobada por Meta" />
     </Frame>
   </Step>
   <Step title="Sincronízala a Botky">
     Vuelve a Botky, entra al canal de WhatsApp y luego a **Contenidos → Plantillas de mensaje**.
 
     <Frame caption="Canal de WhatsApp en Botky">
-      <Placeholder />
+      <img src="/images/content/message-templates-4.png" alt="Canal de WhatsApp en Botky" />
     </Frame>
 
     Haz clic en **"Sync WhatsApp Template"** — todas las plantillas aprobadas se sincronizan a Botky para que puedas usarlas.
 
     <Frame caption="Sincronizar plantillas de WhatsApp">
-      <Placeholder />
+      <img src="/images/content/message-templates-5.png" alt="Sincronizar plantillas de WhatsApp" />
     </Frame>
   </Step>
 </Steps>
