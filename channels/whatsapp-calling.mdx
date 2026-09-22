@@ -4,101 +4,287 @@ description: "Inicia y gestiona llamadas de WhatsApp desde el Chat en vivo o con
 icon: "phone"
 ---
 
-Botky permite iniciar y usar la función de **llamadas de WhatsApp** recién introducida por Meta. Puedes llamar a contactos desde el Chat en vivo y usar **Agentes de IA** para responder llamadas por ti.
+export const Placeholder = () => (
+  <div className="botky-image-placeholder w-full aspect-video rounded-xl flex items-center justify-center font-semibold">
+    Captura pendiente
+  </div>
+);
+
+Botky permite iniciar y usar la función de **llamadas de WhatsApp** introducida por Meta. Puedes llamar a tus contactos desde el Chat en vivo y usar **Agentes de IA** para que respondan las llamadas por ti.
 
 ## Habilitar las llamadas (Embedded Signup)
 
-Si tu espacio de trabajo usa embedded signup, una vez integrado WhatsApp verás el **ícono de llamada** junto a tu número. Haz clic en él para habilitar los permisos, y opcionalmente configura las **horas de negocio**. Haz clic en **Save** para completar.
+Si tu espacio de trabajo usa **embedded signup**, empieza por conectar tu cuenta de WhatsApp. El asistente te deja elegir entre vincular una cuenta de WhatsApp Business existente o registrar un número nuevo.
 
-<Frame caption="Ícono de llamada junto al número y permisos">
-  <img src="/images/channels/whatsapp-calling-1.png" alt="Ícono de llamada junto al número y permisos" />
+<Frame caption="Asistente de conexión de WhatsApp">
+  <img src="/images/channels/whatsapp-calling-1.png" alt="Asistente de conexión de WhatsApp" />
 </Frame>
+
+Video pendiente
+
+Una vez que WhatsApp quede integrado (o si ya lo estaba), verás el **ícono de llamada** junto a tu número.
+
+<Frame caption="Ícono de llamada junto a tu número">
+  <Placeholder />
+</Frame>
+
+Haz clic en el ícono de llamada para habilitar los permisos. Ahí activas:
+
+- **Allow voice calls** — habilita las llamadas de WhatsApp para ese número.
+- **Allow callbacks** — permite pedirle al cliente permiso de devolución de llamada después de que te contacte.
+- **Set up available call hours** — opcional, define tu horario de atención y la zona horaria. Si no configuras un horario, siempre estarás disponible para recibir llamadas.
+
+<Frame caption="Permisos de llamada y horario de atención">
+  <img src="/images/channels/whatsapp-calling-3.png" alt="Permisos de llamada y horario de atención" />
+</Frame>
+
+Haz clic en **Save**. Con eso la integración queda completa.
 
 ## Habilitar las llamadas (método webhook antiguo)
 
-Si tu espacio de trabajo aún usa el método webhook antiguo, hay pasos extra:
+Si tu espacio de trabajo aún usa el método antiguo de webhook para la integración de WhatsApp, hay que dar algunos pasos extra.
+
+Video pendiente
 
 <Steps>
-  <Step title="Habilita el permiso Calls en tu app de desarrollador">
-    Ve a [developers.facebook.com/apps](https://developers.facebook.com/apps/), selecciona tu app de WhatsApp → **Webhooks → WhatsApp business account** y habilita el permiso **"Calls"**.
+  <Step title="Abre tu app de WhatsApp en Meta for Developers">
+    Ve a [developers.facebook.com/apps](https://developers.facebook.com/apps/) y selecciona tu app de WhatsApp.
+
+    <Frame caption="Selección de la app de WhatsApp en Meta for Developers">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Ve a Webhooks → WhatsApp business account">
+    Dentro de la app de desarrollador, entra a **Webhooks** y selecciona **WhatsApp business account**.
+
+    <Frame caption="Webhooks → WhatsApp business account">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Habilita el permiso Calls">
+    En la lista de permisos, activa **"Calls"**.
 
     <Frame caption="Habilitar el permiso Calls en Webhooks">
-      <img src="/images/channels/whatsapp-calling-2.png" alt="Habilitar el permiso Calls en Webhooks" />
+      <Placeholder />
     </Frame>
   </Step>
   <Step title="Configura los ajustes de llamada del número">
-    Ve a **WhatsApp Manager → Phone Numbers → (tu número) → Call settings** y habilita: **Allow voice calls**, **Incoming call settings → display call button**, y **Callback settings → Allow callbacks**.
+    Ve a **WhatsApp Manager → Phone Numbers →** tu número **→ Call settings** y habilita:
+
+    - **Allow voice calls**
+    - **Incoming call settings →** activa **display call button**
+    - **Callback settings →** activa **Allow callbacks**
+
+    <Frame caption="Ajustes de llamada del número en WhatsApp Manager">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Activa en Botky">
-    Vuelve a **Botky → WhatsApp Cloud** y presiona el ícono de llamadas de WhatsApp. El estado debería quedar **enabled**.
+  <Step title="Actívalo en Botky">
+    Vuelve a **Botky → WhatsApp Cloud** y presiona el ícono de llamadas de WhatsApp. El estado debe quedar en **enabled**.
+
+    <Frame caption="Estado de las llamadas habilitado en Botky">
+      <Placeholder />
+    </Frame>
   </Step>
 </Steps>
 
 ## Iniciar llamadas
 
-Antes de iniciar llamadas, se deben cumplir dos requisitos:
+Antes de poder llamar, se deben cumplir dos requisitos:
 
-- El usuario debe estar dentro de la **ventana de conversación abierta de 24 horas**.
-- El usuario debe haber otorgado **permisos de llamada**.
+- El contacto debe estar dentro de la **ventana de conversación abierta de 24 horas**.
+- El contacto debe haber otorgado **permisos de llamada**.
 
-Puedes abrir la ventana enviando un mensaje de plantilla y esperando su respuesta. Una vez responda, pídele los permisos de llamada.
+<Card type="tip">
+  Para abrir la ventana de conversación, envía una plantilla de mensaje y espera a que el contacto responda. Una vez que responde, la ventana queda abierta y ya puedes pedirle los permisos de llamada.
+</Card>
 
 <Steps>
-  <Step title="Abre el ícono de llamadas">
-    Haz clic en el ícono de llamadas de WhatsApp (arriba a la derecha) y selecciona **"Make a Call"**.
+  <Step title="Abre el centro de llamadas">
+    Haz clic en el ícono de llamadas de WhatsApp, arriba a la derecha de tu espacio de trabajo, y selecciona **"Make a call"**.
+
+    <Frame caption="Centro de llamadas con el botón Make a call">
+      <img src="/images/channels/whatsapp-calling-9.png" alt="Centro de llamadas con el botón Make a call" />
+    </Frame>
   </Step>
-  <Step title="Selecciona número y usuario">
-    Elige el número desde el que llamar (si hay varios) y el usuario del bot a llamar.
+  <Step title="Elige el número desde el que llamas">
+    Si tienes varios números conectados al espacio de trabajo, selecciona desde cuál quieres llamar.
+
+    <Frame caption="Selección del número saliente">
+      <Placeholder />
+    </Frame>
   </Step>
-  <Step title="Permisos">
-    La plataforma verifica los permisos de llamada del usuario. Si ya los otorgó, la llamada se inicia; si no, recibirás un aviso para enviar el mensaje de permisos. Haz clic en **"Request to Call"**.
+  <Step title="Elige el contacto">
+    Selecciona el usuario del bot al que quieres llamar.
+
+    <Frame caption="Selección del contacto a llamar">
+      <Placeholder />
+    </Frame>
+  </Step>
+  <Step title="Verifica o solicita los permisos">
+    Botky revisa primero si el contacto ya otorgó permisos de llamada. Si los tiene, la llamada se inicia de inmediato. Si no, aparece un aviso para enviarle el mensaje de permisos: haz clic en **"Request to Call"**.
+
+    <Frame caption="Aviso para solicitar permisos de llamada">
+      <Placeholder />
+    </Frame>
 
     <Card type="warning">
-      La ventana de conversación debe estar abierta, de lo contrario el mensaje no se enviará.
+      La ventana de conversación debe estar abierta, de lo contrario el mensaje de permisos no se enviará.
     </Card>
   </Step>
 </Steps>
 
-El usuario recibe un mensaje; una vez que selecciona **"Always allow calls"**, podrás llamarlo cuando la ventana esté abierta. Las llamadas también se pueden iniciar desde el Chat en vivo, o disparar desde el Constructor de Flujos con **Bloque de Acción → AI Agent → Whatsapp/Messenger AI Call**.
+Del lado del cliente llega un mensaje pidiéndole autorización para recibir llamadas.
 
-<Frame caption="Iniciar llamada desde el flujo o el Chat en vivo">
-  <img src="/images/channels/whatsapp-calling-3.png" alt="Iniciar llamada desde el flujo o el Chat en vivo" />
+<Frame caption="Mensaje de permisos que recibe el cliente">
+  <Placeholder />
 </Frame>
 
-## Disparador de llamadas
+Cuando el cliente elige **"Always allow calls"** (permitir siempre), podrás llamarlo cada vez que la ventana de conversación esté abierta.
 
-Ve a **Automatización → Disparadores → Crear nuevo → "Whatsapp Call Permission Update"**. Se dispara cada vez que alguien actualiza sus permisos de llamada tras recibir el mensaje de permisos.
+<Frame caption="Cliente aceptando recibir llamadas siempre">
+  <Placeholder />
+</Frame>
+
+### Otras formas de iniciar una llamada
+
+También puedes llamar directamente desde la ventana de **Chat en vivo** del contacto.
+
+<Frame caption="Botón de llamada dentro del Chat en vivo">
+  <Placeholder />
+</Frame>
+
+Y puedes disparar llamadas desde el **Constructor de Flujos**, con **Bloque de Acción → AI Agent → Whatsapp/Messenger AI Call**.
+
+<Frame caption="Acción de llamada de IA en el Constructor de Flujos">
+  <Placeholder />
+</Frame>
+
+## Disparador de permisos de llamada
+
+Ve a **Automatización → Disparadores → Crear nuevo disparador → "Whatsapp Call Permission Update"**. Se activa cada vez que alguien actualiza sus permisos de llamada después de que le enviaste el mensaje de permisos.
+
+<Frame caption="Disparador Whatsapp Call Permission Update">
+  <Placeholder />
+</Frame>
 
 ## Agente de IA para llamadas
 
-Puedes configurar un Agente de IA para gestionar las llamadas. Ve a **AI Hub → "AI Call Settings"**. Ahí puedes:
+Puedes configurar un Agente de IA para que atienda las llamadas por ti. Ve a **AI Hub → "AI Call Settings"**.
 
-- Activar/desactivar el agente de llamadas.
-- Seleccionar el **Agente de IA**, el tiempo de espera, el modelo y la voz.
-- Elegir el modelo de transcripción, el idioma e instrucciones especiales.
-- Activar/desactivar grabaciones y resúmenes de llamada.
-- Configurar el primer mensaje y el comportamiento de seguimiento.
-- Activar/desactivar el **takeover** por un agente humano.
-
-<Frame caption="Configuración del Agente de IA para llamadas">
-  <img src="/images/channels/whatsapp-calling-4.png" alt="Configuración del Agente de IA para llamadas" />
+<Frame caption="AI Hub → AI Call Settings">
+  <img src="/images/channels/whatsapp-calling-18.png" alt="AI Hub → AI Call Settings" />
 </Frame>
 
+<AccordionGroup>
+  <Accordion title="Activar el agente de llamadas">
+    En esta sección activas o desactivas el agente de IA que responde las llamadas.
+
+    <Frame caption="Activar o desactivar el agente de llamadas">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Agente, tiempo de espera, modelo y voz">
+    Eliges qué Agente de IA responde, cuánto tiempo espera antes de contestar, el modelo de lenguaje y la voz con la que habla.
+
+    <Frame caption="Selección de agente, tiempo de espera, modelo y voz">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Transcripción, idioma e instrucciones">
+    Seleccionas el modelo de transcripción, el idioma de la llamada y las instrucciones especiales que debe seguir el agente.
+
+    <Frame caption="Modelo de transcripción, idioma e instrucciones especiales">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Grabaciones y resúmenes">
+    Activas o desactivas la grabación de las llamadas y la generación automática de resúmenes.
+
+    <Frame caption="Grabaciones y resúmenes de llamada">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Primer mensaje y seguimiento">
+    Configuras el comportamiento de la conversación: con qué mensaje abre el agente y cómo hace seguimiento si el cliente no responde.
+
+    <Frame caption="Primer mensaje y comportamiento de seguimiento">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+  <Accordion title="Transferencia a un agente humano">
+    Activas o desactivas el **takeover**, para que un agente humano pueda tomar la llamada cuando haga falta.
+
+    <Frame caption="Transferencia de la llamada a un agente humano">
+      <Placeholder />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
 <Card type="warning">
-  Las llamadas salientes tienen costos cobrados por Meta. [Más info sobre precios](https://developers.facebook.com/documentation/business-messaging/whatsapp/calling/pricing).
+  Las llamadas salientes tienen costos cobrados por Meta. Consulta la [documentación de precios de Meta](https://developers.facebook.com/documentation/business-messaging/whatsapp/calling/pricing) o comunícate con soporte.
 </Card>
 
 ## Analítica de llamadas
 
-En la pestaña de **Analítica** puedes ver la analítica de tu agente de llamadas y de las llamadas.
+En la pestaña de **Analítica** puedes ver las métricas de tu agente de llamadas y de las llamadas realizadas y recibidas.
+
+<Frame caption="Analítica de llamadas">
+  <Placeholder />
+</Frame>
+
+## Controlar quién recibe las llamadas
+
+La **visibilidad de llamadas** controla qué miembros del equipo que estén en línea pueden recibir y ver las llamadas entrantes de WhatsApp, las solicitudes de transferencia de IA a humano y las llamadas en curso de ese flujo.
+
+<Card type="note">
+  Es una configuración **independiente** de la visibilidad de conversaciones. Cambiar una no cambia la otra.
+</Card>
+
+Para configurarla, abre tu flujo y ve a **Ajustes → Ajustes de Chat en vivo → Visibilidad de llamadas**. Elige una opción y haz clic en **Guardar**.
+
+| Opción | Quién puede recibir o ver las llamadas |
+| --- | --- |
+| **Todas las llamadas** | Todos los miembros del equipo en línea que sean elegibles. Es la opción por defecto. |
+| **Solo las mías** | El agente asignado al contacto. |
+| **Mías + sin asignar** | El agente asignado, o todos los agentes elegibles cuando el contacto no tiene agente ni grupo asignado. |
+| **Mías + mis grupos** | El agente asignado y los miembros elegibles del grupo asignado al contacto. |
+| **Mías + mis grupos + sin asignar** | El agente asignado y los miembros elegibles del grupo asignado; los contactos sin asignar también son visibles. |
+
+<Card type="warning">
+  Un contacto se considera **sin asignar** únicamente cuando no tiene ni agente ni grupo asignado.
+</Card>
+
+### Roles y acceso
+
+- Los **propietarios** y **administradores** del espacio de trabajo siempre ven todas las llamadas.
+- Los **supervisores** ven todas las llamadas cuando está seleccionado *Todas las llamadas*, *Solo las mías* o *Mías + sin asignar*.
+- Con una opción basada en grupos, los supervisores ven las llamadas de sus grupos (y las sin asignar, si esa opción está activa).
+- Los **agentes** y **miembros** solo reciben las llamadas que cumplan la regla de visibilidad seleccionada.
+
+### Configuración recomendada
+
+- **Todas las llamadas:** para equipos pequeños donde cualquier agente disponible puede contestar.
+- **Mías + mis grupos:** cuando los equipos manejan departamentos, sedes o carteras de clientes separadas.
+- **Mías + mis grupos + sin asignar:** si quieres que las llamadas de contactos sin asignar se atiendan rápido, sin perder la propiedad de cada cartera.
+
+<Card type="tip">
+  Asegúrate de que los contactos estén asignados al agente o grupo correcto antes de depender de una visibilidad restringida. Si no hay ningún agente elegible en línea, los miembros del equipo no recibirán la llamada.
+</Card>
 
 ## Limitaciones
 
-Hay límites por plataforma (ej. uso de llamadas WhatsApp/Messenger en los últimos 30 días). Además, límites de Meta:
+Botky muestra el consumo de llamadas de WhatsApp/Messenger de los últimos 30 días y el límite de tu plan.
 
-- **5 llamadas** consecutivas sin responder generan un mensaje de sistema para reconsiderar un permiso aprobado (2 en cuentas de producción).
-- **10 llamadas** consecutivas sin responder revocan automáticamente un permiso aprobado (4 en cuentas de producción).
+<Frame caption="Consumo de llamadas de los últimos 30 días">
+  <Placeholder />
+</Frame>
+
+Además, Meta aplica sus propios límites cuando las llamadas iniciadas por el negocio no son contestadas o son rechazadas:
+
+- **5 llamadas** consecutivas sin responder generan un mensaje de sistema para que el cliente reconsidere un permiso ya aprobado (son **2** en cuentas de producción).
+- **10 llamadas** consecutivas sin responder revocan automáticamente un permiso aprobado (son **4** en cuentas de producción).
 
 <Card type="note">
-  Las llamadas están **deshabilitadas por defecto** en los números de prueba; debes configurar las funciones de llamada en los ajustes del número antes de usar la Calling API en un número de prueba.
+  Las llamadas vienen **deshabilitadas por defecto** en los números de prueba. Debes configurar las funciones de llamada en los ajustes del número antes de usar la Calling API en un número de prueba. Para probar con números públicos de prueba y cuentas sandbox no se exige tener un límite diario de 2.000 destinatarios únicos.
 </Card>
